@@ -32,6 +32,18 @@ namespace Projek_PV
 
             //panelContent.Left = panelHamburg.Width;
             //panelContent.Width = this.Width - panelHamburg.Width;
+
+            //if (panelManageRoom.Visible == false && panelHamburg.Visible == false && panelAdmin.Visible == false && panelUserRole.Visible == false)
+            //{
+            //    Label dynamicLabel = new Label();
+            //    dynamicLabel.Text = "Please select something";
+            //    dynamicLabel.Name = "myDynamicLabel"; // Assign a unique name for identification
+            //    dynamicLabel.Location = new Point(260, 137); // Set the position on the form
+            //    dynamicLabel.Size = new Size(260, 30); // Set the width and height
+            //    dynamicLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+            //    dynamicLabel.ForeColor = Color.Blue;
+            //    this.Controls.Add(dynamicLabel);
+            //}
         }
 
         private void formAdmin_Load_1(object sender, EventArgs e)
