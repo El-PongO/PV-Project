@@ -126,7 +126,7 @@
             this.panelContent.Controls.Add(this.panelAccounting);
             this.panelContent.Controls.Add(this.panelManageRoom);
             this.panelContent.Controls.Add(this.panelUserRole);
-            this.panelContent.Location = new System.Drawing.Point(486, 139);
+            this.panelContent.Location = new System.Drawing.Point(590, 138);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(943, 853);
             this.panelContent.TabIndex = 24;
@@ -414,11 +414,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(240, 139);
+            this.dataGridView1.Location = new System.Drawing.Point(240, 137);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 359);
+            this.dataGridView1.Size = new System.Drawing.Size(344, 359);
             this.dataGridView1.TabIndex = 22;
             // 
             // panel11
@@ -739,6 +739,7 @@
             this.Controls.Add(this.labelWelcomeAdmin);
             this.Name = "formAdmin";
             this.Text = "formAdmin";
+            this.Load += new System.EventHandler(this.formAdmin_Load_1);
             this.panelContent.ResumeLayout(false);
             this.panelAdmin.ResumeLayout(false);
             this.panel13.ResumeLayout(false);

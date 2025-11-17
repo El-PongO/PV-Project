@@ -34,9 +34,27 @@ namespace Projek_PV
             //panelContent.Width = this.Width - panelHamburg.Width;
         }
 
-        private void formAdmin_Load(object sender, EventArgs e)
+        private void formAdmin_Load_1(object sender, EventArgs e)
         {
+            var roomTable = new DataTable();
+            roomTable.Columns.Add("RoomCode", typeof(string));
+            roomTable.Columns.Add("Occupied", typeof(bool));
+            roomTable.Columns.Add("TenantName", typeof(string));
+            roomTable.Columns.Add("RentDue", typeof(DateTime));
 
+            roomTable.Rows.Add("A101", true, "John Doe", DateTime.Now.AddDays(7));
+            roomTable.Rows.Add("A102", false, "", DBNull.Value);
+            roomTable.Rows.Add("B201", true, "Jane Smith", DateTime.Now.AddDays(2));
+            roomTable.Rows.Add("B202", false, "", DBNull.Value);
+            roomTable.Rows.Add("C301", true, "Michael Brown", DateTime.Now.AddDays(15));
+
+            dataGridView1.DataSource = roomTable;
+
+            dataGridView1.Columns["RoomCode"].HeaderText = "Kode Ruangan";
+            dataGridView1.Columns["Occupied"].HeaderText = "Terisi";
+            dataGridView1.Columns["TenantName"].HeaderText = "Nama Penyewa";
+            dataGridView1.Columns["RentDue"].HeaderText = "Jatuh Tempo Sewa";
+            dataGridView1.Columns["Occupied"].Width = 60;
         }
 
         private void CollapseMenu()
@@ -56,6 +74,11 @@ namespace Projek_PV
             labelRoomList.Location = new Point(81, 105);
             dataGridView1.Location = new Point(81, 141);
             panelContent.Location = new Point(338, 141);
+
+            panelManageRoom.Location = new Point(3, 3);
+            panelAdmin.Location = new Point(3, 3);
+            panelAccounting.Location = new Point(3, 3);
+            panelUserRole.Location = new Point(3, 3);
         }
 
 
@@ -306,5 +329,6 @@ namespace Projek_PV
             panelManageRoom.Visible = false;
             panelUserRole.Visible = true;
         }
+
     }
 }
