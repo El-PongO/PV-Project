@@ -21,15 +21,14 @@ namespace Projek_PV
         {
             if(tbUsername.Text == "admin" && tbPassword.Text == "admin")
             {
-                MessageBox.Show("Welcome Admin!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Admin Detected!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
-            } 
+            }
             else if (tbUsername.Text == "user" && tbPassword.Text == "user")
             {
-                MessageBox.Show("Welcome User!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                formUser formUser = new formUser();
-                formUser.Show();
-                this.Hide();
+                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               formUser userForm = new formUser();  
+                userForm.Show();
             }
             else
             {
