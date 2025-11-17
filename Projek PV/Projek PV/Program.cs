@@ -16,7 +16,7 @@ namespace Projek_PV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formAdmin());
+            Application.Run(new Form1());
         }
     }
 }

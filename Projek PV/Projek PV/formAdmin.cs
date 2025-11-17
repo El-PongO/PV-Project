@@ -48,6 +48,7 @@ namespace Projek_PV
 
         private void formAdmin_Load_1(object sender, EventArgs e)
         {
+            this.Size = new Size(804, 445);
             var roomTable = new DataTable();
             roomTable.Columns.Add("RoomCode", typeof(string));
             roomTable.Columns.Add("Occupied", typeof(bool));

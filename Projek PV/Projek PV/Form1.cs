@@ -22,7 +22,8 @@ namespace Projek_PV
             if(tbUsername.Text == "admin" && tbPassword.Text == "admin")
             {
                 MessageBox.Show("Admin Detected!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                formAdmin formadmin = new formAdmin();
+                formadmin.Show();
             }
             else if (tbUsername.Text == "user" && tbPassword.Text == "user")
             {
@@ -34,6 +35,11 @@ namespace Projek_PV
             {
                 MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
