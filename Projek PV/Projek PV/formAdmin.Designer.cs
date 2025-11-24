@@ -45,7 +45,6 @@
             this.panelAccounting = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelManageRoom = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -87,6 +86,8 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBoxHamburgMenu = new System.Windows.Forms.PictureBox();
             this.labelWelcomeAdmin = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panelContent.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -94,7 +95,6 @@
             this.panel3.SuspendLayout();
             this.panelAccounting.SuspendLayout();
             this.panelManageRoom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -127,7 +127,7 @@
             this.panelContent.Controls.Add(this.panelManageRoom);
             this.panelContent.Controls.Add(this.panelUserRole);
             this.panelContent.Location = new System.Drawing.Point(442, 112);
-            this.panelContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContent.Margin = new System.Windows.Forms.Padding(2);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(707, 693);
             this.panelContent.TabIndex = 24;
@@ -138,7 +138,7 @@
             this.panelAdmin.Controls.Add(this.panel12);
             this.panelAdmin.Controls.Add(this.panel3);
             this.panelAdmin.Location = new System.Drawing.Point(349, 2);
-            this.panelAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.panelAdmin.Name = "panelAdmin";
             this.panelAdmin.Size = new System.Drawing.Size(343, 292);
             this.panelAdmin.TabIndex = 6;
@@ -149,7 +149,7 @@
             this.panel13.Controls.Add(this.label20);
             this.panel13.Controls.Add(this.label21);
             this.panel13.Location = new System.Drawing.Point(3, 197);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(338, 93);
             this.panel13.TabIndex = 16;
@@ -193,7 +193,7 @@
             this.panel12.Controls.Add(this.label16);
             this.panel12.Controls.Add(this.label17);
             this.panel12.Location = new System.Drawing.Point(3, 97);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel12.Margin = new System.Windows.Forms.Padding(2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(338, 101);
             this.panel12.TabIndex = 15;
@@ -236,7 +236,7 @@
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Location = new System.Drawing.Point(2, 2);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(338, 89);
             this.panel3.TabIndex = 14;
@@ -267,7 +267,7 @@
             // 
             this.panelAccounting.Controls.Add(this.label1);
             this.panelAccounting.Location = new System.Drawing.Point(2, 299);
-            this.panelAccounting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelAccounting.Margin = new System.Windows.Forms.Padding(2);
             this.panelAccounting.Name = "panelAccounting";
             this.panelAccounting.Size = new System.Drawing.Size(342, 385);
             this.panelAccounting.TabIndex = 6;
@@ -284,7 +284,8 @@
             // 
             // panelManageRoom
             // 
-            this.panelManageRoom.Controls.Add(this.numericUpDown1);
+            this.panelManageRoom.Controls.Add(this.dateTimePicker1);
+            this.panelManageRoom.Controls.Add(this.comboBox1);
             this.panelManageRoom.Controls.Add(this.label13);
             this.panelManageRoom.Controls.Add(this.label12);
             this.panelManageRoom.Controls.Add(this.textBox1);
@@ -295,18 +296,10 @@
             this.panelManageRoom.Controls.Add(this.checkBox1);
             this.panelManageRoom.Controls.Add(this.labelJumlahOrang);
             this.panelManageRoom.Location = new System.Drawing.Point(2, 2);
-            this.panelManageRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelManageRoom.Margin = new System.Windows.Forms.Padding(2);
             this.panelManageRoom.Name = "panelManageRoom";
             this.panelManageRoom.Size = new System.Drawing.Size(342, 292);
             this.panelManageRoom.TabIndex = 5;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(16, 236);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(90, 20);
-            this.numericUpDown1.TabIndex = 12;
             // 
             // label13
             // 
@@ -326,14 +319,15 @@
             this.label12.Location = new System.Drawing.Point(14, 176);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 15);
+            this.label12.Size = new System.Drawing.Size(55, 15);
             this.label12.TabIndex = 10;
-            this.label12.Text = "Kamar : ";
+            this.label12.Text = "Tanggal:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(170, 197);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Location = new System.Drawing.Point(171, 193);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(151, 20);
             this.textBox1.TabIndex = 9;
@@ -342,7 +336,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(170, 176);
+            this.label11.Location = new System.Drawing.Point(169, 176);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(52, 15);
@@ -353,7 +347,7 @@
             // 
             this.panel1.Controls.Add(this.label10);
             this.panel1.Location = new System.Drawing.Point(172, 59);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 107);
             this.panel1.TabIndex = 7;
@@ -372,7 +366,7 @@
             // 
             this.panel6.Controls.Add(this.label9);
             this.panel6.Location = new System.Drawing.Point(16, 59);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 107);
             this.panel6.TabIndex = 6;
@@ -392,7 +386,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Location = new System.Drawing.Point(159, 21);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(34, 21);
             this.checkBox2.TabIndex = 5;
@@ -404,7 +398,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(118, 21);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(34, 21);
             this.checkBox1.TabIndex = 4;
@@ -425,7 +419,7 @@
             // panelUserRole
             // 
             this.panelUserRole.Location = new System.Drawing.Point(347, 299);
-            this.panelUserRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelUserRole.Margin = new System.Windows.Forms.Padding(2);
             this.panelUserRole.Name = "panelUserRole";
             this.panelUserRole.Size = new System.Drawing.Size(342, 385);
             this.panelUserRole.TabIndex = 6;
@@ -445,11 +439,11 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(180, 111);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(258, 292);
+            this.dataGridView1.Size = new System.Drawing.Size(258, 271);
             this.dataGridView1.TabIndex = 22;
             // 
             // panel11
@@ -457,7 +451,7 @@
             this.panel11.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel11.Controls.Add(this.label7);
             this.panel11.Location = new System.Drawing.Point(-2, -2);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1058, 41);
             this.panel11.TabIndex = 21;
@@ -484,16 +478,16 @@
             this.panelHamburgExpand.Controls.Add(this.panel9);
             this.panelHamburgExpand.Controls.Add(this.panel10);
             this.panelHamburgExpand.Location = new System.Drawing.Point(0, 39);
-            this.panelHamburgExpand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelHamburgExpand.Margin = new System.Windows.Forms.Padding(2);
             this.panelHamburgExpand.Name = "panelHamburgExpand";
-            this.panelHamburgExpand.Size = new System.Drawing.Size(154, 366);
+            this.panelHamburgExpand.Size = new System.Drawing.Size(172, 366);
             this.panelHamburgExpand.TabIndex = 20;
             // 
             // pictureBoxHamburg
             // 
             this.pictureBoxHamburg.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHamburg.Image")));
             this.pictureBoxHamburg.Location = new System.Drawing.Point(14, 12);
-            this.pictureBoxHamburg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxHamburg.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxHamburg.Name = "pictureBoxHamburg";
             this.pictureBoxHamburg.Size = new System.Drawing.Size(25, 24);
             this.pictureBoxHamburg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -507,7 +501,7 @@
             this.panel7.Controls.Add(this.labelManageRoom);
             this.panel7.Controls.Add(this.pictureBox1);
             this.panel7.Location = new System.Drawing.Point(14, 87);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(122, 50);
             this.panel7.TabIndex = 7;
@@ -531,7 +525,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -545,7 +539,7 @@
             this.panel8.Controls.Add(this.labelAdmin);
             this.panel8.Controls.Add(this.pictureBox2);
             this.panel8.Location = new System.Drawing.Point(14, 142);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(122, 50);
             this.panel8.TabIndex = 8;
@@ -568,7 +562,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(28, 31);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -582,7 +576,7 @@
             this.panel27.Controls.Add(this.labelSelectRoom);
             this.panel27.Controls.Add(this.pictureBox21);
             this.panel27.Location = new System.Drawing.Point(14, 289);
-            this.panel27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel27.Margin = new System.Windows.Forms.Padding(2);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(122, 50);
             this.panel27.TabIndex = 11;
@@ -603,7 +597,7 @@
             // 
             this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
             this.pictureBox21.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox21.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(28, 31);
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -616,7 +610,7 @@
             this.panel9.Controls.Add(this.labelAccounting);
             this.panel9.Controls.Add(this.pictureBox3);
             this.panel9.Location = new System.Drawing.Point(14, 190);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(122, 50);
             this.panel9.TabIndex = 9;
@@ -639,7 +633,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(28, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -653,7 +647,7 @@
             this.panel10.Controls.Add(this.labelUser);
             this.panel10.Controls.Add(this.pictureBox4);
             this.panel10.Location = new System.Drawing.Point(14, 240);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(122, 50);
             this.panel10.TabIndex = 10;
@@ -677,7 +671,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(28, 31);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -695,7 +689,7 @@
             this.panelHamburg.Controls.Add(this.pictureBox6);
             this.panelHamburg.Controls.Add(this.pictureBoxHamburgMenu);
             this.panelHamburg.Location = new System.Drawing.Point(-2, 37);
-            this.panelHamburg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelHamburg.Margin = new System.Windows.Forms.Padding(2);
             this.panelHamburg.Name = "panelHamburg";
             this.panelHamburg.Size = new System.Drawing.Size(46, 366);
             this.panelHamburg.TabIndex = 19;
@@ -704,7 +698,7 @@
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(6, 300);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(34, 32);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -716,7 +710,7 @@
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(6, 250);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(34, 32);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -728,7 +722,7 @@
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(6, 201);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(34, 32);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -740,7 +734,7 @@
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(6, 153);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(34, 31);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -752,7 +746,7 @@
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(6, 98);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(34, 31);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -764,7 +758,7 @@
             // 
             this.pictureBoxHamburgMenu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHamburgMenu.Image")));
             this.pictureBoxHamburgMenu.Location = new System.Drawing.Point(9, 12);
-            this.pictureBoxHamburgMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxHamburgMenu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxHamburgMenu.Name = "pictureBoxHamburgMenu";
             this.pictureBoxHamburgMenu.Size = new System.Drawing.Size(25, 24);
             this.pictureBoxHamburgMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -783,6 +777,26 @@
             this.labelWelcomeAdmin.TabIndex = 18;
             this.labelWelcomeAdmin.Text = "Welcome, Admin";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1 Bulan",
+            "3 Bulan",
+            "6 Bulan",
+            "12 Bulan"});
+            this.comboBox1.Location = new System.Drawing.Point(17, 247);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(17, 194);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(148, 20);
+            this.dateTimePicker1.TabIndex = 13;
+            // 
             // formAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -795,7 +809,7 @@
             this.Controls.Add(this.panelHamburgExpand);
             this.Controls.Add(this.panelHamburg);
             this.Controls.Add(this.labelWelcomeAdmin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formAdmin";
             this.Text = "formAdmin";
             this.Load += new System.EventHandler(this.formAdmin_Load_1);
@@ -811,7 +825,6 @@
             this.panelAccounting.PerformLayout();
             this.panelManageRoom.ResumeLayout(false);
             this.panelManageRoom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -866,7 +879,6 @@
         private System.Windows.Forms.Panel panelAccounting;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelManageRoom;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox1;
@@ -908,5 +920,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBoxHamburgMenu;
         private System.Windows.Forms.Label labelWelcomeAdmin;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
