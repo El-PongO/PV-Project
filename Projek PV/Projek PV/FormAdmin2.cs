@@ -19,10 +19,10 @@ namespace Projek_PV
 
         private void FormAdmin2_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(1139, 850);
+            this.Size = new Size(1246, 900);
             panelOverview.Visible = true;
             panelOverview.Location = new Point(230, 2);
-            panelOverview.Size = new Size(1139, 919);
+            panelOverview.Size = new Size(1000, 600);
             panel2.BackColor = Color.FromArgb(0, 0, 64);
             panel3.BackColor = Color.FromArgb(0, 0, 64);
             panel4.BackColor = Color.Navy;
@@ -49,13 +49,13 @@ namespace Projek_PV
             roomTable.Rows.Add("B202", false, "", DBNull.Value);
             roomTable.Rows.Add("C301", true, "Michael Brown", DateTime.Now.AddDays(15));
 
-            dataGridView1.DataSource = roomTable;
+            dgvManage.DataSource = roomTable;
 
-            dataGridView1.Columns["RoomCode"].HeaderText = "Kode Ruangan";
-            dataGridView1.Columns["Occupied"].HeaderText = "Terisi";
-            dataGridView1.Columns["TenantName"].HeaderText = "Nama Penyewa";
-            dataGridView1.Columns["RentDue"].HeaderText = "Jatuh Tempo Sewa";
-            dataGridView1.Columns["Occupied"].Width = 60;
+            dgvManage.Columns["RoomCode"].HeaderText = "Kode Ruangan";
+            dgvManage.Columns["Occupied"].HeaderText = "Terisi";
+            dgvManage.Columns["TenantName"].HeaderText = "Nama Penyewa";
+            dgvManage.Columns["RentDue"].HeaderText = "Jatuh Tempo Sewa";
+            dgvManage.Columns["Occupied"].Width = 60;
 
             panelFill.Location = new Point(238, -1);
             panelFill.Visible = false;
@@ -76,7 +76,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelManage.Location = new Point(230, 2);
-            panelManage.Size = new Size(1139, 919);
+            panelManage.Size = new Size(1000, 600);
         }
         private void labelManageRoom_Click(object sender, EventArgs e)
         {
@@ -93,7 +93,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelManage.Location = new Point(230, 2);
-            panelManage.Size = new Size(1139, 919);
+            panelManage.Size = new Size(1000, 600);
         }
         private void pictureBoxManageRooms_Click(object sender, EventArgs e)
         {
@@ -110,7 +110,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelManage.Location = new Point(230, 2);
-            panelManage.Size = new Size(1139, 919);
+            panelManage.Size = new Size(1000, 600);
         }
 
         private void panelFillRoom_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelFill.Location = new Point(230, 2);
-            panelFill.Size = new Size(1139, 919);
+            panelFill.Size = new Size(1000, 600);
         }
         private void labelFillRoom_Click(object sender, EventArgs e)
         {
@@ -145,7 +145,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelFill.Location = new Point(230, 2);
-            panelFill.Size = new Size(1139, 919);
+            panelFill.Size = new Size(1000, 600);
         }
         private void pictureBoxFillRoom_Click(object sender, EventArgs e)
         {
@@ -162,7 +162,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelFill.Location = new Point(230, 2);
-            panelFill.Size = new Size(1139, 919);
+            panelFill.Size = new Size(1000, 600);
         }
         private void panelOverView_Click(object sender, EventArgs e)
         {
@@ -179,7 +179,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelOverview.Location = new Point(230, 2);
-            panelOverview.Size = new Size(1139, 919);
+            panelOverview.Size = new Size(1000, 600);
         }
         private void labelOverview_Click(object sender, EventArgs e)
         {
@@ -196,7 +196,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelOverview.Location = new Point(230, 2);
-            panelOverview.Size = new Size(1139, 919);
+            panelOverview.Size = new Size(1000, 600);
         }
         private void pictureBoxOverview_Click(object sender, EventArgs e)
         {
@@ -213,7 +213,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelOverview.Location = new Point(230, 2);
-            panelOverview.Size = new Size(1139, 919);
+            panelOverview.Size = new Size(1000, 600);
         }
         private void panelLaporan_Click(object sender, EventArgs e)
         {
@@ -230,7 +230,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelLaporan.Location = new Point(230, 2);
-            panelLaporan.Size = new Size(1139, 919);
+            panelLaporan.Size = new Size(1000, 600);
         }
         private void labelLaporan_Click(object sender, EventArgs e)
         {
@@ -247,7 +247,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelLaporan.Location = new Point(230, 2);
-            panelLaporan.Size = new Size(1139, 919);
+            panelLaporan.Size = new Size(1000, 600);
         }
         private void pictureBoxLaporan_Click(object sender, EventArgs e)
         {
@@ -264,7 +264,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelLaporan.Location = new Point(230, 2);
-            panelLaporan.Size = new Size(1139, 919);
+            panelLaporan.Size = new Size(1000, 600);
         }
         private void panelPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
@@ -281,7 +281,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = true;
             panelPenghunidanTagihan.Location = new Point(230, 2);
-            panelPenghunidanTagihan.Size = new Size(1139, 919);
+            panelPenghunidanTagihan.Size = new Size(1000, 600);
         }
         private void labelPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
@@ -298,7 +298,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = true;
             panelPenghunidanTagihan.Location = new Point(230, 2);
-            panelPenghunidanTagihan.Size = new Size(1139, 919);
+            panelPenghunidanTagihan.Size = new Size(1000, 600);
         }
         private void pictureBoxPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
@@ -315,7 +315,7 @@ namespace Projek_PV
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = true;
             panelPenghunidanTagihan.Location = new Point(230, 2);
-            panelPenghunidanTagihan.Size = new Size(1139, 919);
+            panelPenghunidanTagihan.Size = new Size(1000, 600);
         }
         private void panelMonitoringTamu_Click(object sender, EventArgs e)
         {
@@ -332,7 +332,7 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelMonitorTamuh.Visible = true;
             panelMonitorTamuh.Location = new Point(230, 2);
-            panelMonitorTamuh.Size = new Size(1139, 919);
+            panelMonitorTamuh.Size = new Size(1000, 600);
         }
         private void labelMonitoringTamu_Click(object sender, EventArgs e)
         {
@@ -349,7 +349,7 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelMonitorTamuh.Visible = true;
             panelMonitorTamuh.Location = new Point(230, 2);
-            panelMonitorTamuh.Size = new Size(1139, 919);
+            panelMonitorTamuh.Size = new Size(1000, 600);
         }
         private void pictureBoxMonitoringTamu_Click(object sender, EventArgs e)
         {
@@ -366,7 +366,7 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelMonitorTamuh.Visible = true;
             panelMonitorTamuh.Location = new Point(230, 2);
-            panelMonitorTamuh.Size = new Size(1139, 919);
+            panelMonitorTamuh.Size = new Size(1000, 600);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
