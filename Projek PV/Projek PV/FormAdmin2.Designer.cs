@@ -30,15 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin2));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.labelMonitoringTamu = new System.Windows.Forms.Label();
+            this.pictureBoxMonitoringTamu = new System.Windows.Forms.PictureBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBoxPenghuniDanTagihan = new System.Windows.Forms.PictureBox();
             this.labelPenghuniDanTagihan = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBoxLaporan = new System.Windows.Forms.PictureBox();
             this.labelLaporan = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBoxOverview = new System.Windows.Forms.PictureBox();
             this.labelOverview = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBoxFillRoom = new System.Windows.Forms.PictureBox();
             this.labelFillRoom = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxManageRooms = new System.Windows.Forms.PictureBox();
             this.labelManageRoom = new System.Windows.Forms.Label();
             this.panelManage = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -82,7 +92,6 @@
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -149,39 +158,46 @@
             this.label64 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.panelPenghunidanTagihan = new System.Windows.Forms.Panel();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.labelMonitoringTamu = new System.Windows.Forms.Label();
-            this.panelMonitoringTamu = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panelMonitorTamuh = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.label72 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label70 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.label72 = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.label73 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label74 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMonitoringTamu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPenghuniDanTagihan)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLaporan)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOverview)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFillRoom)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).BeginInit();
             this.panelManage.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -190,7 +206,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panelOverview.SuspendLayout();
@@ -207,21 +222,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelPenghunidanTagihan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.panelMonitoringTamu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panelMonitorTamuh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.panelMonitoringTamu);
+            this.panel1.Controls.Add(this.panel13);
+            this.panel1.Controls.Add(this.label75);
+            this.panel1.Controls.Add(this.pictureBox18);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
@@ -230,50 +245,131 @@
             this.panel1.Location = new System.Drawing.Point(1, -1);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(221, 997);
+            this.panel1.Size = new System.Drawing.Size(299, 997);
             this.panel1.TabIndex = 0;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel13.Controls.Add(this.labelMonitoringTamu);
+            this.panel13.Controls.Add(this.pictureBoxMonitoringTamu);
+            this.panel13.Location = new System.Drawing.Point(0, 380);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(295, 54);
+            this.panel13.TabIndex = 6;
+            this.panel13.Click += new System.EventHandler(this.panelMonitoringTamu_Click);
+            // 
+            // labelMonitoringTamu
+            // 
+            this.labelMonitoringTamu.AutoSize = true;
+            this.labelMonitoringTamu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMonitoringTamu.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelMonitoringTamu.Location = new System.Drawing.Point(39, 11);
+            this.labelMonitoringTamu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMonitoringTamu.Name = "labelMonitoringTamu";
+            this.labelMonitoringTamu.Size = new System.Drawing.Size(174, 25);
+            this.labelMonitoringTamu.TabIndex = 0;
+            this.labelMonitoringTamu.Text = "Monitoring Tamu";
+            this.labelMonitoringTamu.Click += new System.EventHandler(this.labelMonitoringTamu_Click);
+            // 
+            // pictureBoxMonitoringTamu
+            // 
+            this.pictureBoxMonitoringTamu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMonitoringTamu.Image")));
+            this.pictureBoxMonitoringTamu.Location = new System.Drawing.Point(12, 11);
+            this.pictureBoxMonitoringTamu.Name = "pictureBoxMonitoringTamu";
+            this.pictureBoxMonitoringTamu.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxMonitoringTamu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMonitoringTamu.TabIndex = 6;
+            this.pictureBoxMonitoringTamu.TabStop = false;
+            this.pictureBoxMonitoringTamu.Click += new System.EventHandler(this.pictureBoxMonitoringTamu_Click);
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.ForeColor = System.Drawing.SystemColors.Control;
+            this.label75.Location = new System.Drawing.Point(88, 23);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(187, 37);
+            this.label75.TabIndex = 6;
+            this.label75.Text = "Cozy Corner";
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
+            this.pictureBox18.Location = new System.Drawing.Point(10, 5);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(78, 77);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox18.TabIndex = 5;
+            this.pictureBox18.TabStop = false;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel7.Controls.Add(this.pictureBoxPenghuniDanTagihan);
             this.panel7.Controls.Add(this.labelPenghuniDanTagihan);
             this.panel7.Location = new System.Drawing.Point(0, 322);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(217, 54);
+            this.panel7.Size = new System.Drawing.Size(295, 54);
             this.panel7.TabIndex = 3;
             this.panel7.Click += new System.EventHandler(this.panelPenghuniDanTagihan_Click);
+            // 
+            // pictureBoxPenghuniDanTagihan
+            // 
+            this.pictureBoxPenghuniDanTagihan.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPenghuniDanTagihan.Image")));
+            this.pictureBoxPenghuniDanTagihan.Location = new System.Drawing.Point(12, 16);
+            this.pictureBoxPenghuniDanTagihan.Name = "pictureBoxPenghuniDanTagihan";
+            this.pictureBoxPenghuniDanTagihan.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxPenghuniDanTagihan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPenghuniDanTagihan.TabIndex = 5;
+            this.pictureBoxPenghuniDanTagihan.TabStop = false;
+            this.pictureBoxPenghuniDanTagihan.Click += new System.EventHandler(this.pictureBoxPenghuniDanTagihan_Click);
             // 
             // labelPenghuniDanTagihan
             // 
             this.labelPenghuniDanTagihan.AutoSize = true;
             this.labelPenghuniDanTagihan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPenghuniDanTagihan.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelPenghuniDanTagihan.Location = new System.Drawing.Point(19, 16);
+            this.labelPenghuniDanTagihan.Location = new System.Drawing.Point(39, 16);
             this.labelPenghuniDanTagihan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPenghuniDanTagihan.Name = "labelPenghuniDanTagihan";
-            this.labelPenghuniDanTagihan.Size = new System.Drawing.Size(194, 25);
+            this.labelPenghuniDanTagihan.Size = new System.Drawing.Size(230, 25);
             this.labelPenghuniDanTagihan.TabIndex = 0;
-            this.labelPenghuniDanTagihan.Text = "Penghuni & Tagihan";
+            this.labelPenghuniDanTagihan.Text = "Penghuni dan Tagihan";
             this.labelPenghuniDanTagihan.Click += new System.EventHandler(this.labelPenghuniDanTagihan_Click);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel6.Controls.Add(this.pictureBoxLaporan);
             this.panel6.Controls.Add(this.labelLaporan);
             this.panel6.Location = new System.Drawing.Point(0, 264);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(217, 54);
+            this.panel6.Size = new System.Drawing.Size(295, 54);
             this.panel6.TabIndex = 2;
             this.panel6.Click += new System.EventHandler(this.panelLaporan_Click);
+            // 
+            // pictureBoxLaporan
+            // 
+            this.pictureBoxLaporan.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLaporan.Image")));
+            this.pictureBoxLaporan.Location = new System.Drawing.Point(12, 14);
+            this.pictureBoxLaporan.Name = "pictureBoxLaporan";
+            this.pictureBoxLaporan.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxLaporan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLaporan.TabIndex = 4;
+            this.pictureBoxLaporan.TabStop = false;
+            this.pictureBoxLaporan.Click += new System.EventHandler(this.pictureBoxLaporan_Click);
             // 
             // labelLaporan
             // 
             this.labelLaporan.AutoSize = true;
             this.labelLaporan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLaporan.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelLaporan.Location = new System.Drawing.Point(59, 14);
+            this.labelLaporan.Location = new System.Drawing.Point(39, 14);
             this.labelLaporan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLaporan.Name = "labelLaporan";
             this.labelLaporan.Size = new System.Drawing.Size(97, 25);
@@ -284,21 +380,32 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel4.Controls.Add(this.pictureBox12);
+            this.panel4.Controls.Add(this.pictureBoxOverview);
             this.panel4.Controls.Add(this.labelOverview);
-            this.panel4.Location = new System.Drawing.Point(0, 89);
+            this.panel4.Location = new System.Drawing.Point(0, 91);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(217, 54);
+            this.panel4.Size = new System.Drawing.Size(295, 54);
             this.panel4.TabIndex = 1;
             this.panel4.Click += new System.EventHandler(this.panelOverView_Click);
+            // 
+            // pictureBoxOverview
+            // 
+            this.pictureBoxOverview.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOverview.Image")));
+            this.pictureBoxOverview.Location = new System.Drawing.Point(12, 16);
+            this.pictureBoxOverview.Name = "pictureBoxOverview";
+            this.pictureBoxOverview.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxOverview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOverview.TabIndex = 1;
+            this.pictureBoxOverview.TabStop = false;
+            this.pictureBoxOverview.Click += new System.EventHandler(this.pictureBoxOverview_Click);
             // 
             // labelOverview
             // 
             this.labelOverview.AutoSize = true;
             this.labelOverview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOverview.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelOverview.Location = new System.Drawing.Point(75, 15);
+            this.labelOverview.Location = new System.Drawing.Point(39, 16);
             this.labelOverview.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOverview.Name = "labelOverview";
             this.labelOverview.Size = new System.Drawing.Size(102, 25);
@@ -309,20 +416,32 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.pictureBoxFillRoom);
             this.panel3.Controls.Add(this.labelFillRoom);
             this.panel3.Location = new System.Drawing.Point(0, 206);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(217, 54);
+            this.panel3.Size = new System.Drawing.Size(295, 54);
             this.panel3.TabIndex = 1;
             this.panel3.Click += new System.EventHandler(this.panelFillRoom_Click);
+            // 
+            // pictureBoxFillRoom
+            // 
+            this.pictureBoxFillRoom.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFillRoom.Image")));
+            this.pictureBoxFillRoom.Location = new System.Drawing.Point(12, 14);
+            this.pictureBoxFillRoom.Name = "pictureBoxFillRoom";
+            this.pictureBoxFillRoom.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxFillRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFillRoom.TabIndex = 3;
+            this.pictureBoxFillRoom.TabStop = false;
+            this.pictureBoxFillRoom.Click += new System.EventHandler(this.pictureBoxFillRoom_Click);
             // 
             // labelFillRoom
             // 
             this.labelFillRoom.AutoSize = true;
             this.labelFillRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFillRoom.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelFillRoom.Location = new System.Drawing.Point(55, 14);
+            this.labelFillRoom.Location = new System.Drawing.Point(39, 14);
             this.labelFillRoom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFillRoom.Name = "labelFillRoom";
             this.labelFillRoom.Size = new System.Drawing.Size(101, 25);
@@ -333,20 +452,32 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.pictureBoxManageRooms);
             this.panel2.Controls.Add(this.labelManageRoom);
             this.panel2.Location = new System.Drawing.Point(0, 148);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(217, 54);
+            this.panel2.Size = new System.Drawing.Size(295, 54);
             this.panel2.TabIndex = 0;
             this.panel2.Click += new System.EventHandler(this.panelManageRoom_Click);
+            // 
+            // pictureBoxManageRooms
+            // 
+            this.pictureBoxManageRooms.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxManageRooms.Image")));
+            this.pictureBoxManageRooms.Location = new System.Drawing.Point(12, 16);
+            this.pictureBoxManageRooms.Name = "pictureBoxManageRooms";
+            this.pictureBoxManageRooms.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxManageRooms.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxManageRooms.TabIndex = 2;
+            this.pictureBoxManageRooms.TabStop = false;
+            this.pictureBoxManageRooms.Click += new System.EventHandler(this.pictureBoxManageRooms_Click);
             // 
             // labelManageRoom
             // 
             this.labelManageRoom.AutoSize = true;
             this.labelManageRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelManageRoom.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelManageRoom.Location = new System.Drawing.Point(40, 15);
+            this.labelManageRoom.Location = new System.Drawing.Point(39, 16);
             this.labelManageRoom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelManageRoom.Name = "labelManageRoom";
             this.labelManageRoom.Size = new System.Drawing.Size(162, 25);
@@ -366,10 +497,10 @@
             this.panelManage.Controls.Add(this.groupBox2);
             this.panelManage.Controls.Add(this.groupBox1);
             this.panelManage.Controls.Add(this.dataGridView1);
-            this.panelManage.Location = new System.Drawing.Point(1535, 380);
+            this.panelManage.Location = new System.Drawing.Point(307, 205);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelManage.Name = "panelManage";
-            this.panelManage.Size = new System.Drawing.Size(243, 193);
+            this.panelManage.Size = new System.Drawing.Size(1184, 577);
             this.panelManage.TabIndex = 1;
             // 
             // panel5
@@ -387,7 +518,7 @@
             this.panel5.Controls.Add(this.button3);
             this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.button2);
-            this.panel5.Location = new System.Drawing.Point(344, 261);
+            this.panel5.Location = new System.Drawing.Point(404, 259);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(644, 281);
             this.panel5.TabIndex = 19;
@@ -536,7 +667,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label1.Location = new System.Drawing.Point(860, 47);
+            this.label1.Location = new System.Drawing.Point(1044, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 19);
             this.label1.TabIndex = 18;
@@ -547,7 +678,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(848, 23);
+            this.label2.Location = new System.Drawing.Point(1032, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 24);
             this.label2.TabIndex = 17;
@@ -557,7 +688,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(922, 22);
+            this.pictureBox6.Location = new System.Drawing.Point(1106, 10);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(57, 48);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -590,7 +721,7 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(670, 89);
+            this.groupBox2.Location = new System.Drawing.Point(730, 87);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -646,7 +777,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox1.Location = new System.Drawing.Point(344, 89);
+            this.groupBox1.Location = new System.Drawing.Point(404, 87);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -702,13 +833,15 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(307, 455);
+            this.dataGridView1.Size = new System.Drawing.Size(371, 455);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panelFill
             // 
             this.panelFill.BackColor = System.Drawing.SystemColors.Control;
+            this.panelFill.Controls.Add(this.checkBox4);
+            this.panelFill.Controls.Add(this.checkBox2);
             this.panelFill.Controls.Add(this.label58);
             this.panelFill.Controls.Add(this.label59);
             this.panelFill.Controls.Add(this.pictureBox7);
@@ -720,7 +853,6 @@
             this.panelFill.Controls.Add(this.label37);
             this.panelFill.Controls.Add(this.label36);
             this.panelFill.Controls.Add(this.label34);
-            this.panelFill.Controls.Add(this.numericUpDown1);
             this.panelFill.Controls.Add(this.comboBox2);
             this.panelFill.Controls.Add(this.comboBox1);
             this.panelFill.Controls.Add(this.label32);
@@ -730,10 +862,10 @@
             this.panelFill.Controls.Add(this.label29);
             this.panelFill.Controls.Add(this.groupBox4);
             this.panelFill.Controls.Add(this.groupBox3);
-            this.panelFill.Location = new System.Drawing.Point(230, 488);
+            this.panelFill.Location = new System.Drawing.Point(1615, 219);
             this.panelFill.Margin = new System.Windows.Forms.Padding(4);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(1128, 146);
+            this.panelFill.Size = new System.Drawing.Size(210, 196);
             this.panelFill.TabIndex = 3;
             // 
             // label58
@@ -741,7 +873,7 @@
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label58.Location = new System.Drawing.Point(825, 51);
+            this.label58.Location = new System.Drawing.Point(1044, 51);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(56, 19);
             this.label58.TabIndex = 24;
@@ -752,7 +884,7 @@
             // 
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(813, 27);
+            this.label59.Location = new System.Drawing.Point(1032, 27);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(68, 24);
             this.label59.TabIndex = 23;
@@ -762,7 +894,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(887, 26);
+            this.pictureBox7.Location = new System.Drawing.Point(1106, 26);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(57, 48);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -858,14 +990,6 @@
             this.label34.TabIndex = 11;
             this.label34.Text = "Down Payment (DP): ";
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(360, 92);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(160, 22);
-            this.numericUpDown1.TabIndex = 10;
-            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -921,12 +1045,12 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(528, 88);
+            this.label33.Location = new System.Drawing.Point(415, 93);
             this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(254, 34);
+            this.label33.Size = new System.Drawing.Size(384, 17);
             this.label33.TabIndex = 5;
-            this.label33.Text = "(+ 30% dari biaya sewa untuk tiap\r\n kepala ditambah)";
+            this.label33.Text = "(+ 30% dari biaya sewa untuk tiap kepala ditambah)";
             // 
             // label29
             // 
@@ -959,7 +1083,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(888, 240);
+            this.groupBox4.Size = new System.Drawing.Size(1136, 240);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Occcupant 2";
@@ -1113,7 +1237,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(888, 240);
+            this.groupBox3.Size = new System.Drawing.Size(1136, 240);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Occcupant 1";
@@ -1259,9 +1383,9 @@
             this.panelOverview.Controls.Add(this.panel11);
             this.panelOverview.Controls.Add(this.panel10);
             this.panelOverview.Controls.Add(this.panel9);
-            this.panelOverview.Location = new System.Drawing.Point(1585, 580);
+            this.panelOverview.Location = new System.Drawing.Point(307, 4);
             this.panelOverview.Name = "panelOverview";
-            this.panelOverview.Size = new System.Drawing.Size(240, 193);
+            this.panelOverview.Size = new System.Drawing.Size(1249, 193);
             this.panelOverview.TabIndex = 4;
             // 
             // label51
@@ -1496,7 +1620,7 @@
             this.panelLaporan.Controls.Add(this.pictureBox8);
             this.panelLaporan.Controls.Add(this.label64);
             this.panelLaporan.Controls.Add(this.label65);
-            this.panelLaporan.Location = new System.Drawing.Point(1258, 760);
+            this.panelLaporan.Location = new System.Drawing.Point(1671, 598);
             this.panelLaporan.Name = "panelLaporan";
             this.panelLaporan.Size = new System.Drawing.Size(218, 246);
             this.panelLaporan.TabIndex = 5;
@@ -1574,30 +1698,40 @@
             this.panelPenghunidanTagihan.Controls.Add(this.label67);
             this.panelPenghunidanTagihan.Controls.Add(this.label61);
             this.panelPenghunidanTagihan.Controls.Add(this.pictureBox9);
-            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1000, 760);
+            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1660, 850);
             this.panelPenghunidanTagihan.Name = "panelPenghunidanTagihan";
             this.panelPenghunidanTagihan.Size = new System.Drawing.Size(252, 276);
             this.panelPenghunidanTagihan.TabIndex = 6;
             // 
-            // label60
+            // button6
             // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(19, 52);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(191, 23);
-            this.label60.TabIndex = 32;
-            this.label60.Text = "Welcome back, admin";
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.Location = new System.Drawing.Point(817, 473);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(134, 49);
+            this.button6.TabIndex = 36;
+            this.button6.Text = "Cetak All Nota";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // label61
+            // button5
             // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(14, 15);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(406, 37);
-            this.label61.TabIndex = 31;
-            this.label61.Text = "Data Penghuni dan Tagihan";
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Location = new System.Drawing.Point(960, 473);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(181, 49);
+            this.button5.TabIndex = 35;
+            this.button5.Text = "Cetak Nota per orang";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(21, 93);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(1120, 371);
+            this.dataGridView3.TabIndex = 34;
             // 
             // label66
             // 
@@ -1611,6 +1745,16 @@
             this.label66.Text = "• online";
             this.label66.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(19, 52);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(191, 23);
+            this.label60.TabIndex = 32;
+            this.label60.Text = "Welcome back, admin";
+            // 
             // label67
             // 
             this.label67.AutoSize = true;
@@ -1622,6 +1766,16 @@
             this.label67.Text = "Admin";
             this.label67.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(14, 15);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(406, 37);
+            this.label61.TabIndex = 31;
+            this.label61.Text = "Data Penghuni dan Tagihan";
+            // 
             // pictureBox9
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
@@ -1631,60 +1785,6 @@
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 31;
             this.pictureBox9.TabStop = false;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(21, 93);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(1120, 371);
-            this.dataGridView3.TabIndex = 34;
-            // 
-            // button5
-            // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(960, 473);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(181, 49);
-            this.button5.TabIndex = 35;
-            this.button5.Text = "Cetak Nota per orang";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(817, 473);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(134, 49);
-            this.button6.TabIndex = 36;
-            this.button6.Text = "Cetak All Nota";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // labelMonitoringTamu
-            // 
-            this.labelMonitoringTamu.AutoSize = true;
-            this.labelMonitoringTamu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMonitoringTamu.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelMonitoringTamu.Location = new System.Drawing.Point(19, 16);
-            this.labelMonitoringTamu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelMonitoringTamu.Name = "labelMonitoringTamu";
-            this.labelMonitoringTamu.Size = new System.Drawing.Size(174, 25);
-            this.labelMonitoringTamu.TabIndex = 0;
-            this.labelMonitoringTamu.Text = "Monitoring Tamu";
-            this.labelMonitoringTamu.Click += new System.EventHandler(this.labelMonitoringTamu_Click);
-            // 
-            // panelMonitoringTamu
-            // 
-            this.panelMonitoringTamu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panelMonitoringTamu.Controls.Add(this.labelMonitoringTamu);
-            this.panelMonitoringTamu.Location = new System.Drawing.Point(0, 381);
-            this.panelMonitoringTamu.Margin = new System.Windows.Forms.Padding(4);
-            this.panelMonitoringTamu.Name = "panelMonitoringTamu";
-            this.panelMonitoringTamu.Size = new System.Drawing.Size(217, 54);
-            this.panelMonitoringTamu.TabIndex = 4;
-            this.panelMonitoringTamu.Click += new System.EventHandler(this.panelMonitoringTamu_Click);
             // 
             // panelMonitorTamuh
             // 
@@ -1696,10 +1796,115 @@
             this.panelMonitorTamuh.Controls.Add(this.pictureBox10);
             this.panelMonitorTamuh.Controls.Add(this.label70);
             this.panelMonitorTamuh.Controls.Add(this.label71);
-            this.panelMonitorTamuh.Location = new System.Drawing.Point(230, 13);
+            this.panelMonitorTamuh.Location = new System.Drawing.Point(1611, 388);
             this.panelMonitorTamuh.Name = "panelMonitorTamuh";
-            this.panelMonitorTamuh.Size = new System.Drawing.Size(1146, 468);
+            this.panelMonitorTamuh.Size = new System.Drawing.Size(301, 186);
             this.panelMonitorTamuh.TabIndex = 7;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.IndianRed;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(22, 428);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(1106, 28);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "Check-out Tamu";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(578, 102);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.RowTemplate.Height = 24;
+            this.dataGridView4.Size = new System.Drawing.Size(550, 306);
+            this.dataGridView4.TabIndex = 31;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.button7);
+            this.panel8.Controls.Add(this.textBox9);
+            this.panel8.Controls.Add(this.label74);
+            this.panel8.Controls.Add(this.comboBox3);
+            this.panel8.Controls.Add(this.label73);
+            this.panel8.Controls.Add(this.pictureBox11);
+            this.panel8.Controls.Add(this.label72);
+            this.panel8.Location = new System.Drawing.Point(22, 102);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(550, 306);
+            this.panel8.TabIndex = 30;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.SystemColors.Info;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(61, 243);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(439, 28);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Check-in Tamu";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(62, 186);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(438, 22);
+            this.textBox9.TabIndex = 5;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label74.Location = new System.Drawing.Point(64, 162);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(95, 20);
+            this.label74.TabIndex = 4;
+            this.label74.Text = "Nama Tamu";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.ItemHeight = 16;
+            this.comboBox3.Location = new System.Drawing.Point(61, 102);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(439, 24);
+            this.comboBox3.TabIndex = 3;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label73.Location = new System.Drawing.Point(57, 78);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(111, 20);
+            this.label73.TabIndex = 2;
+            this.label73.Text = "Pilih Penghuni";
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(58, 23);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(34, 24);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 1;
+            this.pictureBox11.TabStop = false;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.Location = new System.Drawing.Point(85, 22);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(203, 25);
+            this.label72.TabIndex = 0;
+            this.label72.Text = "Registrasi Tamu Baru";
             // 
             // label68
             // 
@@ -1754,120 +1959,25 @@
             this.label71.TabIndex = 25;
             this.label71.Text = "Monitoring Tamu";
             // 
-            // panel8
+            // checkBox2
             // 
-            this.panel8.Controls.Add(this.button7);
-            this.panel8.Controls.Add(this.textBox9);
-            this.panel8.Controls.Add(this.label74);
-            this.panel8.Controls.Add(this.comboBox3);
-            this.panel8.Controls.Add(this.label73);
-            this.panel8.Controls.Add(this.pictureBox11);
-            this.panel8.Controls.Add(this.label72);
-            this.panel8.Location = new System.Drawing.Point(22, 102);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(550, 306);
-            this.panel8.TabIndex = 30;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(330, 93);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(36, 20);
+            this.checkBox2.TabIndex = 25;
+            this.checkBox2.Text = "1";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // checkBox4
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(578, 102);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersWidth = 51;
-            this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(550, 306);
-            this.dataGridView4.TabIndex = 31;
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.Location = new System.Drawing.Point(85, 22);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(203, 25);
-            this.label72.TabIndex = 0;
-            this.label72.Text = "Registrasi Tamu Baru";
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(58, 23);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(34, 24);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 1;
-            this.pictureBox11.TabStop = false;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label73.Location = new System.Drawing.Point(57, 78);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(111, 20);
-            this.label73.TabIndex = 2;
-            this.label73.Text = "Pilih Penghuni";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.ItemHeight = 16;
-            this.comboBox3.Location = new System.Drawing.Point(61, 102);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(439, 24);
-            this.comboBox3.TabIndex = 3;
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label74.Location = new System.Drawing.Point(64, 162);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(95, 20);
-            this.label74.TabIndex = 4;
-            this.label74.Text = "Nama Tamu";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(62, 186);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(438, 22);
-            this.textBox9.TabIndex = 5;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.SystemColors.Info;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(61, 243);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(439, 28);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Check-in Tamu";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.IndianRed;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(22, 428);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(1106, 28);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Check-out Tamu";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(33, 10);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(35, 33);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 1;
-            this.pictureBox12.TabStop = false;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(372, 93);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(36, 20);
+            this.checkBox4.TabIndex = 26;
+            this.checkBox4.Text = "2";
+            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // FormAdmin2
             // 
@@ -1886,16 +1996,26 @@
             this.Text = "FormAdmin2";
             this.Load += new System.EventHandler(this.FormAdmin2_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMonitoringTamu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPenghuniDanTagihan)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLaporan)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOverview)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFillRoom)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).EndInit();
             this.panelManage.ResumeLayout(false);
             this.panelManage.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1909,7 +2029,6 @@
             this.panelFill.ResumeLayout(false);
             this.panelFill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1935,18 +2054,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panelPenghunidanTagihan.ResumeLayout(false);
             this.panelPenghunidanTagihan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.panelMonitoringTamu.ResumeLayout(false);
-            this.panelMonitoringTamu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panelMonitorTamuh.ResumeLayout(false);
             this.panelMonitorTamuh.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2010,7 +2126,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label32;
@@ -2081,8 +2196,6 @@
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Panel panelMonitoringTamu;
-        private System.Windows.Forms.Label labelMonitoringTamu;
         private System.Windows.Forms.Panel panelMonitorTamuh;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.Panel panel8;
@@ -2099,6 +2212,17 @@
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBoxOverview;
+        private System.Windows.Forms.PictureBox pictureBoxFillRoom;
+        private System.Windows.Forms.PictureBox pictureBoxManageRooms;
+        private System.Windows.Forms.PictureBox pictureBoxLaporan;
+        private System.Windows.Forms.PictureBox pictureBoxPenghuniDanTagihan;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.PictureBox pictureBoxMonitoringTamu;
+        private System.Windows.Forms.Label labelMonitoringTamu;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }
