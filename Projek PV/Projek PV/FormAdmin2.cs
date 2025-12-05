@@ -75,7 +75,7 @@ namespace Projek_PV
             panelLaporan.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelManage.Location = new Point(230, 2);
+            panelManage.Location = new Point(230, 2+50);
             panelManage.Size = new Size(1000, 600);
         }
         private void labelManageRoom_Click(object sender, EventArgs e)

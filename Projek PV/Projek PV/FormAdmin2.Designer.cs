@@ -149,9 +149,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panelMonitorTamuh = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
@@ -167,9 +164,9 @@
             this.label69 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.lblHeader = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblHeader = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelBtnMonitoring.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMonitoringTamu)).BeginInit();
@@ -208,7 +205,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelPenghunidanTagihan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panelMonitorTamuh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.panel8.SuspendLayout();
@@ -761,7 +757,7 @@
             this.panelFill.Controls.Add(this.label29);
             this.panelFill.Controls.Add(this.groupBox4);
             this.panelFill.Controls.Add(this.groupBox3);
-            this.panelFill.Location = new System.Drawing.Point(2143, 284);
+            this.panelFill.Location = new System.Drawing.Point(2143, 440);
             this.panelFill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelFill.Name = "panelFill";
             this.panelFill.Size = new System.Drawing.Size(408, 247);
@@ -1284,7 +1280,7 @@
             this.panelOverview.Controls.Add(this.panel11);
             this.panelOverview.Controls.Add(this.panel10);
             this.panelOverview.Controls.Add(this.panel9);
-            this.panelOverview.Location = new System.Drawing.Point(2171, 28);
+            this.panelOverview.Location = new System.Drawing.Point(1775, 306);
             this.panelOverview.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelOverview.Name = "panelOverview";
             this.panelOverview.Size = new System.Drawing.Size(348, 247);
@@ -1565,13 +1561,10 @@
             this.panelPenghunidanTagihan.Controls.Add(this.button6);
             this.panelPenghunidanTagihan.Controls.Add(this.button5);
             this.panelPenghunidanTagihan.Controls.Add(this.dataGridView3);
-            this.panelPenghunidanTagihan.Controls.Add(this.label66);
-            this.panelPenghunidanTagihan.Controls.Add(this.label67);
-            this.panelPenghunidanTagihan.Controls.Add(this.pictureBox9);
-            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1868, 1062);
+            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(917, 824);
             this.panelPenghunidanTagihan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelPenghunidanTagihan.Name = "panelPenghunidanTagihan";
-            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(284, 345);
+            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(1447, 643);
             this.panelPenghunidanTagihan.TabIndex = 6;
             // 
             // button6
@@ -1606,40 +1599,6 @@
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(1260, 464);
             this.dataGridView3.TabIndex = 34;
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label66.Location = new System.Drawing.Point(1150, 65);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(69, 21);
-            this.label66.TabIndex = 33;
-            this.label66.Text = "• online";
-            this.label66.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(1136, 35);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(83, 30);
-            this.label67.TabIndex = 32;
-            this.label67.Text = "Admin";
-            this.label67.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(1220, 34);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(64, 60);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 31;
-            this.pictureBox9.TabStop = false;
             // 
             // panelMonitorTamuh
             // 
@@ -1811,26 +1770,6 @@
             this.panelHeader.Size = new System.Drawing.Size(1351, 100);
             this.panelHeader.TabIndex = 8;
             // 
-            // lblHeader
-            // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(32, 23);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(235, 52);
-            this.lblHeader.TabIndex = 0;
-            this.lblHeader.Text = "Main Page";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1105, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 22);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Admin1";
-            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.Gray;
@@ -1842,6 +1781,26 @@
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1105, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 22);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Admin1";
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(32, 23);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(235, 52);
+            this.lblHeader.TabIndex = 0;
+            this.lblHeader.Text = "Main Page";
             // 
             // FormAdmin2
             // 
@@ -1917,9 +1876,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panelPenghunidanTagihan.ResumeLayout(false);
-            this.panelPenghunidanTagihan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panelMonitorTamuh.ResumeLayout(false);
             this.panelMonitorTamuh.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -2037,9 +1994,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Panel panelMonitorTamuh;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.Panel panel8;
