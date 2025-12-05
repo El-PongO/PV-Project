@@ -30,41 +30,42 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin2));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.panelBtnMonitoring = new System.Windows.Forms.Panel();
             this.labelMonitoringTamu = new System.Windows.Forms.Label();
             this.pictureBoxMonitoringTamu = new System.Windows.Forms.PictureBox();
             this.label75 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panelBtnPenghuni = new System.Windows.Forms.Panel();
             this.pictureBoxPenghuniDanTagihan = new System.Windows.Forms.PictureBox();
             this.labelPenghuniDanTagihan = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelBtnLaporan = new System.Windows.Forms.Panel();
             this.pictureBoxLaporan = new System.Windows.Forms.PictureBox();
             this.labelLaporan = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelBtnOverview = new System.Windows.Forms.Panel();
             this.pictureBoxOverview = new System.Windows.Forms.PictureBox();
             this.labelOverview = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelBtnFill = new System.Windows.Forms.Panel();
             this.pictureBoxFillRoom = new System.Windows.Forms.PictureBox();
             this.labelFillRoom = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelBtnManage = new System.Windows.Forms.Panel();
             this.pictureBoxManageRooms = new System.Windows.Forms.PictureBox();
             this.labelManageRoom = new System.Windows.Forms.Label();
             this.panelManage = new System.Windows.Forms.Panel();
+            this.gbRoomInfo = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblRentDue = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblSince = new System.Windows.Forms.Label();
-            this.lblDuration = new System.Windows.Forms.Label();
-            this.btnSendReminder = new System.Windows.Forms.Button();
             this.btnExtend = new System.Windows.Forms.Button();
+            this.lblRentDue = new System.Windows.Forms.Label();
             this.btnUnoccupy = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSendReminder = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.lblSince = new System.Windows.Forms.Label();
+            this.gbOccupant2 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.gbOccupant1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -77,9 +78,7 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label56 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label57 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -124,8 +123,6 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label39 = new System.Windows.Forms.Label();
@@ -148,16 +145,12 @@
             this.label62 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
             this.panelPenghunidanTagihan = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label66 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panelMonitorTamuh = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
@@ -173,30 +166,27 @@
             this.label68 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.gbRoomInfo = new System.Windows.Forms.GroupBox();
-            this.gbOccupant2 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.panelBtnMonitoring.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMonitoringTamu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            this.panel7.SuspendLayout();
+            this.panelBtnPenghuni.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPenghuniDanTagihan)).BeginInit();
-            this.panel6.SuspendLayout();
+            this.panelBtnLaporan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLaporan)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.panelBtnOverview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOverview)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.panelBtnFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFillRoom)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.panelBtnManage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).BeginInit();
             this.panelManage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.gbRoomInfo.SuspendLayout();
+            this.gbOccupant2.SuspendLayout();
             this.gbOccupant1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).BeginInit();
             this.panelFill.SuspendLayout();
@@ -224,38 +214,37 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            this.gbRoomInfo.SuspendLayout();
-            this.gbOccupant2.SuspendLayout();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.panel13);
+            this.panel1.Controls.Add(this.panelBtnMonitoring);
             this.panel1.Controls.Add(this.label75);
             this.panel1.Controls.Add(this.pictureBox18);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panelBtnPenghuni);
+            this.panel1.Controls.Add(this.panelBtnLaporan);
+            this.panel1.Controls.Add(this.panelBtnOverview);
+            this.panel1.Controls.Add(this.panelBtnFill);
+            this.panel1.Controls.Add(this.panelBtnManage);
             this.panel1.Location = new System.Drawing.Point(1, -1);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(336, 1246);
             this.panel1.TabIndex = 0;
             // 
-            // panel13
+            // panelBtnMonitoring
             // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel13.Controls.Add(this.labelMonitoringTamu);
-            this.panel13.Controls.Add(this.pictureBoxMonitoringTamu);
-            this.panel13.Location = new System.Drawing.Point(0, 475);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(332, 68);
-            this.panel13.TabIndex = 6;
-            this.panel13.Click += new System.EventHandler(this.panelMonitoringTamu_Click);
+            this.panelBtnMonitoring.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnMonitoring.Controls.Add(this.labelMonitoringTamu);
+            this.panelBtnMonitoring.Controls.Add(this.pictureBoxMonitoringTamu);
+            this.panelBtnMonitoring.Location = new System.Drawing.Point(0, 475);
+            this.panelBtnMonitoring.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelBtnMonitoring.Name = "panelBtnMonitoring";
+            this.panelBtnMonitoring.Size = new System.Drawing.Size(332, 68);
+            this.panelBtnMonitoring.TabIndex = 6;
+            this.panelBtnMonitoring.Click += new System.EventHandler(this.panelMonitoringTamu_Click);
             // 
             // labelMonitoringTamu
             // 
@@ -304,17 +293,17 @@
             this.pictureBox18.TabIndex = 5;
             this.pictureBox18.TabStop = false;
             // 
-            // panel7
+            // panelBtnPenghuni
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel7.Controls.Add(this.pictureBoxPenghuniDanTagihan);
-            this.panel7.Controls.Add(this.labelPenghuniDanTagihan);
-            this.panel7.Location = new System.Drawing.Point(0, 402);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(332, 68);
-            this.panel7.TabIndex = 3;
-            this.panel7.Click += new System.EventHandler(this.panelPenghuniDanTagihan_Click);
+            this.panelBtnPenghuni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnPenghuni.Controls.Add(this.pictureBoxPenghuniDanTagihan);
+            this.panelBtnPenghuni.Controls.Add(this.labelPenghuniDanTagihan);
+            this.panelBtnPenghuni.Location = new System.Drawing.Point(0, 402);
+            this.panelBtnPenghuni.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelBtnPenghuni.Name = "panelBtnPenghuni";
+            this.panelBtnPenghuni.Size = new System.Drawing.Size(332, 68);
+            this.panelBtnPenghuni.TabIndex = 3;
+            this.panelBtnPenghuni.Click += new System.EventHandler(this.panelPenghuniDanTagihan_Click);
             // 
             // pictureBoxPenghuniDanTagihan
             // 
@@ -341,17 +330,17 @@
             this.labelPenghuniDanTagihan.Text = "Penghuni dan Tagihan";
             this.labelPenghuniDanTagihan.Click += new System.EventHandler(this.labelPenghuniDanTagihan_Click);
             // 
-            // panel6
+            // panelBtnLaporan
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel6.Controls.Add(this.pictureBoxLaporan);
-            this.panel6.Controls.Add(this.labelLaporan);
-            this.panel6.Location = new System.Drawing.Point(0, 330);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(332, 68);
-            this.panel6.TabIndex = 2;
-            this.panel6.Click += new System.EventHandler(this.panelLaporan_Click);
+            this.panelBtnLaporan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnLaporan.Controls.Add(this.pictureBoxLaporan);
+            this.panelBtnLaporan.Controls.Add(this.labelLaporan);
+            this.panelBtnLaporan.Location = new System.Drawing.Point(0, 330);
+            this.panelBtnLaporan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelBtnLaporan.Name = "panelBtnLaporan";
+            this.panelBtnLaporan.Size = new System.Drawing.Size(332, 68);
+            this.panelBtnLaporan.TabIndex = 2;
+            this.panelBtnLaporan.Click += new System.EventHandler(this.panelLaporan_Click);
             // 
             // pictureBoxLaporan
             // 
@@ -378,17 +367,17 @@
             this.labelLaporan.Text = "Laporan ";
             this.labelLaporan.Click += new System.EventHandler(this.labelLaporan_Click);
             // 
-            // panel4
+            // panelBtnOverview
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel4.Controls.Add(this.pictureBoxOverview);
-            this.panel4.Controls.Add(this.labelOverview);
-            this.panel4.Location = new System.Drawing.Point(0, 114);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(332, 68);
-            this.panel4.TabIndex = 1;
-            this.panel4.Click += new System.EventHandler(this.panelOverView_Click);
+            this.panelBtnOverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnOverview.Controls.Add(this.pictureBoxOverview);
+            this.panelBtnOverview.Controls.Add(this.labelOverview);
+            this.panelBtnOverview.Location = new System.Drawing.Point(0, 114);
+            this.panelBtnOverview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelBtnOverview.Name = "panelBtnOverview";
+            this.panelBtnOverview.Size = new System.Drawing.Size(332, 68);
+            this.panelBtnOverview.TabIndex = 1;
+            this.panelBtnOverview.Click += new System.EventHandler(this.panelOverView_Click);
             // 
             // pictureBoxOverview
             // 
@@ -415,17 +404,17 @@
             this.labelOverview.Text = "Overview";
             this.labelOverview.Click += new System.EventHandler(this.labelOverview_Click);
             // 
-            // panel3
+            // panelBtnFill
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel3.Controls.Add(this.pictureBoxFillRoom);
-            this.panel3.Controls.Add(this.labelFillRoom);
-            this.panel3.Location = new System.Drawing.Point(0, 258);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(332, 68);
-            this.panel3.TabIndex = 1;
-            this.panel3.Click += new System.EventHandler(this.panelFillRoom_Click);
+            this.panelBtnFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnFill.Controls.Add(this.pictureBoxFillRoom);
+            this.panelBtnFill.Controls.Add(this.labelFillRoom);
+            this.panelBtnFill.Location = new System.Drawing.Point(0, 258);
+            this.panelBtnFill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelBtnFill.Name = "panelBtnFill";
+            this.panelBtnFill.Size = new System.Drawing.Size(332, 68);
+            this.panelBtnFill.TabIndex = 1;
+            this.panelBtnFill.Click += new System.EventHandler(this.panelFillRoom_Click);
             // 
             // pictureBoxFillRoom
             // 
@@ -452,17 +441,17 @@
             this.labelFillRoom.Text = "Fill Room";
             this.labelFillRoom.Click += new System.EventHandler(this.labelFillRoom_Click);
             // 
-            // panel2
+            // panelBtnManage
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.pictureBoxManageRooms);
-            this.panel2.Controls.Add(this.labelManageRoom);
-            this.panel2.Location = new System.Drawing.Point(0, 185);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(332, 68);
-            this.panel2.TabIndex = 0;
-            this.panel2.Click += new System.EventHandler(this.panelManageRoom_Click);
+            this.panelBtnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnManage.Controls.Add(this.pictureBoxManageRooms);
+            this.panelBtnManage.Controls.Add(this.labelManageRoom);
+            this.panelBtnManage.Location = new System.Drawing.Point(0, 185);
+            this.panelBtnManage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelBtnManage.Name = "panelBtnManage";
+            this.panelBtnManage.Size = new System.Drawing.Size(332, 68);
+            this.panelBtnManage.TabIndex = 0;
+            this.panelBtnManage.Click += new System.EventHandler(this.panelManageRoom_Click);
             // 
             // pictureBoxManageRooms
             // 
@@ -493,19 +482,32 @@
             // 
             this.panelManage.BackColor = System.Drawing.SystemColors.Control;
             this.panelManage.Controls.Add(this.gbRoomInfo);
-            this.panelManage.Controls.Add(this.label1);
-            this.panelManage.Controls.Add(this.label2);
-            this.panelManage.Controls.Add(this.pictureBox6);
-            this.panelManage.Controls.Add(this.label38);
-            this.panelManage.Controls.Add(this.label52);
             this.panelManage.Controls.Add(this.gbOccupant2);
             this.panelManage.Controls.Add(this.gbOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
-            this.panelManage.Location = new System.Drawing.Point(345, 34);
+            this.panelManage.Location = new System.Drawing.Point(345, 133);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelManage.Name = "panelManage";
-            this.panelManage.Size = new System.Drawing.Size(1336, 600);
+            this.panelManage.Size = new System.Drawing.Size(1350, 650);
             this.panelManage.TabIndex = 1;
+            // 
+            // gbRoomInfo
+            // 
+            this.gbRoomInfo.Controls.Add(this.label3);
+            this.gbRoomInfo.Controls.Add(this.btnExtend);
+            this.gbRoomInfo.Controls.Add(this.lblRentDue);
+            this.gbRoomInfo.Controls.Add(this.btnUnoccupy);
+            this.gbRoomInfo.Controls.Add(this.label4);
+            this.gbRoomInfo.Controls.Add(this.btnSendReminder);
+            this.gbRoomInfo.Controls.Add(this.label15);
+            this.gbRoomInfo.Controls.Add(this.lblDuration);
+            this.gbRoomInfo.Controls.Add(this.lblSince);
+            this.gbRoomInfo.Location = new System.Drawing.Point(457, 254);
+            this.gbRoomInfo.Name = "gbRoomInfo";
+            this.gbRoomInfo.Size = new System.Drawing.Size(854, 363);
+            this.gbRoomInfo.TabIndex = 10;
+            this.gbRoomInfo.TabStop = false;
+            this.gbRoomInfo.Text = "Room Information";
             // 
             // label3
             // 
@@ -518,76 +520,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Rent Due by";
             // 
-            // lblRentDue
-            // 
-            this.lblRentDue.AutoSize = true;
-            this.lblRentDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRentDue.ForeColor = System.Drawing.Color.Red;
-            this.lblRentDue.Location = new System.Drawing.Point(214, 44);
-            this.lblRentDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRentDue.Name = "lblRentDue";
-            this.lblRentDue.Size = new System.Drawing.Size(131, 29);
-            this.lblRentDue.TabIndex = 4;
-            this.lblRentDue.Text = "01/12/2022";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 82);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 29);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Duration of stay";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(32, 121);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(161, 29);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "Tentant Since";
-            this.label15.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // lblSince
-            // 
-            this.lblSince.AutoSize = true;
-            this.lblSince.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSince.Location = new System.Drawing.Point(214, 121);
-            this.lblSince.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSince.Name = "lblSince";
-            this.lblSince.Size = new System.Drawing.Size(131, 29);
-            this.lblSince.TabIndex = 4;
-            this.lblSince.Text = "06/04/2021";
-            this.lblSince.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // lblDuration
-            // 
-            this.lblDuration.AutoSize = true;
-            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuration.Location = new System.Drawing.Point(214, 82);
-            this.lblDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(110, 29);
-            this.lblDuration.TabIndex = 4;
-            this.lblDuration.Text = "6 Months";
-            this.lblDuration.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // btnSendReminder
-            // 
-            this.btnSendReminder.Location = new System.Drawing.Point(384, 40);
-            this.btnSendReminder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSendReminder.Name = "btnSendReminder";
-            this.btnSendReminder.Size = new System.Drawing.Size(166, 35);
-            this.btnSendReminder.TabIndex = 6;
-            this.btnSendReminder.Text = "Send Reminder";
-            this.btnSendReminder.UseVisualStyleBackColor = true;
-            // 
             // btnExtend
             // 
             this.btnExtend.BackColor = System.Drawing.Color.SkyBlue;
@@ -599,6 +531,18 @@
             this.btnExtend.TabIndex = 5;
             this.btnExtend.Text = "Extend Duration";
             this.btnExtend.UseVisualStyleBackColor = false;
+            // 
+            // lblRentDue
+            // 
+            this.lblRentDue.AutoSize = true;
+            this.lblRentDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRentDue.ForeColor = System.Drawing.Color.Red;
+            this.lblRentDue.Location = new System.Drawing.Point(214, 44);
+            this.lblRentDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRentDue.Name = "lblRentDue";
+            this.lblRentDue.Size = new System.Drawing.Size(131, 29);
+            this.lblRentDue.TabIndex = 4;
+            this.lblRentDue.Text = "01/12/2022";
             // 
             // btnUnoccupy
             // 
@@ -613,59 +557,119 @@
             this.btnUnoccupy.Text = "Unoccupy Room";
             this.btnUnoccupy.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label1.Location = new System.Drawing.Point(1174, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 21);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "• online";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(32, 82);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(177, 29);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Duration of stay";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label2
+            // btnSendReminder
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1161, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 30);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Admin";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnSendReminder.Location = new System.Drawing.Point(384, 40);
+            this.btnSendReminder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSendReminder.Name = "btnSendReminder";
+            this.btnSendReminder.Size = new System.Drawing.Size(166, 35);
+            this.btnSendReminder.TabIndex = 6;
+            this.btnSendReminder.Text = "Send Reminder";
+            this.btnSendReminder.UseVisualStyleBackColor = true;
             // 
-            // pictureBox6
+            // label15
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(1244, 12);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(64, 60);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 16;
-            this.pictureBox6.TabStop = false;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(32, 121);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(161, 29);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Tentant Since";
+            this.label15.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label38
+            // lblDuration
             // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(24, 59);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(235, 28);
-            this.label38.TabIndex = 15;
-            this.label38.Text = "Welcome back, admin";
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuration.Location = new System.Drawing.Point(214, 82);
+            this.lblDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(110, 29);
+            this.lblDuration.TabIndex = 4;
+            this.lblDuration.Text = "6 Months";
+            this.lblDuration.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label52
+            // lblSince
             // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(18, 12);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(278, 44);
-            this.label52.TabIndex = 14;
-            this.label52.Text = "Manage Rooms";
+            this.lblSince.AutoSize = true;
+            this.lblSince.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSince.Location = new System.Drawing.Point(214, 121);
+            this.lblSince.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSince.Name = "lblSince";
+            this.lblSince.Size = new System.Drawing.Size(131, 29);
+            this.lblSince.TabIndex = 4;
+            this.lblSince.Text = "06/04/2021";
+            this.lblSince.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // gbOccupant2
+            // 
+            this.gbOccupant2.Controls.Add(this.label9);
+            this.gbOccupant2.Controls.Add(this.label10);
+            this.gbOccupant2.Controls.Add(this.label11);
+            this.gbOccupant2.Controls.Add(this.label12);
+            this.gbOccupant2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.gbOccupant2.Location = new System.Drawing.Point(896, 30);
+            this.gbOccupant2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbOccupant2.Name = "gbOccupant2";
+            this.gbOccupant2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbOccupant2.Size = new System.Drawing.Size(415, 206);
+            this.gbOccupant2.TabIndex = 2;
+            this.gbOccupant2.TabStop = false;
+            this.gbOccupant2.Text = "Occupant 2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 122);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 20);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Gender:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 89);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(103, 20);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Date of Birth:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 62);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "no KTP:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 31);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "name:";
             // 
             // gbOccupant1
             // 
@@ -674,7 +678,7 @@
             this.gbOccupant1.Controls.Add(this.label6);
             this.gbOccupant1.Controls.Add(this.label5);
             this.gbOccupant1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.gbOccupant1.Location = new System.Drawing.Point(454, 109);
+            this.gbOccupant1.Location = new System.Drawing.Point(457, 30);
             this.gbOccupant1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbOccupant1.Name = "gbOccupant1";
             this.gbOccupant1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -726,7 +730,7 @@
             // dgvManage
             // 
             this.dgvManage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvManage.Location = new System.Drawing.Point(28, 109);
+            this.dgvManage.Location = new System.Drawing.Point(31, 30);
             this.dgvManage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvManage.Name = "dgvManage";
             this.dgvManage.RowHeadersWidth = 51;
@@ -742,9 +746,7 @@
             this.panelFill.Controls.Add(this.label58);
             this.panelFill.Controls.Add(this.label59);
             this.panelFill.Controls.Add(this.pictureBox7);
-            this.panelFill.Controls.Add(this.label56);
             this.panelFill.Controls.Add(this.checkBox1);
-            this.panelFill.Controls.Add(this.label57);
             this.panelFill.Controls.Add(this.button4);
             this.panelFill.Controls.Add(this.label35);
             this.panelFill.Controls.Add(this.label37);
@@ -821,16 +823,6 @@
             this.pictureBox7.TabIndex = 22;
             this.pictureBox7.TabStop = false;
             // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(34, 64);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(235, 28);
-            this.label56.TabIndex = 21;
-            this.label56.Text = "Welcome back, admin";
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -843,16 +835,6 @@
             this.checkBox1.TabIndex = 13;
             this.checkBox1.Text = "Confirm Data (TIDAK BISA KEMBALI)";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(28, 18);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(192, 44);
-            this.label57.TabIndex = 20;
-            this.label57.Text = "Fill Rooms";
             // 
             // button4
             // 
@@ -1298,8 +1280,6 @@
             this.panelOverview.Controls.Add(this.label51);
             this.panelOverview.Controls.Add(this.label50);
             this.panelOverview.Controls.Add(this.pictureBox1);
-            this.panelOverview.Controls.Add(this.label49);
-            this.panelOverview.Controls.Add(this.label48);
             this.panelOverview.Controls.Add(this.panel12);
             this.panelOverview.Controls.Add(this.panel11);
             this.panelOverview.Controls.Add(this.panel10);
@@ -1343,26 +1323,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(20, 68);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(235, 28);
-            this.label49.TabIndex = 10;
-            this.label49.Text = "Welcome back, admin";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(15, 21);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(365, 44);
-            this.label48.TabIndex = 9;
-            this.label48.Text = "Dashboard Overview";
             // 
             // panel12
             // 
@@ -1549,9 +1509,7 @@
             this.panelLaporan.Controls.Add(this.label62);
             this.panelLaporan.Controls.Add(this.label63);
             this.panelLaporan.Controls.Add(this.pictureBox8);
-            this.panelLaporan.Controls.Add(this.label64);
-            this.panelLaporan.Controls.Add(this.label65);
-            this.panelLaporan.Location = new System.Drawing.Point(1880, 748);
+            this.panelLaporan.Location = new System.Drawing.Point(1851, 452);
             this.panelLaporan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelLaporan.Name = "panelLaporan";
             this.panelLaporan.Size = new System.Drawing.Size(245, 308);
@@ -1602,35 +1560,13 @@
             this.pictureBox8.TabIndex = 27;
             this.pictureBox8.TabStop = false;
             // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.Location = new System.Drawing.Point(28, 66);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(235, 28);
-            this.label64.TabIndex = 26;
-            this.label64.Text = "Welcome back, admin";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.Location = new System.Drawing.Point(22, 20);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(323, 44);
-            this.label65.TabIndex = 25;
-            this.label65.Text = "Laporan Komplain";
-            // 
             // panelPenghunidanTagihan
             // 
             this.panelPenghunidanTagihan.Controls.Add(this.button6);
             this.panelPenghunidanTagihan.Controls.Add(this.button5);
             this.panelPenghunidanTagihan.Controls.Add(this.dataGridView3);
             this.panelPenghunidanTagihan.Controls.Add(this.label66);
-            this.panelPenghunidanTagihan.Controls.Add(this.label60);
             this.panelPenghunidanTagihan.Controls.Add(this.label67);
-            this.panelPenghunidanTagihan.Controls.Add(this.label61);
             this.panelPenghunidanTagihan.Controls.Add(this.pictureBox9);
             this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1868, 1062);
             this.panelPenghunidanTagihan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1683,16 +1619,6 @@
             this.label66.Text = "• online";
             this.label66.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(21, 65);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(235, 28);
-            this.label60.TabIndex = 32;
-            this.label60.Text = "Welcome back, admin";
-            // 
             // label67
             // 
             this.label67.AutoSize = true;
@@ -1703,16 +1629,6 @@
             this.label67.TabIndex = 32;
             this.label67.Text = "Admin";
             this.label67.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(16, 19);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(479, 44);
-            this.label61.TabIndex = 31;
-            this.label61.Text = "Data Penghuni dan Tagihan";
             // 
             // pictureBox9
             // 
@@ -1733,9 +1649,7 @@
             this.panelMonitorTamuh.Controls.Add(this.label68);
             this.panelMonitorTamuh.Controls.Add(this.label69);
             this.panelMonitorTamuh.Controls.Add(this.pictureBox10);
-            this.panelMonitorTamuh.Controls.Add(this.label70);
-            this.panelMonitorTamuh.Controls.Add(this.label71);
-            this.panelMonitorTamuh.Location = new System.Drawing.Point(2171, 567);
+            this.panelMonitorTamuh.Location = new System.Drawing.Point(1851, 43);
             this.panelMonitorTamuh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelMonitorTamuh.Name = "panelMonitorTamuh";
             this.panelMonitorTamuh.Size = new System.Drawing.Size(339, 232);
@@ -1887,99 +1801,47 @@
             this.pictureBox10.TabIndex = 27;
             this.pictureBox10.TabStop = false;
             // 
-            // label70
+            // panelHeader
             // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.Location = new System.Drawing.Point(20, 68);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(235, 28);
-            this.label70.TabIndex = 26;
-            this.label70.Text = "Welcome back, admin";
+            this.panelHeader.Controls.Add(this.btnLogout);
+            this.panelHeader.Controls.Add(this.label1);
+            this.panelHeader.Controls.Add(this.lblHeader);
+            this.panelHeader.Location = new System.Drawing.Point(344, 5);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1351, 100);
+            this.panelHeader.TabIndex = 8;
             // 
-            // label71
+            // lblHeader
             // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label71.Location = new System.Drawing.Point(15, 21);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(312, 44);
-            this.label71.TabIndex = 25;
-            this.label71.Text = "Monitoring Tamu";
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(32, 23);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(235, 52);
+            this.lblHeader.TabIndex = 0;
+            this.lblHeader.Text = "Main Page";
             // 
-            // gbRoomInfo
+            // label1
             // 
-            this.gbRoomInfo.Controls.Add(this.label3);
-            this.gbRoomInfo.Controls.Add(this.btnExtend);
-            this.gbRoomInfo.Controls.Add(this.lblRentDue);
-            this.gbRoomInfo.Controls.Add(this.btnUnoccupy);
-            this.gbRoomInfo.Controls.Add(this.label4);
-            this.gbRoomInfo.Controls.Add(this.btnSendReminder);
-            this.gbRoomInfo.Controls.Add(this.label15);
-            this.gbRoomInfo.Controls.Add(this.lblDuration);
-            this.gbRoomInfo.Controls.Add(this.lblSince);
-            this.gbRoomInfo.Location = new System.Drawing.Point(454, 333);
-            this.gbRoomInfo.Name = "gbRoomInfo";
-            this.gbRoomInfo.Size = new System.Drawing.Size(854, 363);
-            this.gbRoomInfo.TabIndex = 10;
-            this.gbRoomInfo.TabStop = false;
-            this.gbRoomInfo.Text = "Room Information";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1105, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 22);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Admin1";
             // 
-            // gbOccupant2
+            // btnLogout
             // 
-            this.gbOccupant2.Controls.Add(this.label9);
-            this.gbOccupant2.Controls.Add(this.label10);
-            this.gbOccupant2.Controls.Add(this.label11);
-            this.gbOccupant2.Controls.Add(this.label12);
-            this.gbOccupant2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.gbOccupant2.Location = new System.Drawing.Point(893, 116);
-            this.gbOccupant2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbOccupant2.Name = "gbOccupant2";
-            this.gbOccupant2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbOccupant2.Size = new System.Drawing.Size(415, 206);
-            this.gbOccupant2.TabIndex = 2;
-            this.gbOccupant2.TabStop = false;
-            this.gbOccupant2.Text = "Occupant 2";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 122);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 20);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Gender:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 89);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 20);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Date of Birth:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 62);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 20);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "no KTP:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 31);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "name:";
+            this.btnLogout.BackColor = System.Drawing.Color.Gray;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.ForeColor = System.Drawing.Color.Red;
+            this.btnLogout.Location = new System.Drawing.Point(1198, 30);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(114, 37);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "Log Out";
+            this.btnLogout.UseVisualStyleBackColor = false;
             // 
             // FormAdmin2
             // 
@@ -1987,6 +1849,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2564, 1570);
+            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelMonitorTamuh);
             this.Controls.Add(this.panelPenghunidanTagihan);
             this.Controls.Add(this.panelLaporan);
@@ -2000,28 +1863,30 @@
             this.Load += new System.EventHandler(this.FormAdmin2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
+            this.panelBtnMonitoring.ResumeLayout(false);
+            this.panelBtnMonitoring.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMonitoringTamu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.panelBtnPenghuni.ResumeLayout(false);
+            this.panelBtnPenghuni.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPenghuniDanTagihan)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.panelBtnLaporan.ResumeLayout(false);
+            this.panelBtnLaporan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLaporan)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panelBtnOverview.ResumeLayout(false);
+            this.panelBtnOverview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOverview)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelBtnFill.ResumeLayout(false);
+            this.panelBtnFill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFillRoom)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelBtnManage.ResumeLayout(false);
+            this.panelBtnManage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).EndInit();
             this.panelManage.ResumeLayout(false);
-            this.panelManage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.gbRoomInfo.ResumeLayout(false);
+            this.gbRoomInfo.PerformLayout();
+            this.gbOccupant2.ResumeLayout(false);
+            this.gbOccupant2.PerformLayout();
             this.gbOccupant1.ResumeLayout(false);
             this.gbOccupant1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).EndInit();
@@ -2062,10 +1927,8 @@
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            this.gbRoomInfo.ResumeLayout(false);
-            this.gbRoomInfo.PerformLayout();
-            this.gbOccupant2.ResumeLayout(false);
-            this.gbOccupant2.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2073,9 +1936,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelBtnFill;
         private System.Windows.Forms.Label labelFillRoom;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelBtnManage;
         private System.Windows.Forms.Label labelManageRoom;
         private System.Windows.Forms.Panel panelManage;
         private System.Windows.Forms.DataGridView dgvManage;
@@ -2135,12 +1998,10 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelBtnOverview;
         private System.Windows.Forms.Label labelOverview;
         private System.Windows.Forms.Panel panelOverview;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
@@ -2160,30 +2021,19 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelBtnLaporan;
         private System.Windows.Forms.Label labelLaporan;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panelBtnPenghuni;
         private System.Windows.Forms.Label labelPenghuniDanTagihan;
         private System.Windows.Forms.Panel panelLaporan;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label label65;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Panel panelPenghunidanTagihan;
-        private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView3;
@@ -2196,8 +2046,6 @@
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label74;
@@ -2215,7 +2063,7 @@
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.PictureBox pictureBoxMonitoringTamu;
         private System.Windows.Forms.Label labelMonitoringTamu;
-        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panelBtnMonitoring;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.GroupBox gbRoomInfo;
@@ -2224,5 +2072,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panelHeader;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

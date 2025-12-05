@@ -23,18 +23,18 @@ namespace Projek_PV
             panelOverview.Visible = true;
             panelOverview.Location = new Point(230, 2);
             panelOverview.Size = new Size(1000, 600);
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.Navy;
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
-            panel2.BringToFront();
-            panel3.BringToFront();
-            panel4.BringToFront();
-            panel6.BringToFront();
-            panel7.BringToFront();
-            panel13.BringToFront();
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.Navy;
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BringToFront();
+            panelBtnFill.BringToFront();
+            panelBtnOverview.BringToFront();
+            panelBtnLaporan.BringToFront();
+            panelBtnPenghuni.BringToFront();
+            panelBtnMonitoring.BringToFront();
 
 
             var roomTable = new DataTable();
@@ -63,12 +63,12 @@ namespace Projek_PV
 
         private void panelManageRoom_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.Navy;
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.Navy;
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = true;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -80,12 +80,12 @@ namespace Projek_PV
         }
         private void labelManageRoom_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.Navy;
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.Navy;
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = true;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -97,12 +97,12 @@ namespace Projek_PV
         }
         private void pictureBoxManageRooms_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.Navy;
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.Navy;
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = true;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -115,12 +115,12 @@ namespace Projek_PV
 
         private void panelFillRoom_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.Navy;
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.Navy;
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = true;
             panelOverview.Visible = false;
@@ -132,12 +132,12 @@ namespace Projek_PV
         }
         private void labelFillRoom_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.Navy;
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.Navy;
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = true;
             panelOverview.Visible = false;
@@ -149,12 +149,12 @@ namespace Projek_PV
         }
         private void pictureBoxFillRoom_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.Navy;
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.Navy;
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = true;
             panelOverview.Visible = false;
@@ -166,12 +166,12 @@ namespace Projek_PV
         }
         private void panelOverView_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.Navy;
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.Navy;
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = true;
@@ -183,12 +183,12 @@ namespace Projek_PV
         }
         private void labelOverview_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.Navy;
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.Navy;
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = true;
@@ -200,12 +200,12 @@ namespace Projek_PV
         }
         private void pictureBoxOverview_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.Navy;
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.Navy;
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = true;
@@ -217,12 +217,12 @@ namespace Projek_PV
         }
         private void panelLaporan_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.Navy;
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.Navy;
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -234,12 +234,12 @@ namespace Projek_PV
         }
         private void labelLaporan_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.Navy;
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.Navy;
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -251,12 +251,12 @@ namespace Projek_PV
         }
         private void pictureBoxLaporan_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.Navy;
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.Navy;
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -268,12 +268,12 @@ namespace Projek_PV
         }
         private void panelPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.Navy;
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.Navy;
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -285,12 +285,12 @@ namespace Projek_PV
         }
         private void labelPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.Navy;
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.Navy;
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -302,12 +302,12 @@ namespace Projek_PV
         }
         private void pictureBoxPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.Navy;
-            panel13.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.Navy;
+            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -319,12 +319,12 @@ namespace Projek_PV
         }
         private void panelMonitoringTamu_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.Navy;
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.Navy;
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -336,12 +336,12 @@ namespace Projek_PV
         }
         private void labelMonitoringTamu_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.Navy;
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.Navy;
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
@@ -353,12 +353,12 @@ namespace Projek_PV
         }
         private void pictureBoxMonitoringTamu_Click(object sender, EventArgs e)
         {
-            panel2.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel4.BackColor = Color.FromArgb(0, 0, 64);
-            panel6.BackColor = Color.FromArgb(0, 0, 64);
-            panel7.BackColor = Color.FromArgb(0, 0, 64);
-            panel13.BackColor = Color.Navy;
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnMonitoring.BackColor = Color.Navy;
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
