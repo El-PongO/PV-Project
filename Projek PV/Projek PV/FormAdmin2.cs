@@ -21,18 +21,18 @@ namespace Projek_PV
         {
             this.Size = new Size(1246, 900);
             panelOverview.Visible = true;
-            panelOverview.Location = new Point(230, 2);
-            panelOverview.Size = new Size(1000, 600);
+            panelOverview.Location = new Point(230, 2 + 70);
+            panelOverview.Size = new Size(932, 650);
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.Navy;
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnManage.BringToFront();
             panelBtnFill.BringToFront();
             panelBtnOverview.BringToFront();
-            panelBtnLaporan.BringToFront();
+            panelBtnNotification.BringToFront();
             panelBtnPenghuni.BringToFront();
             panelBtnMonitoring.BringToFront();
 
@@ -66,51 +66,51 @@ namespace Projek_PV
             panelBtnManage.BackColor = Color.Navy;
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = true;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelManage.Location = new Point(230, 2);
-            panelManage.Size = new Size(1000, 600);
+            panelManage.Location = new Point(230, 2 + 70 + 70);
+            panelManage.Size = new Size(932, 650);
         }
         private void labelManageRoom_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.Navy;
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = true;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelManage.Location = new Point(230, 2);
-            panelManage.Size = new Size(1000, 600);
+            panelManage.Location = new Point(230, 2 + 70);
+            panelManage.Size = new Size(932, 650);
         }
         private void pictureBoxManageRooms_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.Navy;
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = true;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelManage.Location = new Point(230, 2);
-            panelManage.Size = new Size(1000, 600);
+            panelManage.Location = new Point(230, 2 + 70);
+            panelManage.Size = new Size(932, 650);
         }
 
         private void panelFillRoom_Click(object sender, EventArgs e)
@@ -118,255 +118,255 @@ namespace Projek_PV
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.Navy;
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = true;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelFill.Location = new Point(230, 2);
-            panelFill.Size = new Size(1000, 600);
+            panelFill.Location = new Point(230, 2 + 70);
+            panelFill.Size = new Size(932, 650 + 400);
         }
         private void labelFillRoom_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.Navy;
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = true;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelFill.Location = new Point(230, 2);
-            panelFill.Size = new Size(1000, 600);
+            panelFill.Location = new Point(230, 2 + 70);
+            panelFill.Size = new Size(932, 650);
         }
         private void pictureBoxFillRoom_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.Navy;
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = true;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelFill.Location = new Point(230, 2);
-            panelFill.Size = new Size(1000, 600);
+            panelFill.Location = new Point(230, 2 + 70);
+            panelFill.Size = new Size(932, 650);
         }
         private void panelOverView_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.Navy;
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = true;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelOverview.Location = new Point(230, 2);
-            panelOverview.Size = new Size(1000, 600);
+            panelOverview.Location = new Point(230, 2 + 70);
+            panelOverview.Size = new Size(932, 650);
         }
         private void labelOverview_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.Navy;
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = true;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelOverview.Location = new Point(230, 2);
-            panelOverview.Size = new Size(1000, 600);
+            panelOverview.Location = new Point(230, 2 + 70);
+            panelOverview.Size = new Size(932, 650);
         }
         private void pictureBoxOverview_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.Navy;
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = true;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelOverview.Location = new Point(230, 2);
-            panelOverview.Size = new Size(1000, 600);
+            panelOverview.Location = new Point(230, 2 + 70);
+            panelOverview.Size = new Size(932, 650);
         }
         private void panelLaporan_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.Navy;
+            panelBtnNotification.BackColor = Color.Navy;
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = true;
+            panelNotification.Visible = true;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelLaporan.Location = new Point(230, 2);
-            panelLaporan.Size = new Size(1000, 600);
+            panelNotification.Location = new Point(230, 2 + 70);
+            panelNotification.Size = new Size(932, 650);
         }
         private void labelLaporan_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.Navy;
+            panelBtnNotification.BackColor = Color.Navy;
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = true;
+            panelNotification.Visible = true;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelLaporan.Location = new Point(230, 2);
-            panelLaporan.Size = new Size(1000, 600);
+            panelNotification.Location = new Point(230, 2 + 70);
+            panelNotification.Size = new Size(932, 650);
         }
         private void pictureBoxLaporan_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.Navy;
+            panelBtnNotification.BackColor = Color.Navy;
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = true;
+            panelNotification.Visible = true;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelLaporan.Location = new Point(230, 2);
-            panelLaporan.Size = new Size(1000, 600);
+            panelNotification.Location = new Point(230, 2 + 70);
+            panelNotification.Size = new Size(932, 650);
         }
         private void panelPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.Navy;
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = true;
-            panelPenghunidanTagihan.Location = new Point(230, 2);
-            panelPenghunidanTagihan.Size = new Size(1000, 600);
+            panelPenghunidanTagihan.Location = new Point(230, 2 + 70);
+            panelPenghunidanTagihan.Size = new Size(932, 650);
         }
         private void labelPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.Navy;
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = true;
-            panelPenghunidanTagihan.Location = new Point(230, 2);
-            panelPenghunidanTagihan.Size = new Size(1000, 600);
+            panelPenghunidanTagihan.Location = new Point(230, 2 + 70);
+            panelPenghunidanTagihan.Size = new Size(932, 650);
         }
         private void pictureBoxPenghuniDanTagihan_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.Navy;
             panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelMonitorTamuh.Visible = false;
             panelPenghunidanTagihan.Visible = true;
-            panelPenghunidanTagihan.Location = new Point(230, 2);
-            panelPenghunidanTagihan.Size = new Size(1000, 600);
+            panelPenghunidanTagihan.Location = new Point(230, 2 + 70);
+            panelPenghunidanTagihan.Size = new Size(932, 650);
         }
         private void panelMonitoringTamu_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.Navy;
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelMonitorTamuh.Visible = true;
-            panelMonitorTamuh.Location = new Point(230, 2);
-            panelMonitorTamuh.Size = new Size(1000, 600);
+            panelMonitorTamuh.Location = new Point(230, 2 + 70);
+            panelMonitorTamuh.Size = new Size(932, 650);
         }
         private void labelMonitoringTamu_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.Navy;
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelMonitorTamuh.Visible = true;
-            panelMonitorTamuh.Location = new Point(230, 2);
-            panelMonitorTamuh.Size = new Size(1000, 600);
+            panelMonitorTamuh.Location = new Point(230, 2 + 70);
+            panelMonitorTamuh.Size = new Size(932, 650);
         }
         private void pictureBoxMonitoringTamu_Click(object sender, EventArgs e)
         {
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnNotification.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnMonitoring.BackColor = Color.Navy;
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            panelNotification.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelMonitorTamuh.Visible = true;
-            panelMonitorTamuh.Location = new Point(230, 2);
-            panelMonitorTamuh.Size = new Size(1000, 600);
+            panelMonitorTamuh.Location = new Point(230, 2 + 70);
+            panelMonitorTamuh.Size = new Size(932, 650);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -380,6 +380,16 @@ namespace Projek_PV
 
         }
 
-        
+        private void cbOccupant2_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbOccupant2.Checked)
+            {
+                gbOccupant2.Enabled = true;
+            }
+            else
+            {
+                gbOccupant2.Enabled = false;
+            }
+        }
     }
 }
