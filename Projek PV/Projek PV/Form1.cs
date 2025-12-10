@@ -47,5 +47,11 @@ namespace Projek_PV
             FormAdmin2 formadmin = new FormAdmin2();
             formadmin.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormUser2 formm = new FormUser2();
+            formm.Show();
+        }
     }
 }
