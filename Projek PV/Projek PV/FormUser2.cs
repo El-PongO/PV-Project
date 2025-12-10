@@ -25,5 +25,10 @@ namespace Projek_PV
         {
 
         }
+        private void NavBarUser_Complaint(object sender, EventArgs e)
+        {
+            panelUserComplaint.Visible = true;
+        }
+
     }
 }

@@ -32,44 +32,67 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label75 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.panelBtnUserOverview = new System.Windows.Forms.Panel();
-            this.pictureBoxUserOverview = new System.Windows.Forms.PictureBox();
-            this.labelUserOverView = new System.Windows.Forms.Label();
+            this.panelBtnUserDashboard = new System.Windows.Forms.Panel();
+            this.pictureBoxUserDashboard = new System.Windows.Forms.PictureBox();
+            this.labelUserDashboard = new System.Windows.Forms.Label();
             this.panelBtnFill = new System.Windows.Forms.Panel();
             this.pictureBoxFillRoom = new System.Windows.Forms.PictureBox();
             this.labelUserLogout = new System.Windows.Forms.Label();
             this.panelBtnUserExtendDuration = new System.Windows.Forms.Panel();
             this.pictureBoxManageRooms = new System.Windows.Forms.PictureBox();
             this.labelUserExtendDuration = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelUserDashboard = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblText = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panelUserComplaint = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            this.panelBtnUserOverview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserOverview)).BeginInit();
+            this.panelBtnUserDashboard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserDashboard)).BeginInit();
             this.panelBtnFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFillRoom)).BeginInit();
             this.panelBtnUserExtendDuration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panelHeader.SuspendLayout();
+            this.panelUserDashboard.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panelHeader.SuspendLayout();
+            this.panelUserComplaint.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.label75);
             this.panel1.Controls.Add(this.pictureBox18);
-            this.panel1.Controls.Add(this.panelBtnUserOverview);
+            this.panel1.Controls.Add(this.panelBtnUserDashboard);
             this.panel1.Controls.Add(this.panelBtnFill);
             this.panel1.Controls.Add(this.panelBtnUserExtendDuration);
             this.panel1.Location = new System.Drawing.Point(2, 1);
@@ -99,41 +122,41 @@
             this.pictureBox18.TabIndex = 5;
             this.pictureBox18.TabStop = false;
             // 
-            // panelBtnUserOverview
+            // panelBtnUserDashboard
             // 
-            this.panelBtnUserOverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panelBtnUserOverview.Controls.Add(this.pictureBoxUserOverview);
-            this.panelBtnUserOverview.Controls.Add(this.labelUserOverView);
-            this.panelBtnUserOverview.Location = new System.Drawing.Point(0, 115);
-            this.panelBtnUserOverview.Margin = new System.Windows.Forms.Padding(4);
-            this.panelBtnUserOverview.Name = "panelBtnUserOverview";
-            this.panelBtnUserOverview.Size = new System.Drawing.Size(295, 54);
-            this.panelBtnUserOverview.TabIndex = 1;
-            this.panelBtnUserOverview.Click += new System.EventHandler(this.NavBarUser_Overview);
+            this.panelBtnUserDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnUserDashboard.Controls.Add(this.pictureBoxUserDashboard);
+            this.panelBtnUserDashboard.Controls.Add(this.labelUserDashboard);
+            this.panelBtnUserDashboard.Location = new System.Drawing.Point(0, 115);
+            this.panelBtnUserDashboard.Margin = new System.Windows.Forms.Padding(4);
+            this.panelBtnUserDashboard.Name = "panelBtnUserDashboard";
+            this.panelBtnUserDashboard.Size = new System.Drawing.Size(295, 54);
+            this.panelBtnUserDashboard.TabIndex = 1;
+            this.panelBtnUserDashboard.Click += new System.EventHandler(this.NavBarUser_Overview);
             // 
-            // pictureBoxUserOverview
+            // pictureBoxUserDashboard
             // 
-            this.pictureBoxUserOverview.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUserOverview.Image")));
-            this.pictureBoxUserOverview.Location = new System.Drawing.Point(12, 16);
-            this.pictureBoxUserOverview.Name = "pictureBoxUserOverview";
-            this.pictureBoxUserOverview.Size = new System.Drawing.Size(25, 25);
-            this.pictureBoxUserOverview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxUserOverview.TabIndex = 1;
-            this.pictureBoxUserOverview.TabStop = false;
-            this.pictureBoxUserOverview.Click += new System.EventHandler(this.NavBarUser_Overview);
+            this.pictureBoxUserDashboard.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUserDashboard.Image")));
+            this.pictureBoxUserDashboard.Location = new System.Drawing.Point(12, 16);
+            this.pictureBoxUserDashboard.Name = "pictureBoxUserDashboard";
+            this.pictureBoxUserDashboard.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxUserDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxUserDashboard.TabIndex = 1;
+            this.pictureBoxUserDashboard.TabStop = false;
+            this.pictureBoxUserDashboard.Click += new System.EventHandler(this.NavBarUser_Overview);
             // 
-            // labelUserOverView
+            // labelUserDashboard
             // 
-            this.labelUserOverView.AutoSize = true;
-            this.labelUserOverView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserOverView.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelUserOverView.Location = new System.Drawing.Point(39, 16);
-            this.labelUserOverView.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelUserOverView.Name = "labelUserOverView";
-            this.labelUserOverView.Size = new System.Drawing.Size(102, 25);
-            this.labelUserOverView.TabIndex = 0;
-            this.labelUserOverView.Text = "Overview";
-            this.labelUserOverView.Click += new System.EventHandler(this.NavBarUser_Overview);
+            this.labelUserDashboard.AutoSize = true;
+            this.labelUserDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserDashboard.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelUserDashboard.Location = new System.Drawing.Point(39, 16);
+            this.labelUserDashboard.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelUserDashboard.Name = "labelUserDashboard";
+            this.labelUserDashboard.Size = new System.Drawing.Size(117, 25);
+            this.labelUserDashboard.TabIndex = 0;
+            this.labelUserDashboard.Text = "Dashboard";
+            this.labelUserDashboard.Click += new System.EventHandler(this.NavBarUser_Overview);
             // 
             // panelBtnFill
             // 
@@ -204,14 +227,51 @@
             this.labelUserExtendDuration.Text = "Extend Duration";
             this.labelUserExtendDuration.Click += new System.EventHandler(this.NavBarUser_ExtendDuration);
             // 
-            // panel2
+            // panelUserDashboard
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.panelHeader);
-            this.panel2.Location = new System.Drawing.Point(309, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1209, 627);
-            this.panel2.TabIndex = 2;
+            this.panelUserDashboard.Controls.Add(this.panel3);
+            this.panelUserDashboard.Location = new System.Drawing.Point(84, 640);
+            this.panelUserDashboard.Name = "panelUserDashboard";
+            this.panelUserDashboard.Size = new System.Drawing.Size(165, 115);
+            this.panelUserDashboard.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(3, 87);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1201, 100);
+            this.panel3.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(869, 61);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 27);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "See Tagihan";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(67, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(219, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Anda Memiliki Tagihan belum lunas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(65, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(173, 29);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Status Tagihan";
             // 
             // panelHeader
             // 
@@ -219,10 +279,10 @@
             this.panelHeader.Controls.Add(this.btnLogout);
             this.panelHeader.Controls.Add(this.label1);
             this.panelHeader.Controls.Add(this.lblHeader);
-            this.panelHeader.Location = new System.Drawing.Point(3, 2);
+            this.panelHeader.Location = new System.Drawing.Point(306, 3);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1201, 80);
+            this.panelHeader.Size = new System.Drawing.Size(1211, 80);
             this.panelHeader.TabIndex = 9;
             // 
             // lblText
@@ -268,70 +328,204 @@
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Main Page";
             // 
-            // panel3
+            // panelUserComplaint
             // 
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(3, 87);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1201, 100);
-            this.panel3.TabIndex = 3;
+            this.panelUserComplaint.Controls.Add(this.panel5);
+            this.panelUserComplaint.Controls.Add(this.panel2);
+            this.panelUserComplaint.Location = new System.Drawing.Point(306, 88);
+            this.panelUserComplaint.Name = "panelUserComplaint";
+            this.panelUserComplaint.Size = new System.Drawing.Size(1211, 633);
+            this.panelUserComplaint.TabIndex = 4;
             // 
-            // button1
+            // panel4
             // 
-            this.button1.Location = new System.Drawing.Point(869, 61);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "See Tagihan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Location = new System.Drawing.Point(1, 231);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(295, 54);
+            this.panel4.TabIndex = 3;
+            this.panel4.Click += new System.EventHandler(this.NavBarUser_Complaint);
             // 
-            // label4
+            // pictureBox1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 61);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(219, 16);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Anda Memiliki Tagihan belum lunas";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.NavBarUser_Complaint);
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(65, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 29);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Status Tagihan";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(39, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(168, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "File a Complaint";
+            this.label2.Click += new System.EventHandler(this.NavBarUser_Complaint);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Location = new System.Drawing.Point(16, 28);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1171, 310);
+            this.panel2.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(27, 14);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(53, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(168, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Buat Laporan Baru";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(24, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 22);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Kategori";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(27, 86);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(1106, 24);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(24, 132);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 22);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Deskripsi Masalah";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(27, 162);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1106, 86);
+            this.textBox1.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.Control;
+            this.button2.Location = new System.Drawing.Point(28, 258);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(1105, 38);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Kirim Komplain";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.pictureBox3);
+            this.panel5.Location = new System.Drawing.Point(16, 344);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1171, 255);
+            this.panel5.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(53, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(144, 20);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "History Laporan";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(27, 14);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
             // 
             // FormUser2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1521, 636);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1521, 753);
+            this.Controls.Add(this.panelUserComplaint);
+            this.Controls.Add(this.panelUserDashboard);
+            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
             this.Name = "FormUser2";
             this.Text = "FormUser2";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            this.panelBtnUserOverview.ResumeLayout(false);
-            this.panelBtnUserOverview.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserOverview)).EndInit();
+            this.panelBtnUserDashboard.ResumeLayout(false);
+            this.panelBtnUserDashboard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserDashboard)).EndInit();
             this.panelBtnFill.ResumeLayout(false);
             this.panelBtnFill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFillRoom)).EndInit();
             this.panelBtnUserExtendDuration.ResumeLayout(false);
             this.panelBtnUserExtendDuration.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
+            this.panelUserDashboard.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
+            this.panelUserComplaint.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -341,16 +535,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.Panel panelBtnUserOverview;
-        private System.Windows.Forms.PictureBox pictureBoxUserOverview;
-        private System.Windows.Forms.Label labelUserOverView;
+        private System.Windows.Forms.Panel panelBtnUserDashboard;
+        private System.Windows.Forms.PictureBox pictureBoxUserDashboard;
+        private System.Windows.Forms.Label labelUserDashboard;
         private System.Windows.Forms.Panel panelBtnFill;
         private System.Windows.Forms.PictureBox pictureBoxFillRoom;
         private System.Windows.Forms.Label labelUserLogout;
         private System.Windows.Forms.Panel panelBtnUserExtendDuration;
         private System.Windows.Forms.PictureBox pictureBoxManageRooms;
         private System.Windows.Forms.Label labelUserExtendDuration;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelUserDashboard;
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label lblText;
         private System.Windows.Forms.Button btnLogout;
@@ -360,5 +554,20 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panelUserComplaint;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button2;
     }
 }
