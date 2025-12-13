@@ -20,27 +20,33 @@ namespace Projek_PV
             flowLayoutPanelKamar.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutPanelKamar.WrapContents = true;
             flowLayoutPanelKamar.AutoScroll = true;
+            flowLayoutPanelLaporan.AutoScroll = true;
+            panelFill.AutoScroll = true;
         }
 
         private void FormAdmin2_Load(object sender, EventArgs e)
         {
             this.Size = new Size(1246, 900);
+
             panelOverview.Visible = true;
-            panelOverview.Location = new Point(230, 2);
+            panelManage.Visible = false;
+            flowLayoutPanelLaporan.Visible = false;
+            panelFill.Visible = false;
+            panelPenghunidanTagihan.Visible = false;
+            flowLayoutPanelKamar.Visible = false;
+
+            panelOverview.Location = new Point(230, 82);
             panelOverview.Size = new Size(1000, 600);
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnOverview.BackColor = Color.Navy;
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnManage.BringToFront();
             panelBtnFill.BringToFront();
             panelBtnOverview.BringToFront();
             panelBtnLaporan.BringToFront();
             panelBtnPenghuni.BringToFront();
-            panelBtnMonitoring.BringToFront();
-
 
             var roomTable = new DataTable();
             roomTable.Columns.Add("RoomCode", typeof(string));
@@ -73,18 +79,25 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             // panel isinya
             panelManage.Visible = true;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
-            panelMonitorTamuh.Visible = false;
+            flowLayoutPanelLaporan.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
-            // ngeset
-            panelManage.Location = new Point(230, 82);
+
+            if (roundedPanelOccupant1.Visible != true)
+            {
+                roundedPanelOccupant2.Visible = true;
+            }
+            else
+            {
+                roundedPanelOccupant2.Visible = false;
+            }
+                // ngeset
+                panelManage.Location = new Point(230, 82);
             panelManage.Size = new Size(1000, 600);
             lblHeader.Text = "Manage Rooms";
         }
@@ -96,14 +109,12 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             // isinya panel
             panelManage.Visible = false;
             panelFill.Visible = true;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
-            panelMonitorTamuh.Visible = false;
+            flowLayoutPanelLaporan.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
             // nge set
@@ -119,14 +130,12 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.Navy;
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             // ini ngeset isinya panel
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = true;
-            panelLaporan.Visible = false;
-            panelMonitorTamuh.Visible = false;
+            flowLayoutPanelLaporan.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
             // nge set
@@ -142,20 +151,19 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnLaporan.BackColor = Color.Navy;
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             // ini isinya panel 
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = true;
-            panelMonitorTamuh.Visible = false;
+            flowLayoutPanelLaporan.Visible = true;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
             // nge set
-            panelLaporan.Location = new Point(230, 82);
-            panelLaporan.Size = new Size(1000, 600);
+            flowLayoutPanelLaporan.Location = new Point(230, 82);
+            flowLayoutPanelLaporan.Size = new Size(1000, 600);
             lblHeader.Text = "Laporan";
+            CreateComplaintCard();
         }
         private void NavBar_PenghuniDanTagihan_Click(object sender, EventArgs e)
         {
@@ -165,43 +173,18 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.Navy;
-            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             // ini isinya panel nanti
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
-            panelMonitorTamuh.Visible = false;
+            flowLayoutPanelLaporan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
             panelPenghunidanTagihan.Visible = true;
             // nge set
             panelPenghunidanTagihan.Location = new Point(230, 82);
             panelPenghunidanTagihan.Size = new Size(1000, 600);
             lblHeader.Text = "Penghuni dan Tagihan";
-        }
-        private void NavBar_MonitoringTamu_Click(object sender, EventArgs e)
-        {
-            //panel btn
-            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnMonitoring.BackColor = Color.Navy;
-            // nge set isi panelnya
-            panelManage.Visible = false;
-            panelFill.Visible = false;
-            panelOverview.Visible = false;
-            panelLaporan.Visible = false;
-            panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
-            panelMonitorTamuh.Visible = true;
-            // nge set
-            panelMonitorTamuh.Location = new Point(230, 82);
-            panelMonitorTamuh.Size = new Size(1000, 600);
-            lblHeader.Text = "Monitoring Tamu";
         }
         private void NavBar_Kamar_Click(object sender, EventArgs e)
         {
@@ -211,15 +194,13 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnMonitoring.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.Navy;
             // ini buat tampilin isi panelnya
             panelManage.Visible = false;
             panelFill.Visible = false;
             panelOverview.Visible = false;
-            panelLaporan.Visible = false;
+            flowLayoutPanelLaporan.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelMonitorTamuh.Visible = false;
             flowLayoutPanelKamar.Visible = true;
             // nge set
             flowLayoutPanelKamar.Location = new Point(230, 72);
@@ -230,12 +211,12 @@ namespace Projek_PV
         private void CreateRoomCard(DataRow row)
         {
             // MAIN CARD PANEL
-            Panel card = new Panel();
+            RoundedPanel card = new RoundedPanel();
             card.Width = 307;
             card.Height = 210;
-            card.BackColor = Color.White;
+            //card.BackColor = Color.White;
             card.Margin = new Padding(10);
-            card.BorderStyle = BorderStyle.FixedSingle;
+            card.BorderColor = SystemColors.Control;
 
             // ROOM NAME
             Label lblName = new Label();
@@ -292,16 +273,38 @@ namespace Projek_PV
 
             foreach (string f in facilities)
             {
-                Label chip = new Label();
-                chip.Text = f.Trim();
-                chip.BackColor = Color.Gainsboro;
-                chip.Padding = new Padding(6, 3, 6, 3);
-                chip.Margin = new Padding(3);
+                RoundedPanel chip = new RoundedPanel();
+                chip.BorderRadius = 8;
+                chip.BorderSize = 0;
+                chip.FillColor = Color.Gainsboro;
+                chip.Padding = new Padding(8, 4, 8, 4);
+                chip.Margin = new Padding(4);
                 chip.AutoSize = true;
+                chip.MinimumSize = new Size(30, 23);
+                chip.Padding = new Padding(8, 4, 8, 4);
+
+
+                // TEXT inside chip
+                Label lbl = new Label();
+                lbl.Text = f.Trim();
+                lbl.AutoSize = true;
+                lbl.BackColor = Color.Transparent;
+                lbl.Font = new Font("Segoe UI", 9);
+
+                chip.Controls.Add(lbl);
+
+                chip.SizeChanged += (s, e) =>
+                {
+                    lbl.Location = new Point(
+                        (chip.Width - lbl.Width) / 2,
+                        (chip.Height - lbl.Height) / 2
+                    );
+                };
 
                 facilitiesPanel.Controls.Add(chip);
                
             }
+
 
             card.Controls.Add(facilitiesPanel);
             card.AutoScroll = true;
@@ -365,6 +368,115 @@ namespace Projek_PV
             {
                 CreateRoomCard(row);
             }
+        }
+
+        private void CreateComplaintCard()
+        {
+            // MAIN CARD
+            RoundedPanel card = new RoundedPanel();
+            card.Width = 850;
+            card.Height = 210;
+            card.BorderRadius = 20;
+            card.BorderSize = 0;
+            card.FillColor = Color.White;
+            card.Margin = new Padding(15);
+
+            // TITLE
+            Label lblTitle = new Label();
+            lblTitle.Text = "Fasilitas";
+            lblTitle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            lblTitle.Location = new Point(20, 15);
+            lblTitle.AutoSize = true;
+            card.Controls.Add(lblTitle);
+
+            // SUBTITLE
+            Label lblSub = new Label();
+            lblSub.Text = "Budi Santoso · Kamar 101 · 2023-10-25";
+            lblSub.Font = new Font("Segoe UI", 9);
+            lblSub.ForeColor = Color.Gray;
+            lblSub.Location = new Point(20, 40);
+            lblSub.AutoSize = true;
+            card.Controls.Add(lblSub);
+
+            // STATUS (Rounded)
+            RoundedPanel statusPanel = new RoundedPanel();
+            statusPanel.Width = 120;
+            statusPanel.Height = 32;
+            statusPanel.BorderRadius = 12;
+            statusPanel.BorderSize = 0;
+            statusPanel.FillColor = Color.FromArgb(255, 220, 220);
+            statusPanel.Location = new Point(card.Width - 150, 20);
+
+            ComboBox cmbStatus = new ComboBox();
+            cmbStatus.Dock = DockStyle.Fill;
+            cmbStatus.FlatStyle = FlatStyle.Flat;
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStatus.Items.AddRange(new string[] { "Menunggu", "Diproses", "Selesai" });
+            cmbStatus.SelectedIndex = 0;
+            cmbStatus.BackColor = statusPanel.FillColor;
+            cmbStatus.ForeColor = Color.DarkRed;
+
+            statusPanel.Controls.Add(cmbStatus);
+            card.Controls.Add(statusPanel);
+
+            // MESSAGE BUBBLE
+            RoundedPanel msgPanel = new RoundedPanel();
+            msgPanel.Width = card.Width - 40;
+            msgPanel.Height = 45;
+            msgPanel.Location = new Point(20, 70);
+            msgPanel.BorderRadius = 12;
+            msgPanel.BorderSize = 0;
+            msgPanel.FillColor = Color.FromArgb(245, 245, 245);
+
+            Label lblMsg = new Label();
+            lblMsg.Text = "Kran air di kamar mandi bocor, tolong diperbaiki.";
+            lblMsg.Font = new Font("Segoe UI", 9);
+            lblMsg.ForeColor = Color.Black;
+            lblMsg.AutoSize = false;
+            lblMsg.Dock = DockStyle.Fill;
+            lblMsg.Padding = new Padding(10);
+
+            msgPanel.Controls.Add(lblMsg);
+            card.Controls.Add(msgPanel);
+
+            // REPLY BOX
+            RoundedPanel replyPanel = new RoundedPanel();
+            replyPanel.Width = card.Width - 80;
+            replyPanel.Height = 40;
+            replyPanel.Location = new Point(20, 130);
+            replyPanel.BorderRadius = 12;
+            replyPanel.BorderSize = 0;
+            replyPanel.FillColor = Color.FromArgb(50, 50, 50);
+
+            TextBox txtReply = new TextBox();
+            txtReply.BorderStyle = BorderStyle.None;
+            txtReply.Multiline = true;
+            txtReply.Dock = DockStyle.Fill;
+            txtReply.ForeColor = Color.White;
+            txtReply.BackColor = replyPanel.FillColor;
+            txtReply.Font = new Font("Segoe UI", 9);
+            txtReply.Text = "Balasan admin...";
+            txtReply.Padding = new Padding(8);
+
+            replyPanel.Controls.Add(txtReply);
+            card.Controls.Add(replyPanel);
+
+            // SEND BUTTON
+            Button btnSend = new Button();
+            btnSend.Text = "➤";
+            btnSend.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            btnSend.Width = 40;
+            btnSend.Height = 40;
+            btnSend.Location = new Point(card.Width - 50, 130);
+            btnSend.BackColor = Color.FromArgb(60, 120, 255);
+            btnSend.ForeColor = Color.White;
+            btnSend.FlatStyle = FlatStyle.Flat;
+            btnSend.FlatAppearance.BorderSize = 0;
+
+            card.Controls.Add(btnSend);
+
+            // ADD TO FORM OR FLOWLAYOUT
+            flowLayoutPanelLaporan.Controls.Add(card);
         }
 
 
