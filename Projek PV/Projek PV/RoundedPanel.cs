@@ -14,8 +14,10 @@ public class RoundedPanel : Panel
     private Color _borderColor = Color.Black;
     private Color _fillColor = Color.White;
 
+
     [Category("Appearance")]
     [DefaultValue(20)]
+    [Browsable(true)]
     public int BorderRadius
     {
         get => _borderRadius;
@@ -24,6 +26,7 @@ public class RoundedPanel : Panel
 
     [Category("Appearance")]
     [DefaultValue(1)]
+    [Browsable(true)]
     public int BorderSize
     {
         get => _borderSize;
@@ -31,6 +34,7 @@ public class RoundedPanel : Panel
     }
 
     [Category("Appearance")]
+    [Browsable(true)]
     public Color BorderColor
     {
         get => _borderColor;
@@ -38,11 +42,21 @@ public class RoundedPanel : Panel
     }
 
     [Category("Appearance")]
+    [Browsable(true)]
     public Color FillColor
     {
         get => _fillColor;
         set { _fillColor = value; Invalidate(); }
     }
+
+    public RoundedPanel()
+    {
+        SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+        BackColor = Color.Transparent;
+        DoubleBuffered = true;
+    }
+
+
 
     protected override void OnPaint(PaintEventArgs e)
     {
