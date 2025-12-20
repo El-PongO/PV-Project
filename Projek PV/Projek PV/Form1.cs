@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,8 @@ namespace Projek_PV
 {
     public partial class Form1 : Form
     {
+
+        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         public Form1()
         {
             InitializeComponent();
@@ -19,39 +23,77 @@ namespace Projek_PV
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(tbUsername.Text == "admin" && tbPassword.Text == "admin")
+
+
+            //INI DERILL DATABASE USAGE
+            if(tbUsername.Text =="" || tbPassword.Text =="")
             {
-                MessageBox.Show("Admin Detected!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                formAdmin formadmin = new formAdmin();
-                formadmin.Show();
+                MessageBox.Show("Please enter username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else if (tbUsername.Text == "user" && tbPassword.Text == "user")
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               formUser userForm = new formUser();  
-                userForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM users WHERE username = @user AND password = @pass";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@user", tbUsername.Text);
+                        cmd.Parameters.AddWithValue("@pass", tbPassword.Text);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+
+
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+                                int id = Convert.ToInt32(reader["user_id"]);
+                                string role = reader["role"].ToString();
+
+                                if (role == "admin")
+                                {
+                                    FormAdmin2 formadmin = new FormAdmin2();
+                                    formadmin.Show();
+
+                                }
+                                else
+                                {
+                                    FormUser2 formm = new FormUser2(id);
+                                    formm.Show();
+
+                                }
+
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("User not Found! Please check your username or password");
+                            }
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+
+
+
         }
+            }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FormAdmin2 formadmin = new FormAdmin2();
-            formadmin.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FormUser2 formm = new FormUser2();
-            formm.Show();
-        }
     }
 }
