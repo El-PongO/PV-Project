@@ -1,8 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,15 +15,17 @@ namespace Projek_PV
 {
     public partial class FormUser2 : Form
     {
+        Form1 login;
         int id_user;
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
 
-        public FormUser2(int id)
+        public FormUser2(int id, Form1 master)
         {
+            login = master;
             id_user = id;
             InitializeComponent();
 
-            
+
         }
         private void FormUser2_Load(object sender, EventArgs e)
         {
@@ -40,12 +44,16 @@ namespace Projek_PV
             panelBtnExtendDuration.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFileComplaint.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnDaftarTamu.BackColor = Color.FromArgb(0, 0, 64);
+            panel3.BackColor = Color.FromArgb(0, 0, 64);
+
 
             //panel isi
             panelUserDashboard.Visible = true;
             panelExtendDuration.Visible = false;
             panelUserComplaint.Visible = false;
             panelDaftarTamu.Visible = false;
+            panelTagihan.Visible = false;
+
 
             //ngeset
             panelUserDashboard.Location = new Point(230, 71);
@@ -63,12 +71,16 @@ namespace Projek_PV
             panelBtnExtendDuration.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFileComplaint.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnDaftarTamu.BackColor = Color.FromArgb(0, 0, 64);
+            panel3.BackColor = Color.FromArgb(0, 0, 64);
+
 
             //panel isi
             panelUserDashboard.Visible = true;
             panelExtendDuration.Visible = false;
             panelUserComplaint.Visible = false;
             panelDaftarTamu.Visible = false;
+            panelTagihan.Visible = false;
+
 
             //ngeset
             panelUserDashboard.Location = new Point(230, 71);
@@ -86,12 +98,16 @@ namespace Projek_PV
             panelBtnExtendDuration.BackColor = Color.Navy;
             panelBtnFileComplaint.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnDaftarTamu.BackColor = Color.FromArgb(0, 0, 64);
+            panel3.BackColor = Color.FromArgb(0, 0, 64);
+
 
             //panel isi
             panelUserDashboard.Visible = false;
             panelExtendDuration.Visible = true;
             panelUserComplaint.Visible = false;
             panelDaftarTamu.Visible = false;
+            panelTagihan.Visible = false;
+
 
             //ngeset
             panelExtendDuration.Location = new Point(230, 71);
@@ -105,12 +121,16 @@ namespace Projek_PV
             panelBtnExtendDuration.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFileComplaint.BackColor = Color.Navy;
             panelBtnDaftarTamu.BackColor = Color.FromArgb(0, 0, 64);
+            panel3.BackColor = Color.FromArgb(0, 0, 64);
+
 
             //panel isi
             panelUserDashboard.Visible = false;
             panelExtendDuration.Visible = false;
             panelUserComplaint.Visible = true;
             panelDaftarTamu.Visible = false;
+            panelTagihan.Visible = false;
+
 
             //ngeset
             panelUserComplaint.Location = new Point(230, 71);
@@ -124,17 +144,50 @@ namespace Projek_PV
             panelBtnExtendDuration.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFileComplaint.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnDaftarTamu.BackColor = Color.Navy;
+            panel3.BackColor = Color.FromArgb(0, 0, 64);
+
 
             //panel isi
             panelUserDashboard.Visible = false;
             panelExtendDuration.Visible = false;
             panelUserComplaint.Visible = false;
             panelDaftarTamu.Visible = true;
+            panelTagihan.Visible = false;
+
 
             //ngeset
             panelDaftarTamu.Location = new Point(230, 71);
             panelDaftarTamu.Size = new Size(1000, 470);
             lblTitleHeader.Text = "Daftar Tamu Kamar";
+        }
+
+
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            //panel btn
+            panelBtnDashboard.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtendDuration.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFileComplaint.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnDaftarTamu.BackColor = Color.FromArgb(0, 0, 64);
+            panel3.BackColor = Color.Navy;
+
+
+            //panel isi
+            panelUserDashboard.Visible = false;
+            panelExtendDuration.Visible = false;
+            panelUserComplaint.Visible = false;
+            panelDaftarTamu.Visible = false;
+            panelTagihan.Visible = true;
+
+            //ngeset
+            panelTagihan.Location = new Point(230, 71);
+            panelTagihan.Size = new Size(1000, 470);
+            lblTitleHeader.Text = "Daftar Tagihan";
+
+
+            //data
+            loadTagihan();
         }
 
         private void StyleDgvNotif()
@@ -183,8 +236,9 @@ namespace Projek_PV
                     connection.Open();
 
                     //load data umum user
-                    string query = "SELECT u.user_id, u.username, t.tenant_id, t.full_name, r.room_number, r.type AS room_type, r.price, l.lease_id, l.start_date, l.end_date AS jatuh_tempo, DATEDIFF(l.end_date, CURRENT_DATE()) AS sisa_hari, l.status AS status_sewa FROM users u JOIN tenants t ON u.user_id = t.user_id JOIN leases l ON t.tenant_id = l.tenant_id JOIN rooms r ON l.room_id = r.room_id WHERE l.status = 'Active' AND u.user_id = @user";
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection)){
+                    string query = "SELECT u.user_id, u.username, t.tenant_id, t.full_name, r.room_number, r.type AS room_type, l.lease_id, l.start_date, l.end_date AS jatuh_tempo, DATEDIFF(l.end_date, CURRENT_DATE()) AS sisa_hari, l.status AS status_sewa FROM users u JOIN tenants t ON u.user_id = t.user_id JOIN leases l ON t.tenant_id = l.tenant_id JOIN rooms r ON l.room_id = r.room_id WHERE l.status = 'Active' AND u.user_id = @user";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
                         cmd.Parameters.AddWithValue("@user", id_user);
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -192,7 +246,7 @@ namespace Projek_PV
                             if (reader.HasRows)
                             {
                                 reader.Read();
-                                lblDurasiPenempatan.Text = reader["sisa_hari"].ToString() + " days left";    
+                                lblDurasiPenempatan.Text = reader["sisa_hari"].ToString() + " days left";
                                 lblJatuhTempo.Text = reader["jatuh_tempo"].ToString();
                                 lblStatusPembayaran.Text = reader["status_sewa"].ToString();
                                 lblUserHeader.Text = reader["full_name"].ToString();
@@ -208,15 +262,17 @@ namespace Projek_PV
 
                     //load data pengumuman
                     StyleDgvNotif();
-                    query = "select title, content, created_at from announcements where is_active = 1";
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                    query = "SELECT title, content, created_at as time FROM announcements WHERE is_active = 1 UNION (SELECT CONCAT(\"Reply dari Complaints : \", category), admin_reply, reply_at as time FROM complaints WHERE tenant_id = @user AND admin_reply IS NOT NULL) order by time desc limit 10";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-                        dgvNotifikasiBaru.DataSource = dt;
+                        cmd.Parameters.AddWithValue("@user", id_user);
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dgvNotifikasiBaru.DataSource = dt;
+                        }
                     }
-                    
 
 
                 }
@@ -233,6 +289,213 @@ namespace Projek_PV
 
         }
 
+        private void btnSubmitComplaint_Click(object sender, EventArgs e)
+        {
+            if (comboKategoriComplaint.SelectedIndex < 0 || tbDeskripsiComplaint.Text == "")
+            {
+                MessageBox.Show("Isi complain dulu");
+            }
+            else
+            {
+                string query = "INSERT INTO complaints(tenant_id, category, DESCRIPTION) VALUES(@user, @cat, @desc);";
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@user", id_user);
+                        cmd.Parameters.AddWithValue("@cat", comboKategoriComplaint.Text);
+                        cmd.Parameters.AddWithValue("@desc", tbDeskripsiComplaint.Text);
 
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine("complen created successfully!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("complen failed.");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnDaftarkanTamu_Click(object sender, EventArgs e)
+        {
+            if (tbNamaTamu.Text == "" || dateTimeKunjunganTamu.Value < DateTime.Now || comboJamTamu.SelectedIndex < 0 || tbTujuanKunjungan.Text == "" || cbPersetujuan1.Checked == false || cbPersetujuan2.Checked == false)
+            {
+                MessageBox.Show("Isi data tamu dengan benar!");
+            }
+            else
+            {
+                string query = "INSERT INTO guest_logs(tenant_id, guest_name, visit_date, arrival_time, purpose) VALUES(@user, @name, @date, @time, @purpose);";
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@user", id_user);
+                        cmd.Parameters.AddWithValue("@name", tbNamaTamu.Text);
+                        cmd.Parameters.AddWithValue("@date", dateTimeKunjunganTamu.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@time", comboJamTamu.Text);
+                        cmd.Parameters.AddWithValue("@purpose", tbTujuanKunjungan.Text);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine("Tamu registered successfully!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tamu registration failed.");
+                        }
+                    }
+                }
+            }
+        }
+
+        void tagihanStyle()
+        {
+            // 1. GLOBAL SETTINGS
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(87, 216, 255);
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.EnableHeadersVisualStyles = false;
+
+            // 2. COLUMN HEADERS
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            dataGridView1.ColumnHeadersHeight = 50;
+
+            // 3. ROWS
+            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dataGridView1.DefaultCellStyle.Padding = new Padding(10, 0, 10, 0);
+            dataGridView1.RowTemplate.Height = 45;
+
+            // 4. BEHAVIOR
+            dataGridView1.ReadOnly = true;
+            // --- THIS LINE REMOVES THE EXTRA ROW ---
+            dataGridView1.AllowUserToAddRows = false;
+            // ---------------------------------------
+            dataGridView1.RowHeadersVisible = false; // Hides the gray selector column on the left
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // 5. ADD THE BUTTON COLUMN (If it doesn't exist yet)
+            if (!dataGridView1.Columns.Contains("btnAction"))
+            {
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                btn.HeaderText = "Action";
+                btn.Name = "btnAction";
+                btn.Text = "Action";
+                btn.UseColumnTextForButtonValue = false;
+                dataGridView1.Columns.Add(btn);
+            }
+        }
+
+        void loadTagihan()
+        {
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                try
+                {
+                    string query = "SELECT transaction_id ,transaction_date as date,category, description, amount, status FROM transactions WHERE lease_id IN (SELECT lease_id FROM leases WHERE tenant_id = 2)";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@user", id_user);
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                        }
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+
+
+
+            }
+
+            //hide si id
+            dataGridView1.Columns["transaction_id"].Visible = false;
+            tagihanStyle();
+
+
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "btnAction")
+            {
+                var row = dataGridView1.Rows[e.RowIndex];
+
+                if (row.Cells["status"].Value != null)
+                {
+                    string status = row.Cells["status"].Value.ToString();
+
+                    if (status == "Paid") 
+                    {
+                        e.Value = "See Invoice";
+                    }
+                    else
+                    {
+                        e.Value = "Go Pay";
+                    }
+                }
+            }
+        }
+
+        private void panelBtnLogout_Click(object sender, EventArgs e)
+        {
+            login.Show();
+            this.Close();
+        }
+
+        private void panelBtnLogout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // 1. Check if the click is on the Button Column
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "btnAction")
+            {
+                string status = dataGridView1.Rows[e.RowIndex].Cells["status"].Value.ToString();
+
+                string id = dataGridView1.Rows[e.RowIndex].Cells["transaction_id"].Value.ToString();
+
+                if (status == "Paid")
+                {
+                    //===============BUAT BUKA INVOICE DI SINI=================
+
+                }
+                else
+                {
+                    payment pay = new payment(Convert.ToInt32(id));
+                    pay.ShowDialog();
+                }
+            }
+        }
     }
 }

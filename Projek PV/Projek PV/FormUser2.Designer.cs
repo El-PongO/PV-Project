@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUser2));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.panelBtnDaftarTamu = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -98,8 +101,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panelExtendDuration = new System.Windows.Forms.Panel();
-            this.label29 = new System.Windows.Forms.Label();
-            this.dgvRiwayatPerpanjangan = new System.Windows.Forms.DataGridView();
             this.roundedPanel7 = new RoundedPanel();
             this.btnPerpanjang = new System.Windows.Forms.Button();
             this.comboMetodePembayaran = new System.Windows.Forms.ComboBox();
@@ -119,7 +120,11 @@
             this.lblNoKamar = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.panelTagihan = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panelBtnDaftarTamu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelBtnFileComplaint.SuspendLayout();
@@ -149,14 +154,16 @@
             this.panelDaftarTamu.SuspendLayout();
             this.roundedPanel8.SuspendLayout();
             this.panelExtendDuration.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRiwayatPerpanjangan)).BeginInit();
             this.roundedPanel7.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
+            this.panelTagihan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panelBtnDaftarTamu);
             this.panel1.Controls.Add(this.panelBtnFileComplaint);
             this.panel1.Controls.Add(this.label75);
@@ -169,6 +176,43 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(299, 663);
             this.panel1.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.pictureBox7);
+            this.panel3.Controls.Add(this.label43);
+            this.panel3.Location = new System.Drawing.Point(0, 352);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(295, 54);
+            this.panel3.TabIndex = 4;
+            this.panel3.Click += new System.EventHandler(this.panel3_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(12, 16);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 2;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.panel3_Click);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.SystemColors.Control;
+            this.label43.Location = new System.Drawing.Point(39, 16);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(155, 25);
+            this.label43.TabIndex = 0;
+            this.label43.Text = "Daftar Tagihan";
+            this.label43.Click += new System.EventHandler(this.panel3_Click);
             // 
             // panelBtnDaftarTamu
             // 
@@ -313,6 +357,8 @@
             this.panelBtnLogout.Name = "panelBtnLogout";
             this.panelBtnLogout.Size = new System.Drawing.Size(295, 54);
             this.panelBtnLogout.TabIndex = 1;
+            this.panelBtnLogout.Click += new System.EventHandler(this.panelBtnLogout_Click);
+            this.panelBtnLogout.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBtnLogout_Paint);
             // 
             // pictureBoxFillRoom
             // 
@@ -324,6 +370,7 @@
             this.pictureBoxFillRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFillRoom.TabIndex = 3;
             this.pictureBoxFillRoom.TabStop = false;
+            this.pictureBoxFillRoom.Click += new System.EventHandler(this.panelBtnLogout_Click);
             // 
             // labelUserLogout
             // 
@@ -336,6 +383,7 @@
             this.labelUserLogout.Size = new System.Drawing.Size(89, 25);
             this.labelUserLogout.TabIndex = 0;
             this.labelUserLogout.Text = "Log Out";
+            this.labelUserLogout.Click += new System.EventHandler(this.panelBtnLogout_Click);
             // 
             // panelBtnExtendDuration
             // 
@@ -382,10 +430,10 @@
             this.panelUserDashboard.Controls.Add(this.roundedPanel6);
             this.panelUserDashboard.Controls.Add(this.roundedPanel5);
             this.panelUserDashboard.Controls.Add(this.roundedPanel4);
-            this.panelUserDashboard.Location = new System.Drawing.Point(307, 87);
+            this.panelUserDashboard.Location = new System.Drawing.Point(841, 693);
             this.panelUserDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelUserDashboard.Name = "panelUserDashboard";
-            this.panelUserDashboard.Size = new System.Drawing.Size(1211, 579);
+            this.panelUserDashboard.Size = new System.Drawing.Size(199, 579);
             this.panelUserDashboard.TabIndex = 2;
             // 
             // roundedPanel9
@@ -669,10 +717,10 @@
             // 
             this.panelUserComplaint.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelUserComplaint.Controls.Add(this.roundedPanel2);
-            this.panelUserComplaint.Location = new System.Drawing.Point(546, 763);
+            this.panelUserComplaint.Location = new System.Drawing.Point(227, 733);
             this.panelUserComplaint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelUserComplaint.Name = "panelUserComplaint";
-            this.panelUserComplaint.Size = new System.Drawing.Size(170, 174);
+            this.panelUserComplaint.Size = new System.Drawing.Size(178, 101);
             this.panelUserComplaint.TabIndex = 4;
             // 
             // roundedPanel2
@@ -706,6 +754,7 @@
             this.btnSubmitComplaint.TabIndex = 6;
             this.btnSubmitComplaint.Text = "Kirim Komplain";
             this.btnSubmitComplaint.UseVisualStyleBackColor = false;
+            this.btnSubmitComplaint.Click += new System.EventHandler(this.btnSubmitComplaint_Click);
             // 
             // tbDeskripsiComplaint
             // 
@@ -787,10 +836,10 @@
             this.panelDaftarTamu.Controls.Add(this.label17);
             this.panelDaftarTamu.Controls.Add(this.roundedPanel8);
             this.panelDaftarTamu.Controls.Add(this.label9);
-            this.panelDaftarTamu.Location = new System.Drawing.Point(256, 777);
+            this.panelDaftarTamu.Location = new System.Drawing.Point(1185, 836);
             this.panelDaftarTamu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelDaftarTamu.Name = "panelDaftarTamu";
-            this.panelDaftarTamu.Size = new System.Drawing.Size(141, 108);
+            this.panelDaftarTamu.Size = new System.Drawing.Size(243, 69);
             this.panelDaftarTamu.TabIndex = 10;
             // 
             // label17
@@ -848,6 +897,7 @@
             this.btnDaftarkanTamu.TabIndex = 6;
             this.btnDaftarkanTamu.Text = "Daftarkan Tamu";
             this.btnDaftarkanTamu.UseVisualStyleBackColor = false;
+            this.btnDaftarkanTamu.Click += new System.EventHandler(this.btnDaftarkanTamu_Click);
             // 
             // cbPersetujuan2
             // 
@@ -974,36 +1024,13 @@
             // panelExtendDuration
             // 
             this.panelExtendDuration.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelExtendDuration.Controls.Add(this.label29);
-            this.panelExtendDuration.Controls.Add(this.dgvRiwayatPerpanjangan);
             this.panelExtendDuration.Controls.Add(this.roundedPanel7);
             this.panelExtendDuration.Controls.Add(this.roundedPanel1);
-            this.panelExtendDuration.Location = new System.Drawing.Point(149, 723);
+            this.panelExtendDuration.Location = new System.Drawing.Point(306, 88);
             this.panelExtendDuration.Margin = new System.Windows.Forms.Padding(4);
             this.panelExtendDuration.Name = "panelExtendDuration";
-            this.panelExtendDuration.Size = new System.Drawing.Size(86, 71);
+            this.panelExtendDuration.Size = new System.Drawing.Size(782, 553);
             this.panelExtendDuration.TabIndex = 11;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(691, 208);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(221, 25);
-            this.label29.TabIndex = 3;
-            this.label29.Text = "Riwayat Pembayaran:";
-            // 
-            // dgvRiwayatPerpanjangan
-            // 
-            this.dgvRiwayatPerpanjangan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRiwayatPerpanjangan.Location = new System.Drawing.Point(691, 254);
-            this.dgvRiwayatPerpanjangan.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvRiwayatPerpanjangan.Name = "dgvRiwayatPerpanjangan";
-            this.dgvRiwayatPerpanjangan.RowHeadersWidth = 51;
-            this.dgvRiwayatPerpanjangan.Size = new System.Drawing.Size(491, 249);
-            this.dgvRiwayatPerpanjangan.TabIndex = 2;
             // 
             // roundedPanel7
             // 
@@ -1019,7 +1046,7 @@
             this.roundedPanel7.Location = new System.Drawing.Point(21, 212);
             this.roundedPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel7.Name = "roundedPanel7";
-            this.roundedPanel7.Size = new System.Drawing.Size(643, 290);
+            this.roundedPanel7.Size = new System.Drawing.Size(1169, 290);
             this.roundedPanel7.TabIndex = 1;
             // 
             // btnPerpanjang
@@ -1226,11 +1253,34 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "Informasi Mata:";
             // 
+            // panelTagihan
+            // 
+            this.panelTagihan.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelTagihan.Controls.Add(this.dataGridView1);
+            this.panelTagihan.Location = new System.Drawing.Point(492, 882);
+            this.panelTagihan.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTagihan.Name = "panelTagihan";
+            this.panelTagihan.Size = new System.Drawing.Size(97, 165);
+            this.panelTagihan.TabIndex = 12;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 24);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1200, 510);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
             // FormUser2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1521, 1015);
+            this.Controls.Add(this.panelTagihan);
             this.Controls.Add(this.panelExtendDuration);
             this.Controls.Add(this.panelDaftarTamu);
             this.Controls.Add(this.panelUserComplaint);
@@ -1239,10 +1289,13 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormUser2";
-            this.Text = "FormUser2";
+            this.Text = "Daftar Tagihan";
             this.Load += new System.EventHandler(this.FormUser2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panelBtnDaftarTamu.ResumeLayout(false);
             this.panelBtnDaftarTamu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1287,12 +1340,12 @@
             this.roundedPanel8.ResumeLayout(false);
             this.roundedPanel8.PerformLayout();
             this.panelExtendDuration.ResumeLayout(false);
-            this.panelExtendDuration.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRiwayatPerpanjangan)).EndInit();
             this.roundedPanel7.ResumeLayout(false);
             this.roundedPanel7.PerformLayout();
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
+            this.panelTagihan.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1376,8 +1429,6 @@
         private System.Windows.Forms.ComboBox comboMetodePembayaran;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox comboDurasiPerpanjang;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.DataGridView dgvRiwayatPerpanjangan;
         private System.Windows.Forms.Button btnPerpanjang;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label lblVoucherAktif;
@@ -1389,5 +1440,10 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label27;
         private RoundedPanel roundedPanel9;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Panel panelTagihan;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

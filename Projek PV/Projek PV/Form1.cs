@@ -55,6 +55,9 @@ namespace Projek_PV
                                 int id = Convert.ToInt32(reader["user_id"]);
                                 string role = reader["role"].ToString();
 
+                                tbUsername.Text = "";
+                                tbPassword.Text = "";
+
                                 if (role == "admin")
                                 {
                                     FormAdmin2 formadmin = new FormAdmin2();
@@ -63,7 +66,7 @@ namespace Projek_PV
                                 }
                                 else
                                 {
-                                    FormUser2 formm = new FormUser2(id);
+                                    FormUser2 formm = new FormUser2(id, this);
                                     formm.Show();
 
                                 }
