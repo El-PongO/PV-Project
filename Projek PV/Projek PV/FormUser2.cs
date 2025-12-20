@@ -192,28 +192,28 @@ namespace Projek_PV
 
         private void StyleDgvNotif()
         {
-            // 1. Basic Behavior (Read-Only)
+            // read only setting
             dgvNotifikasiBaru.ReadOnly = true;
             dgvNotifikasiBaru.AllowUserToAddRows = false;
             dgvNotifikasiBaru.AllowUserToDeleteRows = false;
             dgvNotifikasiBaru.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNotifikasiBaru.MultiSelect = false;
 
-            // 2. Remove the "Spreadsheet" Look
+            // styling
             dgvNotifikasiBaru.RowHeadersVisible = false;
             dgvNotifikasiBaru.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvNotifikasiBaru.GridColor = Color.FromArgb(220, 220, 220);
             dgvNotifikasiBaru.BackgroundColor = Color.White;
             dgvNotifikasiBaru.BorderStyle = BorderStyle.None;
 
-            // 3. Text Formatting (Crucial for Announcements)
+            // text format
             dgvNotifikasiBaru.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dgvNotifikasiBaru.DefaultCellStyle.Padding = new Padding(10);
             dgvNotifikasiBaru.DefaultCellStyle.WrapMode = DataGridViewTriState.True; // WRAP TEXT
             dgvNotifikasiBaru.DefaultCellStyle.SelectionBackColor = Color.White; // Background stays White
             dgvNotifikasiBaru.DefaultCellStyle.SelectionForeColor = Color.Black; // Text stays Black
 
-            // 4. Header Styling
+            // header
             dgvNotifikasiBaru.EnableHeadersVisualStyles = false;
             dgvNotifikasiBaru.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvNotifikasiBaru.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
@@ -221,7 +221,7 @@ namespace Projek_PV
             dgvNotifikasiBaru.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
             dgvNotifikasiBaru.ColumnHeadersHeight = 40;
 
-            // 5. Auto-Sizing
+            // Auto size
             dgvNotifikasiBaru.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNotifikasiBaru.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
@@ -357,7 +357,7 @@ namespace Projek_PV
 
         void tagihanStyle()
         {
-            // 1. GLOBAL SETTINGS
+            // setting warna dkk
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -366,24 +366,22 @@ namespace Projek_PV
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.EnableHeadersVisualStyles = false;
 
-            // 2. COLUMN HEADERS
+            // header
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
             dataGridView1.ColumnHeadersHeight = 50;
 
-            // 3. ROWS
+            // row
             dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 10);
             dataGridView1.DefaultCellStyle.Padding = new Padding(10, 0, 10, 0);
             dataGridView1.RowTemplate.Height = 45;
 
-            // 4. BEHAVIOR
+            // behaviour
             dataGridView1.ReadOnly = true;
-            // --- THIS LINE REMOVES THE EXTRA ROW ---
             dataGridView1.AllowUserToAddRows = false;
-            // ---------------------------------------
-            dataGridView1.RowHeadersVisible = false; // Hides the gray selector column on the left
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -391,7 +389,7 @@ namespace Projek_PV
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            // 5. ADD THE BUTTON COLUMN (If it doesn't exist yet)
+            // nambah button kolom
             if (!dataGridView1.Columns.Contains("btnAction"))
             {
                 DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
@@ -478,7 +476,7 @@ namespace Projek_PV
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // 1. Check if the click is on the Button Column
+            //click di button
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "btnAction")
             {
                 string status = dataGridView1.Rows[e.RowIndex].Cells["status"].Value.ToString();
