@@ -38,7 +38,7 @@
     </Reference>
     <Reference Include="MySql.Data, Version=9.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Downloads\Minggu 5-20251023T062209Z-1-001\Minggu 5\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\SEM 3\PV\PRAKTIKUM\TUTORIAL\Minggu 5\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

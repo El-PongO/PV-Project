@@ -22,6 +22,7 @@ namespace Projek_PV
             flowLayoutPanelKamar.AutoScroll = true;
             flowLayoutPanelLaporan.AutoScroll = true;
             panelFill.AutoScroll = true;
+            flowLayoutPanelExtensions.AutoScroll = true;
         }
 
         private void FormAdmin2_Load(object sender, EventArgs e)
@@ -34,6 +35,8 @@ namespace Projek_PV
             panelFill.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
+            flowLayoutPanelExtensions.Visible = false;
+            panelListrik.Visible = true;
 
             panelOverview.Location = new Point(230, 82);
             panelOverview.Size = new Size(1000, 600);
@@ -42,11 +45,15 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.Navy;
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnManage.BringToFront();
             panelBtnFill.BringToFront();
             panelBtnOverview.BringToFront();
             panelBtnLaporan.BringToFront();
             panelBtnPenghuni.BringToFront();
+            panelBtnExtensions.BringToFront();
+            panelBtnListrik.BringToFront();
 
             var roomTable = new DataTable();
             roomTable.Columns.Add("RoomCode", typeof(string));
@@ -80,6 +87,8 @@ namespace Projek_PV
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             // panel isinya
             panelManage.Visible = true;
             panelFill.Visible = false;
@@ -87,6 +96,8 @@ namespace Projek_PV
             flowLayoutPanelLaporan.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
+            flowLayoutPanelExtensions.Visible = false;
+            panelListrik.Visible = false;
 
             if (roundedPanelOccupant1.Visible != true)
             {
@@ -110,6 +121,8 @@ namespace Projek_PV
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             // isinya panel
             panelManage.Visible = false;
             panelFill.Visible = true;
@@ -117,6 +130,8 @@ namespace Projek_PV
             flowLayoutPanelLaporan.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
+            flowLayoutPanelExtensions.Visible = false;
+            panelListrik.Visible = false;
             // nge set
             panelFill.Location = new Point(230, 82);
             panelFill.Size = new Size(1000, 600);
@@ -131,6 +146,8 @@ namespace Projek_PV
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             // ini ngeset isinya panel
             panelManage.Visible = false;
             panelFill.Visible = false;
@@ -138,6 +155,8 @@ namespace Projek_PV
             flowLayoutPanelLaporan.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
+            flowLayoutPanelExtensions.Visible = false;
+            panelListrik.Visible = false;
             // nge set
             panelOverview.Location = new Point(230, 82);
             panelOverview.Size = new Size(1000, 600);
@@ -152,6 +171,8 @@ namespace Projek_PV
             panelBtnLaporan.BackColor = Color.Navy;
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             // ini isinya panel 
             panelManage.Visible = false;
             panelFill.Visible = false;
@@ -159,6 +180,8 @@ namespace Projek_PV
             flowLayoutPanelLaporan.Visible = true;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
+            flowLayoutPanelExtensions.Visible = false;
+            panelListrik.Visible = false;
             // nge set
             flowLayoutPanelLaporan.Location = new Point(230, 82);
             flowLayoutPanelLaporan.Size = new Size(1000, 600);
@@ -174,6 +197,8 @@ namespace Projek_PV
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.Navy;
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             // ini isinya panel nanti
             panelManage.Visible = false;
             panelFill.Visible = false;
@@ -181,6 +206,8 @@ namespace Projek_PV
             flowLayoutPanelLaporan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
             panelPenghunidanTagihan.Visible = true;
+            flowLayoutPanelExtensions.Visible = false;
+            panelListrik.Visible = false;
             // nge set
             panelPenghunidanTagihan.Location = new Point(230, 82);
             panelPenghunidanTagihan.Size = new Size(1000, 600);
@@ -194,6 +221,8 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.Navy;
             // ini buat tampilin isi panelnya
             panelManage.Visible = false;
@@ -202,11 +231,65 @@ namespace Projek_PV
             flowLayoutPanelLaporan.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = true;
+            flowLayoutPanelExtensions.Visible = false;
+            panelListrik.Visible = false;
             // nge set
             flowLayoutPanelKamar.Location = new Point(230, 72);
             flowLayoutPanelKamar.Size = new Size(1000, 600);
             lblHeader.Text = "Kamar";
             LoadRoomCards();
+        }
+        private void NavBar_Extensions_Click(object sender, EventArgs e)
+        {
+            // panel btn
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.Navy;
+            // ini buat tampilin isi panelnya
+            panelManage.Visible = false;
+            panelFill.Visible = false;
+            panelOverview.Visible = false;
+            flowLayoutPanelLaporan.Visible = false;
+            panelPenghunidanTagihan.Visible = false;
+            flowLayoutPanelKamar.Visible = false;
+            flowLayoutPanelExtensions.Visible = true;
+            panelListrik.Visible = false;
+            // nge set
+            flowLayoutPanelExtensions.Location = new Point(230, 72);
+            flowLayoutPanelExtensions.Size = new Size(1000, 600);
+            lblHeader.Text = "Extensions";
+            
+        }
+        private void NavBar_Listrik_Click(object sender, EventArgs e)
+        {
+            // panel btn
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtensions.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.Navy;
+            // ini buat tampilin isi panelnya
+            panelManage.Visible = false;
+            panelFill.Visible = false;
+            panelOverview.Visible = false;
+            flowLayoutPanelLaporan.Visible = false;
+            panelPenghunidanTagihan.Visible = false;
+            flowLayoutPanelKamar.Visible = false;
+            flowLayoutPanelExtensions.Visible = false;
+            panelListrik.Visible = true;
+            // nge set
+            panelListrik.Location = new Point(230, 72);
+            panelListrik.Size = new Size(1000, 600);
+            lblHeader.Text = "Listrik";
+            
         }
         private void CreateRoomCard(DataRow row)
         {
