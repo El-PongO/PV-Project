@@ -16,6 +16,7 @@ namespace Projek_PV
     public partial class FormUser2 : Form
     {
         Form1 login;
+        int lease_id;
         int id_user;
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
 
@@ -113,6 +114,58 @@ namespace Projek_PV
             panelExtendDuration.Location = new Point(230, 71);
             panelExtendDuration.Size = new Size(1000, 470);
             lblTitleHeader.Text = "Extend Duration";
+
+
+
+            
+            //load data
+
+            using(MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+
+                try
+                {
+                    connection.Open();
+
+                    //load data umum user
+                    string query = "SELECT * FROM leases l JOIN tenants t ON t.tenant_id = l.tenant_id JOIN users u ON u.user_id = t.user_id JOIN rooms r ON r.room_id = l.room_id WHERE u.user_id = @id";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id_user);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+                                lblNoKamar.Text = reader["room_number"].ToString();
+                                lblDurasiPenginapan.Text = reader["duration_months"].ToString();
+                                lblJatuhTempoExt.Text = reader["end_date"].ToString();
+                                lblVoucherAktif.Text = Convert.ToBoolean(reader["usingVoucher"]) ? "Yes" : "No";
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Something is wrong! Please reach out to our staff.");
+                            }
+                        }
+                    }
+
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+
+
+
+            }
+
         }
         private void NavBarUser_Complaint(object sender, EventArgs e)
         {
@@ -250,6 +303,7 @@ namespace Projek_PV
                                 lblJatuhTempo.Text = reader["jatuh_tempo"].ToString();
                                 lblStatusPembayaran.Text = reader["status_sewa"].ToString();
                                 lblUserHeader.Text = reader["full_name"].ToString();
+                                lease_id = Convert.ToInt32(reader["lease_id"]);
 
                             }
                             else
@@ -319,7 +373,10 @@ namespace Projek_PV
                         }
                     }
                 }
+                comboKategoriComplaint.SelectedIndex = -1;
+                tbDeskripsiComplaint.Text = "";
             }
+
         }
 
         private void btnDaftarkanTamu_Click(object sender, EventArgs e)
@@ -493,6 +550,49 @@ namespace Projek_PV
                     payment pay = new payment(Convert.ToInt32(id));
                     pay.ShowDialog();
                 }
+            }
+        }
+
+        private void lblVoucherAktif_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPerpanjang_Click(object sender, EventArgs e)
+        {
+            if (comboMetodePembayaran.SelectedIndex < 0)
+            {
+                MessageBox.Show("Tolong isi credential terlebih dahulu");
+            }
+            else
+            {
+                string query = "INSERT INTO reqextend(lease_id, duration, metodePembayaran) VALUES(@lease, @duration, @method);";
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@lease", lease_id);
+                        cmd.Parameters.AddWithValue("@duration", numericUpDown1.Value);
+                        cmd.Parameters.AddWithValue("@method", comboMetodePembayaran.Text);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine("request created successfully!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("request failed.");
+                        }
+                    }
+                }
+
             }
         }
     }

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +16,8 @@ namespace Projek_PV
     {
         public static int colscounter = 0;
         public static int rowscounter = 0;
+        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+
         public FormAdmin2()
         {
             InitializeComponent();
@@ -186,7 +190,39 @@ namespace Projek_PV
             flowLayoutPanelLaporan.Location = new Point(230, 82);
             flowLayoutPanelLaporan.Size = new Size(1000, 600);
             lblHeader.Text = "Laporan";
-            CreateComplaintCard();
+            //CreateComplaintCard();
+
+
+            //CreateComplaintCard(string category, string nama, string kamar, string date, string msg)
+
+            //clear dulu biar ga ke doble2
+            flowLayoutPanelLaporan.Controls.Clear();
+
+            string sql = "SELECT * from complaints c join tenants t on t.tenant_id = c.tenant_id join leases l on l.tenant_id = t.tenant_id join rooms r on r.room_id = l.room_id WHERE c.status = 'Menunggu'";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                CreateComplaintCard(Convert.ToInt32(reader["complaint_id"]),reader["category"].ToString(), reader["full_name"].ToString(), reader["room_number"].ToString(), reader["created_at"].ToString(), reader["description"].ToString());
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No rows found.");
+                        }
+                    }
+                }
+            }
+           
         }
         private void NavBar_PenghuniDanTagihan_Click(object sender, EventArgs e)
         {
@@ -453,7 +489,7 @@ namespace Projek_PV
             }
         }
 
-        private void CreateComplaintCard()
+        private void CreateComplaintCard(int id,string category, string nama, string kamar, string date, string msg)
         {
             // MAIN CARD
             RoundedPanel card = new RoundedPanel();
@@ -466,7 +502,7 @@ namespace Projek_PV
 
             // TITLE
             Label lblTitle = new Label();
-            lblTitle.Text = "Fasilitas";
+            lblTitle.Text = category;
             lblTitle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             lblTitle.Location = new Point(20, 15);
             lblTitle.AutoSize = true;
@@ -474,7 +510,7 @@ namespace Projek_PV
 
             // SUBTITLE
             Label lblSub = new Label();
-            lblSub.Text = "Budi Santoso · Kamar 101 · 2023-10-25";
+            lblSub.Text = nama + " · Kamar " + kamar + " · " + date;
             lblSub.Font = new Font("Segoe UI", 9);
             lblSub.ForeColor = Color.Gray;
             lblSub.Location = new Point(20, 40);
@@ -512,7 +548,7 @@ namespace Projek_PV
             msgPanel.FillColor = Color.FromArgb(245, 245, 245);
 
             Label lblMsg = new Label();
-            lblMsg.Text = "Kran air di kamar mandi bocor, tolong diperbaiki.";
+            lblMsg.Text = msg;
             lblMsg.Font = new Font("Segoe UI", 9);
             lblMsg.ForeColor = Color.Black;
             lblMsg.AutoSize = false;
@@ -538,7 +574,7 @@ namespace Projek_PV
             txtReply.ForeColor = Color.White;
             txtReply.BackColor = replyPanel.FillColor;
             txtReply.Font = new Font("Segoe UI", 9);
-            txtReply.Text = "Balasan admin...";
+            //txtReply.Text = "Balasan admin...";
             txtReply.Padding = new Padding(8);
 
             replyPanel.Controls.Add(txtReply);
@@ -556,9 +592,45 @@ namespace Projek_PV
             btnSend.FlatStyle = FlatStyle.Flat;
             btnSend.FlatAppearance.BorderSize = 0;
 
+
+            btnSend.Click += (sender, e) =>
+            {
+     
+                if (txtReply.Text == "")
+                {
+                    MessageBox.Show("Harap isi pesan balasan.");
+                    return;
+                }
+
+
+                using(MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string updateSql = "UPDATE complaints SET status = @status, admin_reply = @response, reply_at = @time WHERE complaint_id = @id";
+                    using (MySqlCommand cmd = new MySqlCommand(updateSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
+                        cmd.Parameters.AddWithValue("@response", txtReply.Text);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@time", DateTime.Now);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Balasan terkirim dan status diperbarui.");
+                            flowLayoutPanelLaporan.Controls.Remove(card);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal mengirim balasan. Silakan coba lagi.");
+                        }
+                    }
+                }
+            };
+
+
+         
             card.Controls.Add(btnSend);
 
-            // ADD TO FORM OR FLOWLAYOUT
             flowLayoutPanelLaporan.Controls.Add(card);
         }
 

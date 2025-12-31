@@ -105,7 +105,6 @@
             this.btnPerpanjang = new System.Windows.Forms.Button();
             this.comboMetodePembayaran = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.comboDurasiPerpanjang = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.roundedPanel1 = new RoundedPanel();
@@ -115,13 +114,13 @@
             this.label22 = new System.Windows.Forms.Label();
             this.lblDurasiPenginapan = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.lblPembayaranTerakir = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.lblNoKamar = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panelTagihan = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label21 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -158,6 +157,7 @@
             this.roundedPanel1.SuspendLayout();
             this.panelTagihan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -1036,10 +1036,11 @@
             // 
             this.roundedPanel7.BackColor = System.Drawing.Color.Transparent;
             this.roundedPanel7.BorderColor = System.Drawing.Color.Black;
+            this.roundedPanel7.Controls.Add(this.numericUpDown1);
+            this.roundedPanel7.Controls.Add(this.label21);
             this.roundedPanel7.Controls.Add(this.btnPerpanjang);
             this.roundedPanel7.Controls.Add(this.comboMetodePembayaran);
             this.roundedPanel7.Controls.Add(this.label28);
-            this.roundedPanel7.Controls.Add(this.comboDurasiPerpanjang);
             this.roundedPanel7.Controls.Add(this.label25);
             this.roundedPanel7.Controls.Add(this.label24);
             this.roundedPanel7.FillColor = System.Drawing.Color.White;
@@ -1061,6 +1062,7 @@
             this.btnPerpanjang.TabIndex = 7;
             this.btnPerpanjang.Text = "Perpanjang";
             this.btnPerpanjang.UseVisualStyleBackColor = false;
+            this.btnPerpanjang.Click += new System.EventHandler(this.btnPerpanjang_Click);
             // 
             // comboMetodePembayaran
             // 
@@ -1084,20 +1086,6 @@
             this.label28.Size = new System.Drawing.Size(137, 16);
             this.label28.TabIndex = 4;
             this.label28.Text = "Metode Pembayaran:";
-            // 
-            // comboDurasiPerpanjang
-            // 
-            this.comboDurasiPerpanjang.FormattingEnabled = true;
-            this.comboDurasiPerpanjang.Items.AddRange(new object[] {
-            "1 Bulan",
-            "3 Bulan",
-            "6 Bulan",
-            "12 Bulan"});
-            this.comboDurasiPerpanjang.Location = new System.Drawing.Point(168, 65);
-            this.comboDurasiPerpanjang.Margin = new System.Windows.Forms.Padding(4);
-            this.comboDurasiPerpanjang.Name = "comboDurasiPerpanjang";
-            this.comboDurasiPerpanjang.Size = new System.Drawing.Size(160, 24);
-            this.comboDurasiPerpanjang.TabIndex = 3;
             // 
             // label25
             // 
@@ -1130,8 +1118,6 @@
             this.roundedPanel1.Controls.Add(this.label22);
             this.roundedPanel1.Controls.Add(this.lblDurasiPenginapan);
             this.roundedPanel1.Controls.Add(this.label23);
-            this.roundedPanel1.Controls.Add(this.lblPembayaranTerakir);
-            this.roundedPanel1.Controls.Add(this.label21);
             this.roundedPanel1.Controls.Add(this.lblNoKamar);
             this.roundedPanel1.Controls.Add(this.label20);
             this.roundedPanel1.Controls.Add(this.label19);
@@ -1145,47 +1131,49 @@
             // lblVoucherAktif
             // 
             this.lblVoucherAktif.AutoSize = true;
-            this.lblVoucherAktif.Location = new System.Drawing.Point(211, 148);
+            this.lblVoucherAktif.Location = new System.Drawing.Point(229, 153);
             this.lblVoucherAktif.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVoucherAktif.Name = "lblVoucherAktif";
             this.lblVoucherAktif.Size = new System.Drawing.Size(88, 16);
             this.lblVoucherAktif.TabIndex = 1;
             this.lblVoucherAktif.Text = "Voucher Aktif:";
+            this.lblVoucherAktif.Click += new System.EventHandler(this.lblVoucherAktif_Click);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(12, 148);
+            this.label26.Location = new System.Drawing.Point(33, 151);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(88, 16);
             this.label26.TabIndex = 1;
             this.label26.Text = "Voucher Aktif:";
+            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // lblJatuhTempoExt
             // 
             this.lblJatuhTempoExt.AutoSize = true;
-            this.lblJatuhTempoExt.Location = new System.Drawing.Point(211, 126);
+            this.lblJatuhTempoExt.Location = new System.Drawing.Point(229, 118);
             this.lblJatuhTempoExt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJatuhTempoExt.Name = "lblJatuhTempoExt";
-            this.lblJatuhTempoExt.Size = new System.Drawing.Size(170, 16);
+            this.lblJatuhTempoExt.Size = new System.Drawing.Size(89, 16);
             this.lblJatuhTempoExt.TabIndex = 1;
-            this.lblJatuhTempoExt.Text = "Jatuh Tempo Pembayaran:";
+            this.lblJatuhTempoExt.Text = "Jatuh Tempo:";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 123);
+            this.label22.Location = new System.Drawing.Point(33, 118);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(170, 16);
+            this.label22.Size = new System.Drawing.Size(92, 16);
             this.label22.TabIndex = 1;
-            this.label22.Text = "Jatuh Tempo Pembayaran:";
+            this.label22.Text = "Jatuh Tempo :";
             // 
             // lblDurasiPenginapan
             // 
             this.lblDurasiPenginapan.AutoSize = true;
-            this.lblDurasiPenginapan.Location = new System.Drawing.Point(211, 98);
+            this.lblDurasiPenginapan.Location = new System.Drawing.Point(229, 85);
             this.lblDurasiPenginapan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDurasiPenginapan.Name = "lblDurasiPenginapan";
             this.lblDurasiPenginapan.Size = new System.Drawing.Size(125, 16);
@@ -1195,37 +1183,17 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(15, 98);
+            this.label23.Location = new System.Drawing.Point(33, 85);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(125, 16);
             this.label23.TabIndex = 1;
             this.label23.Text = "Durasi Penginapan:";
             // 
-            // lblPembayaranTerakir
-            // 
-            this.lblPembayaranTerakir.AutoSize = true;
-            this.lblPembayaranTerakir.Location = new System.Drawing.Point(211, 74);
-            this.lblPembayaranTerakir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPembayaranTerakir.Name = "lblPembayaranTerakir";
-            this.lblPembayaranTerakir.Size = new System.Drawing.Size(134, 16);
-            this.lblPembayaranTerakir.TabIndex = 1;
-            this.lblPembayaranTerakir.Text = "Pembayaran Terakir:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(15, 74);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(134, 16);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "Pembayaran Terakir:";
-            // 
             // lblNoKamar
             // 
             this.lblNoKamar.AutoSize = true;
-            this.lblNoKamar.Location = new System.Drawing.Point(211, 49);
+            this.lblNoKamar.Location = new System.Drawing.Point(229, 58);
             this.lblNoKamar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNoKamar.Name = "lblNoKamar";
             this.lblNoKamar.Size = new System.Drawing.Size(49, 16);
@@ -1235,7 +1203,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 49);
+            this.label20.Location = new System.Drawing.Point(33, 58);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(49, 16);
@@ -1274,6 +1242,33 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(266, 69);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 16);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Bulan";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(151, 67);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(108, 22);
+            this.numericUpDown1.TabIndex = 9;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FormUser2
             // 
@@ -1346,6 +1341,7 @@
             this.roundedPanel1.PerformLayout();
             this.panelTagihan.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1422,19 +1418,16 @@
         private RoundedPanel roundedPanel1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox comboMetodePembayaran;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox comboDurasiPerpanjang;
         private System.Windows.Forms.Button btnPerpanjang;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label lblVoucherAktif;
         private System.Windows.Forms.Label lblJatuhTempoExt;
         private System.Windows.Forms.Label lblDurasiPenginapan;
-        private System.Windows.Forms.Label lblPembayaranTerakir;
         private System.Windows.Forms.Label lblNoKamar;
         private System.Windows.Forms.Panel panelBtnDaftarTamu;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -1445,5 +1438,7 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Panel panelTagihan;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label21;
     }
 }
