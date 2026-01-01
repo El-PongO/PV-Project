@@ -670,6 +670,7 @@ namespace Projek_PV
                         {
                             MessageBox.Show("Balasan terkirim dan status diperbarui.");
                             flowLayoutPanelLaporan.Controls.Remove(card);
+                            LoadDataFromDatabase(); 
                         }
                         else
                         {
