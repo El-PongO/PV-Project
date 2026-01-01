@@ -136,17 +136,6 @@
             this.lblHeader = new System.Windows.Forms.Label();
             this.flowLayoutPanelKamar = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOverview = new System.Windows.Forms.Panel();
-            this.dgvNotification = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanelLaporan = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelExtensions = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelManageTenant = new System.Windows.Forms.Panel();
-            this.dataGridViewExtensions = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panelListrik = new System.Windows.Forms.Panel();
-            this.label38 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
             this.roundedPanel3 = new RoundedPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -164,29 +153,17 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.roundedPanelRoomInformation = new RoundedPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblRentDue = new System.Windows.Forms.Label();
-            this.btnExtend = new System.Windows.Forms.Button();
-            this.lblSince = new System.Windows.Forms.Label();
-            this.lblDuration = new System.Windows.Forms.Label();
-            this.btnUnoccupy = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnSendReminder = new System.Windows.Forms.Button();
-            this.roundedPanelOccupant2 = new RoundedPanel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.roundedPanelOccupant1 = new RoundedPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dgvNotification = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanelLaporan = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelExtensions = new System.Windows.Forms.FlowLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panelManageTenant = new System.Windows.Forms.Panel();
+            this.dataGridViewExtensions = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panelListrik = new System.Windows.Forms.Panel();
+            this.label38 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelBtnListrik.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxListrik)).BeginInit();
@@ -217,12 +194,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panelHeader.SuspendLayout();
             this.panelOverview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).BeginInit();
-            this.flowLayoutPanelExtensions.SuspendLayout();
-            this.panelManageTenant.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).BeginInit();
-            this.panelListrik.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.roundedPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.roundedPanel2.SuspendLayout();
@@ -231,9 +202,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.roundedPanelLaporanBaru.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.roundedPanelRoomInformation.SuspendLayout();
-            this.roundedPanelOccupant2.SuspendLayout();
-            this.roundedPanelOccupant1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).BeginInit();
+            this.flowLayoutPanelExtensions.SuspendLayout();
+            this.panelManageTenant.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).BeginInit();
+            this.panelListrik.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -874,7 +848,7 @@
             this.panelFill.Controls.Add(this.label29);
             this.panelFill.Controls.Add(this.gbOccupant2Fill);
             this.panelFill.Controls.Add(this.gbOcccupant1Fill);
-            this.panelFill.Location = new System.Drawing.Point(1622, 635);
+            this.panelFill.Location = new System.Drawing.Point(1712, 660);
             this.panelFill.Margin = new System.Windows.Forms.Padding(4);
             this.panelFill.Name = "panelFill";
             this.panelFill.Size = new System.Drawing.Size(140, 126);
@@ -1471,113 +1445,6 @@
             this.panelOverview.Size = new System.Drawing.Size(1188, 468);
             this.panelOverview.TabIndex = 4;
             // 
-            // dgvNotification
-            // 
-            this.dgvNotification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotification.Location = new System.Drawing.Point(14, 309);
-            this.dgvNotification.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvNotification.Name = "dgvNotification";
-            this.dgvNotification.RowHeadersWidth = 62;
-            this.dgvNotification.RowTemplate.Height = 28;
-            this.dgvNotification.Size = new System.Drawing.Size(1168, 271);
-            this.dgvNotification.TabIndex = 9;
-            // 
-            // flowLayoutPanelLaporan
-            // 
-            this.flowLayoutPanelLaporan.Location = new System.Drawing.Point(1502, 635);
-            this.flowLayoutPanelLaporan.Name = "flowLayoutPanelLaporan";
-            this.flowLayoutPanelLaporan.Size = new System.Drawing.Size(111, 68);
-            this.flowLayoutPanelLaporan.TabIndex = 10;
-            this.flowLayoutPanelLaporan.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelLaporan_Paint);
-            // 
-            // flowLayoutPanelExtensions
-            // 
-            this.flowLayoutPanelExtensions.Controls.Add(this.label11);
-            this.flowLayoutPanelExtensions.Location = new System.Drawing.Point(1516, 496);
-            this.flowLayoutPanelExtensions.Name = "flowLayoutPanelExtensions";
-            this.flowLayoutPanelExtensions.Size = new System.Drawing.Size(146, 85);
-            this.flowLayoutPanelExtensions.TabIndex = 11;
-            // 
-            // panelManageTenant
-            // 
-            this.panelManageTenant.Controls.Add(this.dataGridViewExtensions);
-            this.panelManageTenant.Controls.Add(this.label10);
-            this.panelManageTenant.Location = new System.Drawing.Point(1757, 272);
-            this.panelManageTenant.Name = "panelManageTenant";
-            this.panelManageTenant.Size = new System.Drawing.Size(155, 225);
-            this.panelManageTenant.TabIndex = 0;
-            // 
-            // dataGridViewExtensions
-            // 
-            this.dataGridViewExtensions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewExtensions.Location = new System.Drawing.Point(21, 54);
-            this.dataGridViewExtensions.Name = "dataGridViewExtensions";
-            this.dataGridViewExtensions.RowHeadersWidth = 51;
-            this.dataGridViewExtensions.RowTemplate.Height = 24;
-            this.dataGridViewExtensions.Size = new System.Drawing.Size(1150, 247);
-            this.dataGridViewExtensions.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 13);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(286, 27);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Manage Tenant Extensions";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 81);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Tenant Request Extensions";
-            // 
-            // panelListrik
-            // 
-            this.panelListrik.Controls.Add(this.label38);
-            this.panelListrik.Controls.Add(this.dataGridView1);
-            this.panelListrik.Controls.Add(this.label12);
-            this.panelListrik.Location = new System.Drawing.Point(308, 90);
-            this.panelListrik.Name = "panelListrik";
-            this.panelListrik.Size = new System.Drawing.Size(1199, 151);
-            this.panelListrik.TabIndex = 12;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(840, 24);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(324, 27);
-            this.label38.TabIndex = 2;
-            this.label38.Text = "Riwayat Tagihan Listrik Tenant";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 58);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(761, 150);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(21, 24);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(269, 27);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Daftar Kamar dan Tenant";
-            // 
             // roundedPanel3
             // 
             this.roundedPanel3.BackColor = System.Drawing.Color.Transparent;
@@ -1782,23 +1649,33 @@
             this.flowLayoutPanelLaporan.Name = "flowLayoutPanelLaporan";
             this.flowLayoutPanelLaporan.Size = new System.Drawing.Size(79, 73);
             this.flowLayoutPanelLaporan.TabIndex = 10;
+            this.flowLayoutPanelLaporan.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelLaporan_Paint);
             // 
             // flowLayoutPanelExtensions
             // 
-            this.flowLayoutPanelExtensions.Controls.Add(this.panelManageTenant);
             this.flowLayoutPanelExtensions.Controls.Add(this.label11);
             this.flowLayoutPanelExtensions.Location = new System.Drawing.Point(1516, 496);
             this.flowLayoutPanelExtensions.Name = "flowLayoutPanelExtensions";
             this.flowLayoutPanelExtensions.Size = new System.Drawing.Size(146, 85);
             this.flowLayoutPanelExtensions.TabIndex = 11;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(120, 81);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Tenant Request Extensions";
+            // 
             // panelManageTenant
             // 
             this.panelManageTenant.Controls.Add(this.dataGridViewExtensions);
             this.panelManageTenant.Controls.Add(this.label10);
-            this.panelManageTenant.Location = new System.Drawing.Point(3, 3);
+            this.panelManageTenant.Location = new System.Drawing.Point(1655, 803);
             this.panelManageTenant.Name = "panelManageTenant";
-            this.panelManageTenant.Size = new System.Drawing.Size(1197, 312);
+            this.panelManageTenant.Size = new System.Drawing.Size(197, 99);
             this.panelManageTenant.TabIndex = 0;
             // 
             // dataGridViewExtensions
@@ -1821,16 +1698,6 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Manage Tenant Extensions";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 318);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 81);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Tenant Request Extensions";
-            // 
             // panelListrik
             // 
             this.panelListrik.Controls.Add(this.label38);
@@ -1840,6 +1707,37 @@
             this.panelListrik.Name = "panelListrik";
             this.panelListrik.Size = new System.Drawing.Size(107, 74);
             this.panelListrik.TabIndex = 12;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(840, 24);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(324, 27);
+            this.label38.TabIndex = 2;
+            this.label38.Text = "Riwayat Tagihan Listrik Tenant";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(26, 58);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(761, 150);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(21, 24);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(269, 27);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Daftar Kamar dan Tenant";
             // 
             // FormAdmin2
             // 
@@ -1908,15 +1806,6 @@
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelOverview.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).EndInit();
-            this.flowLayoutPanelExtensions.ResumeLayout(false);
-            this.flowLayoutPanelExtensions.PerformLayout();
-            this.panelManageTenant.ResumeLayout(false);
-            this.panelManageTenant.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).EndInit();
-            this.panelListrik.ResumeLayout(false);
-            this.panelListrik.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.roundedPanel3.ResumeLayout(false);
             this.roundedPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -1929,12 +1818,15 @@
             this.roundedPanelLaporanBaru.ResumeLayout(false);
             this.roundedPanelLaporanBaru.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.roundedPanelRoomInformation.ResumeLayout(false);
-            this.roundedPanelRoomInformation.PerformLayout();
-            this.roundedPanelOccupant2.ResumeLayout(false);
-            this.roundedPanelOccupant2.PerformLayout();
-            this.roundedPanelOccupant1.ResumeLayout(false);
-            this.roundedPanelOccupant1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).EndInit();
+            this.flowLayoutPanelExtensions.ResumeLayout(false);
+            this.flowLayoutPanelExtensions.PerformLayout();
+            this.panelManageTenant.ResumeLayout(false);
+            this.panelManageTenant.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).EndInit();
+            this.panelListrik.ResumeLayout(false);
+            this.panelListrik.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
