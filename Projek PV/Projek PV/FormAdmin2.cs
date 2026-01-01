@@ -526,7 +526,7 @@ namespace Projek_PV
             }
         }
 
-        private void CreateComplaintCard(int id, string category, string nama, string kamar, string tanggal, string pesan)
+        private void CreateComplaintCard(int id, string category, string nama, string kamar, string tanggal, string pesan,string status)
         {
             // MAIN CARD
             RoundedPanel card = new RoundedPanel();
@@ -567,11 +567,25 @@ namespace Projek_PV
             cmbStatus.Dock = DockStyle.Fill;
             cmbStatus.FlatStyle = FlatStyle.Flat;
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStatus.Items.AddRange(new string[] { "Menunggu", "Diproses", "Selesai" });
-            cmbStatus.SelectedIndex = 0;
+            cmbStatus.Items.AddRange(new string[] { "Menunggu", "Proses", "Selesai" });
+            int statusIndex = cmbStatus.FindStringExact(status);
+            cmbStatus.SelectedIndex = (statusIndex != -1) ? statusIndex : 0;
+            if (status == "Selesai")
+            {
+                statusPanel.FillColor = Color.FromArgb(200, 255, 200); 
+                cmbStatus.ForeColor = Color.DarkGreen;
+            }
+            else if (status == "Proses")
+            {
+                statusPanel.FillColor = Color.FromArgb(255, 250, 200);
+                cmbStatus.ForeColor = Color.DarkGoldenrod;
+            }
+            else
+            {
+                statusPanel.FillColor = Color.FromArgb(255, 220, 220); 
+                cmbStatus.ForeColor = Color.DarkRed;
+            }
             cmbStatus.BackColor = statusPanel.FillColor;
-            cmbStatus.ForeColor = Color.DarkRed;
-
             statusPanel.Controls.Add(cmbStatus);
             card.Controls.Add(statusPanel);
 
@@ -628,6 +642,7 @@ namespace Projek_PV
             btnSend.ForeColor = Color.White;
             btnSend.FlatStyle = FlatStyle.Flat;
             btnSend.FlatAppearance.BorderSize = 0;
+            
 
 
             btnSend.Click += (sender, e) =>
@@ -646,7 +661,7 @@ namespace Projek_PV
                     string updateSql = "UPDATE complaints SET status = @status, admin_reply = @response, reply_at = @time WHERE complaint_id = @id";
                     using (MySqlCommand cmd = new MySqlCommand(updateSql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
+                        cmd.Parameters.AddWithValue("@status", cmbStatus.SelectedItem);
                         cmd.Parameters.AddWithValue("@response", txtReply.Text);
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@time", DateTime.Now);
@@ -697,7 +712,7 @@ namespace Projek_PV
 
             flowLayoutPanelLaporan.Controls.Clear();
 
-            string query = "SELECT c.complaint_id,c.category,t.full_name,r.room_number,c.created_at,c.description FROM complaints c JOIN tenants t ON c.tenant_id = t.tenant_id JOIN leases l ON c.tenant_id = l.tenant_id JOIN rooms r ON l.room_id = r.room_id";
+            string query = "SELECT c.complaint_id,c.category,t.full_name,r.room_number,c.created_at,c.description,c.status FROM complaints c JOIN tenants t ON c.tenant_id = t.tenant_id JOIN leases l ON c.tenant_id = l.tenant_id JOIN rooms r ON l.room_id = r.room_id WHERE c.status <> 'Selesai' ";
 
             DataTable dt = GetData(query);
 
@@ -709,7 +724,8 @@ namespace Projek_PV
                     row["full_name"].ToString(),
                     row["room_number"].ToString(),
                     row["created_at"].ToString(),
-                    row["description"].ToString()
+                    row["description"].ToString(),
+                    row["status"].ToString()
                 );
             }
         }
