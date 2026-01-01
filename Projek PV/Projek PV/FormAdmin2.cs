@@ -340,7 +340,8 @@ namespace Projek_PV
 
             // PRICE
             Label lblPrice = new Label();
-            lblPrice.Text = "Rp " + Convert.ToInt32(row["Price"]).ToString("N0");
+            decimal price = Convert.ToDecimal(row["Price"]);
+            lblPrice.Text = "Rp " + price.ToString("N0");
             lblPrice.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             lblPrice.Location = new Point(10, 75);
             lblPrice.AutoSize = true;
@@ -428,36 +429,45 @@ namespace Projek_PV
         {
             DataTable dt = new DataTable();
 
+            // Columns expected by CreateRoomCard
             dt.Columns.Add("RoomName");
             dt.Columns.Add("RoomType");
             dt.Columns.Add("Price");
             dt.Columns.Add("Status");
             dt.Columns.Add("Facilities");
 
-            // Sample sets to vary room data
-            string[] types = { "Standard AC", "Standard Non-AC", "VIP AC" };
-            string[] facilitiesOptions = {
-                "AC,WiFi,Kasur,Lemari",
-                "WiFi,Kasur,Lemari",
-                "AC,WiFi,Kasur,Lemari,Kulkas,TV",
-                "AC,WiFi,Kasur,Lemari,Meja Belajar"
-            };
-
-            // Create 40 sample rooms (Kamar 101..Kamar 140)
-            for (int i = 1; i <= 40; i++)
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                int roomNumber = 100 + i;
-                string roomName = $"Kamar {roomNumber}";
-                string roomType = types[i % types.Length];
-                string facilities = facilitiesOptions[i % facilitiesOptions.Length];
-                string price = roomType.Contains("VIP") ? "2200000" : "1500000";
-                string status = (i % 4 == 0) ? "Tersedia" : "Terisi"; // every 4th room available
+                try
+                {
+                    conn.Open();
 
-                dt.Rows.Add(roomName, roomType, price, status, facilities);
+                    string query = " SELECT room_number,type,base_price,status,IFNULL(facilities, '') AS facilities FROM roomsORDER BY room_number";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dt.Rows.Add(
+                                "Kamar " + reader["room_number"].ToString(), // RoomName
+                                reader["type"].ToString(),                   // RoomType
+                                reader["base_price"].ToString(),             // Price
+                                reader["status"].ToString(),                 // Status
+                                reader["facilities"].ToString()              // Facilities
+                            );
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading room data: " + ex.Message);
+                }
             }
 
             return dt;
         }
+
 
         private void LoadRoomCards()
         {
