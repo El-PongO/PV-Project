@@ -57,6 +57,29 @@
             this.pictureBoxManageRooms = new System.Windows.Forms.PictureBox();
             this.labelManageRoom = new System.Windows.Forms.Label();
             this.panelManage = new System.Windows.Forms.Panel();
+            this.roundedPanelRoomInformation = new RoundedPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblRentDue = new System.Windows.Forms.Label();
+            this.btnExtend = new System.Windows.Forms.Button();
+            this.lblSince = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.btnUnoccupy = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSendReminder = new System.Windows.Forms.Button();
+            this.roundedPanelOccupant2 = new RoundedPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.roundedPanelOccupant1 = new RoundedPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.dgvManage = new System.Windows.Forms.DataGridView();
             this.panelFill = new System.Windows.Forms.Panel();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -183,6 +206,9 @@
             this.panelBtnManage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).BeginInit();
             this.panelManage.SuspendLayout();
+            this.roundedPanelRoomInformation.SuspendLayout();
+            this.roundedPanelOccupant2.SuspendLayout();
+            this.roundedPanelOccupant1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).BeginInit();
             this.panelFill.SuspendLayout();
             this.gbOccupant2Fill.SuspendLayout();
@@ -550,6 +576,272 @@
             this.panelManage.Name = "panelManage";
             this.panelManage.Size = new System.Drawing.Size(60, 56);
             this.panelManage.TabIndex = 1;
+            // 
+            // roundedPanelRoomInformation
+            // 
+            this.roundedPanelRoomInformation.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanelRoomInformation.BorderColor = System.Drawing.SystemColors.Control;
+            this.roundedPanelRoomInformation.Controls.Add(this.label9);
+            this.roundedPanelRoomInformation.Controls.Add(this.label3);
+            this.roundedPanelRoomInformation.Controls.Add(this.lblRentDue);
+            this.roundedPanelRoomInformation.Controls.Add(this.btnExtend);
+            this.roundedPanelRoomInformation.Controls.Add(this.lblSince);
+            this.roundedPanelRoomInformation.Controls.Add(this.lblDuration);
+            this.roundedPanelRoomInformation.Controls.Add(this.btnUnoccupy);
+            this.roundedPanelRoomInformation.Controls.Add(this.label15);
+            this.roundedPanelRoomInformation.Controls.Add(this.label4);
+            this.roundedPanelRoomInformation.Controls.Add(this.btnSendReminder);
+            this.roundedPanelRoomInformation.FillColor = System.Drawing.Color.White;
+            this.roundedPanelRoomInformation.Location = new System.Drawing.Point(418, 194);
+            this.roundedPanelRoomInformation.Name = "roundedPanelRoomInformation";
+            this.roundedPanelRoomInformation.Size = new System.Drawing.Size(759, 288);
+            this.roundedPanelRoomInformation.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(40, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(203, 29);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Room Information";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(42, 53);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 24);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Rent Due by";
+            // 
+            // lblRentDue
+            // 
+            this.lblRentDue.AutoSize = true;
+            this.lblRentDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRentDue.ForeColor = System.Drawing.Color.Red;
+            this.lblRentDue.Location = new System.Drawing.Point(204, 55);
+            this.lblRentDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRentDue.Name = "lblRentDue";
+            this.lblRentDue.Size = new System.Drawing.Size(100, 24);
+            this.lblRentDue.TabIndex = 4;
+            this.lblRentDue.Text = "01/12/2022";
+            // 
+            // btnExtend
+            // 
+            this.btnExtend.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnExtend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExtend.Location = new System.Drawing.Point(46, 157);
+            this.btnExtend.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExtend.Name = "btnExtend";
+            this.btnExtend.Size = new System.Drawing.Size(155, 43);
+            this.btnExtend.TabIndex = 5;
+            this.btnExtend.Text = "Extend Duration";
+            this.btnExtend.UseVisualStyleBackColor = false;
+            // 
+            // lblSince
+            // 
+            this.lblSince.AutoSize = true;
+            this.lblSince.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSince.Location = new System.Drawing.Point(204, 117);
+            this.lblSince.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSince.Name = "lblSince";
+            this.lblSince.Size = new System.Drawing.Size(100, 24);
+            this.lblSince.TabIndex = 4;
+            this.lblSince.Text = "06/04/2021";
+            this.lblSince.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuration.Location = new System.Drawing.Point(204, 86);
+            this.lblDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(87, 24);
+            this.lblDuration.TabIndex = 4;
+            this.lblDuration.Text = "6 Months";
+            this.lblDuration.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // btnUnoccupy
+            // 
+            this.btnUnoccupy.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnUnoccupy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUnoccupy.ForeColor = System.Drawing.Color.Red;
+            this.btnUnoccupy.Location = new System.Drawing.Point(46, 217);
+            this.btnUnoccupy.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUnoccupy.Name = "btnUnoccupy";
+            this.btnUnoccupy.Size = new System.Drawing.Size(155, 43);
+            this.btnUnoccupy.TabIndex = 5;
+            this.btnUnoccupy.Text = "Unoccupy Room";
+            this.btnUnoccupy.UseVisualStyleBackColor = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(42, 117);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(126, 24);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Tentant Since";
+            this.label15.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(42, 86);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 24);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Duration of stay";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // btnSendReminder
+            // 
+            this.btnSendReminder.Location = new System.Drawing.Point(355, 52);
+            this.btnSendReminder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSendReminder.Name = "btnSendReminder";
+            this.btnSendReminder.Size = new System.Drawing.Size(148, 28);
+            this.btnSendReminder.TabIndex = 6;
+            this.btnSendReminder.Text = "Send Reminder";
+            this.btnSendReminder.UseVisualStyleBackColor = true;
+            // 
+            // roundedPanelOccupant2
+            // 
+            this.roundedPanelOccupant2.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanelOccupant2.BorderColor = System.Drawing.SystemColors.Control;
+            this.roundedPanelOccupant2.Controls.Add(this.label13);
+            this.roundedPanelOccupant2.Controls.Add(this.label14);
+            this.roundedPanelOccupant2.Controls.Add(this.label37);
+            this.roundedPanelOccupant2.Controls.Add(this.label16);
+            this.roundedPanelOccupant2.Controls.Add(this.label36);
+            this.roundedPanelOccupant2.FillColor = System.Drawing.Color.White;
+            this.roundedPanelOccupant2.Location = new System.Drawing.Point(808, 24);
+            this.roundedPanelOccupant2.Name = "roundedPanelOccupant2";
+            this.roundedPanelOccupant2.Size = new System.Drawing.Size(369, 164);
+            this.roundedPanelOccupant2.TabIndex = 12;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(16, 17);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 18);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Occupant 2";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 120);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 16);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Gender:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(17, 48);
+            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(44, 16);
+            this.label37.TabIndex = 4;
+            this.label37.Text = "name:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(17, 72);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 16);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "no KTP:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(17, 96);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(82, 16);
+            this.label36.TabIndex = 6;
+            this.label36.Text = "Date of Birth:";
+            // 
+            // roundedPanelOccupant1
+            // 
+            this.roundedPanelOccupant1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanelOccupant1.BorderColor = System.Drawing.SystemColors.Control;
+            this.roundedPanelOccupant1.Controls.Add(this.label2);
+            this.roundedPanelOccupant1.Controls.Add(this.label8);
+            this.roundedPanelOccupant1.Controls.Add(this.label6);
+            this.roundedPanelOccupant1.Controls.Add(this.label7);
+            this.roundedPanelOccupant1.Controls.Add(this.label5);
+            this.roundedPanelOccupant1.FillColor = System.Drawing.Color.White;
+            this.roundedPanelOccupant1.Location = new System.Drawing.Point(418, 24);
+            this.roundedPanelOccupant1.Name = "roundedPanelOccupant1";
+            this.roundedPanelOccupant1.Size = new System.Drawing.Size(369, 164);
+            this.roundedPanelOccupant1.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Occupant 1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 116);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 16);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Gender:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 68);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 16);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "no KTP:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 92);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 16);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Date of Birth:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 44);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "name:";
             // 
             // dgvManage
             // 
@@ -1473,271 +1765,81 @@
             this.label46.TabIndex = 1;
             this.label46.Text = "0";
             // 
-            // roundedPanelRoomInformation
+            // dgvNotification
             // 
-            this.roundedPanelRoomInformation.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanelRoomInformation.BorderColor = System.Drawing.SystemColors.Control;
-            this.roundedPanelRoomInformation.Controls.Add(this.label9);
-            this.roundedPanelRoomInformation.Controls.Add(this.label3);
-            this.roundedPanelRoomInformation.Controls.Add(this.lblRentDue);
-            this.roundedPanelRoomInformation.Controls.Add(this.btnExtend);
-            this.roundedPanelRoomInformation.Controls.Add(this.lblSince);
-            this.roundedPanelRoomInformation.Controls.Add(this.lblDuration);
-            this.roundedPanelRoomInformation.Controls.Add(this.btnUnoccupy);
-            this.roundedPanelRoomInformation.Controls.Add(this.label15);
-            this.roundedPanelRoomInformation.Controls.Add(this.label4);
-            this.roundedPanelRoomInformation.Controls.Add(this.btnSendReminder);
-            this.roundedPanelRoomInformation.FillColor = System.Drawing.Color.White;
-            this.roundedPanelRoomInformation.Location = new System.Drawing.Point(418, 194);
-            this.roundedPanelRoomInformation.Name = "roundedPanelRoomInformation";
-            this.roundedPanelRoomInformation.Size = new System.Drawing.Size(759, 288);
-            this.roundedPanelRoomInformation.TabIndex = 13;
+            this.dgvNotification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotification.Location = new System.Drawing.Point(14, 309);
+            this.dgvNotification.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvNotification.Name = "dgvNotification";
+            this.dgvNotification.RowHeadersWidth = 62;
+            this.dgvNotification.RowTemplate.Height = 28;
+            this.dgvNotification.Size = new System.Drawing.Size(1168, 271);
+            this.dgvNotification.TabIndex = 9;
             // 
-            // label9
+            // flowLayoutPanelLaporan
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(40, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(191, 33);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Room Information";
+            this.flowLayoutPanelLaporan.Location = new System.Drawing.Point(1638, 15);
+            this.flowLayoutPanelLaporan.Name = "flowLayoutPanelLaporan";
+            this.flowLayoutPanelLaporan.Size = new System.Drawing.Size(79, 73);
+            this.flowLayoutPanelLaporan.TabIndex = 10;
             // 
-            // label3
+            // flowLayoutPanelExtensions
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(42, 53);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 24);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Rent Due by";
+            this.flowLayoutPanelExtensions.Controls.Add(this.panelManageTenant);
+            this.flowLayoutPanelExtensions.Controls.Add(this.label11);
+            this.flowLayoutPanelExtensions.Location = new System.Drawing.Point(1516, 496);
+            this.flowLayoutPanelExtensions.Name = "flowLayoutPanelExtensions";
+            this.flowLayoutPanelExtensions.Size = new System.Drawing.Size(146, 85);
+            this.flowLayoutPanelExtensions.TabIndex = 11;
             // 
-            // lblRentDue
+            // panelManageTenant
             // 
-            this.lblRentDue.AutoSize = true;
-            this.lblRentDue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRentDue.ForeColor = System.Drawing.Color.Red;
-            this.lblRentDue.Location = new System.Drawing.Point(204, 55);
-            this.lblRentDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRentDue.Name = "lblRentDue";
-            this.lblRentDue.Size = new System.Drawing.Size(100, 24);
-            this.lblRentDue.TabIndex = 4;
-            this.lblRentDue.Text = "01/12/2022";
+            this.panelManageTenant.Controls.Add(this.dataGridViewExtensions);
+            this.panelManageTenant.Controls.Add(this.label10);
+            this.panelManageTenant.Location = new System.Drawing.Point(3, 3);
+            this.panelManageTenant.Name = "panelManageTenant";
+            this.panelManageTenant.Size = new System.Drawing.Size(1197, 312);
+            this.panelManageTenant.TabIndex = 0;
             // 
-            // btnExtend
+            // dataGridViewExtensions
             // 
-            this.btnExtend.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnExtend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExtend.Location = new System.Drawing.Point(46, 157);
-            this.btnExtend.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExtend.Name = "btnExtend";
-            this.btnExtend.Size = new System.Drawing.Size(155, 43);
-            this.btnExtend.TabIndex = 5;
-            this.btnExtend.Text = "Extend Duration";
-            this.btnExtend.UseVisualStyleBackColor = false;
+            this.dataGridViewExtensions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewExtensions.Location = new System.Drawing.Point(21, 54);
+            this.dataGridViewExtensions.Name = "dataGridViewExtensions";
+            this.dataGridViewExtensions.RowHeadersWidth = 51;
+            this.dataGridViewExtensions.RowTemplate.Height = 24;
+            this.dataGridViewExtensions.Size = new System.Drawing.Size(1150, 247);
+            this.dataGridViewExtensions.TabIndex = 1;
             // 
-            // lblSince
+            // label10
             // 
-            this.lblSince.AutoSize = true;
-            this.lblSince.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSince.Location = new System.Drawing.Point(204, 117);
-            this.lblSince.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSince.Name = "lblSince";
-            this.lblSince.Size = new System.Drawing.Size(100, 24);
-            this.lblSince.TabIndex = 4;
-            this.lblSince.Text = "06/04/2021";
-            this.lblSince.Click += new System.EventHandler(this.label4_Click);
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(16, 13);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(286, 27);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Manage Tenant Extensions";
             // 
-            // lblDuration
+            // label11
             // 
-            this.lblDuration.AutoSize = true;
-            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuration.Location = new System.Drawing.Point(204, 86);
-            this.lblDuration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(87, 24);
-            this.lblDuration.TabIndex = 4;
-            this.lblDuration.Text = "6 Months";
-            this.lblDuration.Click += new System.EventHandler(this.label4_Click);
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 318);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(120, 81);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Tenant Request Extensions";
             // 
-            // btnUnoccupy
+            // panelListrik
             // 
-            this.btnUnoccupy.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnUnoccupy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUnoccupy.ForeColor = System.Drawing.Color.Red;
-            this.btnUnoccupy.Location = new System.Drawing.Point(46, 217);
-            this.btnUnoccupy.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUnoccupy.Name = "btnUnoccupy";
-            this.btnUnoccupy.Size = new System.Drawing.Size(155, 43);
-            this.btnUnoccupy.TabIndex = 5;
-            this.btnUnoccupy.Text = "Unoccupy Room";
-            this.btnUnoccupy.UseVisualStyleBackColor = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(42, 117);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(126, 24);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "Tentant Since";
-            this.label15.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(42, 86);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 24);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Duration of stay";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // btnSendReminder
-            // 
-            this.btnSendReminder.Location = new System.Drawing.Point(355, 52);
-            this.btnSendReminder.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSendReminder.Name = "btnSendReminder";
-            this.btnSendReminder.Size = new System.Drawing.Size(148, 28);
-            this.btnSendReminder.TabIndex = 6;
-            this.btnSendReminder.Text = "Send Reminder";
-            this.btnSendReminder.UseVisualStyleBackColor = true;
-            // 
-            // roundedPanelOccupant2
-            // 
-            this.roundedPanelOccupant2.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanelOccupant2.BorderColor = System.Drawing.SystemColors.Control;
-            this.roundedPanelOccupant2.Controls.Add(this.label13);
-            this.roundedPanelOccupant2.Controls.Add(this.label14);
-            this.roundedPanelOccupant2.Controls.Add(this.label37);
-            this.roundedPanelOccupant2.Controls.Add(this.label16);
-            this.roundedPanelOccupant2.Controls.Add(this.label36);
-            this.roundedPanelOccupant2.FillColor = System.Drawing.Color.White;
-            this.roundedPanelOccupant2.Location = new System.Drawing.Point(808, 24);
-            this.roundedPanelOccupant2.Name = "roundedPanelOccupant2";
-            this.roundedPanelOccupant2.Size = new System.Drawing.Size(369, 164);
-            this.roundedPanelOccupant2.TabIndex = 12;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(16, 17);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 21);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Occupant 2";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 120);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 16);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Gender:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(17, 48);
-            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(44, 16);
-            this.label37.TabIndex = 4;
-            this.label37.Text = "name:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(17, 72);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 16);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "no KTP:";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(17, 96);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(82, 16);
-            this.label36.TabIndex = 6;
-            this.label36.Text = "Date of Birth:";
-            // 
-            // roundedPanelOccupant1
-            // 
-            this.roundedPanelOccupant1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanelOccupant1.BorderColor = System.Drawing.SystemColors.Control;
-            this.roundedPanelOccupant1.Controls.Add(this.label2);
-            this.roundedPanelOccupant1.Controls.Add(this.label8);
-            this.roundedPanelOccupant1.Controls.Add(this.label6);
-            this.roundedPanelOccupant1.Controls.Add(this.label7);
-            this.roundedPanelOccupant1.Controls.Add(this.label5);
-            this.roundedPanelOccupant1.FillColor = System.Drawing.Color.White;
-            this.roundedPanelOccupant1.Location = new System.Drawing.Point(418, 24);
-            this.roundedPanelOccupant1.Name = "roundedPanelOccupant1";
-            this.roundedPanelOccupant1.Size = new System.Drawing.Size(369, 164);
-            this.roundedPanelOccupant1.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Occupant 1";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 116);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 16);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Gender:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 68);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 16);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "no KTP:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 92);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 16);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Date of Birth:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 44);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 16);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "name:";
+            this.panelListrik.Controls.Add(this.label38);
+            this.panelListrik.Controls.Add(this.dataGridView1);
+            this.panelListrik.Controls.Add(this.label12);
+            this.panelListrik.Location = new System.Drawing.Point(1524, 622);
+            this.panelListrik.Name = "panelListrik";
+            this.panelListrik.Size = new System.Drawing.Size(107, 74);
+            this.panelListrik.TabIndex = 12;
             // 
             // FormAdmin2
             // 
@@ -1751,8 +1853,8 @@
             this.Controls.Add(this.flowLayoutPanelLaporan);
             this.Controls.Add(this.panelFill);
             this.Controls.Add(this.flowLayoutPanelKamar);
-            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelPenghunidanTagihan);
+            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelOverview);
             this.Controls.Add(this.panelManage);
             this.Controls.Add(this.panel1);
@@ -1788,6 +1890,12 @@
             this.panelBtnManage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).EndInit();
             this.panelManage.ResumeLayout(false);
+            this.roundedPanelRoomInformation.ResumeLayout(false);
+            this.roundedPanelRoomInformation.PerformLayout();
+            this.roundedPanelOccupant2.ResumeLayout(false);
+            this.roundedPanelOccupant2.PerformLayout();
+            this.roundedPanelOccupant1.ResumeLayout(false);
+            this.roundedPanelOccupant1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).EndInit();
             this.panelFill.ResumeLayout(false);
             this.panelFill.PerformLayout();

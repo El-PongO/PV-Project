@@ -19,6 +19,8 @@ namespace Projek_PV
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         public static int colscounter = 0;
         public static int rowscounter = 0;
+
+
         public FormAdmin2()
         {
             InitializeComponent();
@@ -524,7 +526,7 @@ namespace Projek_PV
             }
         }
 
-        private void CreateComplaintCard(string category, string nama, string kamar, string tanggal, string pesan)
+        private void CreateComplaintCard(int id, string category, string nama, string kamar, string tanggal, string pesan)
         {
             // MAIN CARD
             RoundedPanel card = new RoundedPanel();
@@ -609,7 +611,7 @@ namespace Projek_PV
             txtReply.ForeColor = Color.White;
             txtReply.BackColor = replyPanel.FillColor;
             txtReply.Font = new Font("Segoe UI", 9);
-            txtReply.Text = "Balasan admin...";
+            //txtReply.Text = "Balasan admin...";
             txtReply.Padding = new Padding(8);
 
             replyPanel.Controls.Add(txtReply);
@@ -627,9 +629,45 @@ namespace Projek_PV
             btnSend.FlatStyle = FlatStyle.Flat;
             btnSend.FlatAppearance.BorderSize = 0;
 
+
+            btnSend.Click += (sender, e) =>
+            {
+     
+                if (txtReply.Text == "")
+                {
+                    MessageBox.Show("Harap isi pesan balasan.");
+                    return;
+                }
+
+
+                using(MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string updateSql = "UPDATE complaints SET status = @status, admin_reply = @response, reply_at = @time WHERE complaint_id = @id";
+                    using (MySqlCommand cmd = new MySqlCommand(updateSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
+                        cmd.Parameters.AddWithValue("@response", txtReply.Text);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@time", DateTime.Now);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Balasan terkirim dan status diperbarui.");
+                            flowLayoutPanelLaporan.Controls.Remove(card);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal mengirim balasan. Silakan coba lagi.");
+                        }
+                    }
+                }
+            };
+
+
+         
             card.Controls.Add(btnSend);
 
-            // ADD TO FORM OR FLOWLAYOUT
             flowLayoutPanelLaporan.Controls.Add(card);
         }
 
@@ -659,13 +697,14 @@ namespace Projek_PV
 
             flowLayoutPanelLaporan.Controls.Clear();
 
-            string query = "SELECT c.category,t.full_name,r.room_number,c.created_at,c.description FROM complaints c JOIN tenants t ON c.tenant_id = t.tenant_id JOIN leases l ON c.tenant_id = l.tenant_id JOIN rooms r ON l.room_id = r.room_id";
+            string query = "SELECT c.complaint_id,c.category,t.full_name,r.room_number,c.created_at,c.description FROM complaints c JOIN tenants t ON c.tenant_id = t.tenant_id JOIN leases l ON c.tenant_id = l.tenant_id JOIN rooms r ON l.room_id = r.room_id";
 
             DataTable dt = GetData(query);
 
             foreach (DataRow row in dt.Rows)
             {
                 CreateComplaintCard(
+                    Convert.ToInt32(row["complaint_id"]),
                     row["category"].ToString(),
                     row["full_name"].ToString(),
                     row["room_number"].ToString(),
