@@ -456,7 +456,7 @@ namespace Projek_PV
                 {
                     conn.Open();
 
-                    string query = " SELECT room_number,type,base_price,status,IFNULL(facilities, '') AS facilities FROM roomsORDER BY room_number";
+                    string query = " SELECT room_number,type,base_price,status,IFNULL(facilities, '') AS facilities FROM rooms ORDER BY room_number";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
