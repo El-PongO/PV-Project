@@ -38,7 +38,7 @@
     </Reference>
     <Reference Include="MySql.Data, Version=9.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\all the codes i make\all things PV\week5fr\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\SEM 3\PV\PRAKTIKUM\TUTORIAL\Minggu 5\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditDetailRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDetailRoom.Designer.cs">
+      <DependentUpon>EditDetailRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="EditDetailRoom.resx">
+      <DependentUpon>EditDetailRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
