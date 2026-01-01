@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 using System.Windows.Forms;
 
 
@@ -15,10 +17,13 @@ namespace Projek_PV
 {
     public partial class FormAdmin2 : Form
 
-        {
+    {
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         public static int colscounter = 0;
         public static int rowscounter = 0;
+        public int tenant_id = 0;
+        public int roomNum = 0;
+        public int roomId = 0;
 
 
         public FormAdmin2()
@@ -90,7 +95,7 @@ namespace Projek_PV
             loadComboBox();
             LoadDgvOverview();
             updateOverview();
-            
+
 
         }
         private void NavBar_ManageRooms_Click(object sender, EventArgs e)
@@ -122,8 +127,8 @@ namespace Projek_PV
             {
                 roundedPanelOccupant2.Visible = false;
             }
-                // ngeset
-                panelManage.Location = new Point(230, 82);
+            // ngeset
+            panelManage.Location = new Point(230, 82);
             panelManage.Size = new Size(1000, 600);
             lblHeader.Text = "Manage Rooms";
         }
@@ -278,7 +283,7 @@ namespace Projek_PV
             flowLayoutPanelExtensions.Location = new Point(230, 72);
             flowLayoutPanelExtensions.Size = new Size(1000, 600);
             lblHeader.Text = "Extensions";
-            
+
         }
         private void NavBar_Listrik_Click(object sender, EventArgs e)
         {
@@ -304,7 +309,7 @@ namespace Projek_PV
             panelListrik.Location = new Point(230, 72);
             panelListrik.Size = new Size(1000, 600);
             lblHeader.Text = "Listrik";
-            
+
         }
         private void CreateRoomCard(DataRow row)
         {
@@ -400,7 +405,7 @@ namespace Projek_PV
                 };
 
                 facilitiesPanel.Controls.Add(chip);
-               
+
             }
 
 
@@ -475,7 +480,7 @@ namespace Projek_PV
                 connection.Open();
                 try
                 {
-                    string query = "SELECT r.room_number,r.type,t.full_name,r.status FROM leases l JOIN rooms r ON r.room_id = l.room_id JOIN tenants t ON l.tenant_id = t.tenant_id";
+                    string query = "SELECT r.room_number,r.type,t.full_name FROM leases l JOIN rooms r ON r.room_id = l.room_id JOIN tenants t ON l.tenant_id = t.tenant_id";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
@@ -526,7 +531,7 @@ namespace Projek_PV
             }
         }
 
-        private void CreateComplaintCard(int id, string category, string nama, string kamar, string tanggal, string pesan,string status)
+        private void CreateComplaintCard(int id, string category, string nama, string kamar, string tanggal, string pesan, string status)
         {
             // MAIN CARD
             RoundedPanel card = new RoundedPanel();
@@ -572,7 +577,7 @@ namespace Projek_PV
             cmbStatus.SelectedIndex = (statusIndex != -1) ? statusIndex : 0;
             if (status == "Selesai")
             {
-                statusPanel.FillColor = Color.FromArgb(200, 255, 200); 
+                statusPanel.FillColor = Color.FromArgb(200, 255, 200);
                 cmbStatus.ForeColor = Color.DarkGreen;
             }
             else if (status == "Proses")
@@ -582,7 +587,7 @@ namespace Projek_PV
             }
             else
             {
-                statusPanel.FillColor = Color.FromArgb(255, 220, 220); 
+                statusPanel.FillColor = Color.FromArgb(255, 220, 220);
                 cmbStatus.ForeColor = Color.DarkRed;
             }
             cmbStatus.BackColor = statusPanel.FillColor;
@@ -642,12 +647,12 @@ namespace Projek_PV
             btnSend.ForeColor = Color.White;
             btnSend.FlatStyle = FlatStyle.Flat;
             btnSend.FlatAppearance.BorderSize = 0;
-            
+
 
 
             btnSend.Click += (sender, e) =>
             {
-     
+
                 if (txtReply.Text == "")
                 {
                     MessageBox.Show("Harap isi pesan balasan.");
@@ -655,7 +660,7 @@ namespace Projek_PV
                 }
 
 
-                using(MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
                     string updateSql = "UPDATE complaints SET status = @status, admin_reply = @response, reply_at = @time WHERE complaint_id = @id";
@@ -670,7 +675,7 @@ namespace Projek_PV
                         {
                             MessageBox.Show("Balasan terkirim dan status diperbarui.");
                             flowLayoutPanelLaporan.Controls.Remove(card);
-                            LoadDataFromDatabase(); 
+                            LoadDataFromDatabase();
                         }
                         else
                         {
@@ -681,7 +686,7 @@ namespace Projek_PV
             };
 
 
-         
+
             card.Controls.Add(btnSend);
 
             flowLayoutPanelLaporan.Controls.Add(card);
@@ -731,7 +736,7 @@ namespace Projek_PV
             }
         }
 
-        
+
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -739,39 +744,39 @@ namespace Projek_PV
 
         }
 
-            private void loadComboBox()
+        private void loadComboBox()
+        {
+            string query = "SELECT * FROM rooms WHERE STATUS = 'Tersedia' ";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                string query = "SELECT * FROM rooms WHERE STATUS = 'Tersedia' ";
-
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                try
                 {
-                    try
-                    {
-                        conn.Open();
-                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                        // 2. Gunakan MySqlDataAdapter untuk mengisi DataTable
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
+                    // 2. Gunakan MySqlDataAdapter untuk mengisi DataTable
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
 
-                        // 3. Masukkan data ke ComboBox
-                        comboRoomFill.DataSource = dt;
+                    // 3. Masukkan data ke ComboBox
+                    comboRoomFill.DataSource = dt;
 
 
-                        comboRoomFill.DisplayMember = "room_number";
+                    comboRoomFill.DisplayMember = "room_number";
 
 
-                        comboRoomFill.ValueMember = "room_id";
+                    comboRoomFill.ValueMember = "room_id";
 
-                        comboRoomFill.SelectedIndex = -1;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Gagal memuat data: " + ex.Message);
-                        }
+                    comboRoomFill.SelectedIndex = -1;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal memuat data: " + ex.Message);
                 }
             }
+        }
 
 
         private void label4_Click(object sender, EventArgs e)
@@ -781,7 +786,6 @@ namespace Projek_PV
 
         private void btnSubmitFill_Click(object sender, EventArgs e)
         {
-            // 1. Validasi Input (Lengkapi semua field yang diperlukan)
             if (string.IsNullOrWhiteSpace(tbNama1.Text) || comboRoomFill.SelectedValue == null)
             {
                 MessageBox.Show("Isi Data Terlebih Dahulu");
@@ -885,6 +889,8 @@ namespace Projek_PV
                             tr.Commit();
                             MessageBox.Show("Seluruh data berhasil disimpan dan kamar telah terupdate!");
                             loadComboBox();
+                            LoadDgvOverview();
+                            LoadDgvManage();
                             reset();
                         }
                         catch (Exception ex)
@@ -903,7 +909,7 @@ namespace Projek_PV
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox4.Checked == true)
+            if (checkBox4.Checked == true)
             {
                 gbOccupant2Fill.Enabled = true;
             }
@@ -1062,6 +1068,183 @@ namespace Projek_PV
         private void label39_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 loginForm = new Form1();
+            loginForm.Show();
+        }
+
+        private void GetDataByFullName(string name)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM tenants t JOIN leases l ON t.tenant_id = l.tenant_id WHERE t.full_name = @name";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@name", name);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow row = dt.Rows[0];
+
+                        namaHuni1.Text = row["full_name"].ToString();
+                        ktpHuni1.Text = row["ktp_number"].ToString();
+
+                        if (row["date_of_birth"] != DBNull.Value)
+                            tglHuni1.Text = Convert.ToDateTime(row["date_of_birth"]).ToString("dd MMM yyyy");
+
+                        genderHuni1.Text = row["gender"].ToString();
+                        lblDuration.Text = row["duration_months"].ToString() + " Months";
+
+                        if (row["start_date"] != DBNull.Value)
+                            lblSince.Text = Convert.ToDateTime(row["start_date"]).ToString("dd/MM/yyyy");
+
+                        if (Convert.ToInt32(row["tenant_count"]) == 2)
+                        {
+                            roundedPanelOccupant2.Visible = true;
+                            GetSecondTenant(row["user_id"].ToString(), row["full_name"].ToString());
+                        }
+                        else
+                        {
+                            roundedPanelOccupant2.Visible = false;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void GetSecondTenant(string userId, string excludedName)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM tenants WHERE user_id = @uid AND full_name <> @excludedName LIMIT 1";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@uid", userId);
+                    cmd.Parameters.AddWithValue("@excludedName", excludedName);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow row2 = dt.Rows[0];
+                        namaHuni2.Text = row2["full_name"].ToString();
+                        ktpHuni2.Text = row2["ktp_number"].ToString();
+
+                        if (row2["date_of_birth"] != DBNull.Value)
+                            tglHuni2.Text = Convert.ToDateTime(row2["date_of_birth"]).ToString("dd MMM yyyy");
+
+                        genderHuni2.Text = row2["gender"].ToString();
+                    }
+                    else
+                    {
+                        roundedPanelOccupant2.Visible = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void GetRoomIdByNumber(int roomNumber)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT room_id FROM rooms WHERE room_number = @roomNumber";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@roomNumber", roomNumber);
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        roomId = Convert.ToInt32(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+
+        private void dgvManage_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+            {
+                    roundedPanelOccupant2.Visible = false;
+                    if (e.RowIndex >= 0)
+                    {
+                        string fullName = dgvManage.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        GetDataByFullName(fullName);
+                        roomNum = Convert.ToInt32(dgvManage.Rows[e.RowIndex].Cells[0].Value);
+            }
+                }
+
+        private void btnUnoccupy_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Hapus data sewa dan ubah status kamar menjadi Tersedia?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        MySqlTransaction transaction = conn.BeginTransaction();
+
+                        try
+                        {
+                            string queryUpdate = "UPDATE rooms SET status = 'Tersedia' WHERE room_number = @room_id";
+                            MySqlCommand cmdUpdate = new MySqlCommand(queryUpdate, conn, transaction);
+                            cmdUpdate.Parameters.AddWithValue("@room_id", roomNum);
+                            cmdUpdate.ExecuteNonQuery();
+
+                            GetRoomIdByNumber(roomNum);
+                            string queryDelete = "DELETE FROM leases WHERE room_id = @room_id";
+                            MySqlCommand cmdDelete = new MySqlCommand(queryDelete, conn, transaction);
+                            cmdDelete.Parameters.AddWithValue("@room_id", roomId);
+                            cmdDelete.ExecuteNonQuery();
+
+                            transaction.Commit();
+                            MessageBox.Show("Proses berhasil dilakukan.");
+                            LoadDgvOverview();
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("Transaksi gagal: " + ex.Message);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error Koneksi: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
