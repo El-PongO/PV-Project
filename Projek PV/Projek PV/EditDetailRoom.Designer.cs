@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelDetailKamar = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.numPrice = new System.Windows.Forms.NumericUpDown();
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPerbaikan = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.labelTipeKamar = new System.Windows.Forms.Label();
             this.txtRoomNumber = new System.Windows.Forms.TextBox();
             this.labelNomorKamar = new System.Windows.Forms.Label();
-            this.numPrice = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
@@ -86,6 +86,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(499, 470);
             this.panel2.TabIndex = 1;
+            // 
+            // numPrice
+            // 
+            this.numPrice.Location = new System.Drawing.Point(27, 217);
+            this.numPrice.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
+            this.numPrice.Name = "numPrice";
+            this.numPrice.Size = new System.Drawing.Size(449, 22);
+            this.numPrice.TabIndex = 13;
             // 
             // btnSaveChanges
             // 
@@ -208,18 +220,6 @@
             this.labelNomorKamar.Size = new System.Drawing.Size(140, 22);
             this.labelNomorKamar.TabIndex = 1;
             this.labelNomorKamar.Text = "Nomor Kamar";
-            // 
-            // numPrice
-            // 
-            this.numPrice.Location = new System.Drawing.Point(27, 217);
-            this.numPrice.Maximum = new decimal(new int[] {
-            -727379968,
-            232,
-            0,
-            0});
-            this.numPrice.Name = "numPrice";
-            this.numPrice.Size = new System.Drawing.Size(449, 22);
-            this.numPrice.TabIndex = 13;
             // 
             // EditDetailRoom
             // 

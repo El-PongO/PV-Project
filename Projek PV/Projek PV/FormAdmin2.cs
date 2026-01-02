@@ -18,6 +18,7 @@ namespace Projek_PV
     public partial class FormAdmin2 : Form
     {
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+        private int selectedLeaseId = -1;
         public static int colscounter = 0;
         public static int rowscounter = 0;
         public int tenant_id = 0;
@@ -47,7 +48,6 @@ namespace Projek_PV
             panelFill.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
-            panelListrik.Visible = true;
             flowLayoutPanelPendapatan.Visible = false;
 
             panelOverview.Location = new Point(230, 82);
@@ -87,6 +87,7 @@ namespace Projek_PV
             panelFill.Visible = false;
             loadComboBox();
             LoadDgvOverview();
+            LoadDgvTagihan();
             updateOverview();
             loadDgvNotif();
 
@@ -111,7 +112,6 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
-            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
 
             if (roundedPanelOccupant1.Visible != true)
@@ -144,7 +144,6 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
-            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             panelFill.Location = new Point(230, 82);
@@ -169,7 +168,6 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
-            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             panelOverview.Location = new Point(230, 82);
@@ -193,7 +191,6 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = true;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
-            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             flowLayoutPanelComplaints.Location = new Point(230, 82);
@@ -218,7 +215,6 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             flowLayoutPanelKamar.Visible = false;
             panelPenghunidanTagihan.Visible = true;
-            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             panelPenghunidanTagihan.Location = new Point(230, 82);
@@ -242,7 +238,6 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = true;
-            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             flowLayoutPanelKamar.Location = new Point(230, 72);
@@ -267,37 +262,10 @@ namespace Projek_PV
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             lblHeader.Text = "Extensions";
 
-        }
-        private void NavBar_Listrik_Click(object sender, EventArgs e)
-        {
-            // panel btn
-            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnListrik.BackColor = Color.Navy;
-            // ini buat tampilin isi panelnya
-            panelManage.Visible = false;
-            panelFill.Visible = false;
-            panelOverview.Visible = false;
-            flowLayoutPanelComplaints.Visible = false;
-            panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
-            panelListrik.Visible = true;
-            flowLayoutPanelPendapatan.Visible = false;
-            // nge set
-            panelListrik.Location = new Point(230, 72);
-            panelListrik.Size = new Size(1000, 600);
-            lblHeader.Text = "Listrik";
-            
         }
 
         private void NavBar_Pendapatan_Click(object sender, EventArgs e)
@@ -318,7 +286,6 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             flowLayoutPanelKamar.Visible = false;
-            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = true;
 
             flowLayoutPanelPendapatan.Location = new Point(230, 82);
@@ -441,12 +408,10 @@ namespace Projek_PV
             // CLICK EVENT
             btnEdit.Click += (s, e) =>
             {
-                using (EditDetailRoom form = new EditDetailRoom(roomNumber, connectionString))
+                EditDetailRoom form = new EditDetailRoom(roomNumber, connectionString);
+                if (form.ShowDialog() == DialogResult.OK)
                 {
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        LoadRoomCards(); // 🔄 refresh cards after save
-                    }
+                    LoadRoomCards(); // 🔄 refresh cards after save
                 }
             };
 
@@ -541,21 +506,21 @@ namespace Projek_PV
             }
         }
 
-        private void LoadDgvManage()
+        private void LoadDgvTagihan()
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
                 try
                 {
-                    string query = "SELECT r.room_number,r.type,t.full_name,r.status FROM leases l JOIN rooms r ON r.room_id = l.room_id JOIN tenants t ON l.tenant_id = t.tenant_id";
+                    string query = "SELECT \r\n    l.lease_id,\r\n    t.tenant_id,\r\n    t.full_name AS nama_penghuni,\r\n    r.room_number AS kamar,\r\n    l.start_date AS tgl_masuk,\r\n    MAX(tr.transaction_date) AS tagihan_terakhir,\r\n    CASE\r\n        WHEN l.status = 'Active' THEN 'AKTIF'\r\n        ELSE 'MENUNGGAK'\r\n    END AS STATUS\r\nFROM tenants t\r\nJOIN leases l ON t.tenant_id = l.tenant_id\r\nJOIN rooms r ON l.room_id = r.room_id\r\nLEFT JOIN transactions tr \r\n    ON tr.lease_id = l.lease_id \r\n    AND tr.status = 'Paid'\r\nGROUP BY \r\n    l.lease_id,\r\n    t.tenant_id,\r\n    t.full_name,\r\n    r.room_number,\r\n    l.start_date,\r\n    l.status\r\nORDER BY t.full_name;\r\n";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
-                            dataGridView1.DataSource = dt;
+                            dgvTagihan.DataSource = dt;
                         }
                     }
 
@@ -1078,7 +1043,7 @@ namespace Projek_PV
                             MessageBox.Show("Seluruh data berhasil disimpan dan kamar telah terupdate!");
                             loadComboBox();
                             LoadDgvOverview();
-                            LoadDgvManage();
+                            LoadDgvTagihan();
                             reset();
                         }
                         catch (Exception ex)
@@ -1413,8 +1378,8 @@ namespace Projek_PV
                         string fullName = dgvManage.Rows[e.RowIndex].Cells[2].Value.ToString();
                         GetDataByFullName(fullName);
                         roomNum = Convert.ToInt32(dgvManage.Rows[e.RowIndex].Cells[0].Value);
+                    }
             }
-                }
 
         private void btnUnoccupy_Click(object sender, EventArgs e)
         {
@@ -1455,6 +1420,50 @@ namespace Projek_PV
                         MessageBox.Show("Error Koneksi: " + ex.Message);
                     }
                 }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonTagihListrikTenant_Click(object sender, EventArgs e)
+        {
+            if (dgvTagihan.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Pilih tenant terlebih dahulu!");
+                return;
+            }
+
+            DataGridViewRow row = dgvTagihan.SelectedRows[0];
+
+            int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
+            int leaseId = Convert.ToInt32(row.Cells["lease_id"].Value);
+
+            FormTagihListrikTenant form = new FormTagihListrikTenant(tenantId, leaseId, connectionString);
+
+            form.ShowDialog();
+
+        }
+
+        private void dgvTagihan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //
+        }
+
+        private void dgvTagihan_DoubleClick(object sender, EventArgs e)
+        {
+            // this is buat nyetak nota per orang
+        }
+
+        private void dgvTagihan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedLeaseId = Convert.ToInt32(
+                    dgvTagihan.Rows[e.RowIndex].Cells["lease_id"].Value
+                );
             }
         }
     }
