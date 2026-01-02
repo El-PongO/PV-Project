@@ -88,7 +88,7 @@ namespace Projek_PV
             loadComboBox();
             LoadDgvOverview();
             updateOverview();
-
+            loadDgvNotif();
 
         }
 
@@ -1380,8 +1380,31 @@ namespace Projek_PV
             }
         }
 
+    private void loadDgvNotif()
+        {
+            string query = "SELECT title, content FROM announcements LIMIT 5";
 
-        private void dgvManage_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dgvNotification.DataSource = dt;
+                    dgvNotification.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+
+    private void dgvManage_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
             {
                     roundedPanelOccupant2.Visible = false;
                     if (e.RowIndex >= 0)
