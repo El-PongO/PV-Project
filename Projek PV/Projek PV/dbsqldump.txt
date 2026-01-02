@@ -67,7 +67,7 @@ CREATE TABLE `guest_logs` (
   `guest_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `visit_date` date NOT NULL,
   `arrival_time` time NOT NULL,
-  `purpose` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `purpose` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`guest_id`),
   KEY `tenant_id` (`tenant_id`),
@@ -92,7 +92,7 @@ CREATE TABLE `leases` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `duration_months` int DEFAULT '1',
-  `status` enum('Active','Expired','Cancelled') COLLATE utf8mb4_general_ci DEFAULT 'Active',
+  `status` enum('Active','Expired','Cancelled') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Active',
   `usingVoucher` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`lease_id`),
   KEY `room_id` (`room_id`),
@@ -106,6 +106,28 @@ CREATE TABLE `leases` (
 insert  into `leases`(`lease_id`,`room_id`,`tenant_id`,`tenant_count`,`rent_price`,`start_date`,`end_date`,`duration_months`,`status`,`usingVoucher`) values 
 (1,1,1,1,1500000.00,'2025-12-01','2026-01-01',1,'Active',0),
 (2,2,2,2,2000000.00,'2025-12-01','2026-01-01',1,'Active',0);
+
+/*Table structure for table `listrik_bills` */
+
+DROP TABLE IF EXISTS `listrik_bills`;
+
+CREATE TABLE `listrik_bills` (
+  `bill_id` int NOT NULL AUTO_INCREMENT,
+  `lease_id` int NOT NULL,
+  `pemakaian_kwh` decimal(10,2) NOT NULL,
+  `tarif_per_kwh` decimal(10,2) NOT NULL,
+  `total_tagihan` decimal(12,2) NOT NULL,
+  `bill_month` date NOT NULL,
+  `due_date` date NOT NULL,
+  `status` enum('Unpaid','Paid') COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`bill_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `listrik_bills` */
+
+insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`created_at`) values 
+(1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','2026-01-02 20:00:32');
 
 /*Table structure for table `pendapatan` */
 
@@ -137,11 +159,11 @@ DROP TABLE IF EXISTS `rooms`;
 
 CREATE TABLE `rooms` (
   `room_id` int NOT NULL AUTO_INCREMENT,
-  `room_number` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `type` enum('Standard Non-AC','Standard AC','VIP AC') COLLATE utf8mb4_general_ci NOT NULL,
+  `room_number` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `type` enum('Standard Non-AC','Standard AC','VIP AC') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `base_price` decimal(10,2) NOT NULL,
-  `status` enum('Tersedia','Terisi','Perbaikan') COLLATE utf8mb4_general_ci DEFAULT 'Tersedia',
-  `facilities` text COLLATE utf8mb4_general_ci,
+  `status` enum('Tersedia','Terisi','Perbaikan') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Tersedia',
+  `facilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_number` (`room_number`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -159,12 +181,12 @@ DROP TABLE IF EXISTS `tenants`;
 CREATE TABLE `tenants` (
   `tenant_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
-  `full_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `ktp_number` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `gender` enum('Laki-laki','Perempuan') COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `full_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `ktp_number` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `gender` enum('Laki-laki','Perempuan') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
-  `phone_number` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` text COLLATE utf8mb4_general_ci,
+  `phone_number` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`tenant_id`),
   UNIQUE KEY `ktp_number` (`ktp_number`),
   KEY `user_id` (`user_id`),
@@ -185,12 +207,12 @@ CREATE TABLE `transactions` (
   `transaction_id` int NOT NULL AUTO_INCREMENT,
   `lease_id` int NOT NULL,
   `transaction_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `description` text COLLATE utf8mb4_general_ci NOT NULL,
-  `discount` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `discount` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `amount` decimal(10,2) NOT NULL,
-  `payment_method` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` enum('Pending','Paid','Failed') COLLATE utf8mb4_general_ci DEFAULT 'Pending',
-  `category` enum('rent','electricity','damages') COLLATE utf8mb4_general_ci NOT NULL,
+  `payment_method` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` enum('Pending','Paid','Failed') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Pending',
+  `category` enum('rent','electricity','damages') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`transaction_id`),
   KEY `lease_id` (`lease_id`),
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`)
@@ -218,9 +240,9 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `role` enum('admin','tenant') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'tenant',
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `role` enum('admin','tenant') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'tenant',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
