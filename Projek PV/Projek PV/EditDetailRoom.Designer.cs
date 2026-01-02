@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.labelDetailKamar = new System.Windows.Forms.Label();
-            this.labelNomorKamar = new System.Windows.Forms.Label();
-            this.textBoxNomorKamar = new System.Windows.Forms.TextBox();
-            this.textBoxKamar = new System.Windows.Forms.TextBox();
-            this.labelTipeKamar = new System.Windows.Forms.Label();
-            this.textBoxHarga = new System.Windows.Forms.TextBox();
-            this.labelHarga = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnPerbaikan = new System.Windows.Forms.Button();
+            this.btnTersedia = new System.Windows.Forms.Button();
+            this.btnTerisi = new System.Windows.Forms.Button();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.buttonPerbaikan = new System.Windows.Forms.Button();
-            this.buttonTerisi = new System.Windows.Forms.Button();
-            this.buttonTersedia = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonSaveChanges = new System.Windows.Forms.Button();
+            this.labelHarga = new System.Windows.Forms.Label();
+            this.txtType = new System.Windows.Forms.TextBox();
+            this.labelTipeKamar = new System.Windows.Forms.Label();
+            this.txtRoomNumber = new System.Windows.Forms.TextBox();
+            this.labelNomorKamar = new System.Windows.Forms.Label();
+            this.numPrice = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,25 +56,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(499, 59);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.buttonSaveChanges);
-            this.panel2.Controls.Add(this.buttonCancel);
-            this.panel2.Controls.Add(this.buttonTersedia);
-            this.panel2.Controls.Add(this.buttonTerisi);
-            this.panel2.Controls.Add(this.buttonPerbaikan);
-            this.panel2.Controls.Add(this.labelStatus);
-            this.panel2.Controls.Add(this.textBoxHarga);
-            this.panel2.Controls.Add(this.labelHarga);
-            this.panel2.Controls.Add(this.textBoxKamar);
-            this.panel2.Controls.Add(this.labelTipeKamar);
-            this.panel2.Controls.Add(this.textBoxNomorKamar);
-            this.panel2.Controls.Add(this.labelNomorKamar);
-            this.panel2.Location = new System.Drawing.Point(0, 62);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(499, 470);
-            this.panel2.TabIndex = 1;
             // 
             // labelDetailKamar
             // 
@@ -86,59 +68,85 @@
             this.labelDetailKamar.TabIndex = 0;
             this.labelDetailKamar.Text = "Edit Detail Kamar ";
             // 
-            // labelNomorKamar
+            // panel2
             // 
-            this.labelNomorKamar.AutoSize = true;
-            this.labelNomorKamar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomorKamar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelNomorKamar.Location = new System.Drawing.Point(22, 32);
-            this.labelNomorKamar.Name = "labelNomorKamar";
-            this.labelNomorKamar.Size = new System.Drawing.Size(140, 22);
-            this.labelNomorKamar.TabIndex = 1;
-            this.labelNomorKamar.Text = "Nomor Kamar";
+            this.panel2.Controls.Add(this.numPrice);
+            this.panel2.Controls.Add(this.btnSaveChanges);
+            this.panel2.Controls.Add(this.btnCancel);
+            this.panel2.Controls.Add(this.btnPerbaikan);
+            this.panel2.Controls.Add(this.btnTersedia);
+            this.panel2.Controls.Add(this.btnTerisi);
+            this.panel2.Controls.Add(this.labelStatus);
+            this.panel2.Controls.Add(this.labelHarga);
+            this.panel2.Controls.Add(this.txtType);
+            this.panel2.Controls.Add(this.labelTipeKamar);
+            this.panel2.Controls.Add(this.txtRoomNumber);
+            this.panel2.Controls.Add(this.labelNomorKamar);
+            this.panel2.Location = new System.Drawing.Point(0, 62);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(499, 470);
+            this.panel2.TabIndex = 1;
             // 
-            // textBoxNomorKamar
+            // btnSaveChanges
             // 
-            this.textBoxNomorKamar.Location = new System.Drawing.Point(26, 59);
-            this.textBoxNomorKamar.Name = "textBoxNomorKamar";
-            this.textBoxNomorKamar.Size = new System.Drawing.Size(450, 22);
-            this.textBoxNomorKamar.TabIndex = 2;
+            this.btnSaveChanges.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChanges.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSaveChanges.Location = new System.Drawing.Point(251, 360);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(225, 44);
+            this.btnSaveChanges.TabIndex = 12;
+            this.btnSaveChanges.Text = "Save Changes";
+            this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
-            // textBoxKamar
+            // btnCancel
             // 
-            this.textBoxKamar.Location = new System.Drawing.Point(26, 128);
-            this.textBoxKamar.Name = "textBoxKamar";
-            this.textBoxKamar.Size = new System.Drawing.Size(450, 22);
-            this.textBoxKamar.TabIndex = 4;
+            this.btnCancel.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancel.Location = new System.Drawing.Point(27, 360);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(218, 44);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // labelTipeKamar
+            // btnPerbaikan
             // 
-            this.labelTipeKamar.AutoSize = true;
-            this.labelTipeKamar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTipeKamar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelTipeKamar.Location = new System.Drawing.Point(22, 101);
-            this.labelTipeKamar.Name = "labelTipeKamar";
-            this.labelTipeKamar.Size = new System.Drawing.Size(118, 22);
-            this.labelTipeKamar.TabIndex = 3;
-            this.labelTipeKamar.Text = "Tipe Kamar";
+            this.btnPerbaikan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerbaikan.Location = new System.Drawing.Point(330, 287);
+            this.btnPerbaikan.Name = "btnPerbaikan";
+            this.btnPerbaikan.Size = new System.Drawing.Size(146, 44);
+            this.btnPerbaikan.TabIndex = 10;
+            this.btnPerbaikan.Text = "Perbaikan";
+            this.btnPerbaikan.UseVisualStyleBackColor = true;
+            this.btnPerbaikan.Click += new System.EventHandler(this.btnPerbaikan_Click);
             // 
-            // textBoxHarga
+            // btnTersedia
             // 
-            this.textBoxHarga.Location = new System.Drawing.Point(26, 204);
-            this.textBoxHarga.Name = "textBoxHarga";
-            this.textBoxHarga.Size = new System.Drawing.Size(450, 22);
-            this.textBoxHarga.TabIndex = 6;
+            this.btnTersedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTersedia.Location = new System.Drawing.Point(178, 287);
+            this.btnTersedia.Name = "btnTersedia";
+            this.btnTersedia.Size = new System.Drawing.Size(146, 44);
+            this.btnTersedia.TabIndex = 9;
+            this.btnTersedia.Text = "Tersedia";
+            this.btnTersedia.UseVisualStyleBackColor = true;
+            this.btnTersedia.Click += new System.EventHandler(this.btnTersedia_Click);
             // 
-            // labelHarga
+            // btnTerisi
             // 
-            this.labelHarga.AutoSize = true;
-            this.labelHarga.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHarga.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelHarga.Location = new System.Drawing.Point(22, 177);
-            this.labelHarga.Name = "labelHarga";
-            this.labelHarga.Size = new System.Drawing.Size(215, 22);
-            this.labelHarga.TabIndex = 5;
-            this.labelHarga.Text = "Harga per Bulan (Rp)";
+            this.btnTerisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTerisi.Location = new System.Drawing.Point(26, 287);
+            this.btnTerisi.Name = "btnTerisi";
+            this.btnTerisi.Size = new System.Drawing.Size(146, 44);
+            this.btnTerisi.TabIndex = 8;
+            this.btnTerisi.Text = "Terisi";
+            this.btnTerisi.UseVisualStyleBackColor = true;
+            this.btnTerisi.Click += new System.EventHandler(this.btnTerisi_Click);
             // 
             // labelStatus
             // 
@@ -151,61 +159,67 @@
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Text = "Status";
             // 
-            // buttonPerbaikan
+            // labelHarga
             // 
-            this.buttonPerbaikan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPerbaikan.Location = new System.Drawing.Point(26, 287);
-            this.buttonPerbaikan.Name = "buttonPerbaikan";
-            this.buttonPerbaikan.Size = new System.Drawing.Size(146, 44);
-            this.buttonPerbaikan.TabIndex = 8;
-            this.buttonPerbaikan.Text = "Perbaikan";
-            this.buttonPerbaikan.UseVisualStyleBackColor = true;
+            this.labelHarga.AutoSize = true;
+            this.labelHarga.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHarga.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelHarga.Location = new System.Drawing.Point(22, 177);
+            this.labelHarga.Name = "labelHarga";
+            this.labelHarga.Size = new System.Drawing.Size(215, 22);
+            this.labelHarga.TabIndex = 5;
+            this.labelHarga.Text = "Harga per Bulan (Rp)";
             // 
-            // buttonTerisi
+            // txtType
             // 
-            this.buttonTerisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTerisi.Location = new System.Drawing.Point(178, 287);
-            this.buttonTerisi.Name = "buttonTerisi";
-            this.buttonTerisi.Size = new System.Drawing.Size(146, 44);
-            this.buttonTerisi.TabIndex = 9;
-            this.buttonTerisi.Text = "Terisi";
-            this.buttonTerisi.UseVisualStyleBackColor = true;
+            this.txtType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtType.Location = new System.Drawing.Point(26, 128);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(450, 24);
+            this.txtType.TabIndex = 4;
             // 
-            // buttonTersedia
+            // labelTipeKamar
             // 
-            this.buttonTersedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTersedia.Location = new System.Drawing.Point(330, 287);
-            this.buttonTersedia.Name = "buttonTersedia";
-            this.buttonTersedia.Size = new System.Drawing.Size(146, 44);
-            this.buttonTersedia.TabIndex = 10;
-            this.buttonTersedia.Text = "Tersedia";
-            this.buttonTersedia.UseVisualStyleBackColor = true;
+            this.labelTipeKamar.AutoSize = true;
+            this.labelTipeKamar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTipeKamar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelTipeKamar.Location = new System.Drawing.Point(22, 101);
+            this.labelTipeKamar.Name = "labelTipeKamar";
+            this.labelTipeKamar.Size = new System.Drawing.Size(118, 22);
+            this.labelTipeKamar.TabIndex = 3;
+            this.labelTipeKamar.Text = "Tipe Kamar";
             // 
-            // buttonCancel
+            // txtRoomNumber
             // 
-            this.buttonCancel.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonCancel.Location = new System.Drawing.Point(27, 360);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(218, 44);
-            this.buttonCancel.TabIndex = 11;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.txtRoomNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomNumber.Location = new System.Drawing.Point(26, 59);
+            this.txtRoomNumber.Name = "txtRoomNumber";
+            this.txtRoomNumber.ReadOnly = true;
+            this.txtRoomNumber.Size = new System.Drawing.Size(450, 24);
+            this.txtRoomNumber.TabIndex = 2;
             // 
-            // buttonSaveChanges
+            // labelNomorKamar
             // 
-            this.buttonSaveChanges.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveChanges.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSaveChanges.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSaveChanges.Location = new System.Drawing.Point(251, 360);
-            this.buttonSaveChanges.Name = "buttonSaveChanges";
-            this.buttonSaveChanges.Size = new System.Drawing.Size(225, 44);
-            this.buttonSaveChanges.TabIndex = 12;
-            this.buttonSaveChanges.Text = "Save Changes";
-            this.buttonSaveChanges.UseVisualStyleBackColor = false;
+            this.labelNomorKamar.AutoSize = true;
+            this.labelNomorKamar.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNomorKamar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelNomorKamar.Location = new System.Drawing.Point(22, 32);
+            this.labelNomorKamar.Name = "labelNomorKamar";
+            this.labelNomorKamar.Size = new System.Drawing.Size(140, 22);
+            this.labelNomorKamar.TabIndex = 1;
+            this.labelNomorKamar.Text = "Nomor Kamar";
+            // 
+            // numPrice
+            // 
+            this.numPrice.Location = new System.Drawing.Point(27, 217);
+            this.numPrice.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
+            this.numPrice.Name = "numPrice";
+            this.numPrice.Size = new System.Drawing.Size(449, 22);
+            this.numPrice.TabIndex = 13;
             // 
             // EditDetailRoom
             // 
@@ -220,6 +234,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,17 +244,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelDetailKamar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button buttonSaveChanges;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonTersedia;
-        private System.Windows.Forms.Button buttonTerisi;
-        private System.Windows.Forms.Button buttonPerbaikan;
+        private System.Windows.Forms.Button btnSaveChanges;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnPerbaikan;
+        private System.Windows.Forms.Button btnTersedia;
+        private System.Windows.Forms.Button btnTerisi;
         private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.TextBox textBoxHarga;
         private System.Windows.Forms.Label labelHarga;
-        private System.Windows.Forms.TextBox textBoxKamar;
+        private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Label labelTipeKamar;
-        private System.Windows.Forms.TextBox textBoxNomorKamar;
+        private System.Windows.Forms.TextBox txtRoomNumber;
         private System.Windows.Forms.Label labelNomorKamar;
+        private System.Windows.Forms.NumericUpDown numPrice;
     }
 }

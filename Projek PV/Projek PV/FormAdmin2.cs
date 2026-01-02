@@ -434,9 +434,23 @@ namespace Projek_PV
             btnEdit.Height = 35;
             btnEdit.Location = new Point(card.Width - 100, card.Height - 50);
 
+            // GET ROOM NUMBER (IMPORTANT)
+            string roomNumber = row["RoomName"].ToString().Replace("Kamar ", "");
+
+            // CLICK EVENT
+            btnEdit.Click += (s, e) =>
+            {
+                using (EditDetailRoom form = new EditDetailRoom(roomNumber, connectionString))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadRoomCards(); // 🔄 refresh cards after save
+                    }
+                }
+            };
+
             card.Controls.Add(btnEdit);
 
-            // Finally add card to the FlowLayoutPanel
             flowLayoutPanelKamar.Controls.Add(card);
         }
         private DataTable GetRoomData()
