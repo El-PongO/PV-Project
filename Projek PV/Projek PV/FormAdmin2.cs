@@ -407,12 +407,10 @@ namespace Projek_PV
             // CLICK EVENT
             btnEdit.Click += (s, e) =>
             {
-                using (EditDetailRoom form = new EditDetailRoom(roomNumber, connectionString))
+                EditDetailRoom form = new EditDetailRoom(roomNumber, connectionString);
+                if (form.ShowDialog() == DialogResult.OK)
                 {
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        LoadRoomCards(); // 🔄 refresh cards after save
-                    }
+                    LoadRoomCards(); // 🔄 refresh cards after save
                 }
             };
 
@@ -1408,14 +1406,21 @@ namespace Projek_PV
 
         private void buttonTagihListrikTenant_Click(object sender, EventArgs e)
         {
-            if (selectedLeaseId == -1)
+            if (dgvTagihan.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Pilih data penghuni terlebih dahulu.");
+                MessageBox.Show("Pilih tenant terlebih dahulu!");
                 return;
             }
 
-            FormTagihListrikTenant formTagihan = new FormTagihListrikTenant(selectedLeaseId, connectionString);
-            formTagihan.ShowDialog();
+            DataGridViewRow row = dgvTagihan.SelectedRows[0];
+
+            int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
+            int leaseId = Convert.ToInt32(row.Cells["lease_id"].Value);
+
+            FormTagihListrikTenant form =new FormTagihListrikTenant(tenantId, leaseId, connectionString);
+
+            form.ShowDialog();
+
         }
 
         private void dgvTagihan_CellContentClick(object sender, DataGridViewCellEventArgs e)

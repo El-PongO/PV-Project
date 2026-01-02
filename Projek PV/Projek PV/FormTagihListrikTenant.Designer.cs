@@ -35,6 +35,11 @@
             this.labelPilihTenant = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.textBoxTenant = new System.Windows.Forms.TextBox();
+            this.numKwh = new System.Windows.Forms.NumericUpDown();
+            this.numTarif = new System.Windows.Forms.NumericUpDown();
             this.roundedPanel1 = new RoundedPanel();
             this.labelTarif = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -42,16 +47,11 @@
             this.labelEstimasi = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBoxTenant = new System.Windows.Forms.TextBox();
-            this.numKwh = new System.Windows.Forms.NumericUpDown();
-            this.numTarif = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
-            this.roundedPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKwh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTarif)).BeginInit();
+            this.roundedPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -119,6 +119,77 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Tarif per kWh (Rp)";
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonCancel.Location = new System.Drawing.Point(20, 347);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(192, 39);
+            this.buttonCancel.TabIndex = 8;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(158)))));
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSave.Location = new System.Drawing.Point(218, 347);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(199, 39);
+            this.buttonSave.TabIndex = 9;
+            this.buttonSave.Text = "Buat Tagihan";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // textBoxTenant
+            // 
+            this.textBoxTenant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTenant.Location = new System.Drawing.Point(20, 116);
+            this.textBoxTenant.Name = "textBoxTenant";
+            this.textBoxTenant.ReadOnly = true;
+            this.textBoxTenant.Size = new System.Drawing.Size(397, 24);
+            this.textBoxTenant.TabIndex = 10;
+            // 
+            // numKwh
+            // 
+            this.numKwh.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numKwh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numKwh.Location = new System.Drawing.Point(20, 183);
+            this.numKwh.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.numKwh.Name = "numKwh";
+            this.numKwh.Size = new System.Drawing.Size(188, 20);
+            this.numKwh.TabIndex = 11;
+            this.numKwh.ValueChanged += new System.EventHandler(this.num_ValueChanged);
+            // 
+            // numTarif
+            // 
+            this.numTarif.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numTarif.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numTarif.Increment = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numTarif.Location = new System.Drawing.Point(229, 183);
+            this.numTarif.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.numTarif.Name = "numTarif";
+            this.numTarif.Size = new System.Drawing.Size(188, 20);
+            this.numTarif.TabIndex = 12;
+            this.numTarif.ValueChanged += new System.EventHandler(this.num_ValueChanged);
+            // 
             // roundedPanel1
             // 
             this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
@@ -163,7 +234,7 @@
             this.labelkWh.AutoSize = true;
             this.labelkWh.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelkWh.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelkWh.Location = new System.Drawing.Point(19, 55);
+            this.labelkWh.Location = new System.Drawing.Point(17, 55);
             this.labelkWh.Name = "labelkWh";
             this.labelkWh.Size = new System.Drawing.Size(26, 19);
             this.labelkWh.TabIndex = 6;
@@ -200,68 +271,6 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Location = new System.Drawing.Point(20, 347);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 39);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(158)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(218, 347);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(199, 39);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Buat Tagihan";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // textBoxTenant
-            // 
-            this.textBoxTenant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTenant.Location = new System.Drawing.Point(20, 116);
-            this.textBoxTenant.Name = "textBoxTenant";
-            this.textBoxTenant.ReadOnly = true;
-            this.textBoxTenant.Size = new System.Drawing.Size(397, 24);
-            this.textBoxTenant.TabIndex = 10;
-            // 
-            // numKwh
-            // 
-            this.numKwh.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numKwh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numKwh.Location = new System.Drawing.Point(20, 183);
-            this.numKwh.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.numKwh.Name = "numKwh";
-            this.numKwh.Size = new System.Drawing.Size(188, 20);
-            this.numKwh.TabIndex = 11;
-            // 
-            // numTarif
-            // 
-            this.numTarif.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numTarif.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numTarif.Location = new System.Drawing.Point(229, 183);
-            this.numTarif.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.numTarif.Name = "numTarif";
-            this.numTarif.Size = new System.Drawing.Size(188, 20);
-            this.numTarif.TabIndex = 12;
-            // 
             // FormTagihListrikTenant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -270,8 +279,8 @@
             this.Controls.Add(this.numTarif);
             this.Controls.Add(this.numKwh);
             this.Controls.Add(this.textBoxTenant);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.roundedPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -281,11 +290,11 @@
             this.Text = "FormTagihListrikTenant";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numKwh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTarif)).EndInit();
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numKwh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numTarif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,8 +313,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelkWh;
         private System.Windows.Forms.Label labelEstimasi;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox textBoxTenant;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label labelTarif;
