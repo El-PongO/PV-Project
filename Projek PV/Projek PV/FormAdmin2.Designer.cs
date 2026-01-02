@@ -548,10 +548,10 @@
             this.panelManage.Controls.Add(this.roundedPanelOccupant2);
             this.panelManage.Controls.Add(this.roundedPanelOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
-            this.panelManage.Location = new System.Drawing.Point(230, 74);
+            this.panelManage.Location = new System.Drawing.Point(1613, 90);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelManage.Name = "panelManage";
-            this.panelManage.Size = new System.Drawing.Size(901, 515);
+            this.panelManage.Size = new System.Drawing.Size(79, 82);
             this.panelManage.TabIndex = 1;
             // 
             // roundedPanelRoomInformation
@@ -1811,8 +1811,8 @@
             this.Controls.Add(this.flowLayoutPanelPendapatan);
             this.Controls.Add(this.panelManageTenant);
             this.Controls.Add(this.panelFill);
-            this.Controls.Add(this.flowLayoutPanelComplaints);
             this.Controls.Add(this.panelManage);
+            this.Controls.Add(this.flowLayoutPanelComplaints);
             this.Controls.Add(this.flowLayoutPanelKamar);
             this.Controls.Add(this.panelPenghunidanTagihan);
             this.Controls.Add(this.panelHeader);
