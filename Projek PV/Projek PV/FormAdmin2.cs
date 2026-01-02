@@ -32,8 +32,9 @@ namespace Projek_PV
             flowLayoutPanelKamar.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutPanelKamar.WrapContents = true;
             flowLayoutPanelKamar.AutoScroll = true;
-            flowLayoutPanelKamar.Dock = DockStyle.Left;
-            //flowLayoutPanelKamar.Width = 800;
+            //flowLayoutPanelKamar.Dock = DockStyle.Fill;
+            //flowLayoutPanelKamar.Height = 150;
+            flowLayoutPanelKamar.AutoSize = false;
 
             flowLayoutPanelComplaints.AutoScroll = true;
             panelFill.AutoScroll = true;
@@ -243,8 +244,9 @@ namespace Projek_PV
             panelKamar.Visible = true;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
-            flowLayoutPanelKamar.Location = new Point(230, 72);
-            flowLayoutPanelKamar.Size = new Size(1000, 600);
+            panelKamar.Location = new Point(230, 72);
+            panelKamar.Size = new Size(1000, 600);
+            flowLayoutPanelPendapatan.Size = new Size(300, 100);
             lblHeader.Text = "Kamar";
             LoadRoomCards();
         }

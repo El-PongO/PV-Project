@@ -1808,6 +1808,7 @@
             // 
             // panelKamar
             // 
+            this.panelKamar.BackColor = System.Drawing.SystemColors.Control;
             this.panelKamar.Controls.Add(this.btnTambahKamar);
             this.panelKamar.Controls.Add(this.labelDaftarKamar);
             this.panelKamar.Controls.Add(this.flowLayoutPanelKamar);
