@@ -84,7 +84,7 @@
             this.panel2.Controls.Add(this.labelNomorKamar);
             this.panel2.Location = new System.Drawing.Point(0, 62);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(499, 470);
+            this.panel2.Size = new System.Drawing.Size(499, 456);
             this.panel2.TabIndex = 1;
             // 
             // numPrice
@@ -98,11 +98,11 @@
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(449, 22);
             this.numPrice.TabIndex = 13;
+            this.numPrice.ThousandsSeparator = true;
             // 
             // btnSaveChanges
             // 
             this.btnSaveChanges.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveChanges.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSaveChanges.Location = new System.Drawing.Point(251, 360);
@@ -116,7 +116,6 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCancel.Location = new System.Drawing.Point(27, 360);
@@ -129,7 +128,6 @@
             // 
             // btnPerbaikan
             // 
-            this.btnPerbaikan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPerbaikan.Location = new System.Drawing.Point(330, 287);
             this.btnPerbaikan.Name = "btnPerbaikan";
             this.btnPerbaikan.Size = new System.Drawing.Size(146, 44);
@@ -140,7 +138,6 @@
             // 
             // btnTersedia
             // 
-            this.btnTersedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTersedia.Location = new System.Drawing.Point(178, 287);
             this.btnTersedia.Name = "btnTersedia";
             this.btnTersedia.Size = new System.Drawing.Size(146, 44);
@@ -151,7 +148,6 @@
             // 
             // btnTerisi
             // 
-            this.btnTerisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTerisi.Location = new System.Drawing.Point(26, 287);
             this.btnTerisi.Name = "btnTerisi";
             this.btnTerisi.Size = new System.Drawing.Size(146, 44);
@@ -225,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 557);
+            this.ClientSize = new System.Drawing.Size(502, 522);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "EditDetailRoom";

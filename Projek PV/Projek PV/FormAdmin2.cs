@@ -32,6 +32,9 @@ namespace Projek_PV
             flowLayoutPanelKamar.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutPanelKamar.WrapContents = true;
             flowLayoutPanelKamar.AutoScroll = true;
+            flowLayoutPanelKamar.Dock = DockStyle.Left;
+            //flowLayoutPanelKamar.Width = 800;
+
             flowLayoutPanelComplaints.AutoScroll = true;
             panelFill.AutoScroll = true;
             radioWanita1.Checked = true;
@@ -47,7 +50,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelFill.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
+            panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
 
             panelOverview.Location = new Point(230, 82);
@@ -111,7 +114,7 @@ namespace Projek_PV
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
+            panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
 
             if (roundedPanelOccupant1.Visible != true)
@@ -143,7 +146,7 @@ namespace Projek_PV
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
+            panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             panelFill.Location = new Point(230, 82);
@@ -167,7 +170,7 @@ namespace Projek_PV
             panelOverview.Visible = true;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
+            panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             panelOverview.Location = new Point(230, 82);
@@ -190,7 +193,7 @@ namespace Projek_PV
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = true;
             panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
+            panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             flowLayoutPanelComplaints.Location = new Point(230, 82);
@@ -213,7 +216,7 @@ namespace Projek_PV
             panelFill.Visible = false;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
+            panelKamar.Visible = false;
             panelPenghunidanTagihan.Visible = true;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
@@ -237,35 +240,13 @@ namespace Projek_PV
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = true;
+            panelKamar.Visible = true;
             flowLayoutPanelPendapatan.Visible = false;
             // nge set
             flowLayoutPanelKamar.Location = new Point(230, 72);
             flowLayoutPanelKamar.Size = new Size(1000, 600);
             lblHeader.Text = "Kamar";
             LoadRoomCards();
-        }
-        private void NavBar_Extensions_Click(object sender, EventArgs e)
-        {
-            // panel btn
-            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
-            panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
-
-            // ini buat tampilin isi panelnya
-            panelManage.Visible = false;
-            panelFill.Visible = false;
-            panelOverview.Visible = false;
-            flowLayoutPanelComplaints.Visible = false;
-            panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelPendapatan.Visible = false;
-            // nge set
-            lblHeader.Text = "Extensions";
-
         }
 
         private void NavBar_Pendapatan_Click(object sender, EventArgs e)
@@ -285,7 +266,7 @@ namespace Projek_PV
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
-            flowLayoutPanelKamar.Visible = false;
+            panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = true;
 
             flowLayoutPanelPendapatan.Location = new Point(230, 82);
@@ -300,7 +281,7 @@ namespace Projek_PV
             card.Width = 307;
             card.Height = 210;
             //card.BackColor = Color.White;
-            card.Margin = new Padding(10);
+            card.Margin = new Padding(5, 10, 10, 10);
             card.BorderColor = SystemColors.Control;
 
             // ROOM NAME
@@ -462,6 +443,10 @@ namespace Projek_PV
             return dt;
         }
 
+        public void createKamar()
+        {
+
+        }
 
         private void LoadRoomCards()
         {
@@ -1464,6 +1449,15 @@ namespace Projek_PV
                 selectedLeaseId = Convert.ToInt32(
                     dgvTagihan.Rows[e.RowIndex].Cells["lease_id"].Value
                 );
+            }
+        }
+
+        private void btnTambahKamar_Click(object sender, EventArgs e)
+        {
+            formCreateKamar formBikinKamar = new formCreateKamar();
+            if (formBikinKamar.ShowDialog() == DialogResult.OK)
+            {
+                LoadRoomCards();
             }
         }
     }

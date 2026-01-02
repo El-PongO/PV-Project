@@ -69,6 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetPerpanjang.xsd</DependentUpon>
     </Compile>
+    <Compile Include="formCreateKamar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCreateKamar.Designer.cs">
+      <DependentUpon>formCreateKamar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="formCreateKamar.resx">
+      <DependentUpon>formCreateKamar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNota.resx">
       <DependentUpon>FormNota.cs</DependentUpon>
     </EmbeddedResource>

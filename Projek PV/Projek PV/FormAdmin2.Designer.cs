@@ -166,6 +166,9 @@
             this.dataGridViewExtensions = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.flowLayoutPanelPendapatan = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelKamar = new System.Windows.Forms.Panel();
+            this.labelDaftarKamar = new System.Windows.Forms.Label();
+            this.btnTambahKamar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelBtnPendapatan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPendapatan)).BeginInit();
@@ -207,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).BeginInit();
             this.panelManageTenant.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).BeginInit();
+            this.panelKamar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1435,10 +1439,10 @@
             this.panelPenghunidanTagihan.Controls.Add(this.dgvTagihan);
             this.panelPenghunidanTagihan.Controls.Add(this.buttonTagihListrikTenant);
             this.panelPenghunidanTagihan.Controls.Add(this.button6);
-            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(307, 90);
+            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1516, 4);
             this.panelPenghunidanTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPenghunidanTagihan.Name = "panelPenghunidanTagihan";
-            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(1201, 601);
+            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(95, 92);
             this.panelPenghunidanTagihan.TabIndex = 6;
             // 
             // dgvTagihan
@@ -1455,7 +1459,7 @@
             this.dgvTagihan.Name = "dgvTagihan";
             this.dgvTagihan.RowHeadersWidth = 51;
             this.dgvTagihan.RowTemplate.Height = 24;
-            this.dgvTagihan.Size = new System.Drawing.Size(1148, 433);
+            this.dgvTagihan.Size = new System.Drawing.Size(1138, 433);
             this.dgvTagihan.TabIndex = 34;
             this.dgvTagihan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTagihan_CellClick);
             this.dgvTagihan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTagihan_CellContentClick);
@@ -1464,7 +1468,7 @@
             // buttonTagihListrikTenant
             // 
             this.buttonTagihListrikTenant.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonTagihListrikTenant.Location = new System.Drawing.Point(900, 473);
+            this.buttonTagihListrikTenant.Location = new System.Drawing.Point(890, 479);
             this.buttonTagihListrikTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTagihListrikTenant.Name = "buttonTagihListrikTenant";
             this.buttonTagihListrikTenant.Size = new System.Drawing.Size(133, 49);
@@ -1476,7 +1480,7 @@
             // button6
             // 
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(1050, 473);
+            this.button6.Location = new System.Drawing.Point(1040, 479);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(133, 49);
@@ -1528,10 +1532,10 @@
             // flowLayoutPanelKamar
             // 
             this.flowLayoutPanelKamar.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanelKamar.Location = new System.Drawing.Point(1515, 586);
+            this.flowLayoutPanelKamar.Location = new System.Drawing.Point(40, 69);
             this.flowLayoutPanelKamar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelKamar.Name = "flowLayoutPanelKamar";
-            this.flowLayoutPanelKamar.Size = new System.Drawing.Size(67, 121);
+            this.flowLayoutPanelKamar.Size = new System.Drawing.Size(1105, 383);
             this.flowLayoutPanelKamar.TabIndex = 9;
             // 
             // panelOverview
@@ -1802,18 +1806,51 @@
             this.flowLayoutPanelPendapatan.Size = new System.Drawing.Size(67, 70);
             this.flowLayoutPanelPendapatan.TabIndex = 13;
             // 
+            // panelKamar
+            // 
+            this.panelKamar.Controls.Add(this.btnTambahKamar);
+            this.panelKamar.Controls.Add(this.labelDaftarKamar);
+            this.panelKamar.Controls.Add(this.flowLayoutPanelKamar);
+            this.panelKamar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelKamar.Location = new System.Drawing.Point(307, 90);
+            this.panelKamar.Name = "panelKamar";
+            this.panelKamar.Size = new System.Drawing.Size(1201, 482);
+            this.panelKamar.TabIndex = 14;
+            // 
+            // labelDaftarKamar
+            // 
+            this.labelDaftarKamar.AutoSize = true;
+            this.labelDaftarKamar.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDaftarKamar.Location = new System.Drawing.Point(40, 14);
+            this.labelDaftarKamar.Name = "labelDaftarKamar";
+            this.labelDaftarKamar.Size = new System.Drawing.Size(148, 27);
+            this.labelDaftarKamar.TabIndex = 0;
+            this.labelDaftarKamar.Text = "Daftar Kamar";
+            // 
+            // btnTambahKamar
+            // 
+            this.btnTambahKamar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnTambahKamar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnTambahKamar.Location = new System.Drawing.Point(962, 7);
+            this.btnTambahKamar.Name = "btnTambahKamar";
+            this.btnTambahKamar.Size = new System.Drawing.Size(187, 44);
+            this.btnTambahKamar.TabIndex = 1;
+            this.btnTambahKamar.Text = "➕ Tambah Kamar";
+            this.btnTambahKamar.UseVisualStyleBackColor = false;
+            this.btnTambahKamar.Click += new System.EventHandler(this.btnTambahKamar_Click);
+            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.panelKamar);
             this.Controls.Add(this.flowLayoutPanelPendapatan);
             this.Controls.Add(this.panelManageTenant);
             this.Controls.Add(this.panelFill);
             this.Controls.Add(this.panelManage);
             this.Controls.Add(this.flowLayoutPanelComplaints);
-            this.Controls.Add(this.flowLayoutPanelKamar);
             this.Controls.Add(this.panelPenghunidanTagihan);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelOverview);
@@ -1884,6 +1921,8 @@
             this.panelManageTenant.ResumeLayout(false);
             this.panelManageTenant.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).EndInit();
+            this.panelKamar.ResumeLayout(false);
+            this.panelKamar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2027,5 +2066,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPendapatan;
         private System.Windows.Forms.Button buttonTagihListrikTenant;
         private System.Windows.Forms.DataGridView dgvTagihan;
+        private System.Windows.Forms.Panel panelKamar;
+        private System.Windows.Forms.Label labelDaftarKamar;
+        private System.Windows.Forms.Button btnTambahKamar;
     }
 }
