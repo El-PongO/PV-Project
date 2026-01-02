@@ -505,6 +505,7 @@ namespace Projek_PV
                 }
             }
         }
+        
 
         private void LoadDgvTagihan()
         {
@@ -1430,20 +1431,20 @@ namespace Projek_PV
 
         private void buttonTagihListrikTenant_Click(object sender, EventArgs e)
         {
-            if (dgvTagihan.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Pilih tenant terlebih dahulu!");
-                return;
-            }
+            //if (dgvTagihan.SelectedRows.Count == 0)
+            //{
+            //    MessageBox.Show("Pilih tenant terlebih dahulu!");
+            //    return;
+            //}
 
-            DataGridViewRow row = dgvTagihan.SelectedRows[0];
+            //DataGridViewRow row = dgvTagihan.SelectedRows[0];
 
-            int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
-            int leaseId = Convert.ToInt32(row.Cells["lease_id"].Value);
+            //int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
+            //int leaseId = Convert.ToInt32(row.Cells["lease_id"].Value);
 
-            FormTagihListrikTenant form = new FormTagihListrikTenant(tenantId, leaseId, connectionString);
+            //FormTagihListrikTenant form = new FormTagihListrikTenant(tenantId, leaseId, connectionString);
 
-            form.ShowDialog();
+            //form.ShowDialog();
 
         }
 

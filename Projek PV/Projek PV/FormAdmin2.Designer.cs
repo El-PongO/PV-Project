@@ -548,10 +548,10 @@
             this.panelManage.Controls.Add(this.roundedPanelOccupant2);
             this.panelManage.Controls.Add(this.roundedPanelOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
-            this.panelManage.Location = new System.Drawing.Point(230, 74);
+            this.panelManage.Location = new System.Drawing.Point(662, 709);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelManage.Name = "panelManage";
-            this.panelManage.Size = new System.Drawing.Size(901, 515);
+            this.panelManage.Size = new System.Drawing.Size(262, 112);
             this.panelManage.TabIndex = 1;
             // 
             // roundedPanelRoomInformation
@@ -950,7 +950,7 @@
             this.panelFill.Location = new System.Drawing.Point(1652, 285);
             this.panelFill.Margin = new System.Windows.Forms.Padding(5);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(111, 56);
+            this.panelFill.Size = new System.Drawing.Size(58, 56);
             this.panelFill.TabIndex = 3;
             // 
             // checkBox4
@@ -1767,10 +1767,10 @@
             // 
             this.panelManageTenant.Controls.Add(this.dataGridViewExtensions);
             this.panelManageTenant.Controls.Add(this.label10);
-            this.panelManageTenant.Location = new System.Drawing.Point(1817, 250);
+            this.panelManageTenant.Location = new System.Drawing.Point(1616, 106);
             this.panelManageTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelManageTenant.Name = "panelManageTenant";
-            this.panelManageTenant.Size = new System.Drawing.Size(64, 30);
+            this.panelManageTenant.Size = new System.Drawing.Size(60, 38);
             this.panelManageTenant.TabIndex = 0;
             // 
             // dataGridViewExtensions
@@ -1799,7 +1799,7 @@
             this.flowLayoutPanelPendapatan.Location = new System.Drawing.Point(1544, 246);
             this.flowLayoutPanelPendapatan.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelPendapatan.Name = "flowLayoutPanelPendapatan";
-            this.flowLayoutPanelPendapatan.Size = new System.Drawing.Size(67, 70);
+            this.flowLayoutPanelPendapatan.Size = new System.Drawing.Size(132, 138);
             this.flowLayoutPanelPendapatan.TabIndex = 13;
             // 
             // FormAdmin2
