@@ -153,6 +153,7 @@ namespace Projek_PV
         }
         private void NavBar_Overview_Click(object sender, EventArgs e)
         {
+            updateOverview();
             // panel btn
             panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
