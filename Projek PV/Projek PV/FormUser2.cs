@@ -316,7 +316,7 @@ namespace Projek_PV
 
                     //load data pengumuman
                     StyleDgvNotif();
-                    query = "SELECT title, content, created_at as time FROM announcements WHERE is_active = 1 UNION (SELECT CONCAT(\"Reply dari Complaints : \", category), admin_reply, reply_at as time FROM complaints WHERE tenant_id = @user AND admin_reply IS NOT NULL) order by time desc limit 10";
+                    query = "SELECT title, content, created_at as time FROM announcements WHERE is_active = 1 UNION (SELECT CONCAT('Reply dari Complaints : ', category), admin_reply, reply_at as time FROM complaints WHERE tenant_id = @user AND admin_reply IS NOT NULL) order by time desc limit 10";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@user", id_user);
@@ -571,27 +571,43 @@ namespace Projek_PV
             }
             else
             {
-                string query = "INSERT INTO reqextend(lease_id, duration, metodePembayaran) VALUES(@lease, @duration, @method);";
+                // Calculate the amount based on duration (you may adjust this calculation)
+                decimal duration = numericUpDown1.Value;
+                decimal amount = duration * 1500000; // Example: base price per month
+                string description = "Perpanjangan sewa " + duration + " bulan";
+                string paymentMethod = comboMetodePembayaran.Text;
+
+                string query = "INSERT INTO transactions(lease_id, description, amount, payment_method, status, category) " +
+                              "VALUES(@lease, @desc, @amount, @method, 'Pending', 'rent'); SELECT LAST_INSERT_ID();";
+                
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@lease", lease_id);
-                        cmd.Parameters.AddWithValue("@duration", numericUpDown1.Value);
-                        cmd.Parameters.AddWithValue("@method", comboMetodePembayaran.Text);
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@desc", description);
+                        cmd.Parameters.AddWithValue("@amount", amount);
+                        cmd.Parameters.AddWithValue("@method", paymentMethod);
+                        
+                        object result = cmd.ExecuteScalar();
 
-                        if (rowsAffected > 0)
+                        if (result != null)
                         {
-                            Console.WriteLine("request created successfully!");
+                            int newTransactionId = Convert.ToInt32(result);
+                            MessageBox.Show("Request perpanjangan berhasil dibuat!");
+                            
+                            // Open FormNota with the newly inserted transaction ID
+                            FormNota nota = new FormNota(newTransactionId);
+                            nota.ShowDialog();
                         }
                         else
                         {
-                            Console.WriteLine("request failed.");
+                            MessageBox.Show("Request perpanjangan gagal.");
                         }
                     }
                 }
+
 
             }
         }

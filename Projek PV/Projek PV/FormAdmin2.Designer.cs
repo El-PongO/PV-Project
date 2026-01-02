@@ -579,10 +579,10 @@
             this.panelManage.Controls.Add(this.roundedPanelOccupant2);
             this.panelManage.Controls.Add(this.roundedPanelOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
-            this.panelManage.Location = new System.Drawing.Point(1282, 306);
+            this.panelManage.Location = new System.Drawing.Point(230, 74);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelManage.Name = "panelManage";
-            this.panelManage.Size = new System.Drawing.Size(76, 80);
+            this.panelManage.Size = new System.Drawing.Size(901, 515);
             this.panelManage.TabIndex = 1;
             // 
             // roundedPanelRoomInformation
@@ -1510,10 +1510,10 @@
             this.panelOverview.Controls.Add(this.roundedPanel1);
             this.panelOverview.Controls.Add(this.roundedPanelLaporanBaru);
             this.panelOverview.Controls.Add(this.dgvNotification);
-            this.panelOverview.Location = new System.Drawing.Point(272, 640);
+            this.panelOverview.Location = new System.Drawing.Point(244, 635);
             this.panelOverview.Margin = new System.Windows.Forms.Padding(2);
             this.panelOverview.Name = "panelOverview";
-            this.panelOverview.Size = new System.Drawing.Size(119, 101);
+            this.panelOverview.Size = new System.Drawing.Size(158, 91);
             this.panelOverview.TabIndex = 4;
             // 
             // roundedPanel3
@@ -1819,9 +1819,9 @@
             // 
             // flowLayoutPanelPendapatan
             // 
-            this.flowLayoutPanelPendapatan.Location = new System.Drawing.Point(232, 73);
+            this.flowLayoutPanelPendapatan.Location = new System.Drawing.Point(663, 700);
             this.flowLayoutPanelPendapatan.Name = "flowLayoutPanelPendapatan";
-            this.flowLayoutPanelPendapatan.Size = new System.Drawing.Size(899, 479);
+            this.flowLayoutPanelPendapatan.Size = new System.Drawing.Size(110, 102);
             this.flowLayoutPanelPendapatan.TabIndex = 13;
             // 
             // FormAdmin2

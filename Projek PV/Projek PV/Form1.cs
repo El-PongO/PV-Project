@@ -14,6 +14,7 @@ namespace Projek_PV
 {
     public partial class Form1 : Form
     {
+        public static int LoggedInUserId { get; private set; }
 
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         public Form1()
@@ -54,6 +55,8 @@ namespace Projek_PV
                                 reader.Read();
                                 int id = Convert.ToInt32(reader["user_id"]);
                                 string role = reader["role"].ToString();
+
+                                LoggedInUserId = id;
 
                                 tbUsername.Text = "";
                                 tbPassword.Text = "";
