@@ -57,6 +57,37 @@
             this.pictureBoxManageRooms = new System.Windows.Forms.PictureBox();
             this.labelManageRoom = new System.Windows.Forms.Label();
             this.panelManage = new System.Windows.Forms.Panel();
+            this.roundedPanelRoomInformation = new RoundedPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblRentDue = new System.Windows.Forms.Label();
+            this.btnExtend = new System.Windows.Forms.Button();
+            this.lblSince = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.btnUnoccupy = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSendReminder = new System.Windows.Forms.Button();
+            this.roundedPanelOccupant2 = new RoundedPanel();
+            this.genderHuni2 = new System.Windows.Forms.Label();
+            this.tglHuni2 = new System.Windows.Forms.Label();
+            this.ktpHuni2 = new System.Windows.Forms.Label();
+            this.namaHuni2 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.roundedPanelOccupant1 = new RoundedPanel();
+            this.genderHuni1 = new System.Windows.Forms.Label();
+            this.tglHuni1 = new System.Windows.Forms.Label();
+            this.ktpHuni1 = new System.Windows.Forms.Label();
+            this.namaHuni1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.dgvManage = new System.Windows.Forms.DataGridView();
             this.panelFill = new System.Windows.Forms.Panel();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -103,56 +134,15 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panelPenghunidanTagihan = new System.Windows.Forms.Panel();
+            this.dgvTagihan = new System.Windows.Forms.DataGridView();
             this.buttonTagihListrikTenant = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.dgvTagihan = new System.Windows.Forms.DataGridView();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblText = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.flowLayoutPanelKamar = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOverview = new System.Windows.Forms.Panel();
-            this.dgvNotification = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanelComplaints = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelManageTenant = new System.Windows.Forms.Panel();
-            this.dataGridViewExtensions = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panelListrik = new System.Windows.Forms.Panel();
-            this.label38 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.flowLayoutPanelPendapatan = new System.Windows.Forms.FlowLayoutPanel();
-            this.roundedPanelRoomInformation = new RoundedPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblRentDue = new System.Windows.Forms.Label();
-            this.btnExtend = new System.Windows.Forms.Button();
-            this.lblSince = new System.Windows.Forms.Label();
-            this.lblDuration = new System.Windows.Forms.Label();
-            this.btnUnoccupy = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnSendReminder = new System.Windows.Forms.Button();
-            this.roundedPanelOccupant2 = new RoundedPanel();
-            this.genderHuni2 = new System.Windows.Forms.Label();
-            this.tglHuni2 = new System.Windows.Forms.Label();
-            this.ktpHuni2 = new System.Windows.Forms.Label();
-            this.namaHuni2 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.roundedPanelOccupant1 = new RoundedPanel();
-            this.genderHuni1 = new System.Windows.Forms.Label();
-            this.tglHuni1 = new System.Windows.Forms.Label();
-            this.ktpHuni1 = new System.Windows.Forms.Label();
-            this.namaHuni1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.roundedPanel3 = new RoundedPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -170,6 +160,12 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.dgvNotification = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanelComplaints = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelManageTenant = new System.Windows.Forms.Panel();
+            this.dataGridViewExtensions = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.flowLayoutPanelPendapatan = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panelBtnPendapatan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPendapatan)).BeginInit();
@@ -189,6 +185,9 @@
             this.panelBtnManage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).BeginInit();
             this.panelManage.SuspendLayout();
+            this.roundedPanelRoomInformation.SuspendLayout();
+            this.roundedPanelOccupant2.SuspendLayout();
+            this.roundedPanelOccupant1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).BeginInit();
             this.panelFill.SuspendLayout();
             this.gbOccupant2Fill.SuspendLayout();
@@ -197,14 +196,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTagihan)).BeginInit();
             this.panelHeader.SuspendLayout();
             this.panelOverview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).BeginInit();
-            this.panelManageTenant.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).BeginInit();
-            this.panelListrik.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.roundedPanelRoomInformation.SuspendLayout();
-            this.roundedPanelOccupant2.SuspendLayout();
-            this.roundedPanelOccupant1.SuspendLayout();
             this.roundedPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.roundedPanel2.SuspendLayout();
@@ -213,6 +204,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.roundedPanelLaporanBaru.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).BeginInit();
+            this.panelManageTenant.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -229,7 +223,7 @@
             this.panel1.Controls.Add(this.panelBtnFill);
             this.panel1.Controls.Add(this.panelBtnManage);
             this.panel1.Location = new System.Drawing.Point(1, -1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(299, 997);
             this.panel1.TabIndex = 0;
@@ -239,8 +233,8 @@
             this.panelBtnPendapatan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnPendapatan.Controls.Add(this.lblPendapatan);
             this.panelBtnPendapatan.Controls.Add(this.pictureBoxPendapatan);
-            this.panelBtnPendapatan.Location = new System.Drawing.Point(8, 331);
-            this.panelBtnPendapatan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnPendapatan.Location = new System.Drawing.Point(4, 331);
+            this.panelBtnPendapatan.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnPendapatan.Name = "panelBtnPendapatan";
             this.panelBtnPendapatan.Size = new System.Drawing.Size(295, 54);
             this.panelBtnPendapatan.TabIndex = 5;
@@ -276,7 +270,7 @@
             this.panelBtnLogout.Controls.Add(this.pictureBox1);
             this.panelBtnLogout.Controls.Add(this.labelUserLogout);
             this.panelBtnLogout.Location = new System.Drawing.Point(4, 626);
-            this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnLogout.Name = "panelBtnLogout";
             this.panelBtnLogout.Size = new System.Drawing.Size(295, 54);
             this.panelBtnLogout.TabIndex = 4;
@@ -309,8 +303,8 @@
             this.panelBtnKamar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnKamar.Controls.Add(this.labelKamar);
             this.panelBtnKamar.Controls.Add(this.pictureBoxKamar);
-            this.panelBtnKamar.Location = new System.Drawing.Point(4, 508);
-            this.panelBtnKamar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnKamar.Location = new System.Drawing.Point(4, 447);
+            this.panelBtnKamar.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnKamar.Name = "panelBtnKamar";
             this.panelBtnKamar.Size = new System.Drawing.Size(295, 54);
             this.panelBtnKamar.TabIndex = 7;
@@ -368,8 +362,8 @@
             this.panelBtnPenghuni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnPenghuni.Controls.Add(this.pictureBoxPenghuniDanTagihan);
             this.panelBtnPenghuni.Controls.Add(this.labelPenghuniDanTagihan);
-            this.panelBtnPenghuni.Location = new System.Drawing.Point(4, 450);
-            this.panelBtnPenghuni.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnPenghuni.Location = new System.Drawing.Point(4, 389);
+            this.panelBtnPenghuni.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnPenghuni.Name = "panelBtnPenghuni";
             this.panelBtnPenghuni.Size = new System.Drawing.Size(295, 54);
             this.panelBtnPenghuni.TabIndex = 3;
@@ -405,8 +399,8 @@
             this.panelBtnLaporan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnLaporan.Controls.Add(this.pictureBoxComplaints);
             this.panelBtnLaporan.Controls.Add(this.labelComplaints);
-            this.panelBtnLaporan.Location = new System.Drawing.Point(8, 272);
-            this.panelBtnLaporan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnLaporan.Location = new System.Drawing.Point(4, 272);
+            this.panelBtnLaporan.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnLaporan.Name = "panelBtnLaporan";
             this.panelBtnLaporan.Size = new System.Drawing.Size(295, 54);
             this.panelBtnLaporan.TabIndex = 2;
@@ -442,7 +436,7 @@
             this.panelBtnOverview.Controls.Add(this.pictureBoxOverview);
             this.panelBtnOverview.Controls.Add(this.labelOverview);
             this.panelBtnOverview.Location = new System.Drawing.Point(4, 91);
-            this.panelBtnOverview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnOverview.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnOverview.Name = "panelBtnOverview";
             this.panelBtnOverview.Size = new System.Drawing.Size(295, 54);
             this.panelBtnOverview.TabIndex = 1;
@@ -478,8 +472,8 @@
             this.panelBtnFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnFill.Controls.Add(this.pictureBoxFillRoom);
             this.panelBtnFill.Controls.Add(this.labelFillRoom);
-            this.panelBtnFill.Location = new System.Drawing.Point(8, 210);
-            this.panelBtnFill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnFill.Location = new System.Drawing.Point(4, 210);
+            this.panelBtnFill.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnFill.Name = "panelBtnFill";
             this.panelBtnFill.Size = new System.Drawing.Size(295, 54);
             this.panelBtnFill.TabIndex = 1;
@@ -516,7 +510,7 @@
             this.panelBtnManage.Controls.Add(this.pictureBoxManageRooms);
             this.panelBtnManage.Controls.Add(this.labelManageRoom);
             this.panelBtnManage.Location = new System.Drawing.Point(4, 149);
-            this.panelBtnManage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnManage.Name = "panelBtnManage";
             this.panelBtnManage.Size = new System.Drawing.Size(295, 54);
             this.panelBtnManage.TabIndex = 0;
@@ -555,760 +549,10 @@
             this.panelManage.Controls.Add(this.roundedPanelOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
             this.panelManage.Location = new System.Drawing.Point(1685, 78);
-            this.panelManage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panelManage.Margin = new System.Windows.Forms.Padding(5);
             this.panelManage.Name = "panelManage";
             this.panelManage.Size = new System.Drawing.Size(171, 133);
             this.panelManage.TabIndex = 1;
-            // 
-            // dgvManage
-            // 
-            this.dgvManage.AllowUserToAddRows = false;
-            this.dgvManage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvManage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvManage.ColumnHeadersVisible = false;
-            this.dgvManage.Location = new System.Drawing.Point(28, 25);
-            this.dgvManage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.dgvManage.Name = "dgvManage";
-            this.dgvManage.RowHeadersWidth = 51;
-            this.dgvManage.Size = new System.Drawing.Size(371, 470);
-            this.dgvManage.TabIndex = 0;
-            this.dgvManage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dgvManage.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManage_CellContentDoubleClick);
-            // 
-            // panelFill
-            // 
-            this.panelFill.BackColor = System.Drawing.SystemColors.Control;
-            this.panelFill.Controls.Add(this.checkBox4);
-            this.panelFill.Controls.Add(this.checkBox2);
-            this.panelFill.Controls.Add(this.cbConfirmData);
-            this.panelFill.Controls.Add(this.btnSubmitFill);
-            this.panelFill.Controls.Add(this.label35);
-            this.panelFill.Controls.Add(this.lblDepositFill);
-            this.panelFill.Controls.Add(this.lblDownPayment);
-            this.panelFill.Controls.Add(this.label34);
-            this.panelFill.Controls.Add(this.comboDurationFill);
-            this.panelFill.Controls.Add(this.comboRoomFill);
-            this.panelFill.Controls.Add(this.label32);
-            this.panelFill.Controls.Add(this.label31);
-            this.panelFill.Controls.Add(this.label30);
-            this.panelFill.Controls.Add(this.label33);
-            this.panelFill.Controls.Add(this.label29);
-            this.panelFill.Controls.Add(this.gbOccupant2Fill);
-            this.panelFill.Controls.Add(this.gbOcccupant1Fill);
-            this.panelFill.Location = new System.Drawing.Point(1652, 285);
-            this.panelFill.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(111, 56);
-            this.panelFill.TabIndex = 3;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(365, 26);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(36, 20);
-            this.checkBox4.TabIndex = 26;
-            this.checkBox4.Text = "2";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(324, 26);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(36, 20);
-            this.checkBox2.TabIndex = 25;
-            this.checkBox2.Text = "1";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // cbConfirmData
-            // 
-            this.cbConfirmData.AutoSize = true;
-            this.cbConfirmData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbConfirmData.ForeColor = System.Drawing.Color.Red;
-            this.cbConfirmData.Location = new System.Drawing.Point(25, 729);
-            this.cbConfirmData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbConfirmData.Name = "cbConfirmData";
-            this.cbConfirmData.Size = new System.Drawing.Size(374, 28);
-            this.cbConfirmData.TabIndex = 13;
-            this.cbConfirmData.Text = "Confirm Data (TIDAK BISA KEMBALI)";
-            this.cbConfirmData.UseVisualStyleBackColor = true;
-            // 
-            // btnSubmitFill
-            // 
-            this.btnSubmitFill.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnSubmitFill.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSubmitFill.Location = new System.Drawing.Point(25, 778);
-            this.btnSubmitFill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnSubmitFill.Name = "btnSubmitFill";
-            this.btnSubmitFill.Size = new System.Drawing.Size(165, 47);
-            this.btnSubmitFill.TabIndex = 12;
-            this.btnSubmitFill.Text = "Submit";
-            this.btnSubmitFill.UseVisualStyleBackColor = false;
-            this.btnSubmitFill.Click += new System.EventHandler(this.btnSubmitFill_Click);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(21, 690);
-            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(86, 24);
-            this.label35.TabIndex = 11;
-            this.label35.Text = "Deposit:";
-            // 
-            // lblDepositFill
-            // 
-            this.lblDepositFill.AutoSize = true;
-            this.lblDepositFill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepositFill.Location = new System.Drawing.Point(252, 690);
-            this.lblDepositFill.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDepositFill.Name = "lblDepositFill";
-            this.lblDepositFill.Size = new System.Drawing.Size(131, 24);
-            this.lblDepositFill.TabIndex = 11;
-            this.lblDepositFill.Text = "Rp 1.000.000";
-            // 
-            // lblDownPayment
-            // 
-            this.lblDownPayment.AutoSize = true;
-            this.lblDownPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDownPayment.Location = new System.Drawing.Point(252, 655);
-            this.lblDownPayment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDownPayment.Name = "lblDownPayment";
-            this.lblDownPayment.Size = new System.Drawing.Size(114, 24);
-            this.lblDownPayment.TabIndex = 11;
-            this.lblDownPayment.Text = "Rp 800.000";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(21, 655);
-            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(208, 24);
-            this.label34.TabIndex = 11;
-            this.label34.Text = "Down Payment (DP): ";
-            // 
-            // comboDurationFill
-            // 
-            this.comboDurationFill.FormattingEnabled = true;
-            this.comboDurationFill.Location = new System.Drawing.Point(256, 610);
-            this.comboDurationFill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboDurationFill.Name = "comboDurationFill";
-            this.comboDurationFill.Size = new System.Drawing.Size(187, 24);
-            this.comboDurationFill.TabIndex = 9;
-            // 
-            // comboRoomFill
-            // 
-            this.comboRoomFill.FormattingEnabled = true;
-            this.comboRoomFill.Location = new System.Drawing.Point(256, 574);
-            this.comboRoomFill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboRoomFill.Name = "comboRoomFill";
-            this.comboRoomFill.Size = new System.Drawing.Size(297, 24);
-            this.comboRoomFill.TabIndex = 8;
-            this.comboRoomFill.SelectedIndexChanged += new System.EventHandler(this.comboRoomFill_SelectedIndexChanged);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(452, 614);
-            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(64, 18);
-            this.label32.TabIndex = 7;
-            this.label32.Text = "Months";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(21, 614);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(162, 24);
-            this.label31.TabIndex = 7;
-            this.label31.Text = "Duration of Stay:";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(21, 570);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(135, 24);
-            this.label30.TabIndex = 7;
-            this.label30.Text = "Select Room:";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(409, 26);
-            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(384, 17);
-            this.label33.TabIndex = 5;
-            this.label33.Text = "(+ 30% dari biaya sewa untuk tiap kepala ditambah)";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(20, 22);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(295, 25);
-            this.label29.TabIndex = 5;
-            this.label29.Text = "Select Number of Occupants:";
-            // 
-            // gbOccupant2Fill
-            // 
-            this.gbOccupant2Fill.Controls.Add(this.dateTimePicker2);
-            this.gbOccupant2Fill.Controls.Add(this.radioHelicopter2);
-            this.gbOccupant2Fill.Controls.Add(this.radioWanita2);
-            this.gbOccupant2Fill.Controls.Add(this.tbPekerjaan2);
-            this.gbOccupant2Fill.Controls.Add(this.tbAlamat2);
-            this.gbOccupant2Fill.Controls.Add(this.tbNIK2);
-            this.gbOccupant2Fill.Controls.Add(this.tbNama2);
-            this.gbOccupant2Fill.Controls.Add(this.label23);
-            this.gbOccupant2Fill.Controls.Add(this.label24);
-            this.gbOccupant2Fill.Controls.Add(this.label25);
-            this.gbOccupant2Fill.Controls.Add(this.label26);
-            this.gbOccupant2Fill.Controls.Add(this.label27);
-            this.gbOccupant2Fill.Controls.Add(this.label28);
-            this.gbOccupant2Fill.Enabled = false;
-            this.gbOccupant2Fill.Location = new System.Drawing.Point(20, 314);
-            this.gbOccupant2Fill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbOccupant2Fill.Name = "gbOccupant2Fill";
-            this.gbOccupant2Fill.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbOccupant2Fill.Size = new System.Drawing.Size(1136, 210);
-            this.gbOccupant2Fill.TabIndex = 4;
-            this.gbOccupant2Fill.TabStop = false;
-            this.gbOccupant2Fill.Text = "Occcupant 2";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(160, 100);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker2.TabIndex = 3;
-            // 
-            // radioHelicopter2
-            // 
-            this.radioHelicopter2.AutoSize = true;
-            this.radioHelicopter2.Location = new System.Drawing.Point(259, 126);
-            this.radioHelicopter2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioHelicopter2.Name = "radioHelicopter2";
-            this.radioHelicopter2.Size = new System.Drawing.Size(90, 20);
-            this.radioHelicopter2.TabIndex = 2;
-            this.radioHelicopter2.TabStop = true;
-            this.radioHelicopter2.Text = "Helicopter";
-            this.radioHelicopter2.UseVisualStyleBackColor = true;
-            // 
-            // radioWanita2
-            // 
-            this.radioWanita2.AutoSize = true;
-            this.radioWanita2.Location = new System.Drawing.Point(172, 126);
-            this.radioWanita2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioWanita2.Name = "radioWanita2";
-            this.radioWanita2.Size = new System.Drawing.Size(70, 20);
-            this.radioWanita2.TabIndex = 2;
-            this.radioWanita2.TabStop = true;
-            this.radioWanita2.Text = "Wanita";
-            this.radioWanita2.UseVisualStyleBackColor = true;
-            // 
-            // tbPekerjaan2
-            // 
-            this.tbPekerjaan2.Location = new System.Drawing.Point(160, 183);
-            this.tbPekerjaan2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbPekerjaan2.Name = "tbPekerjaan2";
-            this.tbPekerjaan2.Size = new System.Drawing.Size(473, 22);
-            this.tbPekerjaan2.TabIndex = 1;
-            // 
-            // tbAlamat2
-            // 
-            this.tbAlamat2.Location = new System.Drawing.Point(160, 154);
-            this.tbAlamat2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbAlamat2.Name = "tbAlamat2";
-            this.tbAlamat2.Size = new System.Drawing.Size(473, 22);
-            this.tbAlamat2.TabIndex = 1;
-            // 
-            // tbNIK2
-            // 
-            this.tbNIK2.Location = new System.Drawing.Point(160, 70);
-            this.tbNIK2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbNIK2.Name = "tbNIK2";
-            this.tbNIK2.Size = new System.Drawing.Size(473, 22);
-            this.tbNIK2.TabIndex = 1;
-            // 
-            // tbNama2
-            // 
-            this.tbNama2.Location = new System.Drawing.Point(160, 38);
-            this.tbNama2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbNama2.Name = "tbNama2";
-            this.tbNama2.Size = new System.Drawing.Size(473, 22);
-            this.tbNama2.TabIndex = 1;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(8, 183);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(99, 24);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Pekerjaan:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(8, 154);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(72, 24);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Alamat:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(9, 124);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(132, 24);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Jenis Kelamin:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(8, 95);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(130, 24);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Tanggal Lahir:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(8, 68);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(45, 24);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "NIK:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(9, 37);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(65, 24);
-            this.label28.TabIndex = 0;
-            this.label28.Text = "Nama:";
-            // 
-            // gbOcccupant1Fill
-            // 
-            this.gbOcccupant1Fill.Controls.Add(this.dateTimePicker1);
-            this.gbOcccupant1Fill.Controls.Add(this.radioHelicopter1);
-            this.gbOcccupant1Fill.Controls.Add(this.radioWanita1);
-            this.gbOcccupant1Fill.Controls.Add(this.tbPekerjaan1);
-            this.gbOcccupant1Fill.Controls.Add(this.tbAlamat1);
-            this.gbOcccupant1Fill.Controls.Add(this.tbNIK1);
-            this.gbOcccupant1Fill.Controls.Add(this.tbNama1);
-            this.gbOcccupant1Fill.Controls.Add(this.label22);
-            this.gbOcccupant1Fill.Controls.Add(this.label21);
-            this.gbOcccupant1Fill.Controls.Add(this.label20);
-            this.gbOcccupant1Fill.Controls.Add(this.label19);
-            this.gbOcccupant1Fill.Controls.Add(this.label18);
-            this.gbOcccupant1Fill.Controls.Add(this.label17);
-            this.gbOcccupant1Fill.Location = new System.Drawing.Point(20, 68);
-            this.gbOcccupant1Fill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbOcccupant1Fill.Name = "gbOcccupant1Fill";
-            this.gbOcccupant1Fill.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbOcccupant1Fill.Size = new System.Drawing.Size(1136, 224);
-            this.gbOcccupant1Fill.TabIndex = 0;
-            this.gbOcccupant1Fill.TabStop = false;
-            this.gbOcccupant1Fill.Text = "Occcupant 1";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(160, 100);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker1.TabIndex = 3;
-            // 
-            // radioHelicopter1
-            // 
-            this.radioHelicopter1.AutoSize = true;
-            this.radioHelicopter1.Location = new System.Drawing.Point(259, 126);
-            this.radioHelicopter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioHelicopter1.Name = "radioHelicopter1";
-            this.radioHelicopter1.Size = new System.Drawing.Size(90, 20);
-            this.radioHelicopter1.TabIndex = 2;
-            this.radioHelicopter1.TabStop = true;
-            this.radioHelicopter1.Text = "Helicopter";
-            this.radioHelicopter1.UseVisualStyleBackColor = true;
-            // 
-            // radioWanita1
-            // 
-            this.radioWanita1.AutoSize = true;
-            this.radioWanita1.Location = new System.Drawing.Point(172, 126);
-            this.radioWanita1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioWanita1.Name = "radioWanita1";
-            this.radioWanita1.Size = new System.Drawing.Size(70, 20);
-            this.radioWanita1.TabIndex = 2;
-            this.radioWanita1.TabStop = true;
-            this.radioWanita1.Text = "Wanita";
-            this.radioWanita1.UseVisualStyleBackColor = true;
-            // 
-            // tbPekerjaan1
-            // 
-            this.tbPekerjaan1.Location = new System.Drawing.Point(160, 183);
-            this.tbPekerjaan1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbPekerjaan1.Name = "tbPekerjaan1";
-            this.tbPekerjaan1.Size = new System.Drawing.Size(473, 22);
-            this.tbPekerjaan1.TabIndex = 1;
-            // 
-            // tbAlamat1
-            // 
-            this.tbAlamat1.Location = new System.Drawing.Point(160, 154);
-            this.tbAlamat1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbAlamat1.Name = "tbAlamat1";
-            this.tbAlamat1.Size = new System.Drawing.Size(473, 22);
-            this.tbAlamat1.TabIndex = 1;
-            // 
-            // tbNIK1
-            // 
-            this.tbNIK1.Location = new System.Drawing.Point(160, 70);
-            this.tbNIK1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbNIK1.Name = "tbNIK1";
-            this.tbNIK1.Size = new System.Drawing.Size(473, 22);
-            this.tbNIK1.TabIndex = 1;
-            // 
-            // tbNama1
-            // 
-            this.tbNama1.Location = new System.Drawing.Point(160, 38);
-            this.tbNama1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbNama1.Name = "tbNama1";
-            this.tbNama1.Size = new System.Drawing.Size(473, 22);
-            this.tbNama1.TabIndex = 1;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(8, 183);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(99, 24);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Pekerjaan:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(8, 154);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(72, 24);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Alamat:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(9, 124);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(132, 24);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Jenis Kelamin:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(8, 95);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(130, 24);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Tanggal Lahir:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(8, 68);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(45, 24);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "NIK:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(9, 37);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 24);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Nama:";
-            // 
-            // panelPenghunidanTagihan
-            // 
-            this.panelPenghunidanTagihan.Controls.Add(this.buttonTagihListrikTenant);
-            this.panelPenghunidanTagihan.Controls.Add(this.button6);
-            this.panelPenghunidanTagihan.Controls.Add(this.button5);
-            this.panelPenghunidanTagihan.Controls.Add(this.dataGridView3);
-            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1528, 392);
-            this.panelPenghunidanTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelPenghunidanTagihan.Name = "panelPenghunidanTagihan";
-            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(10, 113);
-            this.panelPenghunidanTagihan.TabIndex = 6;
-            // 
-            // buttonTagihListrikTenant
-            // 
-            this.buttonTagihListrikTenant.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonTagihListrikTenant.Location = new System.Drawing.Point(866, 481);
-            this.buttonTagihListrikTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonTagihListrikTenant.Name = "buttonTagihListrikTenant";
-            this.buttonTagihListrikTenant.Size = new System.Drawing.Size(133, 49);
-            this.buttonTagihListrikTenant.TabIndex = 37;
-            this.buttonTagihListrikTenant.Text = "Tagih Listrik Tenant";
-            this.buttonTagihListrikTenant.UseVisualStyleBackColor = true;
-            this.buttonTagihListrikTenant.Click += new System.EventHandler(this.buttonTagihListrikTenant_Click);
-            // 
-            // button6
-            // 
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(817, 473);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 49);
-            this.button6.TabIndex = 36;
-            this.button6.Text = "Cetak All Nota";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(720, 384);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(136, 40);
-            this.button5.TabIndex = 35;
-            this.button5.Text = "Cetak Nota per orang";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView3
-            // 
-            this.dgvTagihan.AllowUserToAddRows = false;
-            this.dgvTagihan.AllowUserToDeleteRows = false;
-            this.dgvTagihan.AllowUserToOrderColumns = true;
-            this.dgvTagihan.AllowUserToResizeColumns = false;
-            this.dgvTagihan.AllowUserToResizeRows = false;
-            this.dgvTagihan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTagihan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTagihan.Location = new System.Drawing.Point(35, 27);
-            this.dgvTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvTagihan.Name = "dgvTagihan";
-            this.dgvTagihan.RowHeadersWidth = 51;
-            this.dgvTagihan.RowTemplate.Height = 24;
-            this.dgvTagihan.Size = new System.Drawing.Size(1107, 433);
-            this.dgvTagihan.TabIndex = 34;
-            this.dgvTagihan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTagihan_CellClick);
-            this.dgvTagihan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTagihan_CellContentClick);
-            this.dgvTagihan.DoubleClick += new System.EventHandler(this.dgvTagihan_DoubleClick);
-            // 
-            // panelHeader
-            // 
-            this.panelHeader.Controls.Add(this.lblText);
-            this.panelHeader.Controls.Add(this.label1);
-            this.panelHeader.Controls.Add(this.lblHeader);
-            this.panelHeader.Location = new System.Drawing.Point(307, 4);
-            this.panelHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1201, 80);
-            this.panelHeader.TabIndex = 8;
-            // 
-            // lblText
-            // 
-            this.lblText.AutoSize = true;
-            this.lblText.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.Location = new System.Drawing.Point(36, 57);
-            this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(172, 20);
-            this.lblText.TabIndex = 3;
-            this.lblText.Text = "Welcome back, Admin1!";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1004, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Admin1";
-            // 
-            // lblHeader
-            // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(28, 12);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(202, 45);
-            this.lblHeader.TabIndex = 0;
-            this.lblHeader.Text = "Main Page";
-            // 
-            // flowLayoutPanelKamar
-            // 
-            this.flowLayoutPanelKamar.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanelKamar.Location = new System.Drawing.Point(1515, 586);
-            this.flowLayoutPanelKamar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanelKamar.Name = "flowLayoutPanelKamar";
-            this.flowLayoutPanelKamar.Size = new System.Drawing.Size(67, 121);
-            this.flowLayoutPanelKamar.TabIndex = 9;
-            // 
-            // panelOverview
-            // 
-            this.panelOverview.BackColor = System.Drawing.SystemColors.Control;
-            this.panelOverview.Controls.Add(this.roundedPanel3);
-            this.panelOverview.Controls.Add(this.roundedPanel2);
-            this.panelOverview.Controls.Add(this.roundedPanel1);
-            this.panelOverview.Controls.Add(this.roundedPanelLaporanBaru);
-            this.panelOverview.Controls.Add(this.dgvNotification);
-            this.panelOverview.Location = new System.Drawing.Point(1515, 36);
-            this.panelOverview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelOverview.Name = "panelOverview";
-            this.panelOverview.Size = new System.Drawing.Size(96, 192);
-            this.panelOverview.TabIndex = 4;
-            // 
-            // dgvNotification
-            // 
-            this.dgvNotification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotification.Location = new System.Drawing.Point(13, 317);
-            this.dgvNotification.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvNotification.Name = "dgvNotification";
-            this.dgvNotification.RowHeadersWidth = 62;
-            this.dgvNotification.RowTemplate.Height = 28;
-            this.dgvNotification.Size = new System.Drawing.Size(1168, 271);
-            this.dgvNotification.TabIndex = 9;
-            // 
-            // flowLayoutPanelComplaints
-            // 
-            this.flowLayoutPanelComplaints.Location = new System.Drawing.Point(1613, 392);
-            this.flowLayoutPanelComplaints.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanelComplaints.Name = "flowLayoutPanelComplaints";
-            this.flowLayoutPanelComplaints.Size = new System.Drawing.Size(215, 193);
-            this.flowLayoutPanelComplaints.TabIndex = 10;
-            this.flowLayoutPanelComplaints.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelLaporan_Paint);
-            // 
-            // panelManageTenant
-            // 
-            this.panelManageTenant.Controls.Add(this.dataGridViewExtensions);
-            this.panelManageTenant.Controls.Add(this.label10);
-            this.panelManageTenant.Location = new System.Drawing.Point(1817, 250);
-            this.panelManageTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelManageTenant.Name = "panelManageTenant";
-            this.panelManageTenant.Size = new System.Drawing.Size(64, 30);
-            this.panelManageTenant.TabIndex = 0;
-            // 
-            // dataGridViewExtensions
-            // 
-            this.dataGridViewExtensions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewExtensions.Location = new System.Drawing.Point(21, 54);
-            this.dataGridViewExtensions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewExtensions.Name = "dataGridViewExtensions";
-            this.dataGridViewExtensions.RowHeadersWidth = 51;
-            this.dataGridViewExtensions.RowTemplate.Height = 24;
-            this.dataGridViewExtensions.Size = new System.Drawing.Size(1149, 247);
-            this.dataGridViewExtensions.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 14);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(286, 27);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Manage Tenant Extensions";
-            // 
-            // panelListrik
-            // 
-            this.panelListrik.Controls.Add(this.label38);
-            this.panelListrik.Controls.Add(this.dataGridView1);
-            this.panelListrik.Controls.Add(this.label12);
-            this.panelListrik.Location = new System.Drawing.Point(1544, 271);
-            this.panelListrik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelListrik.Name = "panelListrik";
-            this.panelListrik.Size = new System.Drawing.Size(100, 71);
-            this.panelListrik.TabIndex = 12;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(840, 25);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(324, 27);
-            this.label38.TabIndex = 2;
-            this.label38.Text = "Riwayat Tagihan Listrik Tenant";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 58);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(761, 150);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(21, 25);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(269, 27);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Daftar Kamar dan Tenant";
-            // 
-            // flowLayoutPanelPendapatan
-            // 
-            this.flowLayoutPanelPendapatan.Location = new System.Drawing.Point(309, 90);
-            this.flowLayoutPanelPendapatan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.flowLayoutPanelPendapatan.Name = "flowLayoutPanelPendapatan";
-            this.flowLayoutPanelPendapatan.Size = new System.Drawing.Size(1199, 70);
-            this.flowLayoutPanelPendapatan.TabIndex = 13;
             // 
             // roundedPanelRoomInformation
             // 
@@ -1668,6 +912,642 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "name:";
             // 
+            // dgvManage
+            // 
+            this.dgvManage.AllowUserToAddRows = false;
+            this.dgvManage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvManage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvManage.ColumnHeadersVisible = false;
+            this.dgvManage.Location = new System.Drawing.Point(28, 25);
+            this.dgvManage.Margin = new System.Windows.Forms.Padding(5);
+            this.dgvManage.Name = "dgvManage";
+            this.dgvManage.RowHeadersWidth = 51;
+            this.dgvManage.Size = new System.Drawing.Size(371, 470);
+            this.dgvManage.TabIndex = 0;
+            this.dgvManage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvManage.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManage_CellContentDoubleClick);
+            // 
+            // panelFill
+            // 
+            this.panelFill.BackColor = System.Drawing.SystemColors.Control;
+            this.panelFill.Controls.Add(this.checkBox4);
+            this.panelFill.Controls.Add(this.checkBox2);
+            this.panelFill.Controls.Add(this.cbConfirmData);
+            this.panelFill.Controls.Add(this.btnSubmitFill);
+            this.panelFill.Controls.Add(this.label35);
+            this.panelFill.Controls.Add(this.lblDepositFill);
+            this.panelFill.Controls.Add(this.lblDownPayment);
+            this.panelFill.Controls.Add(this.label34);
+            this.panelFill.Controls.Add(this.comboDurationFill);
+            this.panelFill.Controls.Add(this.comboRoomFill);
+            this.panelFill.Controls.Add(this.label32);
+            this.panelFill.Controls.Add(this.label31);
+            this.panelFill.Controls.Add(this.label30);
+            this.panelFill.Controls.Add(this.label33);
+            this.panelFill.Controls.Add(this.label29);
+            this.panelFill.Controls.Add(this.gbOccupant2Fill);
+            this.panelFill.Controls.Add(this.gbOcccupant1Fill);
+            this.panelFill.Location = new System.Drawing.Point(1652, 285);
+            this.panelFill.Margin = new System.Windows.Forms.Padding(5);
+            this.panelFill.Name = "panelFill";
+            this.panelFill.Size = new System.Drawing.Size(111, 56);
+            this.panelFill.TabIndex = 3;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(365, 26);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(36, 20);
+            this.checkBox4.TabIndex = 26;
+            this.checkBox4.Text = "2";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(324, 26);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(36, 20);
+            this.checkBox2.TabIndex = 25;
+            this.checkBox2.Text = "1";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // cbConfirmData
+            // 
+            this.cbConfirmData.AutoSize = true;
+            this.cbConfirmData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbConfirmData.ForeColor = System.Drawing.Color.Red;
+            this.cbConfirmData.Location = new System.Drawing.Point(25, 729);
+            this.cbConfirmData.Margin = new System.Windows.Forms.Padding(4);
+            this.cbConfirmData.Name = "cbConfirmData";
+            this.cbConfirmData.Size = new System.Drawing.Size(374, 28);
+            this.cbConfirmData.TabIndex = 13;
+            this.cbConfirmData.Text = "Confirm Data (TIDAK BISA KEMBALI)";
+            this.cbConfirmData.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmitFill
+            // 
+            this.btnSubmitFill.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnSubmitFill.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSubmitFill.Location = new System.Drawing.Point(25, 778);
+            this.btnSubmitFill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubmitFill.Name = "btnSubmitFill";
+            this.btnSubmitFill.Size = new System.Drawing.Size(165, 47);
+            this.btnSubmitFill.TabIndex = 12;
+            this.btnSubmitFill.Text = "Submit";
+            this.btnSubmitFill.UseVisualStyleBackColor = false;
+            this.btnSubmitFill.Click += new System.EventHandler(this.btnSubmitFill_Click);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(21, 690);
+            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(86, 24);
+            this.label35.TabIndex = 11;
+            this.label35.Text = "Deposit:";
+            // 
+            // lblDepositFill
+            // 
+            this.lblDepositFill.AutoSize = true;
+            this.lblDepositFill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepositFill.Location = new System.Drawing.Point(252, 690);
+            this.lblDepositFill.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDepositFill.Name = "lblDepositFill";
+            this.lblDepositFill.Size = new System.Drawing.Size(131, 24);
+            this.lblDepositFill.TabIndex = 11;
+            this.lblDepositFill.Text = "Rp 1.000.000";
+            // 
+            // lblDownPayment
+            // 
+            this.lblDownPayment.AutoSize = true;
+            this.lblDownPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDownPayment.Location = new System.Drawing.Point(252, 655);
+            this.lblDownPayment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDownPayment.Name = "lblDownPayment";
+            this.lblDownPayment.Size = new System.Drawing.Size(114, 24);
+            this.lblDownPayment.TabIndex = 11;
+            this.lblDownPayment.Text = "Rp 800.000";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(21, 655);
+            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(208, 24);
+            this.label34.TabIndex = 11;
+            this.label34.Text = "Down Payment (DP): ";
+            // 
+            // comboDurationFill
+            // 
+            this.comboDurationFill.FormattingEnabled = true;
+            this.comboDurationFill.Location = new System.Drawing.Point(256, 610);
+            this.comboDurationFill.Margin = new System.Windows.Forms.Padding(4);
+            this.comboDurationFill.Name = "comboDurationFill";
+            this.comboDurationFill.Size = new System.Drawing.Size(187, 24);
+            this.comboDurationFill.TabIndex = 9;
+            // 
+            // comboRoomFill
+            // 
+            this.comboRoomFill.FormattingEnabled = true;
+            this.comboRoomFill.Location = new System.Drawing.Point(256, 574);
+            this.comboRoomFill.Margin = new System.Windows.Forms.Padding(4);
+            this.comboRoomFill.Name = "comboRoomFill";
+            this.comboRoomFill.Size = new System.Drawing.Size(297, 24);
+            this.comboRoomFill.TabIndex = 8;
+            this.comboRoomFill.SelectedIndexChanged += new System.EventHandler(this.comboRoomFill_SelectedIndexChanged);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(452, 614);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(64, 18);
+            this.label32.TabIndex = 7;
+            this.label32.Text = "Months";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(21, 614);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(162, 24);
+            this.label31.TabIndex = 7;
+            this.label31.Text = "Duration of Stay:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(21, 570);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(135, 24);
+            this.label30.TabIndex = 7;
+            this.label30.Text = "Select Room:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(409, 26);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(384, 17);
+            this.label33.TabIndex = 5;
+            this.label33.Text = "(+ 30% dari biaya sewa untuk tiap kepala ditambah)";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(20, 22);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(295, 25);
+            this.label29.TabIndex = 5;
+            this.label29.Text = "Select Number of Occupants:";
+            // 
+            // gbOccupant2Fill
+            // 
+            this.gbOccupant2Fill.Controls.Add(this.dateTimePicker2);
+            this.gbOccupant2Fill.Controls.Add(this.radioHelicopter2);
+            this.gbOccupant2Fill.Controls.Add(this.radioWanita2);
+            this.gbOccupant2Fill.Controls.Add(this.tbPekerjaan2);
+            this.gbOccupant2Fill.Controls.Add(this.tbAlamat2);
+            this.gbOccupant2Fill.Controls.Add(this.tbNIK2);
+            this.gbOccupant2Fill.Controls.Add(this.tbNama2);
+            this.gbOccupant2Fill.Controls.Add(this.label23);
+            this.gbOccupant2Fill.Controls.Add(this.label24);
+            this.gbOccupant2Fill.Controls.Add(this.label25);
+            this.gbOccupant2Fill.Controls.Add(this.label26);
+            this.gbOccupant2Fill.Controls.Add(this.label27);
+            this.gbOccupant2Fill.Controls.Add(this.label28);
+            this.gbOccupant2Fill.Enabled = false;
+            this.gbOccupant2Fill.Location = new System.Drawing.Point(20, 314);
+            this.gbOccupant2Fill.Margin = new System.Windows.Forms.Padding(4);
+            this.gbOccupant2Fill.Name = "gbOccupant2Fill";
+            this.gbOccupant2Fill.Padding = new System.Windows.Forms.Padding(4);
+            this.gbOccupant2Fill.Size = new System.Drawing.Size(1136, 210);
+            this.gbOccupant2Fill.TabIndex = 4;
+            this.gbOccupant2Fill.TabStop = false;
+            this.gbOccupant2Fill.Text = "Occcupant 2";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(160, 100);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker2.TabIndex = 3;
+            // 
+            // radioHelicopter2
+            // 
+            this.radioHelicopter2.AutoSize = true;
+            this.radioHelicopter2.Location = new System.Drawing.Point(259, 126);
+            this.radioHelicopter2.Margin = new System.Windows.Forms.Padding(4);
+            this.radioHelicopter2.Name = "radioHelicopter2";
+            this.radioHelicopter2.Size = new System.Drawing.Size(90, 20);
+            this.radioHelicopter2.TabIndex = 2;
+            this.radioHelicopter2.TabStop = true;
+            this.radioHelicopter2.Text = "Helicopter";
+            this.radioHelicopter2.UseVisualStyleBackColor = true;
+            // 
+            // radioWanita2
+            // 
+            this.radioWanita2.AutoSize = true;
+            this.radioWanita2.Location = new System.Drawing.Point(172, 126);
+            this.radioWanita2.Margin = new System.Windows.Forms.Padding(4);
+            this.radioWanita2.Name = "radioWanita2";
+            this.radioWanita2.Size = new System.Drawing.Size(70, 20);
+            this.radioWanita2.TabIndex = 2;
+            this.radioWanita2.TabStop = true;
+            this.radioWanita2.Text = "Wanita";
+            this.radioWanita2.UseVisualStyleBackColor = true;
+            // 
+            // tbPekerjaan2
+            // 
+            this.tbPekerjaan2.Location = new System.Drawing.Point(160, 183);
+            this.tbPekerjaan2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPekerjaan2.Name = "tbPekerjaan2";
+            this.tbPekerjaan2.Size = new System.Drawing.Size(473, 22);
+            this.tbPekerjaan2.TabIndex = 1;
+            // 
+            // tbAlamat2
+            // 
+            this.tbAlamat2.Location = new System.Drawing.Point(160, 154);
+            this.tbAlamat2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbAlamat2.Name = "tbAlamat2";
+            this.tbAlamat2.Size = new System.Drawing.Size(473, 22);
+            this.tbAlamat2.TabIndex = 1;
+            // 
+            // tbNIK2
+            // 
+            this.tbNIK2.Location = new System.Drawing.Point(160, 70);
+            this.tbNIK2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNIK2.Name = "tbNIK2";
+            this.tbNIK2.Size = new System.Drawing.Size(473, 22);
+            this.tbNIK2.TabIndex = 1;
+            // 
+            // tbNama2
+            // 
+            this.tbNama2.Location = new System.Drawing.Point(160, 38);
+            this.tbNama2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNama2.Name = "tbNama2";
+            this.tbNama2.Size = new System.Drawing.Size(473, 22);
+            this.tbNama2.TabIndex = 1;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(8, 183);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(99, 24);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Pekerjaan:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(8, 154);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(72, 24);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Alamat:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(9, 124);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(132, 24);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Jenis Kelamin:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(8, 95);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(130, 24);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Tanggal Lahir:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(8, 68);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(45, 24);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "NIK:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(9, 37);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(65, 24);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Nama:";
+            // 
+            // gbOcccupant1Fill
+            // 
+            this.gbOcccupant1Fill.Controls.Add(this.dateTimePicker1);
+            this.gbOcccupant1Fill.Controls.Add(this.radioHelicopter1);
+            this.gbOcccupant1Fill.Controls.Add(this.radioWanita1);
+            this.gbOcccupant1Fill.Controls.Add(this.tbPekerjaan1);
+            this.gbOcccupant1Fill.Controls.Add(this.tbAlamat1);
+            this.gbOcccupant1Fill.Controls.Add(this.tbNIK1);
+            this.gbOcccupant1Fill.Controls.Add(this.tbNama1);
+            this.gbOcccupant1Fill.Controls.Add(this.label22);
+            this.gbOcccupant1Fill.Controls.Add(this.label21);
+            this.gbOcccupant1Fill.Controls.Add(this.label20);
+            this.gbOcccupant1Fill.Controls.Add(this.label19);
+            this.gbOcccupant1Fill.Controls.Add(this.label18);
+            this.gbOcccupant1Fill.Controls.Add(this.label17);
+            this.gbOcccupant1Fill.Location = new System.Drawing.Point(20, 68);
+            this.gbOcccupant1Fill.Margin = new System.Windows.Forms.Padding(4);
+            this.gbOcccupant1Fill.Name = "gbOcccupant1Fill";
+            this.gbOcccupant1Fill.Padding = new System.Windows.Forms.Padding(4);
+            this.gbOcccupant1Fill.Size = new System.Drawing.Size(1136, 224);
+            this.gbOcccupant1Fill.TabIndex = 0;
+            this.gbOcccupant1Fill.TabStop = false;
+            this.gbOcccupant1Fill.Text = "Occcupant 1";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(160, 100);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
+            // radioHelicopter1
+            // 
+            this.radioHelicopter1.AutoSize = true;
+            this.radioHelicopter1.Location = new System.Drawing.Point(259, 126);
+            this.radioHelicopter1.Margin = new System.Windows.Forms.Padding(4);
+            this.radioHelicopter1.Name = "radioHelicopter1";
+            this.radioHelicopter1.Size = new System.Drawing.Size(90, 20);
+            this.radioHelicopter1.TabIndex = 2;
+            this.radioHelicopter1.TabStop = true;
+            this.radioHelicopter1.Text = "Helicopter";
+            this.radioHelicopter1.UseVisualStyleBackColor = true;
+            // 
+            // radioWanita1
+            // 
+            this.radioWanita1.AutoSize = true;
+            this.radioWanita1.Location = new System.Drawing.Point(172, 126);
+            this.radioWanita1.Margin = new System.Windows.Forms.Padding(4);
+            this.radioWanita1.Name = "radioWanita1";
+            this.radioWanita1.Size = new System.Drawing.Size(70, 20);
+            this.radioWanita1.TabIndex = 2;
+            this.radioWanita1.TabStop = true;
+            this.radioWanita1.Text = "Wanita";
+            this.radioWanita1.UseVisualStyleBackColor = true;
+            // 
+            // tbPekerjaan1
+            // 
+            this.tbPekerjaan1.Location = new System.Drawing.Point(160, 183);
+            this.tbPekerjaan1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPekerjaan1.Name = "tbPekerjaan1";
+            this.tbPekerjaan1.Size = new System.Drawing.Size(473, 22);
+            this.tbPekerjaan1.TabIndex = 1;
+            // 
+            // tbAlamat1
+            // 
+            this.tbAlamat1.Location = new System.Drawing.Point(160, 154);
+            this.tbAlamat1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbAlamat1.Name = "tbAlamat1";
+            this.tbAlamat1.Size = new System.Drawing.Size(473, 22);
+            this.tbAlamat1.TabIndex = 1;
+            // 
+            // tbNIK1
+            // 
+            this.tbNIK1.Location = new System.Drawing.Point(160, 70);
+            this.tbNIK1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNIK1.Name = "tbNIK1";
+            this.tbNIK1.Size = new System.Drawing.Size(473, 22);
+            this.tbNIK1.TabIndex = 1;
+            // 
+            // tbNama1
+            // 
+            this.tbNama1.Location = new System.Drawing.Point(160, 38);
+            this.tbNama1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNama1.Name = "tbNama1";
+            this.tbNama1.Size = new System.Drawing.Size(473, 22);
+            this.tbNama1.TabIndex = 1;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(8, 183);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(99, 24);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Pekerjaan:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(8, 154);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(72, 24);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Alamat:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(9, 124);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(132, 24);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Jenis Kelamin:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(8, 95);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(130, 24);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Tanggal Lahir:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(8, 68);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(45, 24);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "NIK:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(9, 37);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 24);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Nama:";
+            // 
+            // panelPenghunidanTagihan
+            // 
+            this.panelPenghunidanTagihan.Controls.Add(this.dgvTagihan);
+            this.panelPenghunidanTagihan.Controls.Add(this.buttonTagihListrikTenant);
+            this.panelPenghunidanTagihan.Controls.Add(this.button6);
+            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(307, 90);
+            this.panelPenghunidanTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelPenghunidanTagihan.Name = "panelPenghunidanTagihan";
+            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(1201, 601);
+            this.panelPenghunidanTagihan.TabIndex = 6;
+            // 
+            // dgvTagihan
+            // 
+            this.dgvTagihan.AllowUserToAddRows = false;
+            this.dgvTagihan.AllowUserToDeleteRows = false;
+            this.dgvTagihan.AllowUserToOrderColumns = true;
+            this.dgvTagihan.AllowUserToResizeColumns = false;
+            this.dgvTagihan.AllowUserToResizeRows = false;
+            this.dgvTagihan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTagihan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTagihan.Location = new System.Drawing.Point(35, 27);
+            this.dgvTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvTagihan.Name = "dgvTagihan";
+            this.dgvTagihan.RowHeadersWidth = 51;
+            this.dgvTagihan.RowTemplate.Height = 24;
+            this.dgvTagihan.Size = new System.Drawing.Size(1148, 433);
+            this.dgvTagihan.TabIndex = 34;
+            this.dgvTagihan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTagihan_CellClick);
+            this.dgvTagihan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTagihan_CellContentClick);
+            this.dgvTagihan.DoubleClick += new System.EventHandler(this.dgvTagihan_DoubleClick);
+            // 
+            // buttonTagihListrikTenant
+            // 
+            this.buttonTagihListrikTenant.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonTagihListrikTenant.Location = new System.Drawing.Point(900, 473);
+            this.buttonTagihListrikTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonTagihListrikTenant.Name = "buttonTagihListrikTenant";
+            this.buttonTagihListrikTenant.Size = new System.Drawing.Size(133, 49);
+            this.buttonTagihListrikTenant.TabIndex = 37;
+            this.buttonTagihListrikTenant.Text = "Tagih Listrik Tenant";
+            this.buttonTagihListrikTenant.UseVisualStyleBackColor = true;
+            this.buttonTagihListrikTenant.Click += new System.EventHandler(this.buttonTagihListrikTenant_Click);
+            // 
+            // button6
+            // 
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.Location = new System.Drawing.Point(1050, 473);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(133, 49);
+            this.button6.TabIndex = 36;
+            this.button6.Text = "Cetak All Nota";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // panelHeader
+            // 
+            this.panelHeader.Controls.Add(this.lblText);
+            this.panelHeader.Controls.Add(this.label1);
+            this.panelHeader.Controls.Add(this.lblHeader);
+            this.panelHeader.Location = new System.Drawing.Point(307, 4);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1201, 80);
+            this.panelHeader.TabIndex = 8;
+            // 
+            // lblText
+            // 
+            this.lblText.AutoSize = true;
+            this.lblText.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblText.Location = new System.Drawing.Point(36, 57);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(172, 20);
+            this.lblText.TabIndex = 3;
+            this.lblText.Text = "Welcome back, Admin1!";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1004, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 18);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Admin1";
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(28, 12);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(202, 45);
+            this.lblHeader.TabIndex = 0;
+            this.lblHeader.Text = "Main Page";
+            // 
+            // flowLayoutPanelKamar
+            // 
+            this.flowLayoutPanelKamar.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanelKamar.Location = new System.Drawing.Point(1515, 586);
+            this.flowLayoutPanelKamar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanelKamar.Name = "flowLayoutPanelKamar";
+            this.flowLayoutPanelKamar.Size = new System.Drawing.Size(67, 121);
+            this.flowLayoutPanelKamar.TabIndex = 9;
+            // 
+            // panelOverview
+            // 
+            this.panelOverview.BackColor = System.Drawing.SystemColors.Control;
+            this.panelOverview.Controls.Add(this.roundedPanel3);
+            this.panelOverview.Controls.Add(this.roundedPanel2);
+            this.panelOverview.Controls.Add(this.roundedPanel1);
+            this.panelOverview.Controls.Add(this.roundedPanelLaporanBaru);
+            this.panelOverview.Controls.Add(this.dgvNotification);
+            this.panelOverview.Location = new System.Drawing.Point(1515, 36);
+            this.panelOverview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelOverview.Name = "panelOverview";
+            this.panelOverview.Size = new System.Drawing.Size(96, 192);
+            this.panelOverview.TabIndex = 4;
+            // 
             // roundedPanel3
             // 
             this.roundedPanel3.BackColor = System.Drawing.Color.Transparent;
@@ -1863,6 +1743,65 @@
             this.label46.TabIndex = 1;
             this.label46.Text = "0";
             // 
+            // dgvNotification
+            // 
+            this.dgvNotification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotification.Location = new System.Drawing.Point(13, 317);
+            this.dgvNotification.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvNotification.Name = "dgvNotification";
+            this.dgvNotification.RowHeadersWidth = 62;
+            this.dgvNotification.RowTemplate.Height = 28;
+            this.dgvNotification.Size = new System.Drawing.Size(1168, 271);
+            this.dgvNotification.TabIndex = 9;
+            // 
+            // flowLayoutPanelComplaints
+            // 
+            this.flowLayoutPanelComplaints.Location = new System.Drawing.Point(1613, 392);
+            this.flowLayoutPanelComplaints.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanelComplaints.Name = "flowLayoutPanelComplaints";
+            this.flowLayoutPanelComplaints.Size = new System.Drawing.Size(215, 193);
+            this.flowLayoutPanelComplaints.TabIndex = 10;
+            this.flowLayoutPanelComplaints.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelLaporan_Paint);
+            // 
+            // panelManageTenant
+            // 
+            this.panelManageTenant.Controls.Add(this.dataGridViewExtensions);
+            this.panelManageTenant.Controls.Add(this.label10);
+            this.panelManageTenant.Location = new System.Drawing.Point(1817, 250);
+            this.panelManageTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelManageTenant.Name = "panelManageTenant";
+            this.panelManageTenant.Size = new System.Drawing.Size(64, 30);
+            this.panelManageTenant.TabIndex = 0;
+            // 
+            // dataGridViewExtensions
+            // 
+            this.dataGridViewExtensions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewExtensions.Location = new System.Drawing.Point(21, 54);
+            this.dataGridViewExtensions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewExtensions.Name = "dataGridViewExtensions";
+            this.dataGridViewExtensions.RowHeadersWidth = 51;
+            this.dataGridViewExtensions.RowTemplate.Height = 24;
+            this.dataGridViewExtensions.Size = new System.Drawing.Size(1149, 247);
+            this.dataGridViewExtensions.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(16, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(286, 27);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Manage Tenant Extensions";
+            // 
+            // flowLayoutPanelPendapatan
+            // 
+            this.flowLayoutPanelPendapatan.Location = new System.Drawing.Point(1544, 246);
+            this.flowLayoutPanelPendapatan.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanelPendapatan.Name = "flowLayoutPanelPendapatan";
+            this.flowLayoutPanelPendapatan.Size = new System.Drawing.Size(67, 70);
+            this.flowLayoutPanelPendapatan.TabIndex = 13;
+            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1879,7 +1818,7 @@
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelOverview);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAdmin2";
             this.Text = "FormAdmin2";
             this.Load += new System.EventHandler(this.FormAdmin2_Load);
@@ -1911,6 +1850,12 @@
             this.panelBtnManage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).EndInit();
             this.panelManage.ResumeLayout(false);
+            this.roundedPanelRoomInformation.ResumeLayout(false);
+            this.roundedPanelRoomInformation.PerformLayout();
+            this.roundedPanelOccupant2.ResumeLayout(false);
+            this.roundedPanelOccupant2.PerformLayout();
+            this.roundedPanelOccupant1.ResumeLayout(false);
+            this.roundedPanelOccupant1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).EndInit();
             this.panelFill.ResumeLayout(false);
             this.panelFill.PerformLayout();
@@ -1923,19 +1868,6 @@
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelOverview.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).EndInit();
-            this.panelManageTenant.ResumeLayout(false);
-            this.panelManageTenant.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).EndInit();
-            this.panelListrik.ResumeLayout(false);
-            this.panelListrik.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.roundedPanelRoomInformation.ResumeLayout(false);
-            this.roundedPanelRoomInformation.PerformLayout();
-            this.roundedPanelOccupant2.ResumeLayout(false);
-            this.roundedPanelOccupant2.PerformLayout();
-            this.roundedPanelOccupant1.ResumeLayout(false);
-            this.roundedPanelOccupant1.PerformLayout();
             this.roundedPanel3.ResumeLayout(false);
             this.roundedPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -1948,6 +1880,10 @@
             this.roundedPanelLaporanBaru.ResumeLayout(false);
             this.roundedPanelLaporanBaru.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).EndInit();
+            this.panelManageTenant.ResumeLayout(false);
+            this.panelManageTenant.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2024,7 +1960,6 @@
         private System.Windows.Forms.Label labelPenghuniDanTagihan;
         private System.Windows.Forms.Panel panelPenghunidanTagihan;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridView dgvTagihan;
         private System.Windows.Forms.PictureBox pictureBoxOverview;
         private System.Windows.Forms.PictureBox pictureBoxFillRoom;
         private System.Windows.Forms.PictureBox pictureBoxManageRooms;
@@ -2091,5 +2026,6 @@
         private System.Windows.Forms.PictureBox pictureBoxComplaints;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPendapatan;
         private System.Windows.Forms.Button buttonTagihListrikTenant;
+        private System.Windows.Forms.DataGridView dgvTagihan;
     }
 }

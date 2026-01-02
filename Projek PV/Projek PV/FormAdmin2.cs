@@ -1441,7 +1441,7 @@ namespace Projek_PV
             int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
             int leaseId = Convert.ToInt32(row.Cells["lease_id"].Value);
 
-            FormTagihListrikTenant form =new FormTagihListrikTenant(tenantId, leaseId, connectionString);
+            FormTagihListrikTenant form = new FormTagihListrikTenant(tenantId, leaseId, connectionString);
 
             form.ShowDialog();
 

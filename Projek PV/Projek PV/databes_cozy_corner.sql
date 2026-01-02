@@ -122,9 +122,12 @@ CREATE TABLE `listrik_bills` (
   `status` enum('Unpaid','Paid') COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bill_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `listrik_bills` */
+
+insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`created_at`) values 
+(1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','2026-01-02 20:00:32');
 
 /*Table structure for table `pendapatan` */
 
@@ -213,14 +216,23 @@ CREATE TABLE `transactions` (
   PRIMARY KEY (`transaction_id`),
   KEY `lease_id` (`lease_id`),
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `transactions` */
 
 insert  into `transactions`(`transaction_id`,`lease_id`,`transaction_date`,`description`,`discount`,`amount`,`payment_method`,`status`,`category`) values 
 (1,1,'2026-01-02 13:13:13','Pembayaran sewa Januari',NULL,1500000.00,'Transfer','Paid','rent'),
 (2,1,'2026-01-02 13:13:18','Pembayaran listrik Januari',NULL,230000.00,'QRIS','Paid','electricity'),
-(3,2,'2026-01-02 13:13:24','Ganti rugi kaca pecah',NULL,80000.00,'Cash','Paid','damages');
+(3,2,'2026-01-02 13:13:24','Ganti rugi kaca pecah',NULL,80000.00,'Cash','Paid','damages'),
+(4,1,'2026-01-02 16:06:28','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
+(5,1,'2026-01-02 16:19:16','Perpanjangan sewa 8 bulan',NULL,12000000.00,'Transfer Akun','Pending','rent'),
+(6,1,'2026-01-02 16:20:14','Perpanjangan sewa 2 bulan',NULL,3000000.00,'Tunai (Bayar di Kantor)','Pending','rent'),
+(7,1,'2026-01-02 16:22:05','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Transfer Akun','Pending','rent'),
+(8,1,'2026-01-02 16:22:47','Perpanjangan sewa 1 bulan',NULL,1500000.00,'Transfer Akun','Pending','rent'),
+(9,1,'2026-01-02 16:51:05','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
+(10,1,'2026-01-02 16:53:25','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
+(11,1,'2026-01-02 17:24:15','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Tunai (Bayar di Kantor)','Pending','rent'),
+(12,1,'2026-01-02 17:31:11','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Transfer Akun','Pending','rent');
 
 /*Table structure for table `users` */
 
