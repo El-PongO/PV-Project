@@ -129,29 +129,6 @@ CREATE TABLE `listrik_bills` (
 insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`created_at`) values 
 (1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','2026-01-02 20:00:32');
 
-/*Table structure for table `pendapatan` */
-
-DROP TABLE IF EXISTS `pendapatan`;
-
-CREATE TABLE `pendapatan` (
-  `pendapatan_id` int NOT NULL AUTO_INCREMENT,
-  `tenant_id` int NOT NULL,
-  `lease_id` int DEFAULT NULL,
-  `source` enum('perpanjang','tenant_baru') NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
-  `payment_method` varchar(50) NOT NULL,
-  `paid_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `notes` text,
-  `status` enum('Pending','Confirmed','Cancelled') DEFAULT 'Confirmed',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`pendapatan_id`),
-  KEY `fk_pendapatan_tenant` (`tenant_id`),
-  KEY `fk_pendapatan_lease` (`lease_id`),
-  CONSTRAINT `fk_pendapatan_lease` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`),
-  CONSTRAINT `fk_pendapatan_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-/*Data for the table `pendapatan` */
 
 /*Table structure for table `rooms` */
 

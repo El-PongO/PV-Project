@@ -13,23 +13,34 @@ namespace Projek_PV
     public partial class FormNota : Form
     {
         private int transactionId;
+        private string reportTitle;
 
         public FormNota()
         {
             InitializeComponent();
             transactionId = 0;
+            reportTitle = "Nota Transaksi";
         }
 
         public FormNota(int id)
         {
             InitializeComponent();
             transactionId = id;
+            reportTitle = "Nota Transaksi";
+        }
+
+        public FormNota(int id, string title)
+        {
+            InitializeComponent();
+            transactionId = id;
+            reportTitle = title;
         }
 
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
 
         private void FormNota_Load(object sender, EventArgs e)
         {
+            this.Text = reportTitle;
             loadCrystalReport();
         }
 
@@ -39,8 +50,8 @@ namespace Projek_PV
             {
                 DataSet ds = new DataSet();
 
-                DataTable dtPerpanjang = new DataTable("DataTablePerpanjang");
-                string queryPerpanjang = "SELECT tr.transaction_id, tr.lease_id, tr.transaction_date, tr.description, " +
+                DataTable dtTransaction = new DataTable("DataTablePerpanjang");
+                string queryTransaction = "SELECT tr.transaction_id, tr.lease_id, tr.transaction_date, tr.description, " +
                                         "tr.discount, tr.amount, tr.payment_method, tr.status, tr.category, " +
                                         "t.full_name, r.room_number " +
                                         "FROM transactions tr " +
@@ -51,18 +62,18 @@ namespace Projek_PV
 
                 using(MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString))
                 {
-                    using(MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(queryPerpanjang, conn))
+                    using(MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(queryTransaction, conn))
                     {
                         cmd.Parameters.AddWithValue("@transaction_id", transactionId);
                         using(MySql.Data.MySqlClient.MySqlDataAdapter adapter = new MySql.Data.MySqlClient.MySqlDataAdapter(cmd))
                         {
                             conn.Open();
-                            adapter.Fill(dtPerpanjang);
+                            adapter.Fill(dtTransaction);
                             
                         }
                     }
                 }
-                ds.Tables.Add(dtPerpanjang);
+                ds.Tables.Add(dtTransaction);
 
                 notaPerpanjang cr = new notaPerpanjang();
                 cr.SetDataSource(ds);
