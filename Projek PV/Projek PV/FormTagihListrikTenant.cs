@@ -46,8 +46,7 @@ namespace Projek_PV
             }
 
             decimal total = numKwh.Value * tariff;
-
-    
+            long transactionId = 0;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -91,11 +90,18 @@ namespace Projek_PV
                     cmd.Parameters.AddWithValue("@cat", "electricity");
 
                     cmd.ExecuteNonQuery();
+                    transactionId = cmd.LastInsertedId;
                 }
             }
 
-
             MessageBox.Show("Tagihan listrik berhasil disimpan");
+            
+            if (transactionId > 0)
+            {
+                FormNota formNota = new FormNota((int)transactionId, "Nota Pembelian Token Listrik");
+                formNota.ShowDialog();
+            }
+
             this.DialogResult = DialogResult.OK;
             this.Close();
 
@@ -119,6 +125,11 @@ namespace Projek_PV
         private void num_ValueChanged(object sender, EventArgs e)
         {
             UpdateEstimasi();
+        }
+
+        private void FormTagihListrikTenant_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

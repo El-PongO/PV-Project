@@ -792,7 +792,7 @@ namespace Projek_PV
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string updateSql = "UPDATE pendapatan SET status = @status WHERE pendapatan_id = @id";
+                    string updateSql = "UPDATE transactions SET status = @status WHERE transaction_id = @id";
                     using (MySqlCommand cmd = new MySqlCommand(updateSql, conn))
                     {
                         cmd.Parameters.AddWithValue("@status", cmbStatus.SelectedItem);
@@ -864,16 +864,18 @@ namespace Projek_PV
         private void LoadPendapatanFromDatabase()
         {
             flowLayoutPanelPendapatan.Controls.Clear();
-            string query = @"SELECT p.pendapatan_id, t.full_name, p.source, p.amount, p.payment_method, p.paid_at, p.status, p.notes
-                              FROM pendapatan p
-                              JOIN tenants t ON p.tenant_id = t.tenant_id
-                              LEFT JOIN leases l ON p.lease_id = l.lease_id";
+            string query = @"SELECT tr.transaction_id, t.full_name, tr.category AS source, tr.amount, 
+                                    tr.payment_method, tr.transaction_date AS paid_at, tr.status, tr.description AS notes
+                              FROM transactions tr
+                              JOIN leases l ON tr.lease_id = l.lease_id
+                              JOIN tenants t ON l.tenant_id = t.tenant_id
+                              ORDER BY tr.transaction_date DESC";
 
             DataTable dt = GetData(query);
             foreach (DataRow row in dt.Rows)
             {
                 CreatePendapatanCard(
-                    Convert.ToInt32(row["pendapatan_id"]),
+                    Convert.ToInt32(row["transaction_id"]),
                     row["full_name"].ToString(),
                     row["source"].ToString(),
                     row["amount"] != DBNull.Value ? Convert.ToDecimal(row["amount"]) : 0,
