@@ -280,8 +280,8 @@ namespace Projek_PV
         {
             // MAIN CARD PANEL
             RoundedPanel card = new RoundedPanel();
-            card.Width = 307;
-            card.Height = 210;
+            card.Width = 230;
+            card.Height = 180;
             //card.BackColor = Color.White;
             card.Margin = new Padding(5, 10, 10, 10);
             card.BorderColor = SystemColors.Control;
@@ -383,7 +383,7 @@ namespace Projek_PV
             btnEdit.Text = "Edit";
             btnEdit.Width = 80;
             btnEdit.Height = 35;
-            btnEdit.Location = new Point(card.Width - 100, card.Height - 50);
+            btnEdit.Location = new Point(card.Width - 100, card.Height - 110);
 
             // GET ROOM NUMBER (IMPORTANT)
             string roomNumber = row["RoomName"].ToString().Replace("Kamar ", "");
@@ -1457,7 +1457,7 @@ namespace Projek_PV
 
         private void btnTambahKamar_Click(object sender, EventArgs e)
         {
-            formCreateKamar formBikinKamar = new formCreateKamar();
+            formCreateKamar formBikinKamar = new formCreateKamar(connectionString);
             if (formBikinKamar.ShowDialog() == DialogResult.OK)
             {
                 LoadRoomCards();
