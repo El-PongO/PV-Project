@@ -18,6 +18,7 @@ namespace Projek_PV
         Form1 login;
         int lease_id;
         int id_user;
+        int id_tenant;
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
 
         public FormUser2(int id, Form1 master)
@@ -142,6 +143,7 @@ namespace Projek_PV
                                 lblDurasiPenginapan.Text = reader["duration_months"].ToString();
                                 lblJatuhTempoExt.Text = reader["end_date"].ToString();
                                 lblVoucherAktif.Text = Convert.ToBoolean(reader["usingVoucher"]) ? "Yes" : "No";
+                                id_tenant = Convert.ToInt32(reader["tenant_id"]);
 
                             }
                             else
@@ -304,6 +306,7 @@ namespace Projek_PV
                                 lblStatusPembayaran.Text = reader["status_sewa"].ToString();
                                 lblUserHeader.Text = reader["full_name"].ToString();
                                 lease_id = Convert.ToInt32(reader["lease_id"]);
+                                id_tenant = Convert.ToInt32(reader["tenant_id"]);
 
                             }
                             else
@@ -466,10 +469,11 @@ namespace Projek_PV
                 connection.Open();
                 try
                 {
-                    string query = "SELECT transaction_id ,transaction_date as date,category, description, amount, status FROM transactions WHERE lease_id IN (SELECT lease_id FROM leases WHERE tenant_id = 2)";
+                    string query = "SELECT transaction_id ,transaction_date as date,category, description, amount, status FROM transactions WHERE lease_id IN (SELECT lease_id FROM leases WHERE tenant_id = @tenant_id)";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@user", id_user);
+                        cmd.Parameters.AddWithValue("@tenant_id", id_tenant);
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
@@ -610,6 +614,15 @@ namespace Projek_PV
 
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            FormTagihListrikTenant form = new FormTagihListrikTenant(id_user, lease_id, connectionString);
+
+            form.ShowDialog();
+
         }
     }
 }
