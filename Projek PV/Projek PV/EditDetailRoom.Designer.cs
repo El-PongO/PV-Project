@@ -39,10 +39,10 @@
             this.btnTerisi = new System.Windows.Forms.Button();
             this.labelStatus = new System.Windows.Forms.Label();
             this.labelHarga = new System.Windows.Forms.Label();
-            this.txtType = new System.Windows.Forms.TextBox();
             this.labelTipeKamar = new System.Windows.Forms.Label();
             this.txtRoomNumber = new System.Windows.Forms.TextBox();
             this.labelNomorKamar = new System.Windows.Forms.Label();
+            this.comboBoxTipeKamar = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
@@ -70,6 +70,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.comboBoxTipeKamar);
             this.panel2.Controls.Add(this.numPrice);
             this.panel2.Controls.Add(this.btnSaveChanges);
             this.panel2.Controls.Add(this.btnCancel);
@@ -78,7 +79,6 @@
             this.panel2.Controls.Add(this.btnTerisi);
             this.panel2.Controls.Add(this.labelStatus);
             this.panel2.Controls.Add(this.labelHarga);
-            this.panel2.Controls.Add(this.txtType);
             this.panel2.Controls.Add(this.labelTipeKamar);
             this.panel2.Controls.Add(this.txtRoomNumber);
             this.panel2.Controls.Add(this.labelNomorKamar);
@@ -89,6 +89,12 @@
             // 
             // numPrice
             // 
+            this.numPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numPrice.Increment = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
             this.numPrice.Location = new System.Drawing.Point(27, 217);
             this.numPrice.Maximum = new decimal(new int[] {
             -727379968,
@@ -96,7 +102,7 @@
             0,
             0});
             this.numPrice.Name = "numPrice";
-            this.numPrice.Size = new System.Drawing.Size(449, 22);
+            this.numPrice.Size = new System.Drawing.Size(449, 24);
             this.numPrice.TabIndex = 13;
             this.numPrice.ThousandsSeparator = true;
             // 
@@ -128,7 +134,8 @@
             // 
             // btnPerbaikan
             // 
-            this.btnPerbaikan.Location = new System.Drawing.Point(330, 287);
+            this.btnPerbaikan.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerbaikan.Location = new System.Drawing.Point(330, 290);
             this.btnPerbaikan.Name = "btnPerbaikan";
             this.btnPerbaikan.Size = new System.Drawing.Size(146, 44);
             this.btnPerbaikan.TabIndex = 10;
@@ -138,7 +145,8 @@
             // 
             // btnTersedia
             // 
-            this.btnTersedia.Location = new System.Drawing.Point(178, 287);
+            this.btnTersedia.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTersedia.Location = new System.Drawing.Point(178, 290);
             this.btnTersedia.Name = "btnTersedia";
             this.btnTersedia.Size = new System.Drawing.Size(146, 44);
             this.btnTersedia.TabIndex = 9;
@@ -148,7 +156,8 @@
             // 
             // btnTerisi
             // 
-            this.btnTerisi.Location = new System.Drawing.Point(26, 287);
+            this.btnTerisi.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTerisi.Location = new System.Drawing.Point(26, 290);
             this.btnTerisi.Name = "btnTerisi";
             this.btnTerisi.Size = new System.Drawing.Size(146, 44);
             this.btnTerisi.TabIndex = 8;
@@ -161,7 +170,7 @@
             this.labelStatus.AutoSize = true;
             this.labelStatus.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStatus.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelStatus.Location = new System.Drawing.Point(23, 252);
+            this.labelStatus.Location = new System.Drawing.Point(23, 255);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(72, 22);
             this.labelStatus.TabIndex = 7;
@@ -177,14 +186,6 @@
             this.labelHarga.Size = new System.Drawing.Size(215, 22);
             this.labelHarga.TabIndex = 5;
             this.labelHarga.Text = "Harga per Bulan (Rp)";
-            // 
-            // txtType
-            // 
-            this.txtType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtType.Location = new System.Drawing.Point(26, 128);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(450, 24);
-            this.txtType.TabIndex = 4;
             // 
             // labelTipeKamar
             // 
@@ -217,6 +218,14 @@
             this.labelNomorKamar.TabIndex = 1;
             this.labelNomorKamar.Text = "Nomor Kamar";
             // 
+            // comboBoxTipeKamar
+            // 
+            this.comboBoxTipeKamar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTipeKamar.Location = new System.Drawing.Point(27, 137);
+            this.comboBoxTipeKamar.Name = "comboBoxTipeKamar";
+            this.comboBoxTipeKamar.Size = new System.Drawing.Size(449, 26);
+            this.comboBoxTipeKamar.TabIndex = 0;
+            // 
             // EditDetailRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -226,6 +235,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "EditDetailRoom";
             this.Text = "EditDetailRoom";
+            this.Load += new System.EventHandler(this.EditDetailRoom_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -247,10 +257,10 @@
         private System.Windows.Forms.Button btnTerisi;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label labelHarga;
-        private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Label labelTipeKamar;
         private System.Windows.Forms.TextBox txtRoomNumber;
         private System.Windows.Forms.Label labelNomorKamar;
         private System.Windows.Forms.NumericUpDown numPrice;
+        private System.Windows.Forms.ComboBox comboBoxTipeKamar;
     }
 }

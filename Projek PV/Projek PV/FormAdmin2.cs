@@ -246,7 +246,7 @@ namespace Projek_PV
             // nge set
             panelKamar.Location = new Point(230, 72);
             panelKamar.Size = new Size(1000, 600);
-            flowLayoutPanelPendapatan.Size = new Size(300, 100);
+            flowLayoutPanelKamar.Size = new Size(800, 500);
             lblHeader.Text = "Kamar";
             LoadRoomCards();
         }
@@ -322,11 +322,19 @@ namespace Projek_PV
             lblStatus.Location = new Point(card.Width - 100, 10);
 
             if (lblStatus.Text == "Tersedia")
+            {
                 lblStatus.BackColor = Color.FromArgb(80, 200, 120); // green
-            else
+            }
+            else if (lblStatus.Text == "Terisi")
+            {
                 lblStatus.BackColor = Color.FromArgb(220, 80, 80); // red
+            }
+            else
+            {
+                lblStatus.BackColor = Color.FromArgb(255, 213, 79); // yeloo
+            }
 
-            lblStatus.ForeColor = Color.White;
+                lblStatus.ForeColor = Color.White;
             card.Controls.Add(lblStatus);
 
             // FACILITIES PANEL
