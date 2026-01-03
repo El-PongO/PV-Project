@@ -173,7 +173,7 @@
             this.buttonTerisi.UseVisualStyleBackColor = true;
             this.buttonTerisi.Click += new System.EventHandler(this.buttonTerisi_Click);
             this.buttonTerisi.MouseLeave += new System.EventHandler(this.buttonStatus_MouseLeave);
-            this.buttonTerisi.MouseHover += new System.EventHandler(this.buttonStatus_MouseHover);
+            this.buttonTerisi.MouseEnter += new System.EventHandler(this.buttonStatus_MouseHover);
             // 
             // buttonTersedia
             // 
@@ -187,7 +187,7 @@
             this.buttonTersedia.UseVisualStyleBackColor = true;
             this.buttonTersedia.Click += new System.EventHandler(this.buttonTersedia_Click);
             this.buttonTersedia.MouseLeave += new System.EventHandler(this.buttonStatus_MouseLeave);
-            this.buttonTersedia.MouseHover += new System.EventHandler(this.buttonStatus_MouseHover);
+            this.buttonTersedia.MouseEnter += new System.EventHandler(this.buttonStatus_MouseHover);
             // 
             // buttonPerbaikan
             // 
@@ -201,8 +201,8 @@
             this.buttonPerbaikan.UseVisualStyleBackColor = true;
             this.buttonPerbaikan.Click += new System.EventHandler(this.buttonPerbaikan_Click);
             this.buttonPerbaikan.MouseLeave += new System.EventHandler(this.buttonStatus_MouseLeave);
-            this.buttonPerbaikan.MouseHover += new System.EventHandler(this.buttonStatus_MouseHover);
-            // 
+            this.buttonPerbaikan.MouseEnter += new System.EventHandler(this.buttonStatus_MouseHover);
+
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

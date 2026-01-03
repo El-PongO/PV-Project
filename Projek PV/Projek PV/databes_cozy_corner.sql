@@ -166,13 +166,15 @@ CREATE TABLE `rooms` (
   `facilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_number` (`room_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rooms` */
 
 insert  into `rooms`(`room_id`,`room_number`,`type`,`base_price`,`status`,`facilities`) values 
-(1,'101','Standard AC',1500000.00,'Terisi',NULL),
-(2,'102','Standard AC',1500000.00,'Terisi',NULL);
+(1,'101','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(2,'102','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(3,'103','Standard AC',1500000.00,'Tersedia','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(4,'104','Standard AC',1500000.00,'Tersedia',NULL);
 
 /*Table structure for table `tenants` */
 
