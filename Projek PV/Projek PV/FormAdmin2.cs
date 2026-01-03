@@ -37,6 +37,10 @@ namespace Projek_PV
             flowLayoutPanelKamar.AutoSize = false;
 
             flowLayoutPanelComplaints.AutoScroll = true;
+
+            flowLayoutPanelListrik.Visible = true;
+            flowLayoutPanelListrik.AutoScroll = true;
+
             panelFill.AutoScroll = true;
             radioWanita1.Checked = true;
             radioWanita2.Checked = true;
@@ -53,6 +57,7 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
+            panelListrik.Visible = false;
 
             panelOverview.Location = new Point(230, 82);
             panelOverview.Size = new Size(1000, 600);
@@ -61,31 +66,33 @@ namespace Projek_PV
             panelBtnOverview.BackColor = Color.Navy;
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnManage.BringToFront();
             panelBtnFill.BringToFront();
             panelBtnOverview.BringToFront();
             panelBtnLaporan.BringToFront();
             panelBtnPenghuni.BringToFront();
+            panelBtnListrik.BringToFront();
 
-            var roomTable = new DataTable();
-            roomTable.Columns.Add("RoomCode", typeof(string));
-            roomTable.Columns.Add("Occupied", typeof(bool));
-            roomTable.Columns.Add("TenantName", typeof(string));
-            roomTable.Columns.Add("RentDue", typeof(DateTime));
+            //var roomTable = new DataTable();
+            //roomTable.Columns.Add("RoomCode", typeof(string));
+            //roomTable.Columns.Add("Occupied", typeof(bool));
+            //roomTable.Columns.Add("TenantName", typeof(string));
+            //roomTable.Columns.Add("RentDue", typeof(DateTime));
 
-            roomTable.Rows.Add("A101", true, "John Doe", DateTime.Now.AddDays(7));
-            roomTable.Rows.Add("A102", false, "", DBNull.Value);
-            roomTable.Rows.Add("B201", true, "Jane Smith", DateTime.Now.AddDays(2));
-            roomTable.Rows.Add("B202", false, "", DBNull.Value);
-            roomTable.Rows.Add("C301", true, "Michael Brown", DateTime.Now.AddDays(15));
+            //roomTable.Rows.Add("A101", true, "John Doe", DateTime.Now.AddDays(7));
+            //roomTable.Rows.Add("A102", false, "", DBNull.Value);
+            //roomTable.Rows.Add("B201", true, "Jane Smith", DateTime.Now.AddDays(2));
+            //roomTable.Rows.Add("B202", false, "", DBNull.Value);
+            //roomTable.Rows.Add("C301", true, "Michael Brown", DateTime.Now.AddDays(15));
 
-            dgvManage.DataSource = roomTable;
+            //dgvManage.DataSource = roomTable;
 
-            dgvManage.Columns["RoomCode"].HeaderText = "Kode Ruangan";
-            dgvManage.Columns["Occupied"].HeaderText = "Terisi";
-            dgvManage.Columns["TenantName"].HeaderText = "Nama Penyewa";
-            dgvManage.Columns["RentDue"].HeaderText = "Jatuh Tempo Sewa";
-            dgvManage.Columns["Occupied"].Width = 60;
+            //dgvManage.Columns["RoomCode"].HeaderText = "Kode Ruangan";
+            //dgvManage.Columns["Occupied"].HeaderText = "Terisi";
+            //dgvManage.Columns["TenantName"].HeaderText = "Nama Penyewa";
+            //dgvManage.Columns["RentDue"].HeaderText = "Jatuh Tempo Sewa";
+            //dgvManage.Columns["Occupied"].Width = 60;
 
             panelFill.Location = new Point(238, -1);
             panelFill.Visible = false;
@@ -109,6 +116,8 @@ namespace Projek_PV
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
+
             // panel isinya
             panelManage.Visible = true;
             panelFill.Visible = false;
@@ -116,6 +125,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
+            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
 
             if (roundedPanelOccupant1.Visible != true)
@@ -141,6 +151,8 @@ namespace Projek_PV
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
+
             // isinya panel
             panelManage.Visible = false;
             panelFill.Visible = true;
@@ -149,6 +161,8 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
+            panelListrik.Visible = false;
+
             // nge set
             panelFill.Location = new Point(230, 82);
             panelFill.Size = new Size(1000, 600);
@@ -165,6 +179,8 @@ namespace Projek_PV
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
+
             // ini ngeset isinya panel
             panelManage.Visible = false;
             panelFill.Visible = false;
@@ -173,6 +189,8 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
+            panelListrik.Visible = false;
+
             // nge set
             panelOverview.Location = new Point(230, 82);
             panelOverview.Size = new Size(1000, 600);
@@ -188,6 +206,8 @@ namespace Projek_PV
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
+
             // ini isinya panel 
             panelManage.Visible = false;
             panelFill.Visible = false;
@@ -196,6 +216,8 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
+            panelListrik.Visible = false;
+
             // nge set
             flowLayoutPanelComplaints.Location = new Point(230, 82);
             flowLayoutPanelComplaints.Size = new Size(1000, 600);
@@ -212,6 +234,8 @@ namespace Projek_PV
             panelBtnPenghuni.BackColor = Color.Navy;
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
+
             // ini isinya panel nanti
             panelManage.Visible = false;
             panelFill.Visible = false;
@@ -220,6 +244,8 @@ namespace Projek_PV
             panelKamar.Visible = false;
             panelPenghunidanTagihan.Visible = true;
             flowLayoutPanelPendapatan.Visible = false;
+            panelListrik.Visible = false;
+
             // nge set
             panelPenghunidanTagihan.Location = new Point(230, 82);
             panelPenghunidanTagihan.Size = new Size(1000, 600);
@@ -235,6 +261,8 @@ namespace Projek_PV
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.Navy;
             panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
+
             // ini buat tampilin isi panelnya
             panelManage.Visible = false;
             panelFill.Visible = false;
@@ -243,6 +271,8 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = true;
             flowLayoutPanelPendapatan.Visible = false;
+            panelListrik.Visible = false;
+
             // nge set
             panelKamar.Location = new Point(230, 72);
             panelKamar.Size = new Size(1000, 600);
@@ -260,6 +290,7 @@ namespace Projek_PV
             panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.FromArgb(0, 0, 64);
             panelBtnPendapatan.BackColor = Color.Navy;
 
             // content
@@ -269,12 +300,40 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
+            panelListrik.Visible = false;
             flowLayoutPanelPendapatan.Visible = true;
 
             flowLayoutPanelPendapatan.Location = new Point(230, 82);
             flowLayoutPanelPendapatan.Size = new Size(1000, 600);
             lblHeader.Text = "Laporan Pendapatan";
             LoadPendapatanFromDatabase();
+        }
+        private void NavBar_Listrik_Click(object sender, EventArgs e)
+        {
+            // panel btn
+            panelBtnManage.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFill.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnOverview.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnLaporan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPenghuni.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnKamar.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnPendapatan.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnListrik.BackColor = Color.Navy;
+
+            // content
+            panelManage.Visible = false;
+            panelFill.Visible = false;
+            panelOverview.Visible = false;
+            flowLayoutPanelComplaints.Visible = false;
+            panelPenghunidanTagihan.Visible = false;
+            panelKamar.Visible = false;
+            flowLayoutPanelPendapatan.Visible = false;
+            panelListrik.Visible = true;
+
+            panelListrik.Location = new Point(230, 82);
+            panelListrik.Size = new Size(1000, 600);
+            lblHeader.Text = "Listrik Tenant";
+            LoadListrikCards();
         }
         private void CreateRoomCard(DataRow row)
         {
@@ -410,6 +469,208 @@ namespace Projek_PV
 
             flowLayoutPanelKamar.Controls.Add(card);
         }
+        private void CreateListrikCard(DataRow row)
+        {
+            int billId = Convert.ToInt32(row["bill_id"]);
+            string adminStatus = row["admin_status"].ToString();
+            string paymentStatus = row["status"].ToString();
+
+            RoundedPanel card = new RoundedPanel();
+            card.Width = 260;
+            card.Height = 200;
+            card.Margin = new Padding(5, 10, 10, 10);
+            card.BorderColor = SystemColors.Control;
+
+            Label lblTenant = new Label();
+            lblTenant.Text = "Lease ID: " + row["lease_id"];
+            lblTenant.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            lblTenant.Location = new Point(10, 10);
+            lblTenant.AutoSize = true;
+            card.Controls.Add(lblTenant);
+
+            Label lblPemakaian = new Label();
+            lblPemakaian.Text = $"Pemakaian: {row["pemakaian_kwh"]} kWh";
+            lblPemakaian.Location = new Point(10, 45);
+            lblPemakaian.AutoSize = true;
+            card.Controls.Add(lblPemakaian);
+
+            Label lblTarif = new Label();
+            lblTarif.Text = "Tarif: Rp " + Convert.ToDecimal(row["tarif_per_kwh"]).ToString("N0");
+            lblTarif.Location = new Point(10, 70);
+            lblTarif.AutoSize = true;
+            card.Controls.Add(lblTarif);
+
+            Label lblTotal = new Label();
+            lblTotal.Text = "Total: Rp " + Convert.ToDecimal(row["total_tagihan"]).ToString("N0");
+            lblTotal.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            lblTotal.Location = new Point(10, 95);
+            lblTotal.AutoSize = true;
+            card.Controls.Add(lblTotal);
+
+            Label lblBulan = new Label();
+            lblBulan.Text = "Bulan: " + Convert.ToDateTime(row["bill_month"]).ToString("MMMM yyyy");
+            lblBulan.Location = new Point(10, 125);
+            lblBulan.AutoSize = true;
+            card.Controls.Add(lblBulan);
+
+            // STATUS BADGE
+            Label lblStatus = new Label();
+            lblStatus.Text = paymentStatus;
+            lblStatus.Padding = new Padding(6);
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(card.Width - 90, 10);
+            lblStatus.ForeColor = Color.White;
+            lblStatus.BackColor = paymentStatus == "Paid"
+                ? Color.FromArgb(80, 200, 120)
+                : Color.FromArgb(220, 80, 80);
+
+            card.Controls.Add(lblStatus);
+
+            // CONFIRM BUTTON
+            Button btnConfirm = new Button();
+            btnConfirm.Width = 90;
+            btnConfirm.Height = 35;
+            btnConfirm.Location = new Point(card.Width - 110, card.Height - 55);
+
+            if (adminStatus == "Done")
+            {
+                btnConfirm.Text = "DONE";
+                btnConfirm.Enabled = false;
+                btnConfirm.BackColor = Color.ForestGreen;
+                btnConfirm.ForeColor = Color.White;
+            }
+            else if (paymentStatus == "Unpaid")
+            {
+                btnConfirm.Text = "UNPAID";
+                btnConfirm.Enabled = false;
+                btnConfirm.BackColor = Color.Gray;
+                btnConfirm.ForeColor = Color.White;
+            }
+            else
+            {
+                btnConfirm.Text = "CONFIRM";
+                btnConfirm.BackColor = Color.Orange;
+                btnConfirm.ForeColor = Color.Black;
+
+                btnConfirm.Click += (s, e) =>
+                {
+                    if (MessageBox.Show(
+                        "Konfirmasi listrik sudah selesai?",
+                        "Confirm",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        UpdateAdminStatus(billId);
+
+                        btnConfirm.Text = "DONE";
+                        btnConfirm.Enabled = false;
+                        btnConfirm.BackColor = Color.ForestGreen;
+                        btnConfirm.ForeColor = Color.White;
+                    }
+                };
+            }
+
+            card.Controls.Add(btnConfirm);
+            flowLayoutPanelListrik.Controls.Add(card);
+        }
+
+
+        private void UpdateAdminStatus(int billId)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"
+            UPDATE listrik_bills
+            SET admin_status = 'Done'
+            WHERE bill_id = @billId";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@billId", billId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        private DataTable GetListrikData()
+        {
+            DataTable dt = new DataTable();
+
+            // Columns expected by CreateListrikCard
+            dt.Columns.Add("bill_id", typeof(int));
+            dt.Columns.Add("lease_id", typeof(int));
+            dt.Columns.Add("pemakaian_kwh", typeof(decimal));
+            dt.Columns.Add("tarif_per_kwh", typeof(decimal));
+            dt.Columns.Add("total_tagihan", typeof(decimal));
+            dt.Columns.Add("bill_month", typeof(DateTime));
+            dt.Columns.Add("status", typeof(string));
+            dt.Columns.Add("admin_status", typeof(string));
+
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query = @"
+                    SELECT 
+                        bill_id,
+                        lease_id,
+                        pemakaian_kwh,
+                        tarif_per_kwh,
+                        total_tagihan,
+                        bill_month,
+                        status,
+                        admin_status
+                    FROM listrik_bills
+                    ORDER BY bill_month DESC";
+
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dt.Rows.Add(
+                                reader["bill_id"],
+                                reader["lease_id"],
+                                reader["pemakaian_kwh"],
+                                reader["tarif_per_kwh"],
+                                reader["total_tagihan"],
+                                reader["bill_month"],
+                                reader["status"],
+                                reader["admin_status"]
+                            );
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading listrik data: " + ex.Message);
+                }
+            }
+
+            return dt;
+        }
+        private void LoadListrikCards()
+        {
+            DataTable dt = GetListrikData(); // generate sample data
+
+            // Clear existing cards so repeated calls don't duplicate
+            if (flowLayoutPanelListrik.Controls.Count > 0)
+                flowLayoutPanelListrik.Controls.Clear();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                CreateListrikCard(row);
+            }
+        }
+
         private DataTable GetRoomData()
         {
             DataTable dt = new DataTable();
@@ -451,11 +712,6 @@ namespace Projek_PV
             }
 
             return dt;
-        }
-
-        public void createKamar()
-        {
-
         }
 
         private void LoadRoomCards()

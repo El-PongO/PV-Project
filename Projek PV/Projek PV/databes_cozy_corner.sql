@@ -119,7 +119,7 @@ CREATE TABLE `listrik_bills` (
   `total_tagihan` decimal(12,2) NOT NULL,
   `bill_month` date NOT NULL,
   `due_date` date NOT NULL,
-  `status` enum('Unpaid','Paid') COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
+  `status` enum('Unpaid','Paid') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bill_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -128,30 +128,6 @@ CREATE TABLE `listrik_bills` (
 
 insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`created_at`) values 
 (1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','2026-01-02 20:00:32');
-
-/*Table structure for table `pendapatan` */
-
-DROP TABLE IF EXISTS `pendapatan`;
-
-CREATE TABLE `pendapatan` (
-  `pendapatan_id` int NOT NULL AUTO_INCREMENT,
-  `tenant_id` int NOT NULL,
-  `lease_id` int DEFAULT NULL,
-  `source` enum('perpanjang','tenant_baru') NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
-  `payment_method` varchar(50) NOT NULL,
-  `paid_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `notes` text,
-  `status` enum('Pending','Confirmed','Cancelled') DEFAULT 'Confirmed',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`pendapatan_id`),
-  KEY `fk_pendapatan_tenant` (`tenant_id`),
-  KEY `fk_pendapatan_lease` (`lease_id`),
-  CONSTRAINT `fk_pendapatan_lease` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`),
-  CONSTRAINT `fk_pendapatan_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-/*Data for the table `pendapatan` */
 
 /*Table structure for table `rooms` */
 
@@ -163,10 +139,10 @@ CREATE TABLE `rooms` (
   `type` enum('Standard Non-AC','Standard AC','VIP AC') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `base_price` decimal(10,2) NOT NULL,
   `status` enum('Tersedia','Terisi','Perbaikan') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Tersedia',
-  `facilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `facilities` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower',
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_number` (`room_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rooms` */
 
@@ -174,7 +150,8 @@ insert  into `rooms`(`room_id`,`room_number`,`type`,`base_price`,`status`,`facil
 (1,'101','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
 (2,'102','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
 (3,'103','Standard AC',1500000.00,'Tersedia','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(4,'104','Standard AC',1500000.00,'Tersedia',NULL);
+(4,'104','Standard AC',1500003.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(5,'105','Standard Non-AC',500000.00,'Perbaikan','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower');
 
 /*Table structure for table `tenants` */
 
