@@ -515,20 +515,25 @@ namespace Projek_PV
             btnConfirm.Height = 35;
             btnConfirm.Location = new Point(card.Width - 110, card.Height - 55);
 
-            if (adminStatus == "Done")
+            // 🔥 CASE 1: UNPAID → AUTO DONE
+            if (paymentStatus == "Unpaid")
+            {
+                UpdateAdminStatus(billId); // pakai method yang sudah ada
+
+                btnConfirm.Text = "DONE";
+                btnConfirm.Enabled = false;
+                btnConfirm.BackColor = Color.ForestGreen;
+                btnConfirm.ForeColor = Color.White;
+            }
+            // 🔥 CASE 2: SUDAH DONE
+            else if (adminStatus == "Done")
             {
                 btnConfirm.Text = "DONE";
                 btnConfirm.Enabled = false;
                 btnConfirm.BackColor = Color.ForestGreen;
                 btnConfirm.ForeColor = Color.White;
             }
-            else if (paymentStatus == "Unpaid")
-            {
-                btnConfirm.Text = "UNPAID";
-                btnConfirm.Enabled = false;
-                btnConfirm.BackColor = Color.Gray;
-                btnConfirm.ForeColor = Color.White;
-            }
+            // 🔥 CASE 3: PAID tapi belum DONE
             else
             {
                 btnConfirm.Text = "CONFIRM";
@@ -552,6 +557,7 @@ namespace Projek_PV
                     }
                 };
             }
+
 
             card.Controls.Add(btnConfirm);
             flowLayoutPanelListrik.Controls.Add(card);
@@ -1692,6 +1698,42 @@ namespace Projek_PV
             {
                 LoadRoomCards();
             }
+        }
+        private void buttonSendReminderKeTenant_Click(object sender, EventArgs e)
+        {
+            if (dgvTagihan.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Pilih tenant terlebih dahulu!");
+                return;
+            }
+
+            // Ambil row yang dipilih
+            DataGridViewRow row = dgvTagihan.SelectedRows[0];
+
+            int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
+
+            string title = "Pengingat Pembayaran";
+            string content = "Reminder bayar uang sewa"; // bisa custom nanti
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"
+            INSERT INTO reminders (title, content, tenant_id)
+            VALUES (@title, @content, @tenantId)";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@content", content);
+                    cmd.Parameters.AddWithValue("@tenantId", tenantId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Reminder berhasil dikirim ke tenant!");
         }
     }
 }

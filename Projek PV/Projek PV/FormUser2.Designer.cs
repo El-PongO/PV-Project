@@ -69,9 +69,6 @@
             this.lblDurasiPenempatan = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.panelBtnNotification = new RoundedPanel();
-            this.markNewNotication = new RoundedPanel();
-            this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUserHeader = new System.Windows.Forms.Label();
             this.lblTitleHeader = new System.Windows.Forms.Label();
@@ -120,8 +117,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panelTagihan = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -147,7 +144,6 @@
             this.roundedPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelHeader.SuspendLayout();
-            this.panelBtnNotification.SuspendLayout();
             this.panelUserComplaint.SuspendLayout();
             this.roundedPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -173,7 +169,7 @@
             this.panel1.Controls.Add(this.panelBtnLogout);
             this.panel1.Controls.Add(this.panelBtnExtendDuration);
             this.panel1.Location = new System.Drawing.Point(3, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(299, 663);
             this.panel1.TabIndex = 1;
@@ -184,7 +180,7 @@
             this.panel3.Controls.Add(this.pictureBox7);
             this.panel3.Controls.Add(this.label43);
             this.panel3.Location = new System.Drawing.Point(0, 352);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(295, 54);
             this.panel3.TabIndex = 4;
@@ -221,7 +217,7 @@
             this.panelBtnDaftarTamu.Controls.Add(this.pictureBox3);
             this.panelBtnDaftarTamu.Controls.Add(this.label27);
             this.panelBtnDaftarTamu.Location = new System.Drawing.Point(1, 290);
-            this.panelBtnDaftarTamu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnDaftarTamu.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnDaftarTamu.Name = "panelBtnDaftarTamu";
             this.panelBtnDaftarTamu.Size = new System.Drawing.Size(295, 54);
             this.panelBtnDaftarTamu.TabIndex = 3;
@@ -258,7 +254,7 @@
             this.panelBtnFileComplaint.Controls.Add(this.pictureBox1);
             this.panelBtnFileComplaint.Controls.Add(this.label2);
             this.panelBtnFileComplaint.Location = new System.Drawing.Point(1, 231);
-            this.panelBtnFileComplaint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnFileComplaint.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnFileComplaint.Name = "panelBtnFileComplaint";
             this.panelBtnFileComplaint.Size = new System.Drawing.Size(295, 54);
             this.panelBtnFileComplaint.TabIndex = 3;
@@ -317,7 +313,7 @@
             this.panelBtnDashboard.Controls.Add(this.pictureBoxUserDashboard);
             this.panelBtnDashboard.Controls.Add(this.labelUserDashboard);
             this.panelBtnDashboard.Location = new System.Drawing.Point(0, 114);
-            this.panelBtnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnDashboard.Name = "panelBtnDashboard";
             this.panelBtnDashboard.Size = new System.Drawing.Size(295, 54);
             this.panelBtnDashboard.TabIndex = 1;
@@ -354,7 +350,7 @@
             this.panelBtnLogout.Controls.Add(this.pictureBoxFillRoom);
             this.panelBtnLogout.Controls.Add(this.labelUserLogout);
             this.panelBtnLogout.Location = new System.Drawing.Point(3, 601);
-            this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnLogout.Name = "panelBtnLogout";
             this.panelBtnLogout.Size = new System.Drawing.Size(295, 54);
             this.panelBtnLogout.TabIndex = 1;
@@ -392,7 +388,7 @@
             this.panelBtnExtendDuration.Controls.Add(this.pictureBoxManageRooms);
             this.panelBtnExtendDuration.Controls.Add(this.labelUserExtendDuration);
             this.panelBtnExtendDuration.Location = new System.Drawing.Point(0, 172);
-            this.panelBtnExtendDuration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBtnExtendDuration.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnExtendDuration.Name = "panelBtnExtendDuration";
             this.panelBtnExtendDuration.Size = new System.Drawing.Size(295, 54);
             this.panelBtnExtendDuration.TabIndex = 0;
@@ -467,7 +463,7 @@
             this.roundedPanel3.Controls.Add(this.label3);
             this.roundedPanel3.FillColor = System.Drawing.Color.White;
             this.roundedPanel3.Location = new System.Drawing.Point(21, 148);
-            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel3.Name = "roundedPanel3";
             this.roundedPanel3.Size = new System.Drawing.Size(1163, 230);
             this.roundedPanel3.TabIndex = 6;
@@ -476,7 +472,7 @@
             // 
             this.dgvNotifikasiBaru.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNotifikasiBaru.Location = new System.Drawing.Point(19, 53);
-            this.dgvNotifikasiBaru.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNotifikasiBaru.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNotifikasiBaru.Name = "dgvNotifikasiBaru";
             this.dgvNotifikasiBaru.RowHeadersWidth = 51;
             this.dgvNotifikasiBaru.Size = new System.Drawing.Size(1125, 156);
@@ -503,7 +499,7 @@
             this.roundedPanel6.Controls.Add(this.label12);
             this.roundedPanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
             this.roundedPanel6.Location = new System.Drawing.Point(423, 28);
-            this.roundedPanel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundedPanel6.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel6.Name = "roundedPanel6";
             this.roundedPanel6.Size = new System.Drawing.Size(361, 112);
             this.roundedPanel6.TabIndex = 5;
@@ -512,7 +508,7 @@
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(19, 10);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(100, 92);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -550,7 +546,7 @@
             this.roundedPanel5.Controls.Add(this.label11);
             this.roundedPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
             this.roundedPanel5.Location = new System.Drawing.Point(823, 28);
-            this.roundedPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundedPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel5.Name = "roundedPanel5";
             this.roundedPanel5.Size = new System.Drawing.Size(361, 112);
             this.roundedPanel5.TabIndex = 5;
@@ -559,7 +555,7 @@
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(19, 10);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(100, 92);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -597,7 +593,7 @@
             this.roundedPanel4.Controls.Add(this.label8);
             this.roundedPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
             this.roundedPanel4.Location = new System.Drawing.Point(21, 28);
-            this.roundedPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundedPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel4.Name = "roundedPanel4";
             this.roundedPanel4.Size = new System.Drawing.Size(361, 112);
             this.roundedPanel4.TabIndex = 5;
@@ -606,7 +602,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(19, 10);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 92);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -637,7 +633,6 @@
             // 
             // panelHeader
             // 
-            this.panelHeader.Controls.Add(this.panelBtnNotification);
             this.panelHeader.Controls.Add(this.label1);
             this.panelHeader.Controls.Add(this.lblUserHeader);
             this.panelHeader.Controls.Add(this.lblTitleHeader);
@@ -647,49 +642,11 @@
             this.panelHeader.Size = new System.Drawing.Size(1211, 80);
             this.panelHeader.TabIndex = 9;
             // 
-            // panelBtnNotification
-            // 
-            this.panelBtnNotification.BackColor = System.Drawing.Color.Transparent;
-            this.panelBtnNotification.BorderColor = System.Drawing.Color.Black;
-            this.panelBtnNotification.BorderRadius = 90;
-            this.panelBtnNotification.Controls.Add(this.markNewNotication);
-            this.panelBtnNotification.Controls.Add(this.label10);
-            this.panelBtnNotification.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
-            this.panelBtnNotification.Location = new System.Drawing.Point(1136, 12);
-            this.panelBtnNotification.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelBtnNotification.Name = "panelBtnNotification";
-            this.panelBtnNotification.Size = new System.Drawing.Size(57, 54);
-            this.panelBtnNotification.TabIndex = 2;
-            // 
-            // markNewNotication
-            // 
-            this.markNewNotication.BackColor = System.Drawing.Color.Transparent;
-            this.markNewNotication.BorderColor = System.Drawing.Color.Black;
-            this.markNewNotication.FillColor = System.Drawing.Color.Red;
-            this.markNewNotication.Location = new System.Drawing.Point(37, 0);
-            this.markNewNotication.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.markNewNotication.Name = "markNewNotication";
-            this.markNewNotication.Size = new System.Drawing.Size(20, 18);
-            this.markNewNotication.TabIndex = 11;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Enabled = false;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(11, 11);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 29);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "🔔";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(781, 30);
+            this.label1.Location = new System.Drawing.Point(936, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 18);
             this.label1.TabIndex = 1;
@@ -699,7 +656,7 @@
             // 
             this.lblUserHeader.AutoSize = true;
             this.lblUserHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserHeader.Location = new System.Drawing.Point(944, 30);
+            this.lblUserHeader.Location = new System.Drawing.Point(1099, 30);
             this.lblUserHeader.Name = "lblUserHeader";
             this.lblUserHeader.Size = new System.Drawing.Size(44, 18);
             this.lblUserHeader.TabIndex = 1;
@@ -738,7 +695,7 @@
             this.roundedPanel2.Controls.Add(this.comboKategoriComplaint);
             this.roundedPanel2.FillColor = System.Drawing.Color.White;
             this.roundedPanel2.Location = new System.Drawing.Point(21, 16);
-            this.roundedPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundedPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel2.Name = "roundedPanel2";
             this.roundedPanel2.Size = new System.Drawing.Size(1171, 470);
             this.roundedPanel2.TabIndex = 2;
@@ -872,7 +829,7 @@
             this.roundedPanel8.Controls.Add(this.label14);
             this.roundedPanel8.FillColor = System.Drawing.Color.White;
             this.roundedPanel8.Location = new System.Drawing.Point(33, 55);
-            this.roundedPanel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundedPanel8.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel8.Name = "roundedPanel8";
             this.roundedPanel8.Size = new System.Drawing.Size(1111, 330);
             this.roundedPanel8.TabIndex = 4;
@@ -893,7 +850,7 @@
             this.btnDaftarkanTamu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDaftarkanTamu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDaftarkanTamu.Location = new System.Drawing.Point(28, 257);
-            this.btnDaftarkanTamu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDaftarkanTamu.Margin = new System.Windows.Forms.Padding(4);
             this.btnDaftarkanTamu.Name = "btnDaftarkanTamu";
             this.btnDaftarkanTamu.Size = new System.Drawing.Size(205, 53);
             this.btnDaftarkanTamu.TabIndex = 6;
@@ -905,7 +862,7 @@
             // 
             this.cbPersetujuan2.AutoSize = true;
             this.cbPersetujuan2.Location = new System.Drawing.Point(28, 215);
-            this.cbPersetujuan2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPersetujuan2.Margin = new System.Windows.Forms.Padding(4);
             this.cbPersetujuan2.Name = "cbPersetujuan2";
             this.cbPersetujuan2.Size = new System.Drawing.Size(265, 20);
             this.cbPersetujuan2.TabIndex = 5;
@@ -916,7 +873,7 @@
             // 
             this.cbPersetujuan1.AutoSize = true;
             this.cbPersetujuan1.Location = new System.Drawing.Point(28, 187);
-            this.cbPersetujuan1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPersetujuan1.Margin = new System.Windows.Forms.Padding(4);
             this.cbPersetujuan1.Name = "cbPersetujuan1";
             this.cbPersetujuan1.Size = new System.Drawing.Size(260, 20);
             this.cbPersetujuan1.TabIndex = 5;
@@ -926,7 +883,7 @@
             // dateTimeKunjunganTamu
             // 
             this.dateTimeKunjunganTamu.Location = new System.Drawing.Point(257, 71);
-            this.dateTimeKunjunganTamu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimeKunjunganTamu.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeKunjunganTamu.Name = "dateTimeKunjunganTamu";
             this.dateTimeKunjunganTamu.Size = new System.Drawing.Size(265, 22);
             this.dateTimeKunjunganTamu.TabIndex = 4;
@@ -958,7 +915,7 @@
             "17:00",
             "18:00"});
             this.comboJamTamu.Location = new System.Drawing.Point(257, 111);
-            this.comboJamTamu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboJamTamu.Margin = new System.Windows.Forms.Padding(4);
             this.comboJamTamu.Name = "comboJamTamu";
             this.comboJamTamu.Size = new System.Drawing.Size(179, 24);
             this.comboJamTamu.TabIndex = 3;
@@ -977,7 +934,7 @@
             // tbTujuanKunjungan
             // 
             this.tbTujuanKunjungan.Location = new System.Drawing.Point(257, 146);
-            this.tbTujuanKunjungan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTujuanKunjungan.Margin = new System.Windows.Forms.Padding(4);
             this.tbTujuanKunjungan.Name = "tbTujuanKunjungan";
             this.tbTujuanKunjungan.Size = new System.Drawing.Size(329, 22);
             this.tbTujuanKunjungan.TabIndex = 2;
@@ -985,7 +942,7 @@
             // tbNamaTamu
             // 
             this.tbNamaTamu.Location = new System.Drawing.Point(257, 32);
-            this.tbNamaTamu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNamaTamu.Margin = new System.Windows.Forms.Padding(4);
             this.tbNamaTamu.Name = "tbNamaTamu";
             this.tbNamaTamu.Size = new System.Drawing.Size(329, 22);
             this.tbNamaTamu.TabIndex = 2;
@@ -1029,7 +986,7 @@
             this.panelExtendDuration.Controls.Add(this.roundedPanel7);
             this.panelExtendDuration.Controls.Add(this.roundedPanel1);
             this.panelExtendDuration.Location = new System.Drawing.Point(1443, 581);
-            this.panelExtendDuration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelExtendDuration.Margin = new System.Windows.Forms.Padding(4);
             this.panelExtendDuration.Name = "panelExtendDuration";
             this.panelExtendDuration.Size = new System.Drawing.Size(74, 84);
             this.panelExtendDuration.TabIndex = 11;
@@ -1047,7 +1004,7 @@
             this.roundedPanel7.Controls.Add(this.label24);
             this.roundedPanel7.FillColor = System.Drawing.Color.White;
             this.roundedPanel7.Location = new System.Drawing.Point(21, 212);
-            this.roundedPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundedPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel7.Name = "roundedPanel7";
             this.roundedPanel7.Size = new System.Drawing.Size(1169, 290);
             this.roundedPanel7.TabIndex = 1;
@@ -1086,7 +1043,7 @@
             this.btnPerpanjang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPerpanjang.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPerpanjang.Location = new System.Drawing.Point(444, 183);
-            this.btnPerpanjang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPerpanjang.Margin = new System.Windows.Forms.Padding(4);
             this.btnPerpanjang.Name = "btnPerpanjang";
             this.btnPerpanjang.Size = new System.Drawing.Size(161, 57);
             this.btnPerpanjang.TabIndex = 7;
@@ -1102,7 +1059,7 @@
             "Transfer Akun",
             "Tunai (Bayar di Kantor)"});
             this.comboMetodePembayaran.Location = new System.Drawing.Point(168, 110);
-            this.comboMetodePembayaran.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboMetodePembayaran.Margin = new System.Windows.Forms.Padding(4);
             this.comboMetodePembayaran.Name = "comboMetodePembayaran";
             this.comboMetodePembayaran.Size = new System.Drawing.Size(188, 24);
             this.comboMetodePembayaran.TabIndex = 6;
@@ -1153,7 +1110,7 @@
             this.roundedPanel1.Controls.Add(this.label19);
             this.roundedPanel1.FillColor = System.Drawing.Color.White;
             this.roundedPanel1.Location = new System.Drawing.Point(21, 16);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.Size = new System.Drawing.Size(1173, 188);
             this.roundedPanel1.TabIndex = 0;
@@ -1257,23 +1214,10 @@
             this.panelTagihan.Controls.Add(this.button1);
             this.panelTagihan.Controls.Add(this.dataGridView1);
             this.panelTagihan.Location = new System.Drawing.Point(307, 88);
-            this.panelTagihan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTagihan.Margin = new System.Windows.Forms.Padding(4);
             this.panelTagihan.Name = "panelTagihan";
             this.panelTagihan.Size = new System.Drawing.Size(1064, 583);
             this.panelTagihan.TabIndex = 12;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 25);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1200, 478);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // button1
             // 
@@ -1287,6 +1231,19 @@
             this.button1.Text = "Beli Token Listrik";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(11, 25);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1200, 478);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // FormUser2
             // 
@@ -1342,8 +1299,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            this.panelBtnNotification.ResumeLayout(false);
-            this.panelBtnNotification.PerformLayout();
             this.panelUserComplaint.ResumeLayout(false);
             this.roundedPanel2.ResumeLayout(false);
             this.roundedPanel2.PerformLayout();
@@ -1426,9 +1381,6 @@
         private System.Windows.Forms.TextBox tbTujuanKunjungan;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
-        private RoundedPanel panelBtnNotification;
-        private RoundedPanel markNewNotication;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelExtendDuration;
         private RoundedPanel roundedPanel7;

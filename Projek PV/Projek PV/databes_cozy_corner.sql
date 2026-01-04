@@ -120,14 +120,32 @@ CREATE TABLE `listrik_bills` (
   `bill_month` date NOT NULL,
   `due_date` date NOT NULL,
   `status` enum('Unpaid','Paid') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
+  `admin_status` enum('Belum Done','Done') COLLATE utf8mb4_general_ci DEFAULT 'Belum Done',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bill_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `listrik_bills` */
 
-insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`created_at`) values 
-(1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','2026-01-02 20:00:32');
+insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`admin_status`,`created_at`) values 
+(1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','Done','2026-01-02 20:00:32');
+
+/*Table structure for table `reminders` */
+
+DROP TABLE IF EXISTS `reminders`;
+
+CREATE TABLE `reminders` (
+  `reminder_id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `content` varchar(255) COLLATE utf8mb4_general_ci DEFAULT 'Reminder bayar uang sewa',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `tenant_id` int NOT NULL,
+  PRIMARY KEY (`reminder_id`),
+  KEY `fk_reminder_tenant` (`tenant_id`),
+  CONSTRAINT `fk_reminder_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `reminders` */
 
 /*Table structure for table `rooms` */
 
@@ -202,7 +220,7 @@ CREATE TABLE `transactions` (
 insert  into `transactions`(`transaction_id`,`lease_id`,`transaction_date`,`description`,`discount`,`amount`,`payment_method`,`status`,`category`) values 
 (1,1,'2026-01-02 13:13:13','Pembayaran sewa Januari',NULL,1500000.00,'Transfer','Paid','rent'),
 (2,1,'2026-01-02 13:13:18','Pembayaran listrik Januari',NULL,230000.00,'QRIS','Paid','electricity'),
-(3,2,'2026-01-02 13:13:24','Ganti rugi kaca pecah',NULL,80000.00,'Cash','Paid','damages'),
+(3,2,'2026-01-02 13:13:24','Ganti rugi kaca pecah',NULL,80000.00,'Cash','Pending','damages'),
 (4,1,'2026-01-02 16:06:28','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
 (5,1,'2026-01-02 16:19:16','Perpanjangan sewa 8 bulan',NULL,12000000.00,'Transfer Akun','Pending','rent'),
 (6,1,'2026-01-02 16:20:14','Perpanjangan sewa 2 bulan',NULL,3000000.00,'Tunai (Bayar di Kantor)','Pending','rent'),
@@ -211,7 +229,7 @@ insert  into `transactions`(`transaction_id`,`lease_id`,`transaction_date`,`desc
 (9,1,'2026-01-02 16:51:05','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
 (10,1,'2026-01-02 16:53:25','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
 (11,1,'2026-01-02 17:24:15','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Tunai (Bayar di Kantor)','Pending','rent'),
-(12,1,'2026-01-02 17:31:11','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Transfer Akun','Pending','rent');
+(12,1,'2026-01-02 17:31:11','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Transfer Akun','Paid','rent');
 
 /*Table structure for table `users` */
 
