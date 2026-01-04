@@ -37,6 +37,9 @@ namespace Projek_PV
             flowLayoutPanelKamar.AutoSize = false;
 
             flowLayoutPanelComplaints.AutoScroll = true;
+            flowLayoutPanelComplaints.AutoSize = false;
+
+            flowLayoutPanelPendapatan.AutoScroll = true;
 
             flowLayoutPanelListrik.Visible = true;
             flowLayoutPanelListrik.AutoScroll = true;
@@ -73,26 +76,6 @@ namespace Projek_PV
             panelBtnLaporan.BringToFront();
             panelBtnPenghuni.BringToFront();
             panelBtnListrik.BringToFront();
-
-            //var roomTable = new DataTable();
-            //roomTable.Columns.Add("RoomCode", typeof(string));
-            //roomTable.Columns.Add("Occupied", typeof(bool));
-            //roomTable.Columns.Add("TenantName", typeof(string));
-            //roomTable.Columns.Add("RentDue", typeof(DateTime));
-
-            //roomTable.Rows.Add("A101", true, "John Doe", DateTime.Now.AddDays(7));
-            //roomTable.Rows.Add("A102", false, "", DBNull.Value);
-            //roomTable.Rows.Add("B201", true, "Jane Smith", DateTime.Now.AddDays(2));
-            //roomTable.Rows.Add("B202", false, "", DBNull.Value);
-            //roomTable.Rows.Add("C301", true, "Michael Brown", DateTime.Now.AddDays(15));
-
-            //dgvManage.DataSource = roomTable;
-
-            //dgvManage.Columns["RoomCode"].HeaderText = "Kode Ruangan";
-            //dgvManage.Columns["Occupied"].HeaderText = "Terisi";
-            //dgvManage.Columns["TenantName"].HeaderText = "Nama Penyewa";
-            //dgvManage.Columns["RentDue"].HeaderText = "Jatuh Tempo Sewa";
-            //dgvManage.Columns["Occupied"].Width = 60;
 
             panelFill.Location = new Point(238, -1);
             panelFill.Visible = false;
@@ -996,13 +979,13 @@ namespace Projek_PV
             cmbStatus.Dock = DockStyle.Fill;
             cmbStatus.FlatStyle = FlatStyle.Flat;
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStatus.Items.AddRange(new string[] { "Pending", "Confirmed", "Cancelled" });
+            cmbStatus.Items.AddRange(new string[] { "Pending", "Paid", "Failed" });
             int sIdx = cmbStatus.FindStringExact(status);
             cmbStatus.SelectedIndex = (sIdx != -1) ? sIdx : 0;
 
             Color fill;
             Color textColor;
-            if (cmbStatus.SelectedItem.ToString() == "Confirmed") { fill = Color.FromArgb(200, 255, 200); textColor = Color.DarkGreen; }
+            if (cmbStatus.SelectedItem.ToString() == "Paid") { fill = Color.FromArgb(200, 255, 200); textColor = Color.DarkGreen; }
             else if (cmbStatus.SelectedItem.ToString() == "Pending") { fill = Color.FromArgb(255, 250, 200); textColor = Color.DarkGoldenrod; }
             else { fill = Color.FromArgb(255, 220, 220); textColor = Color.DarkRed; }
             statusPanel.FillColor = fill;
@@ -1679,25 +1662,6 @@ namespace Projek_PV
 
         private void button6_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonTagihListrikTenant_Click(object sender, EventArgs e)
-        {
-            //if (dgvTagihan.SelectedRows.Count == 0)
-            //{
-            //    MessageBox.Show("Pilih tenant terlebih dahulu!");
-            //    return;
-            //}
-
-            //DataGridViewRow row = dgvTagihan.SelectedRows[0];
-
-            //int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
-            //int leaseId = Convert.ToInt32(row.Cells["lease_id"].Value);
-
-            //FormTagihListrikTenant form = new FormTagihListrikTenant(tenantId, leaseId, connectionString);
-
-            //form.ShowDialog();
 
         }
 
