@@ -1465,5 +1465,13 @@ namespace Projek_PV
                 LoadRoomCards();
             }
         }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            // Open FormNota with notaGroup report (all transactions grouped)
+            // Parameters: id=0, title, isGroupReport=true
+            FormNota formNota = new FormNota(0, "Laporan Semua Transaksi", true);
+            formNota.ShowDialog();
+        }
     }
 }

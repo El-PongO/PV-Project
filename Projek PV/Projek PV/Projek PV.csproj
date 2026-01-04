@@ -81,6 +81,12 @@
     <Compile Include="FormNota.Designer.cs">
       <DependentUpon>FormNota.cs</DependentUpon>
     </Compile>
+    <Compile Include="notaGroup.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>notaGroup.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="notaPerpanjang.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,9 +152,13 @@
     <EmbeddedResource Include="FormNota.resx">
       <DependentUpon>FormNota.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="notaGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>notaGroup.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="notaPerpanjang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>notaPerpanjang.cs</LastGenOutput>
+      <LastGenOutput>notaPerpanjang1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="EditDetailRoom.resx">
       <DependentUpon>EditDetailRoom.cs</DependentUpon>
