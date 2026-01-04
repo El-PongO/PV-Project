@@ -17,10 +17,26 @@ namespace Projek_PV
         private string selectedStatus = "";
         private string roomNumber;
         private string connectionString;
+        private Button activeStatusButton = null;
 
         public EditDetailRoom()
         {
             InitializeComponent();
+        }
+
+        private void EditDetailRoom_Load(object sender, EventArgs e)
+        {
+            LoadRoomTypes();
+        }
+
+        public void LoadRoomTypes()
+        {
+            comboBoxTipeKamar.Items.Clear();
+            comboBoxTipeKamar.Items.Add("Standard Non-AC");
+            comboBoxTipeKamar.Items.Add("Standard AC");
+            comboBoxTipeKamar.Items.Add("VIP AC");
+
+            comboBoxTipeKamar.SelectedIndex = 0;
         }
 
         public EditDetailRoom(string roomNumber, string connStr)
@@ -54,28 +70,60 @@ namespace Projek_PV
                     {
                         if (reader.Read())
                         {
-                            txtType.Text = reader["type"].ToString();
+                            comboBoxTipeKamar.Text = reader["type"].ToString();
                             numPrice.Value = Convert.ToDecimal(reader["base_price"]);
-                            selectedStatus = reader["status"].ToString();
+
+                            string status = reader["status"].ToString();
+
+                            if (status == "Tersedia")
+                                SetActiveStatusButton(btnTersedia, "Tersedia");
+                            else if (status == "Terisi")
+                                SetActiveStatusButton(btnTerisi, "Terisi");
+                            else if (status == "Perbaikan")
+                                SetActiveStatusButton(btnPerbaikan, "Perbaikan");
                         }
                     }
                 }
             }
         }
+        private void SetActiveStatusButton(Button btn, string status)
+        {
+            // reset button lama
+            if (activeStatusButton != null)
+            {
+                activeStatusButton.BackColor = SystemColors.Control;
+                activeStatusButton.ForeColor = SystemColors.ControlText;
+            }
 
+            // set button baru
+            activeStatusButton = btn;
+            selectedStatus = status;
+
+            btn.BackColor = SystemColors.HotTrack;
+            btn.ForeColor = SystemColors.Control;
+        }
         private void btnTerisi_Click(object sender, EventArgs e)
         {
-            selectedStatus = "Terisi";
+            //selectedStatus = "Terisi";
+            //btnTerisi.BackColor = SystemColors.HotTrack;
+            //btnTerisi.ForeColor = SystemColors.Control;
+            SetActiveStatusButton(btnTerisi, "Terisi");
         }
 
         private void btnTersedia_Click(object sender, EventArgs e)
         {
-            selectedStatus = "Tersedia";
+            //selectedStatus = "Tersedia";
+            //btnTersedia.BackColor = SystemColors.HotTrack;
+            //btnTersedia.ForeColor = SystemColors.Control;
+            SetActiveStatusButton(btnTersedia, "Tersedia");
         }
 
         private void btnPerbaikan_Click(object sender, EventArgs e)
         {
-            selectedStatus = "Perbaikan";
+            //selectedStatus = "Perbaikan";
+            //btnPerbaikan.BackColor = SystemColors.HotTrack;
+            //btnPerbaikan.ForeColor = SystemColors.Control;
+            SetActiveStatusButton(btnPerbaikan, "Perbaikan");
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
@@ -100,7 +148,7 @@ namespace Projek_PV
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@type", txtType.Text);
+                    cmd.Parameters.AddWithValue("@type", comboBoxTipeKamar.Text);
                     cmd.Parameters.AddWithValue("@price", numPrice.Value);
                     cmd.Parameters.AddWithValue("@status", selectedStatus);
                     cmd.Parameters.AddWithValue("@room", roomNumber);
@@ -117,5 +165,7 @@ namespace Projek_PV
         {
             this.Close();
         }
+
+        
     }
 }

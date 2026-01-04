@@ -1,5 +1,5 @@
 ﻿/*
-SQLyog Community v13.3.0 (64 bit)
+SQLyog Community v13.3.1 (64 bit)
 MySQL - 8.0.30 : Database - cozy_corner_db
 *********************************************************************
 */
@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `announcements`;
 
 CREATE TABLE `announcements` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `content` text COLLATE utf8mb4_general_ci,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `is_active` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`)
@@ -41,10 +41,10 @@ DROP TABLE IF EXISTS `complaints`;
 CREATE TABLE `complaints` (
   `complaint_id` int NOT NULL AUTO_INCREMENT,
   `tenant_id` int NOT NULL,
-  `category` enum('facilitas','pembayaran','suasana','kebersihan','keamanan','other') COLLATE utf8mb4_general_ci DEFAULT 'other',
-  `description` text COLLATE utf8mb4_general_ci NOT NULL,
-  `admin_reply` text COLLATE utf8mb4_general_ci,
-  `status` enum('Menunggu','Proses','Selesai') COLLATE utf8mb4_general_ci DEFAULT 'Menunggu',
+  `category` enum('facilitas','pembayaran','suasana','kebersihan','keamanan','other') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'other',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_reply` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `status` enum('Menunggu','Proses','Selesai') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Menunggu',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `reply_at` datetime DEFAULT NULL,
   PRIMARY KEY (`complaint_id`),
@@ -64,7 +64,7 @@ DROP TABLE IF EXISTS `guest_logs`;
 CREATE TABLE `guest_logs` (
   `guest_id` int NOT NULL AUTO_INCREMENT,
   `tenant_id` int NOT NULL,
-  `guest_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `guest_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `visit_date` date NOT NULL,
   `arrival_time` time NOT NULL,
   `purpose` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE `listrik_bills` (
   `total_tagihan` decimal(12,2) NOT NULL,
   `bill_month` date NOT NULL,
   `due_date` date NOT NULL,
-  `status` enum('Unpaid','Paid') COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
+  `status` enum('Unpaid','Paid') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bill_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -128,7 +128,6 @@ CREATE TABLE `listrik_bills` (
 
 insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`created_at`) values 
 (1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','2026-01-02 20:00:32');
-
 
 /*Table structure for table `rooms` */
 
@@ -140,16 +139,19 @@ CREATE TABLE `rooms` (
   `type` enum('Standard Non-AC','Standard AC','VIP AC') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `base_price` decimal(10,2) NOT NULL,
   `status` enum('Tersedia','Terisi','Perbaikan') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Tersedia',
-  `facilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `facilities` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower',
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_number` (`room_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rooms` */
 
 insert  into `rooms`(`room_id`,`room_number`,`type`,`base_price`,`status`,`facilities`) values 
-(1,'101','Standard AC',1500000.00,'Terisi',NULL),
-(2,'102','Standard AC',1500000.00,'Terisi',NULL);
+(1,'101','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(2,'102','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(3,'103','Standard AC',1500000.00,'Tersedia','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(4,'104','Standard AC',1500003.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(5,'105','Standard Non-AC',500000.00,'Perbaikan','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower');
 
 /*Table structure for table `tenants` */
 
