@@ -63,7 +63,6 @@ namespace Projek_PV
             lblTitleHeader.Text = "User Dashboard";
 
             loadDashboardData();
-
         }
 
         private void NavBarUser_Dashboard(object sender, EventArgs e)
@@ -543,16 +542,16 @@ namespace Projek_PV
             {
                 string status = dataGridView1.Rows[e.RowIndex].Cells["status"].Value.ToString();
 
-                string id = dataGridView1.Rows[e.RowIndex].Cells["transaction_id"].Value.ToString();
+                int transactionId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["transaction_id"].Value);
 
                 if (status == "Paid")
                 {
-                    //===============BUAT BUKA INVOICE DI SINI=================
-
+                    FormNota nota = new FormNota(transactionId);
+                    nota.ShowDialog();
                 }
                 else
                 {
-                    payment pay = new payment(Convert.ToInt32(id));
+                    payment pay = new payment(transactionId);
                     pay.ShowDialog();
                 }
             }
@@ -576,18 +575,32 @@ namespace Projek_PV
             }
             else
             {
-                // Calculate the amount based on duration (you may adjust this calculation)
                 decimal duration = numericUpDown1.Value;
-                decimal amount = duration * 1500000; // Example: base price per month
+                decimal amount = duration * 2000000;
                 string description = "Perpanjangan sewa " + duration + " bulan";
                 string paymentMethod = comboMetodePembayaran.Text;
 
-                string query = "INSERT INTO transactions(lease_id, description, amount, payment_method, status, category) " +
-                              "VALUES(@lease, @desc, @amount, @method, 'Pending', 'rent'); SELECT LAST_INSERT_ID();";
-                
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
+                    
+                    DateTime previousEndDate = DateTime.Now;
+                    string getLeaseQuery = "SELECT end_date FROM leases WHERE lease_id = @lease";
+                    using (MySqlCommand cmdLease = new MySqlCommand(getLeaseQuery, conn))
+                    {
+                        cmdLease.Parameters.AddWithValue("@lease", lease_id);
+                        object result = cmdLease.ExecuteScalar();
+                        if (result != null)
+                        {
+                            previousEndDate = Convert.ToDateTime(result);
+                        }
+                    }
+                    
+                    DateTime newEndDate = previousEndDate.AddMonths((int)duration);
+
+                    string query = "INSERT INTO transactions(lease_id, description, amount, payment_method, status, category) " +
+                                  "VALUES(@lease, @desc, @amount, @method, 'Pending', 'rent'); SELECT LAST_INSERT_ID();";
+                    
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@lease", lease_id);
@@ -600,9 +613,23 @@ namespace Projek_PV
                         if (result != null)
                         {
                             int newTransactionId = Convert.ToInt32(result);
+                            
+                            string extendQuery = "INSERT INTO extensions(lease_id, previous_end_date, new_end_date, duration_months, amount, payment_method, status, transaction_id) " +
+                                             "VALUES(@lease, @prevDate, @newDate, @duration, @amount, @method, 'Pending', @transId)";
+                            using (MySqlCommand cmdExt = new MySqlCommand(extendQuery, conn))
+                            {
+                                cmdExt.Parameters.AddWithValue("@lease", lease_id);
+                                cmdExt.Parameters.AddWithValue("@prevDate", previousEndDate.ToString("yyyy-MM-dd"));
+                                cmdExt.Parameters.AddWithValue("@newDate", newEndDate.ToString("yyyy-MM-dd"));
+                                cmdExt.Parameters.AddWithValue("@duration", (int)duration);
+                                cmdExt.Parameters.AddWithValue("@amount", amount);
+                                cmdExt.Parameters.AddWithValue("@method", paymentMethod);
+                                cmdExt.Parameters.AddWithValue("@transId", newTransactionId);
+                                cmdExt.ExecuteNonQuery();
+                            }
+                            
                             MessageBox.Show("Request perpanjangan berhasil dibuat!");
                             
-                            // Open FormNota with the newly inserted transaction ID
                             FormNota nota = new FormNota(newTransactionId);
                             nota.ShowDialog();
                         }
@@ -612,8 +639,6 @@ namespace Projek_PV
                         }
                     }
                 }
-
-
             }
         }
 

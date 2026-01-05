@@ -31,10 +31,11 @@ namespace Projek_PV
             }
             else
             {
-                string query = "Update transactions set payment_method = @method, status = @stats where transaction_id = @id";
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
+                    
+                    string query = "UPDATE transactions SET payment_method = @method, status = @stats WHERE transaction_id = @id";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@method", comboBox1.Text);
@@ -45,6 +46,13 @@ namespace Projek_PV
 
                         if (rowsAffected > 0)
                         {
+                            string extendQuery = "UPDATE extensions SET status = 'Paid' WHERE transaction_id = @transId AND status = 'Pending'";
+                            using (MySqlCommand extCmd = new MySqlCommand(extendQuery, conn))
+                            {
+                                extCmd.Parameters.AddWithValue("@transId", payment_id);
+                                extCmd.ExecuteNonQuery();
+                            }
+                            
                             Console.WriteLine("paid successfully!");
                             MessageBox.Show("Terima Kasih, jangan lupa kirim bukti pembayaran!");
                             this.Close();
