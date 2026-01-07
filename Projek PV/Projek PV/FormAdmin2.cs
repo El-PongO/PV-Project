@@ -318,19 +318,19 @@ namespace Projek_PV
             lblHeader.Text = "Listrik Tenant";
             LoadListrikCards();
         }
-        private void CreateRoomCard(DataRow row)
+
+        private void CreateRoomCard(string roomNumber, string roomType, decimal price, string status,string facilities)
         {
-            // MAIN CARD PANEL
+            // MAIN CARD
             RoundedPanel card = new RoundedPanel();
             card.Width = 230;
             card.Height = 180;
-            //card.BackColor = Color.White;
             card.Margin = new Padding(5, 10, 10, 10);
             card.BorderColor = SystemColors.Control;
 
             // ROOM NAME
             Label lblName = new Label();
-            lblName.Text = row["RoomName"].ToString();
+            lblName.Text = "Kamar " + roomNumber;
             lblName.Font = new Font("Segoe UI", 14, FontStyle.Bold);
             lblName.Location = new Point(10, 10);
             lblName.AutoSize = true;
@@ -338,7 +338,7 @@ namespace Projek_PV
 
             // ROOM TYPE
             Label lblType = new Label();
-            lblType.Text = row["RoomType"].ToString();
+            lblType.Text = roomType;
             lblType.Font = new Font("Segoe UI", 10);
             lblType.ForeColor = Color.DimGray;
             lblType.Location = new Point(10, 45);
@@ -347,7 +347,6 @@ namespace Projek_PV
 
             // PRICE
             Label lblPrice = new Label();
-            decimal price = Convert.ToDecimal(row["Price"]);
             lblPrice.Text = "Rp " + price.ToString("N0");
             lblPrice.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             lblPrice.Location = new Point(10, 75);
@@ -356,77 +355,63 @@ namespace Projek_PV
 
             // STATUS BADGE
             Label lblStatus = new Label();
-            lblStatus.Text = row["Status"].ToString();
+            lblStatus.Text = status;
             lblStatus.Font = new Font("Segoe UI", 9, FontStyle.Bold);
             lblStatus.AutoSize = true;
             lblStatus.Padding = new Padding(6);
-
             lblStatus.Location = new Point(card.Width - 100, 10);
 
-            if (lblStatus.Text == "Tersedia")
-            {
-                lblStatus.BackColor = Color.FromArgb(80, 200, 120); // green
-            }
-            else if (lblStatus.Text == "Terisi")
-            {
-                lblStatus.BackColor = Color.FromArgb(220, 80, 80); // red
-            }
+            if (status == "Tersedia")
+                lblStatus.BackColor = Color.FromArgb(80, 200, 120);
+            else if (status == "Terisi")
+                lblStatus.BackColor = Color.FromArgb(220, 80, 80);
             else
-            {
-                lblStatus.BackColor = Color.FromArgb(255, 213, 79); // yeloo
-            }
+                lblStatus.BackColor = Color.FromArgb(255, 213, 79);
 
-                lblStatus.ForeColor = Color.White;
+            lblStatus.ForeColor = Color.White;
             card.Controls.Add(lblStatus);
 
-            // FACILITIES PANEL
+            // FACILITIES
             FlowLayoutPanel facilitiesPanel = new FlowLayoutPanel();
             facilitiesPanel.Location = new Point(10, 110);
             facilitiesPanel.Width = card.Width - 20;
             facilitiesPanel.Height = 60;
-            facilitiesPanel.AutoSize = false;
             facilitiesPanel.WrapContents = true;
-            facilitiesPanel.FlowDirection = FlowDirection.LeftToRight;
 
-            string[] facilities = row["Facilities"].ToString().Split(',');
-
-            foreach (string f in facilities)
+            if (!string.IsNullOrWhiteSpace(facilities))
             {
-                RoundedPanel chip = new RoundedPanel();
-                chip.BorderRadius = 8;
-                chip.BorderSize = 0;
-                chip.FillColor = Color.Gainsboro;
-                chip.Padding = new Padding(8, 4, 8, 4);
-                chip.Margin = new Padding(4);
-                chip.AutoSize = true;
-                chip.MinimumSize = new Size(30, 23);
-                chip.Padding = new Padding(8, 4, 8, 4);
-
-
-                // TEXT inside chip
-                Label lbl = new Label();
-                lbl.Text = f.Trim();
-                lbl.AutoSize = true;
-                lbl.BackColor = Color.Transparent;
-                lbl.Font = new Font("Segoe UI", 9);
-
-                chip.Controls.Add(lbl);
-
-                chip.SizeChanged += (s, e) =>
+                foreach (string f in facilities.Split(','))
                 {
-                    lbl.Location = new Point(
-                        (chip.Width - lbl.Width) / 2,
-                        (chip.Height - lbl.Height) / 2
-                    );
-                };
+                    RoundedPanel chip = new RoundedPanel();
+                    chip.BorderRadius = 8;
+                    chip.BorderSize = 0;
+                    chip.FillColor = Color.Gainsboro;
+                    chip.Padding = new Padding(8, 4, 8, 4);
+                    chip.AutoSize = true;
+                    chip.MinimumSize = new Size(30, 23);
+                    chip.Margin = new Padding(4);
 
-                facilitiesPanel.Controls.Add(chip);
+                    Label lbl = new Label();
+                    lbl.Text = f.Trim();
+                    lbl.AutoSize = true;
+                    lbl.Font = new Font("Segoe UI", 9);
+                    lbl.BackColor = Color.Transparent;
 
+                    chip.Controls.Add(lbl);
+
+                    chip.SizeChanged += (s, e) =>
+                    {
+                        lbl.Location = new Point(
+                            (chip.Width - lbl.Width) / 2,
+                            (chip.Height - lbl.Height) / 2
+                        );
+                    };
+
+                    facilitiesPanel.Controls.Add(chip);
+                }
             }
 
-
             card.Controls.Add(facilitiesPanel);
-            card.AutoScroll = true;
 
             // EDIT BUTTON
             Button btnEdit = new Button();
@@ -435,16 +420,12 @@ namespace Projek_PV
             btnEdit.Height = 35;
             btnEdit.Location = new Point(card.Width - 100, card.Height - 110);
 
-            // GET ROOM NUMBER (IMPORTANT)
-            string roomNumber = row["RoomName"].ToString().Replace("Kamar ", "");
-
-            // CLICK EVENT
             btnEdit.Click += (s, e) =>
             {
                 EditDetailRoom form = new EditDetailRoom(roomNumber, connectionString);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    LoadRoomCards(); // 🔄 refresh cards after save
+                    LoadRoomCards(); // refresh after edit
                 }
             };
 
@@ -452,46 +433,48 @@ namespace Projek_PV
 
             flowLayoutPanelKamar.Controls.Add(card);
         }
-        private void CreateListrikCard(DataRow row)
-        {
-            int billId = Convert.ToInt32(row["bill_id"]);
-            string adminStatus = row["admin_status"].ToString();
-            string paymentStatus = row["status"].ToString();
 
+        private void CreateListrikCard(int billId,int leaseId,decimal pemakaianKwh,decimal tarifPerKwh,decimal totalTagihan,DateTime billMonth,string paymentStatus,string adminStatus)
+        {
             RoundedPanel card = new RoundedPanel();
             card.Width = 260;
             card.Height = 200;
             card.Margin = new Padding(5, 10, 10, 10);
             card.BorderColor = SystemColors.Control;
 
+            // LEASE
             Label lblTenant = new Label();
-            lblTenant.Text = "Lease ID: " + row["lease_id"];
+            lblTenant.Text = "Lease ID: " + leaseId;
             lblTenant.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             lblTenant.Location = new Point(10, 10);
             lblTenant.AutoSize = true;
             card.Controls.Add(lblTenant);
 
+            // PEMAKAIAN
             Label lblPemakaian = new Label();
-            lblPemakaian.Text = $"Pemakaian: {row["pemakaian_kwh"]} kWh";
+            lblPemakaian.Text = $"Pemakaian: {pemakaianKwh} kWh";
             lblPemakaian.Location = new Point(10, 45);
             lblPemakaian.AutoSize = true;
             card.Controls.Add(lblPemakaian);
 
+            // TARIF
             Label lblTarif = new Label();
-            lblTarif.Text = "Tarif: Rp " + Convert.ToDecimal(row["tarif_per_kwh"]).ToString("N0");
+            lblTarif.Text = "Tarif: Rp " + tarifPerKwh.ToString("N0");
             lblTarif.Location = new Point(10, 70);
             lblTarif.AutoSize = true;
             card.Controls.Add(lblTarif);
 
+            // TOTAL
             Label lblTotal = new Label();
-            lblTotal.Text = "Total: Rp " + Convert.ToDecimal(row["total_tagihan"]).ToString("N0");
+            lblTotal.Text = "Total: Rp " + totalTagihan.ToString("N0");
             lblTotal.Font = new Font("Segoe UI", 11, FontStyle.Bold);
             lblTotal.Location = new Point(10, 95);
             lblTotal.AutoSize = true;
             card.Controls.Add(lblTotal);
 
+            // BULAN
             Label lblBulan = new Label();
-            lblBulan.Text = "Bulan: " + Convert.ToDateTime(row["bill_month"]).ToString("MMMM yyyy");
+            lblBulan.Text = "Bulan: " + billMonth.ToString("MMMM yyyy");
             lblBulan.Location = new Point(10, 125);
             lblBulan.AutoSize = true;
             card.Controls.Add(lblBulan);
@@ -509,7 +492,7 @@ namespace Projek_PV
 
             card.Controls.Add(lblStatus);
 
-            // CONFIRM BUTTON
+            // BUTTON CONFIRM
             Button btnConfirm = new Button();
             btnConfirm.Width = 90;
             btnConfirm.Height = 35;
@@ -518,7 +501,7 @@ namespace Projek_PV
             // 🔥 CASE 1: UNPAID → AUTO DONE
             if (paymentStatus == "Unpaid")
             {
-                UpdateAdminStatus(billId); // pakai method yang sudah ada
+                UpdateAdminStatus(billId);
 
                 btnConfirm.Text = "DONE";
                 btnConfirm.Enabled = false;
@@ -558,10 +541,10 @@ namespace Projek_PV
                 };
             }
 
-
             card.Controls.Add(btnConfirm);
             flowLayoutPanelListrik.Controls.Add(card);
         }
+
 
 
         private void UpdateAdminStatus(int billId)
@@ -573,7 +556,8 @@ namespace Projek_PV
                 string query = @"
             UPDATE listrik_bills
             SET admin_status = 'Done'
-            WHERE bill_id = @billId";
+            WHERE bill_id = @billId
+        ";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -583,21 +567,9 @@ namespace Projek_PV
             }
         }
 
-
-        private DataTable GetListrikData()
+        private void LoadListrikCards()
         {
-            DataTable dt = new DataTable();
-
-            // Columns expected by CreateListrikCard
-            dt.Columns.Add("bill_id", typeof(int));
-            dt.Columns.Add("lease_id", typeof(int));
-            dt.Columns.Add("pemakaian_kwh", typeof(decimal));
-            dt.Columns.Add("tarif_per_kwh", typeof(decimal));
-            dt.Columns.Add("total_tagihan", typeof(decimal));
-            dt.Columns.Add("bill_month", typeof(DateTime));
-            dt.Columns.Add("status", typeof(string));
-            dt.Columns.Add("admin_status", typeof(string));
-
+            flowLayoutPanelListrik.Controls.Clear();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -606,35 +578,34 @@ namespace Projek_PV
                     conn.Open();
 
                     string query = @"
-                    SELECT 
-                        bill_id,
-                        lease_id,
-                        pemakaian_kwh,
-                        tarif_per_kwh,
-                        total_tagihan,
-                        bill_month,
-                        status,
-                        admin_status
-                    FROM listrik_bills
-                    ORDER BY bill_month DESC";
-
+                SELECT 
+                    bill_id,
+                    lease_id,
+                    pemakaian_kwh,
+                    tarif_per_kwh,
+                    total_tagihan,
+                    bill_month,
+                    status,
+                    admin_status
+                FROM listrik_bills
+                ORDER BY bill_month DESC
+            ";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            dt.Rows.Add(
-                                reader["bill_id"],
-                                reader["lease_id"],
-                                reader["pemakaian_kwh"],
-                                reader["tarif_per_kwh"],
-                                reader["total_tagihan"],
-                                reader["bill_month"],
-                                reader["status"],
-                                reader["admin_status"]
+                            CreateListrikCard(
+                                Convert.ToInt32(reader["bill_id"]),
+                                Convert.ToInt32(reader["lease_id"]),
+                                Convert.ToDecimal(reader["pemakaian_kwh"]),
+                                Convert.ToDecimal(reader["tarif_per_kwh"]),
+                                Convert.ToDecimal(reader["total_tagihan"]),
+                                Convert.ToDateTime(reader["bill_month"]),
+                                reader["status"].ToString(),
+                                reader["admin_status"].ToString()
                             );
-
                         }
                     }
                 }
@@ -643,33 +614,10 @@ namespace Projek_PV
                     MessageBox.Show("Error loading listrik data: " + ex.Message);
                 }
             }
-
-            return dt;
         }
-        private void LoadListrikCards()
+        private void LoadRoomCards()
         {
-            DataTable dt = GetListrikData(); // generate sample data
-
-            // Clear existing cards so repeated calls don't duplicate
-            if (flowLayoutPanelListrik.Controls.Count > 0)
-                flowLayoutPanelListrik.Controls.Clear();
-
-            foreach (DataRow row in dt.Rows)
-            {
-                CreateListrikCard(row);
-            }
-        }
-
-        private DataTable GetRoomData()
-        {
-            DataTable dt = new DataTable();
-
-            // Columns expected by CreateRoomCard
-            dt.Columns.Add("RoomName");
-            dt.Columns.Add("RoomType");
-            dt.Columns.Add("Price");
-            dt.Columns.Add("Status");
-            dt.Columns.Add("Facilities");
+            flowLayoutPanelKamar.Controls.Clear();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -677,19 +625,28 @@ namespace Projek_PV
                 {
                     conn.Open();
 
-                    string query = " SELECT room_number,type,base_price,status,IFNULL(facilities, '') AS facilities FROM rooms ORDER BY room_number";
+                    string query = @"
+                SELECT 
+                    room_number,
+                    type,
+                    base_price,
+                    status,
+                    IFNULL(facilities, '') AS facilities
+                FROM rooms
+                ORDER BY room_number
+            ";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            dt.Rows.Add(
-                                "Kamar " + reader["room_number"].ToString(), // RoomName
-                                reader["type"].ToString(),                   // RoomType
-                                reader["base_price"].ToString(),             // Price
-                                reader["status"].ToString(),                 // Status
-                                reader["facilities"].ToString()              // Facilities
+                            CreateRoomCard(
+                                reader["room_number"].ToString(),
+                                reader["type"].ToString(),
+                                Convert.ToDecimal(reader["base_price"]),
+                                reader["status"].ToString(),
+                                reader["facilities"].ToString()
                             );
                         }
                     }
@@ -699,23 +656,22 @@ namespace Projek_PV
                     MessageBox.Show("Error loading room data: " + ex.Message);
                 }
             }
-
-            return dt;
         }
 
-        private void LoadRoomCards()
-        {
-            DataTable dt = GetRoomData(); // generate sample data
 
-            // Clear existing cards so repeated calls don't duplicate
-            if (flowLayoutPanelKamar.Controls.Count > 0)
-                flowLayoutPanelKamar.Controls.Clear();
+        //private void LoadRoomCards()
+        //{
+        //    DataTable dt = GetRoomData(); // generate sample data
 
-            foreach (DataRow row in dt.Rows)
-            {
-                CreateRoomCard(row);
-            }
-        }
+        //    // Clear existing cards so repeated calls don't duplicate
+        //    if (flowLayoutPanelKamar.Controls.Count > 0)
+        //        flowLayoutPanelKamar.Controls.Clear();
+
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        CreateRoomCard(row);
+        //    }
+        //}
 
         private void LoadDgvOverview()
         {

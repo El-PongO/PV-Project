@@ -94,18 +94,38 @@ CREATE TABLE `leases` (
   `duration_months` int DEFAULT '1',
   `status` enum('Active','Expired','Cancelled') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Active',
   `usingVoucher` tinyint(1) NOT NULL DEFAULT '0',
+  `rent_due` date DEFAULT NULL,
   PRIMARY KEY (`lease_id`),
   KEY `room_id` (`room_id`),
   KEY `tenant_id` (`tenant_id`),
   CONSTRAINT `leases_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`),
   CONSTRAINT `leases_ibfk_2` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `leases` */
 
-insert  into `leases`(`lease_id`,`room_id`,`tenant_id`,`tenant_count`,`rent_price`,`start_date`,`end_date`,`duration_months`,`status`,`usingVoucher`) values 
-(1,1,1,1,1500000.00,'2025-12-01','2026-01-01',1,'Active',0),
-(2,2,2,2,2000000.00,'2025-12-01','2026-01-01',1,'Active',0);
+insert  into `leases`(`lease_id`,`room_id`,`tenant_id`,`tenant_count`,`rent_price`,`start_date`,`end_date`,`duration_months`,`status`,`usingVoucher`,`rent_due`) values 
+(1,1,1,1,2200000.00,'2025-07-05','2026-01-05',1,'Active',0,NULL),
+(2,2,2,2,2200000.00,'2025-07-20','2026-01-20',1,'Active',0,NULL),
+(4,7,7,1,1800000.00,'2025-07-12','2026-01-12',1,'Active',0,NULL),
+(5,8,8,1,2200000.00,'2025-10-04','2026-01-04',1,'Active',0,NULL),
+(6,9,9,1,2200000.00,'2025-12-26','2026-01-26',1,'Active',0,NULL),
+(7,10,10,1,2000000.00,'2025-07-26','2026-01-01',1,'Active',0,NULL),
+(8,11,11,1,1800000.00,'2025-07-01','2026-01-01',1,'Active',0,NULL),
+(9,12,12,1,2200000.00,'2025-08-08','2026-01-08',1,'Active',0,NULL),
+(10,13,13,1,1800000.00,'2025-07-10','2026-01-10',1,'Active',0,NULL),
+(11,14,14,1,2200000.00,'2025-07-13','2026-01-13',1,'Active',0,NULL),
+(12,15,15,1,2000000.00,'2025-02-01','2026-01-01',1,'Active',0,NULL),
+(13,16,16,1,2200000.00,'2025-07-14','2026-01-14',1,'Active',0,NULL),
+(14,17,17,1,1800000.00,'2025-07-25','2026-01-25',1,'Active',0,NULL),
+(15,18,18,1,1800000.00,'2025-07-07','2026-01-07',1,'Active',0,NULL),
+(16,19,19,1,1800000.00,'2025-06-25','2026-01-25',1,'Active',0,NULL),
+(17,20,20,1,2000000.00,'2025-07-01','2026-01-26',1,'Active',0,NULL),
+(18,21,21,1,2000000.00,'2025-07-05','2026-01-05',1,'Active',0,NULL),
+(19,22,22,1,2200000.00,'2025-05-24','2026-01-24',1,'Active',0,NULL),
+(20,23,23,1,1800000.00,'2025-07-24','2026-01-24',1,'Active',0,NULL),
+(21,24,24,1,1800000.00,'2025-11-18','2026-01-18',1,'Active',0,NULL),
+(22,25,25,1,2000000.00,'2025-07-22','2026-01-22',1,'Active',0,NULL);
 
 /*Table structure for table `listrik_bills` */
 
@@ -143,9 +163,12 @@ CREATE TABLE `reminders` (
   PRIMARY KEY (`reminder_id`),
   KEY `fk_reminder_tenant` (`tenant_id`),
   CONSTRAINT `fk_reminder_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `reminders` */
+
+insert  into `reminders`(`reminder_id`,`title`,`content`,`created_at`,`tenant_id`) values 
+(1,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-04 23:42:43',1);
 
 /*Table structure for table `rooms` */
 
@@ -154,22 +177,42 @@ DROP TABLE IF EXISTS `rooms`;
 CREATE TABLE `rooms` (
   `room_id` int NOT NULL AUTO_INCREMENT,
   `room_number` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `type` enum('Standard Non-AC','Standard AC','VIP AC') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `type` enum('Standart','Large') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `base_price` decimal(10,2) NOT NULL,
   `status` enum('Tersedia','Terisi','Perbaikan') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Tersedia',
   `facilities` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower',
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_number` (`room_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rooms` */
 
 insert  into `rooms`(`room_id`,`room_number`,`type`,`base_price`,`status`,`facilities`) values 
-(1,'101','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(2,'102','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(3,'103','Standard AC',1500000.00,'Tersedia','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(4,'104','Standard AC',1500003.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(5,'105','Standard Non-AC',500000.00,'Perbaikan','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower');
+(1,'1A','Large',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(2,'1C','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(3,'1D','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(4,'2A','Large',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(5,'2B','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(6,'2C','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(7,'2D','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(8,'2E','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(9,'2F','Large',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(10,'2G','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(11,'2H','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(12,'2I','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(13,'2J','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(14,'2K','Large',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(15,'3A','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(16,'3B','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(17,'3C','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(18,'3D','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(19,'3E','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(20,'3F','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(21,'3G','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(22,'3H','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(23,'3I','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(24,'3J','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(25,'3K','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar');
 
 /*Table structure for table `tenants` */
 
@@ -188,13 +231,36 @@ CREATE TABLE `tenants` (
   UNIQUE KEY `ktp_number` (`ktp_number`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `tenants_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tenants` */
 
 insert  into `tenants`(`tenant_id`,`user_id`,`full_name`,`ktp_number`,`gender`,`date_of_birth`,`phone_number`,`address`) values 
-(1,2,'Budi Santoso','1111',NULL,NULL,NULL,NULL),
-(2,3,'Siti Aminah','2222',NULL,NULL,NULL,NULL);
+(1,2,'Bisnis Ferry 1','1111','Laki-laki','1998-01-12','081234567801',NULL),
+(2,3,'Bisnis Steven','2222','Laki-laki','2000-01-20','081234567802',NULL),
+(3,4,'Bisnis Ferry 2','3333','Laki-laki','2001-01-01','081234567803',NULL),
+(4,5,'Bisnis Ferry 3','4444','Laki-laki','1987-01-18','081234567804',NULL),
+(5,28,'Tania','4445','Perempuan','1998-09-22','081234567805',NULL),
+(6,29,'Bisnis Ferry 7','4446','Laki-laki','1986-04-30','081234567806',NULL),
+(7,30,'Herni','4447','Perempuan','1992-06-14','081234567807',NULL),
+(8,31,'Bisnis Ferry 9','4448','Laki-laki','1984-12-09','081234567808',NULL),
+(9,32,'Bisnis Ferry 10','4449','Laki-laki','1983-08-01','081234567809',NULL),
+(10,33,'Sabila Rossi','4450','Perempuan','1999-10-17','081234567810',NULL),
+(11,34,'Anggit','4451','Laki-laki','1996-02-25','081234567811',NULL),
+(12,35,'Bisnis Ferry 8','4452','Laki-laki','1989-05-03','081234567812',NULL),
+(13,36,'Nella Ariviana','4453','Perempuan','1997-07-11','081234567813',NULL),
+(14,37,'Bisnis Ferry 6','4454','Laki-laki','1990-01-27','081234567814',NULL),
+(15,38,'Asyih','4455','Perempuan','1994-04-08','081234567815',NULL),
+(16,39,'Bisnis Ferry','4456','Laki-laki','1982-09-19','081234567816',NULL),
+(17,40,'Tan Nriel','4457','Laki-laki','1993-03-06','081234567817',NULL),
+(18,41,'Andreas','4458','Laki-laki','1991-11-23','081234567818',NULL),
+(19,42,'Ryan','4459','Laki-laki','1998-05-15','081234567819',NULL),
+(20,43,'Renny','4460','Perempuan','1996-12-02','081234567820',NULL),
+(21,44,'Reyhan','4461','Laki-laki','1995-08-28','081234567821',NULL),
+(22,45,'Bisnis Meme VIP','4462','Laki-laki','1980-06-10','081234567822',NULL),
+(23,46,'Monika','4463','Perempuan','1997-01-04','081234567823',NULL),
+(24,47,'Chris','4464','Laki-laki','1992-10-13','081234567824',NULL),
+(25,48,'Mahardika','4465','Laki-laki','1989-02-21','081234567825',NULL);
 
 /*Table structure for table `transactions` */
 
@@ -243,14 +309,37 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`user_id`,`username`,`password`,`role`,`created_at`) values 
 (1,'Admin','123','admin','2025-12-20 19:21:35'),
-(2,'Budi','123','tenant','2025-12-20 19:21:35'),
-(3,'Siti','123','tenant','2025-12-20 19:21:35');
+(2,'kamar1A','123','tenant','2025-12-20 19:21:35'),
+(3,'kamar1C','123','tenant','2025-12-20 19:21:35'),
+(4,'kamar1D','123','tenant','2026-01-07 21:22:41'),
+(5,'kamar2A','123','tenant','2026-01-07 21:23:01'),
+(28,'kamar2B','123','tenant','2026-01-07 21:30:00'),
+(29,'kamar2C','123','tenant','2026-01-07 21:30:00'),
+(30,'kamar2D','123','tenant','2026-01-07 21:30:00'),
+(31,'kamar2E','123','tenant','2026-01-07 21:30:00'),
+(32,'kamar2F','123','tenant','2026-01-07 21:30:00'),
+(33,'kamar2G','123','tenant','2026-01-07 21:30:00'),
+(34,'kamar2H','123','tenant','2026-01-07 21:30:00'),
+(35,'kamar2I','123','tenant','2026-01-07 21:30:00'),
+(36,'kamar2J','123','tenant','2026-01-07 21:30:00'),
+(37,'kamar2K','123','tenant','2026-01-07 21:30:00'),
+(38,'kamar3A','123','tenant','2026-01-07 21:30:00'),
+(39,'kamar3B','123','tenant','2026-01-07 21:30:00'),
+(40,'kamar3C','123','tenant','2026-01-07 21:30:00'),
+(41,'kamar3D','123','tenant','2026-01-07 21:30:00'),
+(42,'kamar3E','123','tenant','2026-01-07 21:30:00'),
+(43,'kamar3F','123','tenant','2026-01-07 21:30:00'),
+(44,'kamar3G','123','tenant','2026-01-07 21:30:00'),
+(45,'kamar3H','123','tenant','2026-01-07 21:30:00'),
+(46,'kamar3I','123','tenant','2026-01-07 21:30:00'),
+(47,'kamar3J','123','tenant','2026-01-07 21:30:00'),
+(48,'kamar3K','123','tenant','2026-01-07 21:30:00');
 
 /*Table structure for table `view_user_dashboard` */
 
