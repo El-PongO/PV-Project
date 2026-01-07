@@ -1647,5 +1647,42 @@ namespace Projek_PV
             FormNota formNota = new FormNota(0, "Laporan Semua Transaksi", true);
             formNota.ShowDialog();
         }
+
+        private void buttonSendReminderKeTenant_Click(object sender, EventArgs e)
+        {
+            if (dgvTagihan.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Pilih tenant terlebih dahulu!");
+                return;
+            }
+
+            // Ambil row yang dipilih
+            DataGridViewRow row = dgvTagihan.SelectedRows[0];
+
+            int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
+
+            string title = "Pengingat Pembayaran";
+            string content = "Reminder bayar uang sewa"; // bisa custom nanti
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"
+            INSERT INTO reminders (title, content, tenant_id)
+            VALUES (@title, @content, @tenantId)";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@content", content);
+                    cmd.Parameters.AddWithValue("@tenantId", tenantId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Reminder berhasil dikirim ke tenant!");
+        }
     }
 }

@@ -107,7 +107,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.panelPenghunidanTagihan = new System.Windows.Forms.Panel();
             this.dgvTagihan = new System.Windows.Forms.DataGridView();
-            this.buttonTagihListrikTenant = new System.Windows.Forms.Button();
+            this.buttonSendReminderKeTenant = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblText = new System.Windows.Forms.Label();
@@ -1128,12 +1128,12 @@
             // panelPenghunidanTagihan
             // 
             this.panelPenghunidanTagihan.Controls.Add(this.dgvTagihan);
-            this.panelPenghunidanTagihan.Controls.Add(this.buttonTagihListrikTenant);
+            this.panelPenghunidanTagihan.Controls.Add(this.buttonSendReminderKeTenant);
             this.panelPenghunidanTagihan.Controls.Add(this.button6);
-            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1516, 4);
+            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(307, 90);
             this.panelPenghunidanTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPenghunidanTagihan.Name = "panelPenghunidanTagihan";
-            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(95, 92);
+            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(1201, 548);
             this.panelPenghunidanTagihan.TabIndex = 6;
             // 
             // dgvTagihan
@@ -1156,16 +1156,17 @@
             this.dgvTagihan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTagihan_CellContentClick);
             this.dgvTagihan.DoubleClick += new System.EventHandler(this.dgvTagihan_DoubleClick);
             // 
-            // buttonTagihListrikTenant
+            // buttonSendReminderKeTenant
             // 
-            this.buttonTagihListrikTenant.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonTagihListrikTenant.Location = new System.Drawing.Point(891, 479);
-            this.buttonTagihListrikTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonTagihListrikTenant.Name = "buttonTagihListrikTenant";
-            this.buttonTagihListrikTenant.Size = new System.Drawing.Size(133, 49);
-            this.buttonTagihListrikTenant.TabIndex = 37;
-            this.buttonTagihListrikTenant.Text = "Tagih Listrik Tenant";
-            this.buttonTagihListrikTenant.UseVisualStyleBackColor = true;
+            this.buttonSendReminderKeTenant.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSendReminderKeTenant.Location = new System.Drawing.Point(891, 479);
+            this.buttonSendReminderKeTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSendReminderKeTenant.Name = "buttonSendReminderKeTenant";
+            this.buttonSendReminderKeTenant.Size = new System.Drawing.Size(133, 49);
+            this.buttonSendReminderKeTenant.TabIndex = 37;
+            this.buttonSendReminderKeTenant.Text = "Send Reminder ke Tenant";
+            this.buttonSendReminderKeTenant.UseVisualStyleBackColor = true;
+            this.buttonSendReminderKeTenant.Click += new System.EventHandler(this.buttonSendReminderKeTenant_Click);
             // 
             // button6
             // 
@@ -1342,9 +1343,9 @@
             // 
             this.panelListrik.Controls.Add(this.flowLayoutPanelListrik);
             this.panelListrik.Controls.Add(this.label11);
-            this.panelListrik.Location = new System.Drawing.Point(307, 90);
+            this.panelListrik.Location = new System.Drawing.Point(1785, 279);
             this.panelListrik.Name = "panelListrik";
-            this.panelListrik.Size = new System.Drawing.Size(1203, 495);
+            this.panelListrik.Size = new System.Drawing.Size(74, 77);
             this.panelListrik.TabIndex = 15;
             // 
             // flowLayoutPanelListrik
@@ -2149,7 +2150,7 @@
         private System.Windows.Forms.Label lblPendapatan;
         private System.Windows.Forms.PictureBox pictureBoxComplaints;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPendapatan;
-        private System.Windows.Forms.Button buttonTagihListrikTenant;
+        private System.Windows.Forms.Button buttonSendReminderKeTenant;
         private System.Windows.Forms.DataGridView dgvTagihan;
         private System.Windows.Forms.Panel panelKamar;
         private System.Windows.Forms.Label labelDaftarKamar;
