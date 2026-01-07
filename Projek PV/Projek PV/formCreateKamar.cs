@@ -28,9 +28,8 @@ namespace Projek_PV
         public void LoadRoomTypes()
         {
             comboBoxType.Items.Clear();
-            comboBoxType.Items.Add("Standard Non-AC");
-            comboBoxType.Items.Add("Standard AC");
-            comboBoxType.Items.Add("VIP AC");
+            comboBoxType.Items.Add("standart");
+            comboBoxType.Items.Add("large");
 
             comboBoxType.SelectedIndex = 0;
         }

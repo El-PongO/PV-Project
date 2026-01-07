@@ -32,9 +32,8 @@ namespace Projek_PV
         public void LoadRoomTypes()
         {
             comboBoxTipeKamar.Items.Clear();
-            comboBoxTipeKamar.Items.Add("Standard Non-AC");
-            comboBoxTipeKamar.Items.Add("Standard AC");
-            comboBoxTipeKamar.Items.Add("VIP AC");
+            comboBoxTipeKamar.Items.Add("standart");
+            comboBoxTipeKamar.Items.Add("large");
 
             comboBoxTipeKamar.SelectedIndex = 0;
         }
