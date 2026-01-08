@@ -118,10 +118,20 @@ namespace Projek_PV
 
 
 
-            
-            //load data
 
-            using(MySqlConnection connection = new MySqlConnection(connectionString))
+            //load data
+            loadExtendData();
+
+            numericUpDown1.Value = 1;
+            comboMetodePembayaran.SelectedIndex = -1;
+
+
+
+        }
+
+        public void loadExtendData()
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
 
                 try
@@ -369,11 +379,11 @@ namespace Projek_PV
 
                         if (rowsAffected > 0)
                         {
-                            Console.WriteLine("complen created successfully!");
+                            MessageBox.Show("complen created successfully!");
                         }
                         else
                         {
-                            Console.WriteLine("complen failed.");
+                            MessageBox.Show("complen failed.");
                         }
                     }
                 }
@@ -385,7 +395,7 @@ namespace Projek_PV
 
         private void btnDaftarkanTamu_Click(object sender, EventArgs e)
         {
-            if (tbNamaTamu.Text == "" || dateTimeKunjunganTamu.Value < DateTime.Now || comboJamTamu.SelectedIndex < 0 || tbTujuanKunjungan.Text == "" || cbPersetujuan1.Checked == false || cbPersetujuan2.Checked == false)
+            if (tbNamaTamu.Text == "" || comboJamTamu.SelectedIndex < 0 || tbTujuanKunjungan.Text == "" || cbPersetujuan1.Checked == false || cbPersetujuan2.Checked == false)
             {
                 MessageBox.Show("Isi data tamu dengan benar!");
             }
@@ -506,7 +516,7 @@ namespace Projek_PV
 
         }
 
-        
+
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -518,7 +528,7 @@ namespace Projek_PV
                 {
                     string status = row.Cells["status"].Value.ToString();
 
-                    if (status == "Paid") 
+                    if (status == "Paid")
                     {
                         e.Value = "See Invoice";
                     }
@@ -578,75 +588,114 @@ namespace Projek_PV
             if (comboMetodePembayaran.SelectedIndex < 0)
             {
                 MessageBox.Show("Tolong isi credential terlebih dahulu");
+                return;
             }
-            else
+
+            decimal durationInput = numericUpDown1.Value; // Durasi tambahan (ekstensi)
+            if (durationInput <= 0)
             {
-                decimal duration = numericUpDown1.Value;
-                decimal amount = duration * 2000000;
-                string description = "Perpanjangan sewa " + duration + " bulan";
-                string paymentMethod = comboMetodePembayaran.Text;
+                MessageBox.Show("Durasi harus minimal 1 bulan");
+                return;
+            }
 
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // 2. Ambil data sewa saat ini (Harga, Tanggal Berakhir, dan Durasi Lama)
+                decimal rentPrice = 0;
+                DateTime previousEndDate = DateTime.Now;
+                int currentDuration = 0; // Variabel untuk menampung durasi lama
+
+                // Tambahkan kolom 'duration' (atau 'duration_months') ke dalam query SELECT
+                string getLeaseQuery = "SELECT rent_price, end_date, duration_months FROM leases WHERE lease_id = @lease";
+
+                using (MySqlCommand cmdFetch = new MySqlCommand(getLeaseQuery, conn))
                 {
-                    conn.Open();
-                    
-                    DateTime previousEndDate = DateTime.Now;
-                    string getLeaseQuery = "SELECT end_date FROM leases WHERE lease_id = @lease";
-                    using (MySqlCommand cmdLease = new MySqlCommand(getLeaseQuery, conn))
-                    {
-                        cmdLease.Parameters.AddWithValue("@lease", lease_id);
-                        object result = cmdLease.ExecuteScalar();
-                        if (result != null)
-                        {
-                            previousEndDate = Convert.ToDateTime(result);
-                        }
-                    }
-                    
-                    DateTime newEndDate = previousEndDate.AddMonths((int)duration);
+                    cmdFetch.Parameters.AddWithValue("@lease", lease_id);
 
-                    string query = "INSERT INTO transactions(lease_id, description, amount, payment_method, status, category) " +
-                                  "VALUES(@lease, @desc, @amount, @method, 'Pending', 'rent'); SELECT LAST_INSERT_ID();";
-                    
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmdFetch.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@lease", lease_id);
-                        cmd.Parameters.AddWithValue("@desc", description);
-                        cmd.Parameters.AddWithValue("@amount", amount);
-                        cmd.Parameters.AddWithValue("@method", paymentMethod);
-                        
-                        object result = cmd.ExecuteScalar();
-
-                        if (result != null)
+                        if (reader.Read())
                         {
-                            int newTransactionId = Convert.ToInt32(result);
-                            
-                            string extendQuery = "INSERT INTO extensions(lease_id, previous_end_date, new_end_date, duration_months, amount, payment_method, status, transaction_id) " +
-                                             "VALUES(@lease, @prevDate, @newDate, @duration, @amount, @method, 'Pending', @transId)";
-                            using (MySqlCommand cmdExt = new MySqlCommand(extendQuery, conn))
-                            {
-                                cmdExt.Parameters.AddWithValue("@lease", lease_id);
-                                cmdExt.Parameters.AddWithValue("@prevDate", previousEndDate.ToString("yyyy-MM-dd"));
-                                cmdExt.Parameters.AddWithValue("@newDate", newEndDate.ToString("yyyy-MM-dd"));
-                                cmdExt.Parameters.AddWithValue("@duration", (int)duration);
-                                cmdExt.Parameters.AddWithValue("@amount", amount);
-                                cmdExt.Parameters.AddWithValue("@method", paymentMethod);
-                                cmdExt.Parameters.AddWithValue("@transId", newTransactionId);
-                                cmdExt.ExecuteNonQuery();
-                            }
-                            
-                            MessageBox.Show("Request perpanjangan berhasil dibuat!");
-                            
-                            FormNota nota = new FormNota(newTransactionId);
-                            nota.ShowDialog();
+                            rentPrice = reader.GetDecimal("rent_price");
+                            previousEndDate = reader.GetDateTime("end_date");
+                            // Ambil durasi yang sekarang ada di database
+                            currentDuration = reader.GetInt32("duration_months");
                         }
                         else
                         {
-                            MessageBox.Show("Request perpanjangan gagal.");
+                            MessageBox.Show("Data sewa tidak ditemukan.");
+                            return;
                         }
                     }
                 }
+
+                // 3. Kalkulasi Data Baru
+                decimal totalAmount = rentPrice * durationInput;
+                DateTime newEndDate = previousEndDate.AddMonths((int)durationInput);
+                string paymentMethod = comboMetodePembayaran.Text;
+
+                // Hitung total durasi baru (Durasi Awal + Durasi Perpanjangan)
+                int newTotalDuration = currentDuration + (int)durationInput;
+
+                // 4. Mulai Transaksi SQL
+                MySqlTransaction sqlTrans = conn.BeginTransaction();
+
+                try
+                {
+                    // --- STEP A: Insert ke tabel EXTENSIONS (Log History) ---
+                    string insertExtQuery = @"
+                    INSERT INTO extensions (lease_id, previous_end_date, new_end_date, duration_months, amount, payment_method, status, transaction_id) 
+                    VALUES (@lease, @prevDate, @newDate, @durationAdd, @amount, @method, 'Approved', NULL)";
+
+                    using (MySqlCommand cmdExt = new MySqlCommand(insertExtQuery, conn, sqlTrans))
+                    {
+                        cmdExt.Parameters.AddWithValue("@lease", lease_id);
+                        cmdExt.Parameters.AddWithValue("@prevDate", previousEndDate);
+                        cmdExt.Parameters.AddWithValue("@newDate", newEndDate);
+                        cmdExt.Parameters.AddWithValue("@durationAdd", durationInput); // Masukkan hanya durasi tambahannya
+                        cmdExt.Parameters.AddWithValue("@amount", totalAmount);
+                        cmdExt.Parameters.AddWithValue("@method", paymentMethod);
+
+                        cmdExt.ExecuteNonQuery();
+                    }
+
+                    // --- STEP B: Update tabel LEASES (Tanggal & Total Durasi) ---
+                    // Update end_date DAN duration
+                    string updateLeaseQuery = @"
+                    UPDATE leases 
+                    SET end_date = @newDate, 
+                        duration_months = @totalDuration, 
+                        status = 'Active' 
+                    WHERE lease_id = @lease";
+
+                    using (MySqlCommand cmdUpdate = new MySqlCommand(updateLeaseQuery, conn, sqlTrans))
+                    {
+                        cmdUpdate.Parameters.AddWithValue("@newDate", newEndDate);
+                        cmdUpdate.Parameters.AddWithValue("@totalDuration", newTotalDuration); // Masukkan total durasi baru
+                        cmdUpdate.Parameters.AddWithValue("@lease", lease_id);
+
+                        cmdUpdate.ExecuteNonQuery();
+                    }
+
+                    // 5. Commit Transaksi
+                    sqlTrans.Commit();
+                    MessageBox.Show($"Perpanjangan berhasil disimpan.\nKontrak diperpanjang hingga: {newEndDate.ToString("dd MMMM yyyy")}\nTotal Durasi Sewa: {newTotalDuration} Bulan");
+
+                    // this.Close(); 
+                }
+                catch (Exception ex)
+                {
+                    sqlTrans.Rollback();
+                    MessageBox.Show("Gagal memperpanjang sewa: " + ex.Message);
+                }
             }
+
+            loadExtendData();
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
