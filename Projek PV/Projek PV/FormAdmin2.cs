@@ -1025,6 +1025,26 @@ namespace Projek_PV
             return dt;
         }
 
+        private void autoUpdateJatuhTempo()
+        {
+            string connectionString = "server=localhost;user=root;database=nama_db;password=;";
+            string query = "UPDATE tenants SET rent_due_by = DATE_ADD(rent_due_by, INTERVAL 1 MONTH) WHERE rent_due_by <= CURDATE()";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal update masa sewa: " + ex.Message);
+                }
+            }
+        }
+
         private void LoadDataFromDatabase()
         {
 
@@ -1133,6 +1153,7 @@ namespace Projek_PV
             decimal hargaKamar = 0;
             string gender = radioWanita1.Checked ? "Perempuan" : "Laki-Laki";
             int tenantCount = checkBox4.Checked ? 2 : 1;
+            DateTime rent_due = DateTime.Now;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -1200,8 +1221,8 @@ namespace Projek_PV
                             }
 
                             // 4. Insert Lease (PASTIKAN NAMA TABEL BENAR: leases)
-                            string qLease = @"INSERT INTO leases(room_id, tenant_id, tenant_count, rent_price, start_date, end_date, duration_months) 
-                                      VALUES(@rId, @tId, @tCount, @rent, @start, @end, @dur);";
+                            string qLease = @"INSERT INTO leases(room_id, tenant_id, tenant_count, rent_price, start_date, end_date, duration_months,rent_due) 
+                                      VALUES(@rId, @tId, @tCount, @rent, @start, @end, @dur,@due);";
                             using (MySqlCommand c3 = new MySqlCommand(qLease, conn, tr))
                             {
                                 DateTime start = DateTime.Now;
@@ -1212,6 +1233,7 @@ namespace Projek_PV
                                 c3.Parameters.AddWithValue("@start", start);
                                 c3.Parameters.AddWithValue("@end", start.AddMonths(6));
                                 c3.Parameters.AddWithValue("@dur", 6);
+                                c3.Parameters.AddWithValue("@due", rent_due.AddMonths(1));
                                 c3.ExecuteNonQuery();
                             }
 
@@ -1222,6 +1244,31 @@ namespace Projek_PV
                                 c4.Parameters.AddWithValue("@rId", comboRoomFill.SelectedValue);
                                 c4.ExecuteNonQuery();
                             }
+
+                            string qtran = @"INSERT INTO transactions 
+                            (lease_id, transaction_date, DESCRIPTION, amount, STATUS, category) 
+                            VALUES 
+                            (
+                                (SELECT MAX(lease_id) FROM leases), 
+                                NOW(), -- Added this to match 'transaction_date'
+                                'Pembayaran Sewa Bulan Pertama', 
+                                (SELECT rent_price FROM leases l JOIN rooms r ON l.room_id = r.room_id WHERE l.lease_id = (SELECT MAX(lease_id) FROM leases)), 
+                                'Pending', 
+                                'rent'
+                            ),
+                            (
+                                (SELECT MAX(lease_id) FROM leases), 
+                                NOW(), -- Added this to match 'transaction_date'
+                                'Deposit / Uang Jaminan', 
+                                1800000, 
+                                'Paid', 
+                                'rent'
+                            );";
+                            using (MySqlCommand c5 = new MySqlCommand(qtran, conn, tr))
+                            {
+                                c5.ExecuteNonQuery();
+                            }
+
 
                             // AKHIR: Hanya satu commit untuk semua query di atas
                             tr.Commit();
@@ -1443,6 +1490,7 @@ namespace Projek_PV
 
                         genderHuni1.Text = row["gender"].ToString();
                         lblDuration.Text = row["duration_months"].ToString() + " Months";
+                        lblRentDue.Text = row["rent_due"].ToString();
 
                         if (row["start_date"] != DBNull.Value)
                             lblSince.Text = Convert.ToDateTime(row["start_date"]).ToString("dd/MM/yyyy");
