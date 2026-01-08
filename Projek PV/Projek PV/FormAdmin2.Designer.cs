@@ -70,7 +70,6 @@
             this.lblDepositFill = new System.Windows.Forms.Label();
             this.lblDownPayment = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.comboDurationFill = new System.Windows.Forms.ComboBox();
             this.comboRoomFill = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -181,6 +180,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.comboDurationFill = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panelBtnListrik.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxListrik)).BeginInit();
@@ -227,6 +227,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.roundedPanelLaporanBaru.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboDurationFill)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -608,7 +609,7 @@
             this.panelManage.Controls.Add(this.roundedPanelOccupant2);
             this.panelManage.Controls.Add(this.roundedPanelOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
-            this.panelManage.Location = new System.Drawing.Point(400, 116);
+            this.panelManage.Location = new System.Drawing.Point(1290, 164);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelManage.Name = "panelManage";
             this.panelManage.Size = new System.Drawing.Size(115, 129);
@@ -632,6 +633,7 @@
             // panelFill
             // 
             this.panelFill.BackColor = System.Drawing.SystemColors.Control;
+            this.panelFill.Controls.Add(this.comboDurationFill);
             this.panelFill.Controls.Add(this.checkBox4);
             this.panelFill.Controls.Add(this.checkBox2);
             this.panelFill.Controls.Add(this.cbConfirmData);
@@ -640,7 +642,6 @@
             this.panelFill.Controls.Add(this.lblDepositFill);
             this.panelFill.Controls.Add(this.lblDownPayment);
             this.panelFill.Controls.Add(this.label34);
-            this.panelFill.Controls.Add(this.comboDurationFill);
             this.panelFill.Controls.Add(this.comboRoomFill);
             this.panelFill.Controls.Add(this.label32);
             this.panelFill.Controls.Add(this.label31);
@@ -649,10 +650,10 @@
             this.panelFill.Controls.Add(this.label29);
             this.panelFill.Controls.Add(this.gbOccupant2Fill);
             this.panelFill.Controls.Add(this.gbOcccupant1Fill);
-            this.panelFill.Location = new System.Drawing.Point(1160, 890);
+            this.panelFill.Location = new System.Drawing.Point(309, 120);
             this.panelFill.Margin = new System.Windows.Forms.Padding(5);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(78, 85);
+            this.panelFill.Size = new System.Drawing.Size(922, 853);
             this.panelFill.TabIndex = 3;
             // 
             // checkBox4
@@ -748,15 +749,6 @@
             this.label34.Size = new System.Drawing.Size(208, 24);
             this.label34.TabIndex = 11;
             this.label34.Text = "Down Payment (DP): ";
-            // 
-            // comboDurationFill
-            // 
-            this.comboDurationFill.FormattingEnabled = true;
-            this.comboDurationFill.Location = new System.Drawing.Point(256, 610);
-            this.comboDurationFill.Margin = new System.Windows.Forms.Padding(4);
-            this.comboDurationFill.Name = "comboDurationFill";
-            this.comboDurationFill.Size = new System.Drawing.Size(187, 24);
-            this.comboDurationFill.TabIndex = 9;
             // 
             // comboRoomFill
             // 
@@ -1999,6 +1991,28 @@
             this.label46.TabIndex = 1;
             this.label46.Text = "0";
             // 
+            // comboDurationFill
+            // 
+            this.comboDurationFill.Location = new System.Drawing.Point(256, 615);
+            this.comboDurationFill.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.comboDurationFill.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.comboDurationFill.Name = "comboDurationFill";
+            this.comboDurationFill.Size = new System.Drawing.Size(189, 22);
+            this.comboDurationFill.TabIndex = 27;
+            this.comboDurationFill.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2091,6 +2105,7 @@
             this.roundedPanelLaporanBaru.ResumeLayout(false);
             this.roundedPanelLaporanBaru.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboDurationFill)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2148,7 +2163,6 @@
         private System.Windows.Forms.TextBox tbNIK1;
         private System.Windows.Forms.TextBox tbNama1;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboDurationFill;
         private System.Windows.Forms.ComboBox comboRoomFill;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
@@ -2249,5 +2263,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.NumericUpDown comboDurationFill;
     }
 }
