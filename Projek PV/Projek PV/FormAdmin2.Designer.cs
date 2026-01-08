@@ -608,10 +608,10 @@
             this.panelManage.Controls.Add(this.roundedPanelOccupant2);
             this.panelManage.Controls.Add(this.roundedPanelOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
-            this.panelManage.Location = new System.Drawing.Point(504, 114);
+            this.panelManage.Location = new System.Drawing.Point(400, 116);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelManage.Name = "panelManage";
-            this.panelManage.Size = new System.Drawing.Size(980, 389);
+            this.panelManage.Size = new System.Drawing.Size(115, 129);
             this.panelManage.TabIndex = 1;
             // 
             // dgvManage
@@ -649,10 +649,10 @@
             this.panelFill.Controls.Add(this.label29);
             this.panelFill.Controls.Add(this.gbOccupant2Fill);
             this.panelFill.Controls.Add(this.gbOcccupant1Fill);
-            this.panelFill.Location = new System.Drawing.Point(1436, 685);
+            this.panelFill.Location = new System.Drawing.Point(1160, 890);
             this.panelFill.Margin = new System.Windows.Forms.Padding(5);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(169, 290);
+            this.panelFill.Size = new System.Drawing.Size(78, 85);
             this.panelFill.TabIndex = 3;
             // 
             // checkBox4
@@ -1348,10 +1348,10 @@
             // 
             this.panelManageTenant.Controls.Add(this.dataGridViewExtensions);
             this.panelManageTenant.Controls.Add(this.label10);
-            this.panelManageTenant.Location = new System.Drawing.Point(1600, 233);
+            this.panelManageTenant.Location = new System.Drawing.Point(1605, 220);
             this.panelManageTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelManageTenant.Name = "panelManageTenant";
-            this.panelManageTenant.Size = new System.Drawing.Size(53, 31);
+            this.panelManageTenant.Size = new System.Drawing.Size(71, 38);
             this.panelManageTenant.TabIndex = 0;
             // 
             // dataGridViewExtensions
