@@ -222,6 +222,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="auto_fail_overdue_transactions_event.sql" />
     <Content Include="dbsqldump.txt" />
   </ItemGroup>
   <ItemGroup>

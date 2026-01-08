@@ -51,56 +51,18 @@
             this.pictureBoxManageRooms = new System.Windows.Forms.PictureBox();
             this.labelUserExtendDuration = new System.Windows.Forms.Label();
             this.panelUserDashboard = new System.Windows.Forms.Panel();
-            this.roundedPanel9 = new RoundedPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.roundedPanel3 = new RoundedPanel();
-            this.dgvNotifikasiBaru = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.roundedPanel6 = new RoundedPanel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.lblJatuhTempo = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.roundedPanel5 = new RoundedPanel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lblStatusPembayaran = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.roundedPanel4 = new RoundedPanel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lblDurasiPenempatan = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.panelBtnNotification = new RoundedPanel();
-            this.markNewNotication = new RoundedPanel();
-            this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUserHeader = new System.Windows.Forms.Label();
             this.lblTitleHeader = new System.Windows.Forms.Label();
             this.panelUserComplaint = new System.Windows.Forms.Panel();
-            this.roundedPanel2 = new RoundedPanel();
-            this.btnSubmitComplaint = new System.Windows.Forms.Button();
-            this.tbDeskripsiComplaint = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboKategoriComplaint = new System.Windows.Forms.ComboBox();
             this.panelDaftarTamu = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
-            this.roundedPanel8 = new RoundedPanel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.btnDaftarkanTamu = new System.Windows.Forms.Button();
-            this.cbPersetujuan2 = new System.Windows.Forms.CheckBox();
-            this.cbPersetujuan1 = new System.Windows.Forms.CheckBox();
-            this.dateTimeKunjunganTamu = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.comboJamTamu = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbTujuanKunjungan = new System.Windows.Forms.TextBox();
-            this.tbNamaTamu = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panelExtendDuration = new System.Windows.Forms.Panel();
+            this.panelTagihan = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.roundedPanel7 = new RoundedPanel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label21 = new System.Windows.Forms.Label();
@@ -119,9 +81,47 @@
             this.lblNoKamar = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.panelTagihan = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.roundedPanel8 = new RoundedPanel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnDaftarkanTamu = new System.Windows.Forms.Button();
+            this.cbPersetujuan2 = new System.Windows.Forms.CheckBox();
+            this.cbPersetujuan1 = new System.Windows.Forms.CheckBox();
+            this.dateTimeKunjunganTamu = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.comboJamTamu = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbTujuanKunjungan = new System.Windows.Forms.TextBox();
+            this.tbNamaTamu = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.roundedPanel2 = new RoundedPanel();
+            this.btnSubmitComplaint = new System.Windows.Forms.Button();
+            this.tbDeskripsiComplaint = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboKategoriComplaint = new System.Windows.Forms.ComboBox();
+            this.roundedPanel9 = new RoundedPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.roundedPanel3 = new RoundedPanel();
+            this.dgvNotifikasiBaru = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.roundedPanel6 = new RoundedPanel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.lblJatuhTempo = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.roundedPanel5 = new RoundedPanel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lblStatusPembayaran = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.roundedPanel4 = new RoundedPanel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblDurasiPenempatan = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panelBtnNotification = new RoundedPanel();
+            this.markNewNotication = new RoundedPanel();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -137,6 +137,18 @@
             this.panelBtnExtendDuration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).BeginInit();
             this.panelUserDashboard.SuspendLayout();
+            this.panelHeader.SuspendLayout();
+            this.panelUserComplaint.SuspendLayout();
+            this.panelDaftarTamu.SuspendLayout();
+            this.panelExtendDuration.SuspendLayout();
+            this.panelTagihan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.roundedPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.roundedPanel1.SuspendLayout();
+            this.roundedPanel8.SuspendLayout();
+            this.roundedPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.roundedPanel9.SuspendLayout();
             this.roundedPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotifikasiBaru)).BeginInit();
@@ -146,19 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.roundedPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panelHeader.SuspendLayout();
             this.panelBtnNotification.SuspendLayout();
-            this.panelUserComplaint.SuspendLayout();
-            this.roundedPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panelDaftarTamu.SuspendLayout();
-            this.roundedPanel8.SuspendLayout();
-            this.panelExtendDuration.SuspendLayout();
-            this.roundedPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.roundedPanel1.SuspendLayout();
-            this.panelTagihan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -429,203 +429,6 @@
             this.panelUserDashboard.Size = new System.Drawing.Size(144, 143);
             this.panelUserDashboard.TabIndex = 2;
             // 
-            // roundedPanel9
-            // 
-            this.roundedPanel9.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel9.BorderColor = System.Drawing.Color.Black;
-            this.roundedPanel9.Controls.Add(this.label4);
-            this.roundedPanel9.FillColor = System.Drawing.Color.White;
-            this.roundedPanel9.Location = new System.Drawing.Point(24, 482);
-            this.roundedPanel9.Name = "roundedPanel9";
-            this.roundedPanel9.Size = new System.Drawing.Size(1308, 180);
-            this.roundedPanel9.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 9);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1322, 160);
-            this.label4.TabIndex = 7;
-            this.label4.Text = resources.GetString("label4.Text");
-            // 
-            // roundedPanel3
-            // 
-            this.roundedPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel3.BorderColor = System.Drawing.Color.Black;
-            this.roundedPanel3.Controls.Add(this.dgvNotifikasiBaru);
-            this.roundedPanel3.Controls.Add(this.label3);
-            this.roundedPanel3.FillColor = System.Drawing.Color.White;
-            this.roundedPanel3.Location = new System.Drawing.Point(24, 185);
-            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.roundedPanel3.Name = "roundedPanel3";
-            this.roundedPanel3.Size = new System.Drawing.Size(1308, 288);
-            this.roundedPanel3.TabIndex = 6;
-            // 
-            // dgvNotifikasiBaru
-            // 
-            this.dgvNotifikasiBaru.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotifikasiBaru.Location = new System.Drawing.Point(21, 66);
-            this.dgvNotifikasiBaru.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgvNotifikasiBaru.Name = "dgvNotifikasiBaru";
-            this.dgvNotifikasiBaru.RowHeadersWidth = 51;
-            this.dgvNotifikasiBaru.Size = new System.Drawing.Size(1266, 195);
-            this.dgvNotifikasiBaru.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 29);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Notifikasi Terbaru:";
-            // 
-            // roundedPanel6
-            // 
-            this.roundedPanel6.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel6.BorderColor = System.Drawing.Color.Black;
-            this.roundedPanel6.Controls.Add(this.pictureBox6);
-            this.roundedPanel6.Controls.Add(this.lblJatuhTempo);
-            this.roundedPanel6.Controls.Add(this.label12);
-            this.roundedPanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
-            this.roundedPanel6.Location = new System.Drawing.Point(476, 35);
-            this.roundedPanel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.roundedPanel6.Name = "roundedPanel6";
-            this.roundedPanel6.Size = new System.Drawing.Size(406, 140);
-            this.roundedPanel6.TabIndex = 5;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(21, 12);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(112, 115);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 1;
-            this.pictureBox6.TabStop = false;
-            // 
-            // lblJatuhTempo
-            // 
-            this.lblJatuhTempo.AutoSize = true;
-            this.lblJatuhTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJatuhTempo.Location = new System.Drawing.Point(142, 72);
-            this.lblJatuhTempo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblJatuhTempo.Name = "lblJatuhTempo";
-            this.lblJatuhTempo.Size = new System.Drawing.Size(216, 25);
-            this.lblJatuhTempo.TabIndex = 0;
-            this.lblJatuhTempo.Text = "Tanggal jatuh tempo:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(142, 26);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(216, 25);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Tanggal jatuh tempo:";
-            // 
-            // roundedPanel5
-            // 
-            this.roundedPanel5.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel5.BorderColor = System.Drawing.Color.Black;
-            this.roundedPanel5.Controls.Add(this.pictureBox5);
-            this.roundedPanel5.Controls.Add(this.lblStatusPembayaran);
-            this.roundedPanel5.Controls.Add(this.label11);
-            this.roundedPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
-            this.roundedPanel5.Location = new System.Drawing.Point(926, 35);
-            this.roundedPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.roundedPanel5.Name = "roundedPanel5";
-            this.roundedPanel5.Size = new System.Drawing.Size(406, 140);
-            this.roundedPanel5.TabIndex = 5;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(21, 12);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(112, 115);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
-            // 
-            // lblStatusPembayaran
-            // 
-            this.lblStatusPembayaran.AutoSize = true;
-            this.lblStatusPembayaran.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusPembayaran.Location = new System.Drawing.Point(142, 72);
-            this.lblStatusPembayaran.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStatusPembayaran.Name = "lblStatusPembayaran";
-            this.lblStatusPembayaran.Size = new System.Drawing.Size(208, 25);
-            this.lblStatusPembayaran.TabIndex = 0;
-            this.lblStatusPembayaran.Text = "Status Pembayaran:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(142, 26);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(208, 25);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Status Pembayaran:";
-            // 
-            // roundedPanel4
-            // 
-            this.roundedPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel4.BorderColor = System.Drawing.Color.Black;
-            this.roundedPanel4.Controls.Add(this.pictureBox4);
-            this.roundedPanel4.Controls.Add(this.lblDurasiPenempatan);
-            this.roundedPanel4.Controls.Add(this.label8);
-            this.roundedPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
-            this.roundedPanel4.Location = new System.Drawing.Point(24, 35);
-            this.roundedPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.roundedPanel4.Name = "roundedPanel4";
-            this.roundedPanel4.Size = new System.Drawing.Size(406, 140);
-            this.roundedPanel4.TabIndex = 5;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(21, 12);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(112, 115);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // lblDurasiPenempatan
-            // 
-            this.lblDurasiPenempatan.AutoSize = true;
-            this.lblDurasiPenempatan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDurasiPenempatan.Location = new System.Drawing.Point(142, 72);
-            this.lblDurasiPenempatan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDurasiPenempatan.Name = "lblDurasiPenempatan";
-            this.lblDurasiPenempatan.Size = new System.Drawing.Size(206, 25);
-            this.lblDurasiPenempatan.TabIndex = 0;
-            this.lblDurasiPenempatan.Text = "Durasi penempatan:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(142, 26);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(206, 25);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Durasi penempatan:";
-            // 
             // panelHeader
             // 
             this.panelHeader.Controls.Add(this.panelBtnNotification);
@@ -636,44 +439,6 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1362, 100);
             this.panelHeader.TabIndex = 9;
-            // 
-            // panelBtnNotification
-            // 
-            this.panelBtnNotification.BackColor = System.Drawing.Color.Transparent;
-            this.panelBtnNotification.BorderColor = System.Drawing.Color.Black;
-            this.panelBtnNotification.BorderRadius = 90;
-            this.panelBtnNotification.Controls.Add(this.markNewNotication);
-            this.panelBtnNotification.Controls.Add(this.label10);
-            this.panelBtnNotification.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
-            this.panelBtnNotification.Location = new System.Drawing.Point(1278, 15);
-            this.panelBtnNotification.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelBtnNotification.Name = "panelBtnNotification";
-            this.panelBtnNotification.Size = new System.Drawing.Size(64, 68);
-            this.panelBtnNotification.TabIndex = 2;
-            // 
-            // markNewNotication
-            // 
-            this.markNewNotication.BackColor = System.Drawing.Color.Transparent;
-            this.markNewNotication.BorderColor = System.Drawing.Color.Black;
-            this.markNewNotication.FillColor = System.Drawing.Color.Red;
-            this.markNewNotication.Location = new System.Drawing.Point(42, 0);
-            this.markNewNotication.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.markNewNotication.Name = "markNewNotication";
-            this.markNewNotication.Size = new System.Drawing.Size(22, 23);
-            this.markNewNotication.TabIndex = 11;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Enabled = false;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(12, 14);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 33);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "🔔";
             // 
             // label1
             // 
@@ -709,113 +474,10 @@
             // 
             this.panelUserComplaint.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelUserComplaint.Controls.Add(this.roundedPanel2);
-            this.panelUserComplaint.Location = new System.Drawing.Point(240, 988);
+            this.panelUserComplaint.Location = new System.Drawing.Point(386, 325);
             this.panelUserComplaint.Name = "panelUserComplaint";
-            this.panelUserComplaint.Size = new System.Drawing.Size(165, 143);
+            this.panelUserComplaint.Size = new System.Drawing.Size(1321, 396);
             this.panelUserComplaint.TabIndex = 4;
-            // 
-            // roundedPanel2
-            // 
-            this.roundedPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel2.BorderColor = System.Drawing.Color.Black;
-            this.roundedPanel2.Controls.Add(this.btnSubmitComplaint);
-            this.roundedPanel2.Controls.Add(this.tbDeskripsiComplaint);
-            this.roundedPanel2.Controls.Add(this.pictureBox2);
-            this.roundedPanel2.Controls.Add(this.label5);
-            this.roundedPanel2.Controls.Add(this.label7);
-            this.roundedPanel2.Controls.Add(this.label6);
-            this.roundedPanel2.Controls.Add(this.comboKategoriComplaint);
-            this.roundedPanel2.FillColor = System.Drawing.Color.White;
-            this.roundedPanel2.Location = new System.Drawing.Point(24, 20);
-            this.roundedPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.roundedPanel2.Name = "roundedPanel2";
-            this.roundedPanel2.Size = new System.Drawing.Size(1317, 588);
-            this.roundedPanel2.TabIndex = 2;
-            // 
-            // btnSubmitComplaint
-            // 
-            this.btnSubmitComplaint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.btnSubmitComplaint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmitComplaint.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitComplaint.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSubmitComplaint.Location = new System.Drawing.Point(38, 495);
-            this.btnSubmitComplaint.Name = "btnSubmitComplaint";
-            this.btnSubmitComplaint.Size = new System.Drawing.Size(1244, 48);
-            this.btnSubmitComplaint.TabIndex = 6;
-            this.btnSubmitComplaint.Text = "Kirim Komplain";
-            this.btnSubmitComplaint.UseVisualStyleBackColor = false;
-            this.btnSubmitComplaint.Click += new System.EventHandler(this.btnSubmitComplaint_Click);
-            // 
-            // tbDeskripsiComplaint
-            // 
-            this.tbDeskripsiComplaint.Location = new System.Drawing.Point(38, 197);
-            this.tbDeskripsiComplaint.Multiline = true;
-            this.tbDeskripsiComplaint.Name = "tbDeskripsiComplaint";
-            this.tbDeskripsiComplaint.Size = new System.Drawing.Size(1242, 261);
-            this.tbDeskripsiComplaint.TabIndex = 5;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(22, 11);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(28, 31);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(52, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(209, 25);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Buat Laporan Baru";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(33, 166);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 26);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Deskripsi Masalah";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(33, 72);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 26);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Kategori";
-            // 
-            // comboKategoriComplaint
-            // 
-            this.comboKategoriComplaint.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.comboKategoriComplaint.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboKategoriComplaint.FormattingEnabled = true;
-            this.comboKategoriComplaint.Items.AddRange(new object[] {
-            "Fasilitas",
-            "Kebersihan",
-            "Ketertiban",
-            "Pembayaran",
-            "Keamanan",
-            "Utilitas"});
-            this.comboKategoriComplaint.Location = new System.Drawing.Point(38, 103);
-            this.comboKategoriComplaint.Name = "comboKategoriComplaint";
-            this.comboKategoriComplaint.Size = new System.Drawing.Size(1242, 28);
-            this.comboKategoriComplaint.TabIndex = 3;
             // 
             // panelDaftarTamu
             // 
@@ -839,164 +501,6 @@
             this.label17.TabIndex = 5;
             this.label17.Text = resources.GetString("label17.Text");
             // 
-            // roundedPanel8
-            // 
-            this.roundedPanel8.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel8.BorderColor = System.Drawing.Color.Black;
-            this.roundedPanel8.Controls.Add(this.label18);
-            this.roundedPanel8.Controls.Add(this.btnDaftarkanTamu);
-            this.roundedPanel8.Controls.Add(this.cbPersetujuan2);
-            this.roundedPanel8.Controls.Add(this.cbPersetujuan1);
-            this.roundedPanel8.Controls.Add(this.dateTimeKunjunganTamu);
-            this.roundedPanel8.Controls.Add(this.label15);
-            this.roundedPanel8.Controls.Add(this.comboJamTamu);
-            this.roundedPanel8.Controls.Add(this.label13);
-            this.roundedPanel8.Controls.Add(this.tbTujuanKunjungan);
-            this.roundedPanel8.Controls.Add(this.tbNamaTamu);
-            this.roundedPanel8.Controls.Add(this.label16);
-            this.roundedPanel8.Controls.Add(this.label14);
-            this.roundedPanel8.FillColor = System.Drawing.Color.White;
-            this.roundedPanel8.Location = new System.Drawing.Point(38, 69);
-            this.roundedPanel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.roundedPanel8.Name = "roundedPanel8";
-            this.roundedPanel8.Size = new System.Drawing.Size(1250, 412);
-            this.roundedPanel8.TabIndex = 4;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(502, 143);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(104, 20);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "(06:00-18:00)";
-            // 
-            // btnDaftarkanTamu
-            // 
-            this.btnDaftarkanTamu.BackColor = System.Drawing.Color.Turquoise;
-            this.btnDaftarkanTamu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDaftarkanTamu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDaftarkanTamu.Location = new System.Drawing.Point(32, 322);
-            this.btnDaftarkanTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDaftarkanTamu.Name = "btnDaftarkanTamu";
-            this.btnDaftarkanTamu.Size = new System.Drawing.Size(231, 66);
-            this.btnDaftarkanTamu.TabIndex = 6;
-            this.btnDaftarkanTamu.Text = "Daftarkan Tamu";
-            this.btnDaftarkanTamu.UseVisualStyleBackColor = false;
-            this.btnDaftarkanTamu.Click += new System.EventHandler(this.btnDaftarkanTamu_Click);
-            // 
-            // cbPersetujuan2
-            // 
-            this.cbPersetujuan2.AutoSize = true;
-            this.cbPersetujuan2.Location = new System.Drawing.Point(32, 269);
-            this.cbPersetujuan2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbPersetujuan2.Name = "cbPersetujuan2";
-            this.cbPersetujuan2.Size = new System.Drawing.Size(314, 24);
-            this.cbPersetujuan2.TabIndex = 5;
-            this.cbPersetujuan2.Text = "Tamu adalah tanggung jawab penghuni";
-            this.cbPersetujuan2.UseVisualStyleBackColor = true;
-            // 
-            // cbPersetujuan1
-            // 
-            this.cbPersetujuan1.AutoSize = true;
-            this.cbPersetujuan1.Location = new System.Drawing.Point(32, 234);
-            this.cbPersetujuan1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbPersetujuan1.Name = "cbPersetujuan1";
-            this.cbPersetujuan1.Size = new System.Drawing.Size(308, 24);
-            this.cbPersetujuan1.TabIndex = 5;
-            this.cbPersetujuan1.Text = "Tamu Tidak Berkenan untuk menginap";
-            this.cbPersetujuan1.UseVisualStyleBackColor = true;
-            // 
-            // dateTimeKunjunganTamu
-            // 
-            this.dateTimeKunjunganTamu.Location = new System.Drawing.Point(290, 89);
-            this.dateTimeKunjunganTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dateTimeKunjunganTamu.Name = "dateTimeKunjunganTamu";
-            this.dateTimeKunjunganTamu.Size = new System.Drawing.Size(298, 26);
-            this.dateTimeKunjunganTamu.TabIndex = 4;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(27, 98);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(171, 20);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Tanggal kunjungan:";
-            // 
-            // comboJamTamu
-            // 
-            this.comboJamTamu.FormattingEnabled = true;
-            this.comboJamTamu.Items.AddRange(new object[] {
-            "08:00",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00"});
-            this.comboJamTamu.Location = new System.Drawing.Point(290, 138);
-            this.comboJamTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboJamTamu.Name = "comboJamTamu";
-            this.comboJamTamu.Size = new System.Drawing.Size(200, 28);
-            this.comboJamTamu.TabIndex = 3;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(27, 45);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(250, 20);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Nama Tamu (nama lengkap):";
-            // 
-            // tbTujuanKunjungan
-            // 
-            this.tbTujuanKunjungan.Location = new System.Drawing.Point(290, 183);
-            this.tbTujuanKunjungan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbTujuanKunjungan.Name = "tbTujuanKunjungan";
-            this.tbTujuanKunjungan.Size = new System.Drawing.Size(370, 26);
-            this.tbTujuanKunjungan.TabIndex = 2;
-            // 
-            // tbNamaTamu
-            // 
-            this.tbNamaTamu.Location = new System.Drawing.Point(290, 40);
-            this.tbNamaTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbNamaTamu.Name = "tbNamaTamu";
-            this.tbNamaTamu.Size = new System.Drawing.Size(370, 26);
-            this.tbNamaTamu.TabIndex = 2;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(27, 188);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(164, 20);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Tujuan Kunjungan:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(27, 143);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(154, 20);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Jam Kedatangan:";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -1018,6 +522,42 @@
             this.panelExtendDuration.Name = "panelExtendDuration";
             this.panelExtendDuration.Size = new System.Drawing.Size(267, 187);
             this.panelExtendDuration.TabIndex = 11;
+            // 
+            // panelTagihan
+            // 
+            this.panelTagihan.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelTagihan.Controls.Add(this.button1);
+            this.panelTagihan.Controls.Add(this.dataGridView1);
+            this.panelTagihan.Location = new System.Drawing.Point(343, 111);
+            this.panelTagihan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelTagihan.Name = "panelTagihan";
+            this.panelTagihan.Size = new System.Drawing.Size(136, 121);
+            this.panelTagihan.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 645);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 68);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Beli Token Listrik";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 31);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1350, 597);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // roundedPanel7
             // 
@@ -1235,41 +775,501 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "Informasi Mata:";
             // 
-            // panelTagihan
+            // roundedPanel8
             // 
-            this.panelTagihan.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelTagihan.Controls.Add(this.button1);
-            this.panelTagihan.Controls.Add(this.dataGridView1);
-            this.panelTagihan.Location = new System.Drawing.Point(343, 111);
-            this.panelTagihan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelTagihan.Name = "panelTagihan";
-            this.panelTagihan.Size = new System.Drawing.Size(1364, 710);
-            this.panelTagihan.TabIndex = 12;
+            this.roundedPanel8.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel8.BorderColor = System.Drawing.Color.Black;
+            this.roundedPanel8.Controls.Add(this.label18);
+            this.roundedPanel8.Controls.Add(this.btnDaftarkanTamu);
+            this.roundedPanel8.Controls.Add(this.cbPersetujuan2);
+            this.roundedPanel8.Controls.Add(this.cbPersetujuan1);
+            this.roundedPanel8.Controls.Add(this.dateTimeKunjunganTamu);
+            this.roundedPanel8.Controls.Add(this.label15);
+            this.roundedPanel8.Controls.Add(this.comboJamTamu);
+            this.roundedPanel8.Controls.Add(this.label13);
+            this.roundedPanel8.Controls.Add(this.tbTujuanKunjungan);
+            this.roundedPanel8.Controls.Add(this.tbNamaTamu);
+            this.roundedPanel8.Controls.Add(this.label16);
+            this.roundedPanel8.Controls.Add(this.label14);
+            this.roundedPanel8.FillColor = System.Drawing.Color.White;
+            this.roundedPanel8.Location = new System.Drawing.Point(38, 69);
+            this.roundedPanel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.roundedPanel8.Name = "roundedPanel8";
+            this.roundedPanel8.Size = new System.Drawing.Size(1250, 412);
+            this.roundedPanel8.TabIndex = 4;
             // 
-            // button1
+            // label18
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 645);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 68);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Beli Token Listrik";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(502, 143);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(104, 20);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "(06:00-18:00)";
             // 
-            // dataGridView1
+            // btnDaftarkanTamu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1350, 597);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.btnDaftarkanTamu.BackColor = System.Drawing.Color.Turquoise;
+            this.btnDaftarkanTamu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDaftarkanTamu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDaftarkanTamu.Location = new System.Drawing.Point(32, 322);
+            this.btnDaftarkanTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDaftarkanTamu.Name = "btnDaftarkanTamu";
+            this.btnDaftarkanTamu.Size = new System.Drawing.Size(231, 66);
+            this.btnDaftarkanTamu.TabIndex = 6;
+            this.btnDaftarkanTamu.Text = "Daftarkan Tamu";
+            this.btnDaftarkanTamu.UseVisualStyleBackColor = false;
+            this.btnDaftarkanTamu.Click += new System.EventHandler(this.btnDaftarkanTamu_Click);
+            // 
+            // cbPersetujuan2
+            // 
+            this.cbPersetujuan2.AutoSize = true;
+            this.cbPersetujuan2.Location = new System.Drawing.Point(32, 269);
+            this.cbPersetujuan2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbPersetujuan2.Name = "cbPersetujuan2";
+            this.cbPersetujuan2.Size = new System.Drawing.Size(314, 24);
+            this.cbPersetujuan2.TabIndex = 5;
+            this.cbPersetujuan2.Text = "Tamu adalah tanggung jawab penghuni";
+            this.cbPersetujuan2.UseVisualStyleBackColor = true;
+            // 
+            // cbPersetujuan1
+            // 
+            this.cbPersetujuan1.AutoSize = true;
+            this.cbPersetujuan1.Location = new System.Drawing.Point(32, 234);
+            this.cbPersetujuan1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbPersetujuan1.Name = "cbPersetujuan1";
+            this.cbPersetujuan1.Size = new System.Drawing.Size(308, 24);
+            this.cbPersetujuan1.TabIndex = 5;
+            this.cbPersetujuan1.Text = "Tamu Tidak Berkenan untuk menginap";
+            this.cbPersetujuan1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimeKunjunganTamu
+            // 
+            this.dateTimeKunjunganTamu.Location = new System.Drawing.Point(290, 89);
+            this.dateTimeKunjunganTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateTimeKunjunganTamu.Name = "dateTimeKunjunganTamu";
+            this.dateTimeKunjunganTamu.Size = new System.Drawing.Size(298, 26);
+            this.dateTimeKunjunganTamu.TabIndex = 4;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(27, 98);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(171, 20);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Tanggal kunjungan:";
+            // 
+            // comboJamTamu
+            // 
+            this.comboJamTamu.FormattingEnabled = true;
+            this.comboJamTamu.Items.AddRange(new object[] {
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00"});
+            this.comboJamTamu.Location = new System.Drawing.Point(290, 138);
+            this.comboJamTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboJamTamu.Name = "comboJamTamu";
+            this.comboJamTamu.Size = new System.Drawing.Size(200, 28);
+            this.comboJamTamu.TabIndex = 3;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(27, 45);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(250, 20);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Nama Tamu (nama lengkap):";
+            // 
+            // tbTujuanKunjungan
+            // 
+            this.tbTujuanKunjungan.Location = new System.Drawing.Point(290, 183);
+            this.tbTujuanKunjungan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbTujuanKunjungan.Name = "tbTujuanKunjungan";
+            this.tbTujuanKunjungan.Size = new System.Drawing.Size(370, 26);
+            this.tbTujuanKunjungan.TabIndex = 2;
+            // 
+            // tbNamaTamu
+            // 
+            this.tbNamaTamu.Location = new System.Drawing.Point(290, 40);
+            this.tbNamaTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbNamaTamu.Name = "tbNamaTamu";
+            this.tbNamaTamu.Size = new System.Drawing.Size(370, 26);
+            this.tbNamaTamu.TabIndex = 2;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(27, 188);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(164, 20);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Tujuan Kunjungan:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(27, 143);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(154, 20);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Jam Kedatangan:";
+            // 
+            // roundedPanel2
+            // 
+            this.roundedPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel2.BorderColor = System.Drawing.Color.Black;
+            this.roundedPanel2.Controls.Add(this.btnSubmitComplaint);
+            this.roundedPanel2.Controls.Add(this.tbDeskripsiComplaint);
+            this.roundedPanel2.Controls.Add(this.pictureBox2);
+            this.roundedPanel2.Controls.Add(this.label5);
+            this.roundedPanel2.Controls.Add(this.label7);
+            this.roundedPanel2.Controls.Add(this.label6);
+            this.roundedPanel2.Controls.Add(this.comboKategoriComplaint);
+            this.roundedPanel2.FillColor = System.Drawing.Color.White;
+            this.roundedPanel2.Location = new System.Drawing.Point(24, 20);
+            this.roundedPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.roundedPanel2.Name = "roundedPanel2";
+            this.roundedPanel2.Size = new System.Drawing.Size(1317, 588);
+            this.roundedPanel2.TabIndex = 2;
+            // 
+            // btnSubmitComplaint
+            // 
+            this.btnSubmitComplaint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnSubmitComplaint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmitComplaint.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitComplaint.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSubmitComplaint.Location = new System.Drawing.Point(38, 495);
+            this.btnSubmitComplaint.Name = "btnSubmitComplaint";
+            this.btnSubmitComplaint.Size = new System.Drawing.Size(1244, 48);
+            this.btnSubmitComplaint.TabIndex = 6;
+            this.btnSubmitComplaint.Text = "Kirim Komplain";
+            this.btnSubmitComplaint.UseVisualStyleBackColor = false;
+            this.btnSubmitComplaint.Click += new System.EventHandler(this.btnSubmitComplaint_Click);
+            // 
+            // tbDeskripsiComplaint
+            // 
+            this.tbDeskripsiComplaint.Location = new System.Drawing.Point(38, 197);
+            this.tbDeskripsiComplaint.Multiline = true;
+            this.tbDeskripsiComplaint.Name = "tbDeskripsiComplaint";
+            this.tbDeskripsiComplaint.Size = new System.Drawing.Size(1242, 261);
+            this.tbDeskripsiComplaint.TabIndex = 5;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(22, 11);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(52, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(209, 25);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Buat Laporan Baru";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(33, 166);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(179, 26);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Deskripsi Masalah";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(33, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 26);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Kategori";
+            // 
+            // comboKategoriComplaint
+            // 
+            this.comboKategoriComplaint.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboKategoriComplaint.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboKategoriComplaint.FormattingEnabled = true;
+            this.comboKategoriComplaint.Items.AddRange(new object[] {
+            "facilitas",
+            "Kebersihan",
+            "suasana",
+            "Pembayaran",
+            "Keamanan",
+            "other"});
+            this.comboKategoriComplaint.Location = new System.Drawing.Point(38, 103);
+            this.comboKategoriComplaint.Name = "comboKategoriComplaint";
+            this.comboKategoriComplaint.Size = new System.Drawing.Size(1242, 28);
+            this.comboKategoriComplaint.TabIndex = 3;
+            // 
+            // roundedPanel9
+            // 
+            this.roundedPanel9.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel9.BorderColor = System.Drawing.Color.Black;
+            this.roundedPanel9.Controls.Add(this.label4);
+            this.roundedPanel9.FillColor = System.Drawing.Color.White;
+            this.roundedPanel9.Location = new System.Drawing.Point(24, 482);
+            this.roundedPanel9.Name = "roundedPanel9";
+            this.roundedPanel9.Size = new System.Drawing.Size(1308, 180);
+            this.roundedPanel9.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 9);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1322, 160);
+            this.label4.TabIndex = 7;
+            this.label4.Text = resources.GetString("label4.Text");
+            // 
+            // roundedPanel3
+            // 
+            this.roundedPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel3.BorderColor = System.Drawing.Color.Black;
+            this.roundedPanel3.Controls.Add(this.dgvNotifikasiBaru);
+            this.roundedPanel3.Controls.Add(this.label3);
+            this.roundedPanel3.FillColor = System.Drawing.Color.White;
+            this.roundedPanel3.Location = new System.Drawing.Point(24, 185);
+            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.roundedPanel3.Name = "roundedPanel3";
+            this.roundedPanel3.Size = new System.Drawing.Size(1308, 288);
+            this.roundedPanel3.TabIndex = 6;
+            // 
+            // dgvNotifikasiBaru
+            // 
+            this.dgvNotifikasiBaru.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotifikasiBaru.Location = new System.Drawing.Point(21, 66);
+            this.dgvNotifikasiBaru.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvNotifikasiBaru.Name = "dgvNotifikasiBaru";
+            this.dgvNotifikasiBaru.RowHeadersWidth = 51;
+            this.dgvNotifikasiBaru.Size = new System.Drawing.Size(1266, 195);
+            this.dgvNotifikasiBaru.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(21, 17);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(229, 29);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Notifikasi Terbaru:";
+            // 
+            // roundedPanel6
+            // 
+            this.roundedPanel6.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel6.BorderColor = System.Drawing.Color.Black;
+            this.roundedPanel6.Controls.Add(this.pictureBox6);
+            this.roundedPanel6.Controls.Add(this.lblJatuhTempo);
+            this.roundedPanel6.Controls.Add(this.label12);
+            this.roundedPanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
+            this.roundedPanel6.Location = new System.Drawing.Point(476, 35);
+            this.roundedPanel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.roundedPanel6.Name = "roundedPanel6";
+            this.roundedPanel6.Size = new System.Drawing.Size(406, 140);
+            this.roundedPanel6.TabIndex = 5;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(112, 115);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 1;
+            this.pictureBox6.TabStop = false;
+            // 
+            // lblJatuhTempo
+            // 
+            this.lblJatuhTempo.AutoSize = true;
+            this.lblJatuhTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJatuhTempo.Location = new System.Drawing.Point(142, 72);
+            this.lblJatuhTempo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJatuhTempo.Name = "lblJatuhTempo";
+            this.lblJatuhTempo.Size = new System.Drawing.Size(216, 25);
+            this.lblJatuhTempo.TabIndex = 0;
+            this.lblJatuhTempo.Text = "Tanggal jatuh tempo:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(142, 26);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(216, 25);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Tanggal jatuh tempo:";
+            // 
+            // roundedPanel5
+            // 
+            this.roundedPanel5.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel5.BorderColor = System.Drawing.Color.Black;
+            this.roundedPanel5.Controls.Add(this.pictureBox5);
+            this.roundedPanel5.Controls.Add(this.lblStatusPembayaran);
+            this.roundedPanel5.Controls.Add(this.label11);
+            this.roundedPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
+            this.roundedPanel5.Location = new System.Drawing.Point(926, 35);
+            this.roundedPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.roundedPanel5.Name = "roundedPanel5";
+            this.roundedPanel5.Size = new System.Drawing.Size(406, 140);
+            this.roundedPanel5.TabIndex = 5;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(112, 115);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
+            // 
+            // lblStatusPembayaran
+            // 
+            this.lblStatusPembayaran.AutoSize = true;
+            this.lblStatusPembayaran.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusPembayaran.Location = new System.Drawing.Point(142, 72);
+            this.lblStatusPembayaran.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatusPembayaran.Name = "lblStatusPembayaran";
+            this.lblStatusPembayaran.Size = new System.Drawing.Size(208, 25);
+            this.lblStatusPembayaran.TabIndex = 0;
+            this.lblStatusPembayaran.Text = "Status Pembayaran:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(142, 26);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(208, 25);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Status Pembayaran:";
+            // 
+            // roundedPanel4
+            // 
+            this.roundedPanel4.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel4.BorderColor = System.Drawing.Color.Black;
+            this.roundedPanel4.Controls.Add(this.pictureBox4);
+            this.roundedPanel4.Controls.Add(this.lblDurasiPenempatan);
+            this.roundedPanel4.Controls.Add(this.label8);
+            this.roundedPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(244)))), ((int)(((byte)(228)))));
+            this.roundedPanel4.Location = new System.Drawing.Point(24, 35);
+            this.roundedPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.roundedPanel4.Name = "roundedPanel4";
+            this.roundedPanel4.Size = new System.Drawing.Size(406, 140);
+            this.roundedPanel4.TabIndex = 5;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(112, 115);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblDurasiPenempatan
+            // 
+            this.lblDurasiPenempatan.AutoSize = true;
+            this.lblDurasiPenempatan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDurasiPenempatan.Location = new System.Drawing.Point(142, 72);
+            this.lblDurasiPenempatan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDurasiPenempatan.Name = "lblDurasiPenempatan";
+            this.lblDurasiPenempatan.Size = new System.Drawing.Size(206, 25);
+            this.lblDurasiPenempatan.TabIndex = 0;
+            this.lblDurasiPenempatan.Text = "Durasi penempatan:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(142, 26);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(206, 25);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Durasi penempatan:";
+            // 
+            // panelBtnNotification
+            // 
+            this.panelBtnNotification.BackColor = System.Drawing.Color.Transparent;
+            this.panelBtnNotification.BorderColor = System.Drawing.Color.Black;
+            this.panelBtnNotification.BorderRadius = 90;
+            this.panelBtnNotification.Controls.Add(this.markNewNotication);
+            this.panelBtnNotification.Controls.Add(this.label10);
+            this.panelBtnNotification.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
+            this.panelBtnNotification.Location = new System.Drawing.Point(1278, 15);
+            this.panelBtnNotification.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelBtnNotification.Name = "panelBtnNotification";
+            this.panelBtnNotification.Size = new System.Drawing.Size(64, 68);
+            this.panelBtnNotification.TabIndex = 2;
+            // 
+            // markNewNotication
+            // 
+            this.markNewNotication.BackColor = System.Drawing.Color.Transparent;
+            this.markNewNotication.BorderColor = System.Drawing.Color.Black;
+            this.markNewNotication.FillColor = System.Drawing.Color.Red;
+            this.markNewNotication.Location = new System.Drawing.Point(42, 0);
+            this.markNewNotication.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.markNewNotication.Name = "markNewNotication";
+            this.markNewNotication.Size = new System.Drawing.Size(22, 23);
+            this.markNewNotication.TabIndex = 11;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Enabled = false;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(12, 14);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 33);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "🔔";
             // 
             // FormUser2
             // 
@@ -1308,6 +1308,24 @@
             this.panelBtnExtendDuration.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxManageRooms)).EndInit();
             this.panelUserDashboard.ResumeLayout(false);
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
+            this.panelUserComplaint.ResumeLayout(false);
+            this.panelDaftarTamu.ResumeLayout(false);
+            this.panelDaftarTamu.PerformLayout();
+            this.panelExtendDuration.ResumeLayout(false);
+            this.panelTagihan.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.roundedPanel7.ResumeLayout(false);
+            this.roundedPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
+            this.roundedPanel8.ResumeLayout(false);
+            this.roundedPanel8.PerformLayout();
+            this.roundedPanel2.ResumeLayout(false);
+            this.roundedPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.roundedPanel9.ResumeLayout(false);
             this.roundedPanel9.PerformLayout();
             this.roundedPanel3.ResumeLayout(false);
@@ -1322,26 +1340,8 @@
             this.roundedPanel4.ResumeLayout(false);
             this.roundedPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
             this.panelBtnNotification.ResumeLayout(false);
             this.panelBtnNotification.PerformLayout();
-            this.panelUserComplaint.ResumeLayout(false);
-            this.roundedPanel2.ResumeLayout(false);
-            this.roundedPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelDaftarTamu.ResumeLayout(false);
-            this.panelDaftarTamu.PerformLayout();
-            this.roundedPanel8.ResumeLayout(false);
-            this.roundedPanel8.PerformLayout();
-            this.panelExtendDuration.ResumeLayout(false);
-            this.roundedPanel7.ResumeLayout(false);
-            this.roundedPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.roundedPanel1.ResumeLayout(false);
-            this.roundedPanel1.PerformLayout();
-            this.panelTagihan.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

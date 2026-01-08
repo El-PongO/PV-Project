@@ -360,7 +360,7 @@ namespace Projek_PV
                     conn.Open();
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@user", id_user);
+                        cmd.Parameters.AddWithValue("@user", id_tenant);
                         cmd.Parameters.AddWithValue("@cat", comboKategoriComplaint.Text);
                         cmd.Parameters.AddWithValue("@desc", tbDeskripsiComplaint.Text);
 
