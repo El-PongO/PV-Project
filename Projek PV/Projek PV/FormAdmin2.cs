@@ -370,7 +370,7 @@ namespace Projek_PV
 
             panelListrik.Location = new Point(230, 82);
             panelListrik.Size = new Size(1000, 600);
-            lblHeader.Text = "Listrik Tenant";
+            lblHeader.Text = "Manage Tenant Guests";
             LoadGuestLogs();
         }
         private void CreateRoomCard(string roomNumber, string roomType, decimal price, string status, string facilities)
@@ -599,11 +599,11 @@ namespace Projek_PV
             flowLayoutPanelListrik.Controls.Add(card);
         }
 
-        private void CreateGuestCard(string guestName, string tenantName, DateTime visitDate, TimeSpan arrivalTime, string purpose)
+        private void CreateGuestCard(int guestId, string guestName, string tenantName, DateTime visitDate, TimeSpan arrivalTime, DateTime? checkoutAt, string purpose)
         {
             RoundedPanel card = new RoundedPanel();
             card.Width = 260;
-            card.Height = 170;
+            card.Height = 180;
             card.Margin = new Padding(5, 10, 10, 10);
             card.BorderColor = SystemColors.Control;
 
@@ -626,7 +626,10 @@ namespace Projek_PV
 
             // DATE & TIME
             Label lblDateTime = new Label();
-            lblDateTime.Text = $"{visitDate:dd MMM yyyy} • {arrivalTime:hh\\:mm}";
+            lblDateTime.Text = checkoutAt == null
+                ? $"{visitDate:dd MMM yyyy} • Masuk {arrivalTime:hh\\:mm}"
+                : $"{visitDate:dd MMM yyyy} • {arrivalTime:hh\\:mm} - {checkoutAt.Value:HH:mm}";
+
             lblDateTime.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             lblDateTime.Location = new Point(10, 65);
             lblDateTime.AutoSize = true;
@@ -635,8 +638,8 @@ namespace Projek_PV
             // PURPOSE
             Label lblPurpose = new Label();
             lblPurpose.Text = string.IsNullOrWhiteSpace(purpose)
-                ? "Tanpa keterangan"
-                : purpose;
+                ? "Tujuan visit: -"
+                : "Tujuan visit: " + purpose;
 
             lblPurpose.Font = new Font("Segoe UI", 9);
             lblPurpose.Location = new Point(10, 95);
@@ -644,8 +647,48 @@ namespace Projek_PV
             lblPurpose.AutoSize = true;
             card.Controls.Add(lblPurpose);
 
+            // CHECKOUT BUTTON (hanya kalau belum checkout)
+            if (checkoutAt == null)
+            {
+                Button btnCheckout = new Button();
+                btnCheckout.Text = "Checkout";
+                btnCheckout.Width = 85;
+                btnCheckout.Height = 32;
+                btnCheckout.Location = new Point(card.Width - 95, card.Height - 45);
+
+                btnCheckout.Click += (s, e) =>
+                {
+                    if (MessageBox.Show(
+                        "Checkout guest ini?",
+                        "Konfirmasi",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        CheckoutGuest(guestId);
+                        LoadGuestLogs();
+                    }
+                };
+
+                card.Controls.Add(btnCheckout);
+            }
+
+            // CHECKOUT TIME (hanya jika sudah checkout)
+            if (checkoutAt != null)
+            {
+                Label lblCheckout = new Label();
+                lblCheckout.Text = "Checkout jam: " + checkoutAt.Value.ToString("HH:mm");
+                lblCheckout.Font = new Font("Segoe UI", 9, FontStyle.Italic);
+                lblCheckout.ForeColor = Color.DimGray;
+                lblCheckout.Location = new Point(10, lblPurpose.Bottom + 5);
+                lblCheckout.AutoSize = true;
+
+                card.Controls.Add(lblCheckout);
+            }
+
+
             flowLayoutPanelGuestLog.Controls.Add(card);
         }
+
 
         private void LoadGuestLogs()
         {
@@ -658,16 +701,18 @@ namespace Projek_PV
                     conn.Open();
 
                     string query = @"
-                SELECT 
-                    g.guest_name,
-                    g.visit_date,
-                    g.arrival_time,
-                    g.purpose,
-                    t.full_name AS tenant_name
-                FROM guest_logs g
-                JOIN tenants t ON g.tenant_id = t.tenant_id
-                ORDER BY g.created_at DESC
-            ";
+                    SELECT 
+                        g.guest_id,
+                        g.guest_name,
+                        g.visit_date,
+                        g.arrival_time,
+                        g.checkout_at,
+                        g.purpose,
+                        t.full_name AS tenant_name
+                    FROM guest_logs g
+                    JOIN tenants t ON g.tenant_id = t.tenant_id
+                    ORDER BY g.created_at DESC;
+                    ";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -675,12 +720,17 @@ namespace Projek_PV
                         while (reader.Read())
                         {
                             CreateGuestCard(
+                                Convert.ToInt32(reader["guest_id"]),
                                 reader["guest_name"].ToString(),
                                 reader["tenant_name"].ToString(),
                                 Convert.ToDateTime(reader["visit_date"]),
                                 (TimeSpan)reader["arrival_time"],
+                                reader["checkout_at"] == DBNull.Value
+                                    ? (DateTime?)null
+                                    : Convert.ToDateTime(reader["checkout_at"]),
                                 reader["purpose"]?.ToString()
                             );
+
                         }
                     }
                 }
@@ -690,8 +740,6 @@ namespace Projek_PV
                 }
             }
         }
-
-
 
         private void UpdateAdminStatus(int billId)
         {
@@ -803,6 +851,26 @@ namespace Projek_PV
                 }
             }
         }
+
+        private void CheckoutGuest(int guestId)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = @"
+            UPDATE guest_logs
+            SET checkout_at = NOW()
+            WHERE guest_id = @id
+              AND checkout_at IS NULL";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", guestId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
 
         private void LoadDgvOverview()
         {
