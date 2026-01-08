@@ -396,7 +396,7 @@ namespace Projek_PV
                     conn.Open();
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@user", id_user);
+                        cmd.Parameters.AddWithValue("@user", id_tenant);
                         cmd.Parameters.AddWithValue("@name", tbNamaTamu.Text);
                         cmd.Parameters.AddWithValue("@date", dateTimeKunjunganTamu.Value.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@time", comboJamTamu.Text);
