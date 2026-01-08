@@ -62,6 +62,7 @@
             this.panelManage = new System.Windows.Forms.Panel();
             this.dgvManage = new System.Windows.Forms.DataGridView();
             this.panelFill = new System.Windows.Forms.Panel();
+            this.comboDurationFill = new System.Windows.Forms.NumericUpDown();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.cbConfirmData = new System.Windows.Forms.CheckBox();
@@ -132,6 +133,11 @@
             this.panelListrik = new System.Windows.Forms.Panel();
             this.flowLayoutPanelListrik = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
+            this.panelBtnGuestLog = new System.Windows.Forms.Panel();
+            this.labelGuestLog = new System.Windows.Forms.Label();
+            this.pictureBoxGuestLog = new System.Windows.Forms.PictureBox();
+            this.panelGuestLog = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelGuestLog = new System.Windows.Forms.FlowLayoutPanel();
             this.roundedPanelRoomInformation = new RoundedPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -180,7 +186,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.comboDurationFill = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panelBtnListrik.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxListrik)).BeginInit();
@@ -204,6 +209,7 @@
             this.panelManage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).BeginInit();
             this.panelFill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboDurationFill)).BeginInit();
             this.gbOccupant2Fill.SuspendLayout();
             this.gbOcccupant1Fill.SuspendLayout();
             this.panelPenghunidanTagihan.SuspendLayout();
@@ -216,6 +222,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).BeginInit();
             this.panelKamar.SuspendLayout();
             this.panelListrik.SuspendLayout();
+            this.panelBtnGuestLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).BeginInit();
+            this.panelGuestLog.SuspendLayout();
             this.roundedPanelRoomInformation.SuspendLayout();
             this.roundedPanelOccupant2.SuspendLayout();
             this.roundedPanelOccupant1.SuspendLayout();
@@ -227,12 +236,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.roundedPanelLaporanBaru.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboDurationFill)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.panelBtnGuestLog);
             this.panel1.Controls.Add(this.panelBtnListrik);
             this.panel1.Controls.Add(this.panelBtnPendapatan);
             this.panel1.Controls.Add(this.panelBtnLogout);
@@ -329,7 +338,7 @@
             this.panelBtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnLogout.Controls.Add(this.pictureBox1);
             this.panelBtnLogout.Controls.Add(this.labelUserLogout);
-            this.panelBtnLogout.Location = new System.Drawing.Point(4, 626);
+            this.panelBtnLogout.Location = new System.Drawing.Point(4, 640);
             this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnLogout.Name = "panelBtnLogout";
             this.panelBtnLogout.Size = new System.Drawing.Size(295, 54);
@@ -609,10 +618,10 @@
             this.panelManage.Controls.Add(this.roundedPanelOccupant2);
             this.panelManage.Controls.Add(this.roundedPanelOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
-            this.panelManage.Location = new System.Drawing.Point(1290, 164);
+            this.panelManage.Location = new System.Drawing.Point(1655, 106);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelManage.Name = "panelManage";
-            this.panelManage.Size = new System.Drawing.Size(115, 129);
+            this.panelManage.Size = new System.Drawing.Size(75, 71);
             this.panelManage.TabIndex = 1;
             // 
             // dgvManage
@@ -650,11 +659,33 @@
             this.panelFill.Controls.Add(this.label29);
             this.panelFill.Controls.Add(this.gbOccupant2Fill);
             this.panelFill.Controls.Add(this.gbOcccupant1Fill);
-            this.panelFill.Location = new System.Drawing.Point(309, 120);
+            this.panelFill.Location = new System.Drawing.Point(1532, 5);
             this.panelFill.Margin = new System.Windows.Forms.Padding(5);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(922, 853);
+            this.panelFill.Size = new System.Drawing.Size(109, 87);
             this.panelFill.TabIndex = 3;
+            // 
+            // comboDurationFill
+            // 
+            this.comboDurationFill.Location = new System.Drawing.Point(256, 615);
+            this.comboDurationFill.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.comboDurationFill.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.comboDurationFill.Name = "comboDurationFill";
+            this.comboDurationFill.Size = new System.Drawing.Size(189, 22);
+            this.comboDurationFill.TabIndex = 27;
+            this.comboDurationFill.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // checkBox4
             // 
@@ -1438,6 +1469,58 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Daftar Listrik Tenant";
             // 
+            // panelBtnGuestLog
+            // 
+            this.panelBtnGuestLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnGuestLog.Controls.Add(this.labelGuestLog);
+            this.panelBtnGuestLog.Controls.Add(this.pictureBoxGuestLog);
+            this.panelBtnGuestLog.Location = new System.Drawing.Point(4, 556);
+            this.panelBtnGuestLog.Margin = new System.Windows.Forms.Padding(4);
+            this.panelBtnGuestLog.Name = "panelBtnGuestLog";
+            this.panelBtnGuestLog.Size = new System.Drawing.Size(295, 54);
+            this.panelBtnGuestLog.TabIndex = 9;
+            this.panelBtnGuestLog.Click += new System.EventHandler(this.NavBar_GuestLog_Click);
+            // 
+            // labelGuestLog
+            // 
+            this.labelGuestLog.AutoSize = true;
+            this.labelGuestLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGuestLog.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelGuestLog.Location = new System.Drawing.Point(39, 11);
+            this.labelGuestLog.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGuestLog.Name = "labelGuestLog";
+            this.labelGuestLog.Size = new System.Drawing.Size(111, 25);
+            this.labelGuestLog.TabIndex = 0;
+            this.labelGuestLog.Text = "Guest Log";
+            this.labelGuestLog.Click += new System.EventHandler(this.NavBar_GuestLog_Click);
+            // 
+            // pictureBoxGuestLog
+            // 
+            this.pictureBoxGuestLog.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGuestLog.Image")));
+            this.pictureBoxGuestLog.Location = new System.Drawing.Point(12, 11);
+            this.pictureBoxGuestLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxGuestLog.Name = "pictureBoxGuestLog";
+            this.pictureBoxGuestLog.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxGuestLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGuestLog.TabIndex = 6;
+            this.pictureBoxGuestLog.TabStop = false;
+            this.pictureBoxGuestLog.Click += new System.EventHandler(this.NavBar_GuestLog_Click);
+            // 
+            // panelGuestLog
+            // 
+            this.panelGuestLog.Controls.Add(this.flowLayoutPanelGuestLog);
+            this.panelGuestLog.Location = new System.Drawing.Point(307, 120);
+            this.panelGuestLog.Name = "panelGuestLog";
+            this.panelGuestLog.Size = new System.Drawing.Size(1201, 517);
+            this.panelGuestLog.TabIndex = 16;
+            // 
+            // flowLayoutPanelGuestLog
+            // 
+            this.flowLayoutPanelGuestLog.Location = new System.Drawing.Point(13, 37);
+            this.flowLayoutPanelGuestLog.Name = "flowLayoutPanelGuestLog";
+            this.flowLayoutPanelGuestLog.Size = new System.Drawing.Size(1168, 465);
+            this.flowLayoutPanelGuestLog.TabIndex = 0;
+            // 
             // roundedPanelRoomInformation
             // 
             this.roundedPanelRoomInformation.BackColor = System.Drawing.Color.Transparent;
@@ -1991,34 +2074,13 @@
             this.label46.TabIndex = 1;
             this.label46.Text = "0";
             // 
-            // comboDurationFill
-            // 
-            this.comboDurationFill.Location = new System.Drawing.Point(256, 615);
-            this.comboDurationFill.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.comboDurationFill.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.comboDurationFill.Name = "comboDurationFill";
-            this.comboDurationFill.Size = new System.Drawing.Size(189, 22);
-            this.comboDurationFill.TabIndex = 27;
-            this.comboDurationFill.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.panelGuestLog);
             this.Controls.Add(this.panelListrik);
             this.Controls.Add(this.panelKamar);
             this.Controls.Add(this.flowLayoutPanelPendapatan);
@@ -2068,6 +2130,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).EndInit();
             this.panelFill.ResumeLayout(false);
             this.panelFill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboDurationFill)).EndInit();
             this.gbOccupant2Fill.ResumeLayout(false);
             this.gbOccupant2Fill.PerformLayout();
             this.gbOcccupant1Fill.ResumeLayout(false);
@@ -2087,6 +2150,10 @@
             this.panelKamar.PerformLayout();
             this.panelListrik.ResumeLayout(false);
             this.panelListrik.PerformLayout();
+            this.panelBtnGuestLog.ResumeLayout(false);
+            this.panelBtnGuestLog.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).EndInit();
+            this.panelGuestLog.ResumeLayout(false);
             this.roundedPanelRoomInformation.ResumeLayout(false);
             this.roundedPanelRoomInformation.PerformLayout();
             this.roundedPanelOccupant2.ResumeLayout(false);
@@ -2105,7 +2172,6 @@
             this.roundedPanelLaporanBaru.ResumeLayout(false);
             this.roundedPanelLaporanBaru.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboDurationFill)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2264,5 +2330,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.NumericUpDown comboDurationFill;
+        private System.Windows.Forms.Panel panelBtnGuestLog;
+        private System.Windows.Forms.Label labelGuestLog;
+        private System.Windows.Forms.PictureBox pictureBoxGuestLog;
+        private System.Windows.Forms.Panel panelGuestLog;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelGuestLog;
     }
 }

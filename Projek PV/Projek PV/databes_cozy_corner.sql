@@ -27,12 +27,13 @@ CREATE TABLE `announcements` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `is_active` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `announcements` */
 
 insert  into `announcements`(`id`,`title`,`content`,`created_at`,`is_active`) values 
-(1,'tes','mantap','2025-12-20 19:42:31',1);
+(1,'tes','mantap','2025-12-20 19:42:31',1),
+(2,'halob bang','fedrian sinting','2026-01-08 13:43:33',1);
 
 /*Table structure for table `complaints` */
 
@@ -50,12 +51,46 @@ CREATE TABLE `complaints` (
   PRIMARY KEY (`complaint_id`),
   KEY `tenant_id` (`tenant_id`),
   CONSTRAINT `complaints_ibfk_1` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `complaints` */
 
 insert  into `complaints`(`complaint_id`,`tenant_id`,`category`,`description`,`admin_reply`,`status`,`created_at`,`reply_at`) values 
-(1,2,'pembayaran','tees ini aku','akan kami usahakan','Menunggu','2025-12-20 19:37:11','2025-12-23 20:16:55');
+(9,28,'other','asdsaf',NULL,'Menunggu','2026-01-08 15:44:08',NULL),
+(13,29,'pembayaran','uang ku ilang',NULL,'Menunggu','2026-01-08 15:50:08',NULL),
+(14,29,'pembayaran','meow',NULL,'Menunggu','2026-01-08 15:56:47',NULL),
+(15,29,'kebersihan','meow',NULL,'Menunggu','2026-01-08 15:56:55',NULL),
+(16,29,'facilitas','acku rusak',NULL,'Menunggu','2026-01-08 16:04:32',NULL),
+(17,28,'keamanan','cdascs',NULL,'Menunggu','2026-01-08 16:16:17',NULL);
+
+/*Table structure for table `extensions` */
+
+DROP TABLE IF EXISTS `extensions`;
+
+CREATE TABLE `extensions` (
+  `extension_id` int NOT NULL AUTO_INCREMENT,
+  `lease_id` int NOT NULL,
+  `previous_end_date` date NOT NULL,
+  `new_end_date` date NOT NULL,
+  `duration_months` int NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `payment_method` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` enum('Pending','Approved','Rejected','Paid') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Pending',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `approved_at` datetime DEFAULT NULL,
+  `transaction_id` int DEFAULT NULL,
+  PRIMARY KEY (`extension_id`),
+  KEY `lease_id` (`lease_id`),
+  KEY `fk_ext_transaction` (`transaction_id`),
+  CONSTRAINT `extensions_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`),
+  CONSTRAINT `fk_ext_transaction` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`transaction_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `extensions` */
+
+insert  into `extensions`(`extension_id`,`lease_id`,`previous_end_date`,`new_end_date`,`duration_months`,`amount`,`payment_method`,`status`,`created_at`,`approved_at`,`transaction_id`) values 
+(5,23,'2026-07-08','2026-10-08',3,6000000.00,'Transfer Akun','Paid','2026-01-08 14:38:43',NULL,15),
+(6,23,'2026-07-08','2026-10-08',3,6000000.00,'Qris','Paid','2026-01-08 14:51:02',NULL,16);
 
 /*Table structure for table `guest_logs` */
 
@@ -72,12 +107,35 @@ CREATE TABLE `guest_logs` (
   PRIMARY KEY (`guest_id`),
   KEY `tenant_id` (`tenant_id`),
   CONSTRAINT `guest_logs_ibfk_1` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `guest_logs` */
 
 insert  into `guest_logs`(`guest_id`,`tenant_id`,`guest_name`,`visit_date`,`arrival_time`,`purpose`,`created_at`) values 
-(1,2,'fer','2025-12-21','16:00:00','ferfer','2025-12-20 20:03:50');
+(1,2,'fer','2025-12-21','16:00:00','ferfer','2025-12-20 20:03:50'),
+(3,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:40'),
+(4,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:43'),
+(5,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:51'),
+(6,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:51'),
+(7,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:52'),
+(8,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
+(9,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
+(10,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
+(11,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
+(12,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
+(13,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
+(14,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
+(15,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
+(16,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
+(17,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
+(18,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
+(19,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
+(20,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
+(21,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
+(22,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
+(23,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
+(24,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
+(25,28,'cdv','2026-01-10','09:00:00','ZXZ','2026-01-08 16:16:32');
 
 /*Table structure for table `leases` */
 
@@ -94,18 +152,44 @@ CREATE TABLE `leases` (
   `duration_months` int DEFAULT '1',
   `status` enum('Active','Expired','Cancelled') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Active',
   `usingVoucher` tinyint(1) NOT NULL DEFAULT '0',
+  `rent_due` date DEFAULT NULL,
   PRIMARY KEY (`lease_id`),
   KEY `room_id` (`room_id`),
   KEY `tenant_id` (`tenant_id`),
   CONSTRAINT `leases_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`),
   CONSTRAINT `leases_ibfk_2` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `leases` */
 
-insert  into `leases`(`lease_id`,`room_id`,`tenant_id`,`tenant_count`,`rent_price`,`start_date`,`end_date`,`duration_months`,`status`,`usingVoucher`) values 
-(1,1,1,1,1500000.00,'2025-12-01','2026-01-01',1,'Active',0),
-(2,2,2,2,2000000.00,'2025-12-01','2026-01-01',1,'Active',0);
+insert  into `leases`(`lease_id`,`room_id`,`tenant_id`,`tenant_count`,`rent_price`,`start_date`,`end_date`,`duration_months`,`status`,`usingVoucher`,`rent_due`) values 
+(1,1,1,1,2200000.00,'2025-07-05','2026-01-05',1,'Expired',1,NULL),
+(2,2,2,2,2200000.00,'2025-07-20','2026-01-20',1,'Active',1,NULL),
+(4,7,7,1,1800000.00,'2025-07-12','2026-01-12',1,'Active',0,NULL),
+(5,8,8,1,2200000.00,'2025-10-04','2026-01-04',1,'Expired',1,NULL),
+(6,9,9,1,2200000.00,'2025-12-26','2026-01-26',1,'Active',1,NULL),
+(7,10,10,1,2000000.00,'2025-07-26','2026-01-01',1,'Expired',0,NULL),
+(8,11,11,1,1800000.00,'2025-07-01','2026-01-01',1,'Expired',0,NULL),
+(9,12,12,1,2200000.00,'2025-08-08','2026-01-08',1,'Active',1,NULL),
+(10,13,13,1,1800000.00,'2025-07-10','2026-01-10',1,'Active',0,NULL),
+(11,14,14,1,2200000.00,'2025-07-13','2026-01-13',1,'Active',1,NULL),
+(12,15,15,1,2000000.00,'2025-02-01','2026-01-01',1,'Expired',0,NULL),
+(13,16,16,1,2200000.00,'2025-07-14','2026-01-14',1,'Active',1,NULL),
+(14,17,17,1,1800000.00,'2025-07-25','2026-01-25',1,'Active',0,NULL),
+(15,18,18,1,1800000.00,'2025-07-07','2026-01-07',1,'Expired',0,NULL),
+(16,19,19,1,1800000.00,'2025-06-25','2026-01-25',1,'Active',0,NULL),
+(17,20,20,1,2000000.00,'2025-07-01','2026-01-26',1,'Active',0,NULL),
+(18,21,21,1,2000000.00,'2025-07-05','2026-01-05',1,'Expired',0,NULL),
+(19,22,22,1,2200000.00,'2025-05-24','2026-01-24',1,'Active',1,NULL),
+(20,23,23,1,1800000.00,'2025-07-24','2026-01-24',1,'Active',0,NULL),
+(21,24,24,1,1800000.00,'2025-11-18','2026-01-18',1,'Active',0,NULL),
+(22,25,25,1,2000000.00,'2025-07-22','2026-01-22',1,'Active',0,NULL),
+(23,29,26,1,1500000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08'),
+(24,28,27,1,2000000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08'),
+(25,30,28,1,10000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08'),
+(26,28,29,2,2600000.00,'2026-01-08','2026-07-08',6,'Active',0,NULL),
+(27,27,31,2,1950000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08'),
+(28,31,33,1,500000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08');
 
 /*Table structure for table `listrik_bills` */
 
@@ -120,14 +204,39 @@ CREATE TABLE `listrik_bills` (
   `bill_month` date NOT NULL,
   `due_date` date NOT NULL,
   `status` enum('Unpaid','Paid') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
+  `admin_status` enum('Belum Done','Done') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Belum Done',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bill_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `listrik_bills` */
 
-insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`created_at`) values 
-(1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','2026-01-02 20:00:32');
+insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`admin_status`,`created_at`) values 
+(1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','Done','2026-01-02 20:00:32'),
+(2,22,2.00,450.00,900.00,'2026-01-08','2026-01-15','Unpaid','Done','2026-01-08 14:01:55');
+
+/*Table structure for table `reminders` */
+
+DROP TABLE IF EXISTS `reminders`;
+
+CREATE TABLE `reminders` (
+  `reminder_id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Reminder bayar uang sewa',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `tenant_id` int NOT NULL,
+  PRIMARY KEY (`reminder_id`),
+  KEY `fk_reminder_tenant` (`tenant_id`),
+  CONSTRAINT `fk_reminder_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `reminders` */
+
+insert  into `reminders`(`reminder_id`,`title`,`content`,`created_at`,`tenant_id`) values 
+(1,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-04 23:42:43',1),
+(2,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 00:58:18',1),
+(3,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 14:21:13',14),
+(4,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 14:21:31',26);
 
 /*Table structure for table `rooms` */
 
@@ -136,22 +245,47 @@ DROP TABLE IF EXISTS `rooms`;
 CREATE TABLE `rooms` (
   `room_id` int NOT NULL AUTO_INCREMENT,
   `room_number` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `type` enum('Standard Non-AC','Standard AC','VIP AC') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `type` enum('Standart','Large') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `base_price` decimal(10,2) NOT NULL,
   `status` enum('Tersedia','Terisi','Perbaikan') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Tersedia',
   `facilities` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower',
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_number` (`room_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rooms` */
 
 insert  into `rooms`(`room_id`,`room_number`,`type`,`base_price`,`status`,`facilities`) values 
-(1,'101','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(2,'102','Standard AC',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(3,'103','Standard AC',1500000.00,'Tersedia','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(4,'104','Standard AC',1500003.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(5,'105','Standard Non-AC',500000.00,'Perbaikan','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower');
+(1,'1A','Large',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(2,'1C','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(3,'1D','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(4,'2A','Large',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(5,'2B','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(6,'2C','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(7,'2D','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(8,'2E','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(9,'2F','Large',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(10,'2G','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(11,'2H','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(12,'2I','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(13,'2J','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(14,'2K','Large',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(15,'3A','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(16,'3B','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(17,'3C','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(18,'3D','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(19,'3E','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(20,'3F','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(21,'3G','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(22,'3H','Standart',2200000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(23,'3I','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(24,'3J','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(25,'3K','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
+(27,'301','Standart',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(28,'302','Standart',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(29,'305','Standart',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(30,'23','Standart',10000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(31,'tess','Standart',500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower');
 
 /*Table structure for table `tenants` */
 
@@ -170,13 +304,44 @@ CREATE TABLE `tenants` (
   UNIQUE KEY `ktp_number` (`ktp_number`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `tenants_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tenants` */
 
 insert  into `tenants`(`tenant_id`,`user_id`,`full_name`,`ktp_number`,`gender`,`date_of_birth`,`phone_number`,`address`) values 
-(1,2,'Budi Santoso','1111',NULL,NULL,NULL,NULL),
-(2,3,'Siti Aminah','2222',NULL,NULL,NULL,NULL);
+(1,2,'Bisnis Ferry 1','1111','Laki-laki','1998-01-12','081234567801',NULL),
+(2,3,'Bisnis Steven','2222','Laki-laki','2000-01-20','081234567802',NULL),
+(3,4,'Bisnis Ferry 2','3333','Laki-laki','2001-01-01','081234567803',NULL),
+(4,5,'Bisnis Ferry 3','4444','Laki-laki','1987-01-18','081234567804',NULL),
+(5,28,'Tania','4445','Perempuan','1998-09-22','081234567805',NULL),
+(6,29,'Bisnis Ferry 7','4446','Laki-laki','1986-04-30','081234567806',NULL),
+(7,30,'Herni','4447','Perempuan','1992-06-14','081234567807',NULL),
+(8,31,'Bisnis Ferry 9','4448','Laki-laki','1984-12-09','081234567808',NULL),
+(9,32,'Bisnis Ferry 10','4449','Laki-laki','1983-08-01','081234567809',NULL),
+(10,33,'Sabila Rossi','4450','Perempuan','1999-10-17','081234567810',NULL),
+(11,34,'Anggit','4451','Laki-laki','1996-02-25','081234567811',NULL),
+(12,35,'Bisnis Ferry 8','4452','Laki-laki','1989-05-03','081234567812',NULL),
+(13,36,'Nella Ariviana','4453','Perempuan','1997-07-11','081234567813',NULL),
+(14,37,'Bisnis Ferry 6','4454','Laki-laki','1990-01-27','081234567814',NULL),
+(15,38,'Asyih','4455','Perempuan','1994-04-08','081234567815',NULL),
+(16,39,'Bisnis Ferry','4456','Laki-laki','1982-09-19','081234567816',NULL),
+(17,40,'Tan Nriel','4457','Laki-laki','1993-03-06','081234567817',NULL),
+(18,41,'Andreas','4458','Laki-laki','1991-11-23','081234567818',NULL),
+(19,42,'Ryan','4459','Laki-laki','1998-05-15','081234567819',NULL),
+(20,43,'Renny','4460','Perempuan','1996-12-02','081234567820',NULL),
+(21,44,'Reyhan','4461','Laki-laki','1995-08-28','081234567821',NULL),
+(22,45,'Bisnis Meme VIP','4462','Laki-laki','1980-06-10','081234567822',NULL),
+(23,46,'Monika','4463','Perempuan','1997-01-04','081234567823',NULL),
+(24,47,'Chris','4464','Laki-laki','1992-10-13','081234567824',NULL),
+(25,48,'Mahardika','4465','Laki-laki','1989-02-21','081234567825',NULL),
+(26,49,'benoyy','123456890','Laki-laki','2021-01-08',NULL,'ngagel tengah  jauya'),
+(27,50,'keset','123213123','Perempuan','2026-01-08',NULL,'lumba'),
+(28,51,'fer','123','Perempuan','2026-01-08',NULL,'1235'),
+(29,52,'bening','2241173','Laki-laki','2026-01-08',NULL,'manyar'),
+(30,52,'renat','2241234','Perempuan','2026-01-08',NULL,'kenjeran'),
+(31,53,'user1','qswqwsedf','Perempuan','2026-01-08',NULL,'descfv cfdx'),
+(32,53,'user22','123e456789i','Perempuan','2026-01-08',NULL,'zsxdcfv cdxcfcx'),
+(33,54,'ocuup1','szaxdcvgh m','Laki-laki','2026-01-01',NULL,'azsxecvgbh n');
 
 /*Table structure for table `transactions` */
 
@@ -192,26 +357,38 @@ CREATE TABLE `transactions` (
   `payment_method` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` enum('Pending','Paid','Failed') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Pending',
   `category` enum('rent','electricity','damages') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `payment_due_by` datetime DEFAULT NULL,
   PRIMARY KEY (`transaction_id`),
   KEY `lease_id` (`lease_id`),
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `transactions` */
 
-insert  into `transactions`(`transaction_id`,`lease_id`,`transaction_date`,`description`,`discount`,`amount`,`payment_method`,`status`,`category`) values 
-(1,1,'2026-01-02 13:13:13','Pembayaran sewa Januari',NULL,1500000.00,'Transfer','Paid','rent'),
-(2,1,'2026-01-02 13:13:18','Pembayaran listrik Januari',NULL,230000.00,'QRIS','Paid','electricity'),
-(3,2,'2026-01-02 13:13:24','Ganti rugi kaca pecah',NULL,80000.00,'Cash','Paid','damages'),
-(4,1,'2026-01-02 16:06:28','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
-(5,1,'2026-01-02 16:19:16','Perpanjangan sewa 8 bulan',NULL,12000000.00,'Transfer Akun','Pending','rent'),
-(6,1,'2026-01-02 16:20:14','Perpanjangan sewa 2 bulan',NULL,3000000.00,'Tunai (Bayar di Kantor)','Pending','rent'),
-(7,1,'2026-01-02 16:22:05','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Transfer Akun','Pending','rent'),
-(8,1,'2026-01-02 16:22:47','Perpanjangan sewa 1 bulan',NULL,1500000.00,'Transfer Akun','Pending','rent'),
-(9,1,'2026-01-02 16:51:05','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
-(10,1,'2026-01-02 16:53:25','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent'),
-(11,1,'2026-01-02 17:24:15','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Tunai (Bayar di Kantor)','Pending','rent'),
-(12,1,'2026-01-02 17:31:11','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Transfer Akun','Pending','rent');
+insert  into `transactions`(`transaction_id`,`lease_id`,`transaction_date`,`description`,`discount`,`amount`,`payment_method`,`status`,`category`,`payment_due_by`) values 
+(1,1,'2026-01-02 13:13:13','Pembayaran sewa Januari',NULL,1500000.00,'Transfer','Paid','rent',NULL),
+(2,1,'2026-01-02 13:13:18','Pembayaran listrik Januari',NULL,230000.00,'QRIS','Paid','electricity',NULL),
+(3,2,'2026-01-02 13:13:24','Ganti rugi kaca pecah',NULL,80000.00,'Cash','Pending','damages',NULL),
+(4,1,'2026-01-02 16:06:28','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent',NULL),
+(5,1,'2026-01-02 16:19:16','Perpanjangan sewa 8 bulan',NULL,12000000.00,'Transfer Akun','Pending','rent',NULL),
+(6,1,'2026-01-02 16:20:14','Perpanjangan sewa 2 bulan',NULL,3000000.00,'Tunai (Bayar di Kantor)','Pending','rent',NULL),
+(7,1,'2026-01-02 16:22:05','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Transfer Akun','Pending','rent',NULL),
+(8,1,'2026-01-02 16:22:47','Perpanjangan sewa 1 bulan',NULL,1500000.00,'Transfer Akun','Pending','rent',NULL),
+(9,1,'2026-01-02 16:51:05','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent',NULL),
+(10,1,'2026-01-02 16:53:25','Perpanjangan sewa 4 bulan',NULL,6000000.00,'Transfer Akun','Pending','rent',NULL),
+(11,1,'2026-01-02 17:24:15','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Tunai (Bayar di Kantor)','Pending','rent',NULL),
+(12,1,'2026-01-02 17:31:11','Perpanjangan sewa 3 bulan',NULL,4500000.00,'Transfer Akun','Paid','rent',NULL),
+(13,22,'2026-01-08 14:01:55','Pembelian Token Listrik',NULL,900.00,'Qris','Paid','electricity',NULL),
+(14,23,'2026-01-08 14:23:39','Perpanjangan sewa 4 bulan',NULL,8000000.00,'Qris','Paid','rent',NULL),
+(15,23,'2026-01-08 14:38:43','Perpanjangan sewa 3 bulan',NULL,6000000.00,'Transfer Akun','Paid','rent',NULL),
+(16,23,'2026-01-08 14:51:02','Perpanjangan sewa 3 bulan',NULL,6000000.00,'Qris','Paid','rent',NULL),
+(17,25,'2026-01-08 14:55:56','Pembayaran Sewa Bulan Pertama',NULL,10000.00,NULL,'Pending','rent',NULL),
+(18,25,'2026-01-08 14:55:56','Deposit / Uang Jaminan',NULL,1800000.00,NULL,'Paid','rent',NULL),
+(19,9,'2026-01-08 16:01:09','Tagihan Sewa Bulan January 2026',NULL,2200000.00,NULL,'Pending','rent',NULL),
+(20,27,'2026-01-08 22:07:58','Pembayaran Sewa Bulan Pertama',NULL,1950000.00,NULL,'Pending','rent',NULL),
+(21,27,'2026-01-08 22:07:58','Deposit / Uang Jaminan',NULL,1800000.00,NULL,'Paid','rent',NULL),
+(22,28,'2026-01-08 22:13:09','Pembayaran Sewa Bulan Pertama',NULL,500000.00,NULL,'Pending','rent',NULL),
+(23,28,'2026-01-08 22:13:09','Deposit / Uang Jaminan',NULL,1800000.00,NULL,'Paid','rent',NULL);
 
 /*Table structure for table `users` */
 
@@ -225,14 +402,135 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`user_id`,`username`,`password`,`role`,`created_at`) values 
 (1,'Admin','123','admin','2025-12-20 19:21:35'),
-(2,'Budi','123','tenant','2025-12-20 19:21:35'),
-(3,'Siti','123','tenant','2025-12-20 19:21:35');
+(2,'kamar1A','123','tenant','2025-12-20 19:21:35'),
+(3,'kamar1C','123','tenant','2025-12-20 19:21:35'),
+(4,'kamar1D','123','tenant','2026-01-07 21:22:41'),
+(5,'kamar2A','123','tenant','2026-01-07 21:23:01'),
+(28,'kamar2B','123','tenant','2026-01-07 21:30:00'),
+(29,'kamar2C','123','tenant','2026-01-07 21:30:00'),
+(30,'kamar2D','123','tenant','2026-01-07 21:30:00'),
+(31,'kamar2E','123','tenant','2026-01-07 21:30:00'),
+(32,'kamar2F','123','tenant','2026-01-07 21:30:00'),
+(33,'kamar2G','123','tenant','2026-01-07 21:30:00'),
+(34,'kamar2H','123','tenant','2026-01-07 21:30:00'),
+(35,'kamar2I','123','tenant','2026-01-07 21:30:00'),
+(36,'kamar2J','123','tenant','2026-01-07 21:30:00'),
+(37,'kamar2K','123','tenant','2026-01-07 21:30:00'),
+(38,'kamar3A','123','tenant','2026-01-07 21:30:00'),
+(39,'kamar3B','123','tenant','2026-01-07 21:30:00'),
+(40,'kamar3C','123','tenant','2026-01-07 21:30:00'),
+(41,'kamar3D','123','tenant','2026-01-07 21:30:00'),
+(42,'kamar3E','123','tenant','2026-01-07 21:30:00'),
+(43,'kamar3F','123','tenant','2026-01-07 21:30:00'),
+(44,'kamar3G','123','tenant','2026-01-07 21:30:00'),
+(45,'kamar3H','123','tenant','2026-01-07 21:30:00'),
+(46,'kamar3I','123','tenant','2026-01-07 21:30:00'),
+(47,'kamar3J','123','tenant','2026-01-07 21:30:00'),
+(48,'kamar3K','123','tenant','2026-01-07 21:30:00'),
+(49,'benoyy','123','tenant','2026-01-08 14:14:18'),
+(50,'keset','123','tenant','2026-01-08 14:37:17'),
+(51,'fer','123','tenant','2026-01-08 14:55:56'),
+(52,'bening','123','tenant','2026-01-08 15:19:54'),
+(53,'user1','123','tenant','2026-01-08 22:07:58'),
+(54,'ocuup1','123','tenant','2026-01-08 22:13:09');
+
+/*!50106 set global event_scheduler = 1*/;
+
+/* Event structure for event `auto_expire_leases` */
+
+/*!50106 DROP EVENT IF EXISTS `auto_expire_leases`*/;
+
+DELIMITER $$
+
+/*!50106 CREATE DEFINER=`root`@`localhost` EVENT `auto_expire_leases` ON SCHEDULE EVERY 1 DAY STARTS '2026-01-08 13:34:03' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+    UPDATE `leases` 
+    SET `status` = 'Expired' 
+    WHERE `end_date` < CURDATE() 
+    AND `status` = 'Active';
+END */$$
+DELIMITER ;
+
+/* Event structure for event `auto_fail_overdue_transactions` */
+
+/*!50106 DROP EVENT IF EXISTS `auto_fail_overdue_transactions`*/;
+
+DELIMITER $$
+
+/*!50106 CREATE DEFINER=`root`@`%` EVENT `auto_fail_overdue_transactions` ON SCHEDULE EVERY 1 DAY STARTS '2026-01-08 15:04:35' ON COMPLETION PRESERVE ENABLE COMMENT 'Automatically sets transaction status to Failed when payment_due_by date has passed' DO BEGIN
+    -- Update transactions that are overdue and still in Pending status
+    UPDATE `transactions` 
+    SET `status` = 'Failed' 
+    WHERE `payment_due_by` < NOW() 
+    AND `status` = 'Pending'
+    AND `payment_due_by` IS NOT NULL;
+END */$$
+DELIMITER ;
+
+/* Event structure for event `auto_generate_rent_bill` */
+
+/*!50106 DROP EVENT IF EXISTS `auto_generate_rent_bill`*/;
+
+DELIMITER $$
+
+/*!50106 CREATE DEFINER=`root`@`%` EVENT `auto_generate_rent_bill` ON SCHEDULE EVERY 1 DAY STARTS '2026-01-08 16:01:09' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+    INSERT INTO `transactions` (
+        `lease_id`, 
+        `transaction_date`, 
+        `description`, 
+        `amount`, 
+        `payment_method`, 
+        `status`, 
+        `category`
+    )
+    SELECT 
+        l.lease_id,
+        NOW(),
+        /* Membuat deskripsi otomatis, misal: "Tagihan Sewa Bulan January 2026" */
+        CONCAT('Tagihan Sewa Bulan ', MONTHNAME(CURDATE()), ' ', YEAR(CURDATE())), 
+        l.rent_price,
+        NULL,           -- Payment method kosong dulu karena belum bayar
+        'Pending',      -- Status Pending (Tagihan Baru)
+        'rent'          -- Kategori Sewa
+    FROM `leases` l
+    WHERE l.status = 'Active'
+    
+    /* 1. Cek Tanggal: Apakah tanggal mulai sewa (tgl 15) sama dengan hari ini (tgl 15)? */
+    AND DAY(l.start_date) = DAY(CURDATE())
+    
+    /* 2. Jangan tagih di hari pertama sewa (Asumsi bulan pertama bayar manual/DP di awal) */
+    AND l.start_date < CURDATE()
+    
+    /* 3. Mencegah Double: Cek apakah tagihan 'rent' bulan ini sudah dibuat? */
+    AND NOT EXISTS (
+        SELECT 1 FROM `transactions` t
+        WHERE t.lease_id = l.lease_id 
+        AND t.category = 'rent'
+        AND MONTH(t.transaction_date) = MONTH(CURDATE()) 
+        AND YEAR(t.transaction_date) = YEAR(CURDATE())
+    );
+END */$$
+DELIMITER ;
+
+/* Event structure for event `auto_update_rent_due_date` */
+
+/*!50106 DROP EVENT IF EXISTS `auto_update_rent_due_date`*/;
+
+DELIMITER $$
+
+/*!50106 CREATE DEFINER=`root`@`%` EVENT `auto_update_rent_due_date` ON SCHEDULE EVERY 1 DAY STARTS '2026-01-08 15:40:26' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+    UPDATE `leases`
+    SET `rent_due` = DATE_ADD(`rent_due`, INTERVAL 1 MONTH)
+    WHERE `status` = 'Active'
+    /* Syarat: Hanya update jika 'rent_due' adalah HARI INI */
+    AND `rent_due` = CURDATE(); 
+END */$$
+DELIMITER ;
 
 /*Table structure for table `view_user_dashboard` */
 
