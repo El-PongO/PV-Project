@@ -40,7 +40,18 @@ namespace Projek_PV
                 {
                     connection.Open();
 
-                    string query = "SELECT * FROM users WHERE username = @user AND password = @pass";
+                    string query = @"
+                    SELECT u.user_id, u.username, u.password, l.status, u.role 
+                    FROM users u 
+                    JOIN tenants t ON t.user_id = u.user_id 
+                    JOIN leases l ON t.tenant_id = l.tenant_id 
+                    WHERE u.username = @user AND u.password = @pass
+
+                    UNION 
+
+                    SELECT user_id, username, password, 'Active' AS status, role 
+                    FROM users 
+                    WHERE role = 'admin' AND username = @user AND password = @pass"; 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@user", tbUsername.Text);
@@ -52,29 +63,40 @@ namespace Projek_PV
 
                             if (reader.HasRows)
                             {
+
                                 reader.Read();
                                 int id = Convert.ToInt32(reader["user_id"]);
                                 string role = reader["role"].ToString();
+                                string status = reader["status"].ToString();
 
                                 LoggedInUserId = id;
 
                                 tbUsername.Text = "";
                                 tbPassword.Text = "";
 
-                                if (role == "admin")
+                                if(status == "Active")
                                 {
-                                    FormAdmin2 formadmin = new FormAdmin2();
-                                    formadmin.Show();
+
+                                    if (role == "admin")
+                                    {
+                                        FormAdmin2 formadmin = new FormAdmin2();
+                                        formadmin.Show();
+
+                                    }
+                                    else
+                                    {
+                                        FormUser2 formm = new FormUser2(id, this);
+                                        formm.Show();
+
+                                    }
+
+                                    this.Hide();
 
                                 }
                                 else
                                 {
-                                    FormUser2 formm = new FormUser2(id, this);
-                                    formm.Show();
-
+                                    MessageBox.Show("Your account is inactive. Please contact the administrator.");
                                 }
-
-                                this.Hide();
                             }
                             else
                             {

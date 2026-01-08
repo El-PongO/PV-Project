@@ -47,6 +47,8 @@ namespace Projek_PV
             panelFill.AutoScroll = true;
             radioWanita1.Checked = true;
             radioWanita2.Checked = true;
+
+            addPengumuman.Visible = false;
         }
 
         private void FormAdmin2_Load(object sender, EventArgs e)
@@ -1683,6 +1685,53 @@ namespace Projek_PV
             }
 
             MessageBox.Show("Reminder berhasil dikirim ke tenant!");
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            addPengumuman.Visible = true;
+            textBox1.Text = "";
+            textBox2.Text = "";
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            addPengumuman.Visible = false;
+            textBox1.Text = "";
+            textBox2.Text = "";
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "" || textBox2.Text == "")
+            {
+                MessageBox.Show("Isi Data Terlebih Dahulu");
+                return;
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"
+                INSERT INTO announcements (title, content)
+                VALUES (@title, @content)";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@title", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@content", textBox2.Text);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("announcement berhasil dibuat!");
+            addPengumuman.Visible = false;
+            loadDgvNotif();
+
         }
     }
 }
