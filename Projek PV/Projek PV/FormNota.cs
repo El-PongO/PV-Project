@@ -16,7 +16,7 @@ namespace Projek_PV
         private string reportTitle;
         private bool useGroupReport;
 
-        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+        string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
 
         public FormNota(int id = 0, string title = "Nota Transaksi", bool isGroupReport = false)
         {
