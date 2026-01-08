@@ -404,11 +404,14 @@ namespace Projek_PV
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            Console.WriteLine("Tamu registered successfully!");
+                            MessageBox.Show("Tamu registered successfully!");
+                            tbNamaTamu.Text = "";
+                            comboJamTamu.SelectedIndex = -1;
+                            tbTujuanKunjungan.Text = "";
                         }
                         else
                         {
-                            Console.WriteLine("Tamu registration failed.");
+                            MessageBox.Show("Tamu registration failed.");
                         }
                     }
                 }
