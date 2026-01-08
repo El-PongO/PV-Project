@@ -20,6 +20,7 @@ namespace Projek_PV
         //string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         private int selectedLeaseId = -1;
+        private string selectedUsername = "";
         public static int colscounter = 0;
         public static int rowscounter = 0;
         public int tenant_id = 0;
@@ -368,8 +369,8 @@ namespace Projek_PV
             panelListrik.Visible = false;
             panelGuestLog.Visible = true;
 
-            panelListrik.Location = new Point(230, 82);
-            panelListrik.Size = new Size(1000, 600);
+            panelGuestLog.Location = new Point(230, 82);
+            panelGuestLog.Size = new Size(1000, 600);
             lblHeader.Text = "Manage Tenant Guests";
             LoadGuestLogs();
         }
@@ -2000,5 +2001,19 @@ namespace Projek_PV
             loadDgvNotif();
 
         }
+
+        private void buttonTagihKerusakanFailitas_Click(object sender, EventArgs e)
+        {
+            if (selectedLeaseId == -1)
+            {
+                MessageBox.Show("Pilih tenant terlebih dahulu!");
+                return;
+            }
+
+            formTagihKerusakan form = new formTagihKerusakan(selectedLeaseId, connectionString);
+            form.ShowDialog();
+
+        }
+
     }
 }

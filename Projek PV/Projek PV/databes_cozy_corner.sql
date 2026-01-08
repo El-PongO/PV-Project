@@ -102,40 +102,42 @@ CREATE TABLE `guest_logs` (
   `guest_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `visit_date` date NOT NULL,
   `arrival_time` time NOT NULL,
+  `checkout_at` datetime DEFAULT NULL,
   `purpose` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`guest_id`),
   KEY `tenant_id` (`tenant_id`),
   CONSTRAINT `guest_logs_ibfk_1` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `guest_logs` */
 
-insert  into `guest_logs`(`guest_id`,`tenant_id`,`guest_name`,`visit_date`,`arrival_time`,`purpose`,`created_at`) values 
-(1,2,'fer','2025-12-21','16:00:00','ferfer','2025-12-20 20:03:50'),
-(3,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:40'),
-(4,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:43'),
-(5,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:51'),
-(6,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:51'),
-(7,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:05:52'),
-(8,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
-(9,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
-(10,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
-(11,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
-(12,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:06'),
-(13,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
-(14,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
-(15,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
-(16,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
-(17,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
-(18,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:07'),
-(19,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
-(20,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
-(21,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
-(22,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
-(23,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
-(24,28,'ferfer','2026-01-23','13:00:00','fdfsdf','2026-01-08 16:06:08'),
-(25,28,'cdv','2026-01-10','09:00:00','ZXZ','2026-01-08 16:16:32');
+insert  into `guest_logs`(`guest_id`,`tenant_id`,`guest_name`,`visit_date`,`arrival_time`,`checkout_at`,`purpose`,`created_at`) values 
+(1,2,'fer','2025-12-21','16:00:00',NULL,'ferfer','2025-12-20 20:03:50'),
+(3,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:05:40'),
+(4,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:05:43'),
+(5,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:05:51'),
+(6,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:05:51'),
+(7,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:05:52'),
+(8,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:06'),
+(9,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:06'),
+(10,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:06'),
+(11,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:06'),
+(12,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:06'),
+(13,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:07'),
+(14,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:07'),
+(15,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:07'),
+(16,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:07'),
+(17,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:07'),
+(18,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:07'),
+(19,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:08'),
+(20,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:08'),
+(21,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:08'),
+(22,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:08'),
+(23,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:08'),
+(24,28,'ferfer','2026-01-23','13:00:00',NULL,'fdfsdf','2026-01-08 16:06:08'),
+(25,28,'cdv','2026-01-10','09:00:00',NULL,'ZXZ','2026-01-08 16:16:32'),
+(26,25,'klerin','2026-01-08','08:00:00','2026-01-09 00:23:37','loro','2026-01-08 23:47:37');
 
 /*Table structure for table `leases` */
 
@@ -228,7 +230,7 @@ CREATE TABLE `reminders` (
   PRIMARY KEY (`reminder_id`),
   KEY `fk_reminder_tenant` (`tenant_id`),
   CONSTRAINT `fk_reminder_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `reminders` */
 
@@ -236,7 +238,8 @@ insert  into `reminders`(`reminder_id`,`title`,`content`,`created_at`,`tenant_id
 (1,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-04 23:42:43',1),
 (2,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 00:58:18',1),
 (3,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 14:21:13',14),
-(4,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 14:21:31',26);
+(4,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 14:21:31',26),
+(5,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-09 00:03:15',18);
 
 /*Table structure for table `rooms` */
 

@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin2));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelBtnGuestLog = new System.Windows.Forms.Panel();
+            this.labelGuestLog = new System.Windows.Forms.Label();
+            this.pictureBoxGuestLog = new System.Windows.Forms.PictureBox();
             this.panelBtnListrik = new System.Windows.Forms.Panel();
             this.labelListrik = new System.Windows.Forms.Label();
             this.pictureBoxListrik = new System.Windows.Forms.PictureBox();
@@ -106,6 +109,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panelPenghunidanTagihan = new System.Windows.Forms.Panel();
+            this.buttonTagihKerusakanFailitas = new System.Windows.Forms.Button();
             this.dgvTagihan = new System.Windows.Forms.DataGridView();
             this.buttonSendReminderKeTenant = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -133,9 +137,6 @@
             this.panelListrik = new System.Windows.Forms.Panel();
             this.flowLayoutPanelListrik = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
-            this.panelBtnGuestLog = new System.Windows.Forms.Panel();
-            this.labelGuestLog = new System.Windows.Forms.Label();
-            this.pictureBoxGuestLog = new System.Windows.Forms.PictureBox();
             this.panelGuestLog = new System.Windows.Forms.Panel();
             this.flowLayoutPanelGuestLog = new System.Windows.Forms.FlowLayoutPanel();
             this.roundedPanelRoomInformation = new RoundedPanel();
@@ -186,7 +187,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panelBtnGuestLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).BeginInit();
             this.panelBtnListrik.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxListrik)).BeginInit();
             this.panelBtnPendapatan.SuspendLayout();
@@ -222,8 +226,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtensions)).BeginInit();
             this.panelKamar.SuspendLayout();
             this.panelListrik.SuspendLayout();
-            this.panelBtnGuestLog.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).BeginInit();
             this.panelGuestLog.SuspendLayout();
             this.roundedPanelRoomInformation.SuspendLayout();
             this.roundedPanelOccupant2.SuspendLayout();
@@ -258,6 +260,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(299, 997);
             this.panel1.TabIndex = 0;
+            // 
+            // panelBtnGuestLog
+            // 
+            this.panelBtnGuestLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelBtnGuestLog.Controls.Add(this.labelGuestLog);
+            this.panelBtnGuestLog.Controls.Add(this.pictureBoxGuestLog);
+            this.panelBtnGuestLog.Location = new System.Drawing.Point(4, 556);
+            this.panelBtnGuestLog.Margin = new System.Windows.Forms.Padding(4);
+            this.panelBtnGuestLog.Name = "panelBtnGuestLog";
+            this.panelBtnGuestLog.Size = new System.Drawing.Size(295, 54);
+            this.panelBtnGuestLog.TabIndex = 9;
+            // 
+            // labelGuestLog
+            // 
+            this.labelGuestLog.AutoSize = true;
+            this.labelGuestLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGuestLog.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelGuestLog.Location = new System.Drawing.Point(39, 11);
+            this.labelGuestLog.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGuestLog.Name = "labelGuestLog";
+            this.labelGuestLog.Size = new System.Drawing.Size(111, 25);
+            this.labelGuestLog.TabIndex = 0;
+            this.labelGuestLog.Text = "Guest Log";
+            this.labelGuestLog.Click += new System.EventHandler(this.NavBar_GuestLog_Click);
+            // 
+            // pictureBoxGuestLog
+            // 
+            this.pictureBoxGuestLog.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGuestLog.Image")));
+            this.pictureBoxGuestLog.Location = new System.Drawing.Point(12, 11);
+            this.pictureBoxGuestLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxGuestLog.Name = "pictureBoxGuestLog";
+            this.pictureBoxGuestLog.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxGuestLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGuestLog.TabIndex = 6;
+            this.pictureBoxGuestLog.TabStop = false;
+            this.pictureBoxGuestLog.Click += new System.EventHandler(this.NavBar_GuestLog_Click);
             // 
             // panelBtnListrik
             // 
@@ -338,7 +376,7 @@
             this.panelBtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnLogout.Controls.Add(this.pictureBox1);
             this.panelBtnLogout.Controls.Add(this.labelUserLogout);
-            this.panelBtnLogout.Location = new System.Drawing.Point(4, 640);
+            this.panelBtnLogout.Location = new System.Drawing.Point(4, 626);
             this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnLogout.Name = "panelBtnLogout";
             this.panelBtnLogout.Size = new System.Drawing.Size(295, 54);
@@ -1157,14 +1195,28 @@
             // 
             // panelPenghunidanTagihan
             // 
+            this.panelPenghunidanTagihan.Controls.Add(this.label12);
+            this.panelPenghunidanTagihan.Controls.Add(this.buttonTagihKerusakanFailitas);
             this.panelPenghunidanTagihan.Controls.Add(this.dgvTagihan);
             this.panelPenghunidanTagihan.Controls.Add(this.buttonSendReminderKeTenant);
             this.panelPenghunidanTagihan.Controls.Add(this.button6);
-            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1655, 639);
+            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(307, 112);
             this.panelPenghunidanTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPenghunidanTagihan.Name = "panelPenghunidanTagihan";
-            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(97, 55);
+            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(1201, 572);
             this.panelPenghunidanTagihan.TabIndex = 6;
+            // 
+            // buttonTagihKerusakanFailitas
+            // 
+            this.buttonTagihKerusakanFailitas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonTagihKerusakanFailitas.Location = new System.Drawing.Point(741, 488);
+            this.buttonTagihKerusakanFailitas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonTagihKerusakanFailitas.Name = "buttonTagihKerusakanFailitas";
+            this.buttonTagihKerusakanFailitas.Size = new System.Drawing.Size(133, 49);
+            this.buttonTagihKerusakanFailitas.TabIndex = 38;
+            this.buttonTagihKerusakanFailitas.Text = "Tagih Kerusakan Fasilitas";
+            this.buttonTagihKerusakanFailitas.UseVisualStyleBackColor = true;
+            this.buttonTagihKerusakanFailitas.Click += new System.EventHandler(this.buttonTagihKerusakanFailitas_Click);
             // 
             // dgvTagihan
             // 
@@ -1175,7 +1227,7 @@
             this.dgvTagihan.AllowUserToResizeRows = false;
             this.dgvTagihan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTagihan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTagihan.Location = new System.Drawing.Point(35, 27);
+            this.dgvTagihan.Location = new System.Drawing.Point(35, 36);
             this.dgvTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvTagihan.Name = "dgvTagihan";
             this.dgvTagihan.RowHeadersWidth = 51;
@@ -1189,7 +1241,7 @@
             // buttonSendReminderKeTenant
             // 
             this.buttonSendReminderKeTenant.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSendReminderKeTenant.Location = new System.Drawing.Point(891, 479);
+            this.buttonSendReminderKeTenant.Location = new System.Drawing.Point(891, 488);
             this.buttonSendReminderKeTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSendReminderKeTenant.Name = "buttonSendReminderKeTenant";
             this.buttonSendReminderKeTenant.Size = new System.Drawing.Size(133, 49);
@@ -1201,7 +1253,7 @@
             // button6
             // 
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(1040, 479);
+            this.button6.Location = new System.Drawing.Point(1040, 488);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(133, 49);
@@ -1469,56 +1521,19 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Daftar Listrik Tenant";
             // 
-            // panelBtnGuestLog
-            // 
-            this.panelBtnGuestLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panelBtnGuestLog.Controls.Add(this.labelGuestLog);
-            this.panelBtnGuestLog.Controls.Add(this.pictureBoxGuestLog);
-            this.panelBtnGuestLog.Location = new System.Drawing.Point(4, 556);
-            this.panelBtnGuestLog.Margin = new System.Windows.Forms.Padding(4);
-            this.panelBtnGuestLog.Name = "panelBtnGuestLog";
-            this.panelBtnGuestLog.Size = new System.Drawing.Size(295, 54);
-            this.panelBtnGuestLog.TabIndex = 9;
-            this.panelBtnGuestLog.Click += new System.EventHandler(this.NavBar_GuestLog_Click);
-            // 
-            // labelGuestLog
-            // 
-            this.labelGuestLog.AutoSize = true;
-            this.labelGuestLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGuestLog.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGuestLog.Location = new System.Drawing.Point(39, 11);
-            this.labelGuestLog.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelGuestLog.Name = "labelGuestLog";
-            this.labelGuestLog.Size = new System.Drawing.Size(111, 25);
-            this.labelGuestLog.TabIndex = 0;
-            this.labelGuestLog.Text = "Guest Log";
-            this.labelGuestLog.Click += new System.EventHandler(this.NavBar_GuestLog_Click);
-            // 
-            // pictureBoxGuestLog
-            // 
-            this.pictureBoxGuestLog.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGuestLog.Image")));
-            this.pictureBoxGuestLog.Location = new System.Drawing.Point(12, 11);
-            this.pictureBoxGuestLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxGuestLog.Name = "pictureBoxGuestLog";
-            this.pictureBoxGuestLog.Size = new System.Drawing.Size(25, 25);
-            this.pictureBoxGuestLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxGuestLog.TabIndex = 6;
-            this.pictureBoxGuestLog.TabStop = false;
-            this.pictureBoxGuestLog.Click += new System.EventHandler(this.NavBar_GuestLog_Click);
-            // 
             // panelGuestLog
             // 
             this.panelGuestLog.Controls.Add(this.flowLayoutPanelGuestLog);
-            this.panelGuestLog.Location = new System.Drawing.Point(307, 120);
+            this.panelGuestLog.Location = new System.Drawing.Point(1785, 604);
             this.panelGuestLog.Name = "panelGuestLog";
-            this.panelGuestLog.Size = new System.Drawing.Size(1201, 517);
+            this.panelGuestLog.Size = new System.Drawing.Size(105, 75);
             this.panelGuestLog.TabIndex = 16;
             // 
             // flowLayoutPanelGuestLog
             // 
-            this.flowLayoutPanelGuestLog.Location = new System.Drawing.Point(13, 37);
+            this.flowLayoutPanelGuestLog.Location = new System.Drawing.Point(13, 11);
             this.flowLayoutPanelGuestLog.Name = "flowLayoutPanelGuestLog";
-            this.flowLayoutPanelGuestLog.Size = new System.Drawing.Size(1168, 465);
+            this.flowLayoutPanelGuestLog.Size = new System.Drawing.Size(1168, 491);
             this.flowLayoutPanelGuestLog.TabIndex = 0;
             // 
             // roundedPanelRoomInformation
@@ -2074,6 +2089,16 @@
             this.label46.TabIndex = 1;
             this.label46.Text = "0";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(35, 11);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(407, 19);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Select Cell kemudian Click untuk melakukan aksi dibawah";
+            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2098,6 +2123,9 @@
             this.Load += new System.EventHandler(this.FormAdmin2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelBtnGuestLog.ResumeLayout(false);
+            this.panelBtnGuestLog.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).EndInit();
             this.panelBtnListrik.ResumeLayout(false);
             this.panelBtnListrik.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxListrik)).EndInit();
@@ -2136,6 +2164,7 @@
             this.gbOcccupant1Fill.ResumeLayout(false);
             this.gbOcccupant1Fill.PerformLayout();
             this.panelPenghunidanTagihan.ResumeLayout(false);
+            this.panelPenghunidanTagihan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTagihan)).EndInit();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
@@ -2150,9 +2179,6 @@
             this.panelKamar.PerformLayout();
             this.panelListrik.ResumeLayout(false);
             this.panelListrik.PerformLayout();
-            this.panelBtnGuestLog.ResumeLayout(false);
-            this.panelBtnGuestLog.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).EndInit();
             this.panelGuestLog.ResumeLayout(false);
             this.roundedPanelRoomInformation.ResumeLayout(false);
             this.roundedPanelRoomInformation.PerformLayout();
@@ -2335,5 +2361,7 @@
         private System.Windows.Forms.PictureBox pictureBoxGuestLog;
         private System.Windows.Forms.Panel panelGuestLog;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelGuestLog;
+        private System.Windows.Forms.Button buttonTagihKerusakanFailitas;
+        private System.Windows.Forms.Label label12;
     }
 }
