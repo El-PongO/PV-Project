@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI;
+using System.Web.Util;
 using System.Windows.Forms;
 
 
@@ -17,7 +18,7 @@ namespace Projek_PV
 {
     public partial class FormAdmin2 : Form
     {
-        string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
+        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         private int selectedLeaseId = -1;
         public static int colscounter = 0;
         public static int rowscounter = 0;
@@ -1264,9 +1265,12 @@ namespace Projek_PV
                                 'Paid', 
                                 'rent'
                             );";
+
+                            long transactionId;
                             using (MySqlCommand c5 = new MySqlCommand(qtran, conn, tr))
                             {
                                 c5.ExecuteNonQuery();
+                                transactionId = c5.LastInsertedId;
                             }
 
 
@@ -1277,6 +1281,10 @@ namespace Projek_PV
                             LoadDgvOverview();
                             LoadDgvTagihan();
                             reset();
+                            FormNota notaForm = new FormNota((int)transactionId);
+                            notaForm.ShowDialog();
+
+
                         }
                         catch (Exception ex)
                         {
