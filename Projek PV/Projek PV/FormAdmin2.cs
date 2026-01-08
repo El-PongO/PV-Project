@@ -1006,7 +1006,7 @@ namespace Projek_PV
 
         public DataTable GetData(string query)
         {
-            string connString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+            string connString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
             DataTable dt = new DataTable();
 
             using (MySqlConnection conn = new MySqlConnection(connString))
@@ -1027,7 +1027,7 @@ namespace Projek_PV
 
         private void autoUpdateJatuhTempo()
         {
-            string connectionString = "server=localhost;user=root;database=nama_db;password=;";
+            string connectionString = "server=172.20.10.5;user=root;database=nama_db;password=;";
             string query = "UPDATE tenants SET rent_due_by = DATE_ADD(rent_due_by, INTERVAL 1 MONTH) WHERE rent_due_by <= CURDATE()";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -1150,6 +1150,12 @@ namespace Projek_PV
                 return;
             }
 
+            if(comboDurationFill < 1)
+            {
+                MessageBox.Show("Durasi Sewa Minimal 1 Bulan");
+                return;
+            }
+
             decimal hargaKamar = 0;
             string gender = radioWanita1.Checked ? "Perempuan" : "Laki-Laki";
             int tenantCount = checkBox4.Checked ? 2 : 1;
@@ -1232,7 +1238,7 @@ namespace Projek_PV
                                 c3.Parameters.AddWithValue("@rent", hargaKamar);
                                 c3.Parameters.AddWithValue("@start", start);
                                 c3.Parameters.AddWithValue("@end", start.AddMonths(6));
-                                c3.Parameters.AddWithValue("@dur", 6);
+                                c3.Parameters.AddWithValue("@dur", comboDurationFill.Value);
                                 c3.Parameters.AddWithValue("@due", rent_due.AddMonths(1));
                                 c3.ExecuteNonQuery();
                             }
@@ -1490,7 +1496,7 @@ namespace Projek_PV
 
                         genderHuni1.Text = row["gender"].ToString();
                         lblDuration.Text = row["duration_months"].ToString() + " Months";
-                        lblRentDue.Text = row["rent_due"].ToString();
+                        lblRentDue.Text = row["end_date"].ToString();
 
                         if (row["start_date"] != DBNull.Value)
                             lblSince.Text = Convert.ToDateTime(row["start_date"]).ToString("dd/MM/yyyy");
