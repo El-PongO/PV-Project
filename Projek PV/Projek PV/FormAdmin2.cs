@@ -17,7 +17,7 @@ namespace Projek_PV
 {
     public partial class FormAdmin2 : Form
     {
-        string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
+        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         private int selectedLeaseId = -1;
         public static int colscounter = 0;
         public static int rowscounter = 0;
