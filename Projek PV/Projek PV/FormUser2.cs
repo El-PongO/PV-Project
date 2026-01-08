@@ -19,7 +19,7 @@ namespace Projek_PV
         int lease_id;
         int id_user;
         int id_tenant;
-        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+        string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
 
         public FormUser2(int id, Form1 master)
         {
@@ -469,7 +469,7 @@ namespace Projek_PV
                 connection.Open();
                 try
                 {
-                    string query = "SELECT transaction_id ,transaction_date as date,category, description, amount, status FROM transactions WHERE lease_id IN (SELECT lease_id FROM leases WHERE tenant_id = @tenant_id)";
+                    string query = "SELECT transaction_id, transaction_date as date, DATE_ADD(transaction_date, INTERVAL 3 DAY) as payment_due_by, category, description, amount, status FROM transactions WHERE lease_id IN (SELECT lease_id FROM leases WHERE tenant_id = @tenant_id)";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@user", id_user);
