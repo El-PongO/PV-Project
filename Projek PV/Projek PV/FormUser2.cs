@@ -19,8 +19,8 @@ namespace Projek_PV
         int lease_id;
         int id_user;
         int id_tenant;
-        //string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
-        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+        string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
+        //string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
 
         public FormUser2(int id, Form1 master)
         {
@@ -57,6 +57,9 @@ namespace Projek_PV
             panelDaftarTamu.Visible = false;
             panelTagihan.Visible = false;
 
+            panel2.BackColor = Color.FromArgb(0, 0, 64);
+            panelInformasi.Visible = false;
+
 
             //ngeset
             panelUserDashboard.Location = new Point(230, 71);
@@ -82,6 +85,9 @@ namespace Projek_PV
             panelUserComplaint.Visible = false;
             panelDaftarTamu.Visible = false;
             panelTagihan.Visible = false;
+
+            panel2.BackColor = Color.FromArgb(0, 0, 64);
+            panelInformasi.Visible = false;
 
 
             //ngeset
@@ -109,6 +115,9 @@ namespace Projek_PV
             panelUserComplaint.Visible = false;
             panelDaftarTamu.Visible = false;
             panelTagihan.Visible = false;
+
+            panel2.BackColor = Color.FromArgb(0, 0, 64);
+            panelInformasi.Visible = false;
 
 
             //ngeset
@@ -196,6 +205,9 @@ namespace Projek_PV
             panelDaftarTamu.Visible = false;
             panelTagihan.Visible = false;
 
+            panel2.BackColor = Color.FromArgb(0, 0, 64);
+            panelInformasi.Visible = false;
+
 
             //ngeset
             panelUserComplaint.Location = new Point(230, 71);
@@ -219,11 +231,38 @@ namespace Projek_PV
             panelDaftarTamu.Visible = true;
             panelTagihan.Visible = false;
 
+            panel2.BackColor = Color.FromArgb(0, 0, 64);
+            panelInformasi.Visible = false;
+
 
             //ngeset
             panelDaftarTamu.Location = new Point(230, 71);
             panelDaftarTamu.Size = new Size(1000, 470);
             lblTitleHeader.Text = "Daftar Tamu Kamar";
+        }
+
+        private void NavBarUser_InformasiKamar(object sender, EventArgs e)
+        {
+            panelBtnDashboard.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnExtendDuration.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnFileComplaint.BackColor = Color.FromArgb(0, 0, 64);
+            panelBtnDaftarTamu.BackColor = Color.FromArgb(0, 0, 64);
+            panel3.BackColor = Color.FromArgb(0, 0, 64);
+            panel2.BackColor = Color.Navy;
+
+            panelUserDashboard.Visible = false;
+            panelExtendDuration.Visible = false;
+            panelUserComplaint.Visible = false;
+            panelDaftarTamu.Visible = false;
+            panelTagihan.Visible = false;
+            panelInformasi.Visible = true;
+
+            panelInformasi.Location = new Point(230, 71);
+            panelInformasi.Size = new Size(908, 468);
+            lblTitleHeader.Text = "Informasi Lanjut";
+
+            loadInfoLanjut();
+
         }
 
 
@@ -244,6 +283,9 @@ namespace Projek_PV
             panelUserComplaint.Visible = false;
             panelDaftarTamu.Visible = false;
             panelTagihan.Visible = true;
+
+            panel2.BackColor = Color.FromArgb(0, 0, 64);
+            panelInformasi.Visible = false;
 
             //ngeset
             panelTagihan.Location = new Point(230, 71);
@@ -693,6 +735,56 @@ namespace Projek_PV
             }
 
             loadExtendData();
+        }
+
+        private void loadInfoLanjut()
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    MessageBox.Show("loading...");
+                    connection.Open();
+                    string query = "SELECT\r\n    t.tenant_id,\r\n    t.full_name,\r\n    t.phone_number,\r\n\r\n    u.username,\r\n\r\n    r.room_number,\r\n    r.type AS room_type,\r\n    r.facilities,\r\n\r\n    l.start_date,\r\n    l.end_date,\r\n    l.duration_months,\r\n    l.rent_price,\r\n    l.rent_due,\r\n    l.status AS lease_status,\r\n\r\n    lb.bill_month,\r\n    lb.pemakaian_kwh,\r\n    lb.due_date AS expire_date\r\n\r\nFROM tenants t\r\nJOIN users u ON t.user_id = u.user_id\r\nJOIN leases l ON t.tenant_id = l.tenant_id\r\nJOIN rooms r ON l.room_id = r.room_id\r\nLEFT JOIN listrik_bills lb ON l.lease_id = lb.lease_id\r\nWHERE u.user_id = @id;\r\n";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id_user);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+                                lblInfoNama.Text = reader["full_name"].ToString();
+                                lblInfoNotelp.Text = reader["phone_number"].ToString();
+                                lblInfoNokamar.Text = reader["room_number"].ToString();
+                                lblInfoTipekamar.Text = reader["room_type"].ToString();
+                                lblInfoFasilitas.Text = reader["facilities"].ToString();
+                                lblInfoTglmasuk.Text = reader["start_date"].ToString();
+                                lblInfoTglkeluar.Text = reader["end_date"].ToString();
+                                lblInfoDurasi.Text = reader["duration_months"].ToString() + " months";
+                                lblInfoHargasewa.Text = "Rp " + reader["rent_price"].ToString();
+
+                                lblInfoTglListirk.Text = reader["bill_month"].ToString();
+                                lblInfoKWH.Text = reader["pemakaian_kwh"].ToString() + " kWh";
+                                lblInfoTokenexp.Text = reader["expire_date"].ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Something is wrong! Please reach out to our staff.");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
 

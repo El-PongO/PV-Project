@@ -16,8 +16,8 @@ namespace Projek_PV
     {
         public static int LoggedInUserId { get; private set; }
 
-        //string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
-        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+        string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
+        //string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         public Form1()
         {
             InitializeComponent();
