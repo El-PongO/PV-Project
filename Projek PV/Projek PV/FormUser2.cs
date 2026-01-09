@@ -19,8 +19,8 @@ namespace Projek_PV
         int lease_id;
         int id_user;
         int id_tenant;
-        string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
-        //string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+        //string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
+        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
 
         public FormUser2(int id, Form1 master)
         {
@@ -163,6 +163,9 @@ namespace Projek_PV
                                 lblJatuhTempoExt.Text = reader["end_date"].ToString();
                                 lblVoucherAktif.Text = Convert.ToBoolean(reader["usingVoucher"]) ? "Yes" : "No";
                                 id_tenant = Convert.ToInt32(reader["tenant_id"]);
+                                
+                                // Store lease_id for later use
+                                lease_id = Convert.ToInt32(reader["lease_id"]);
 
                             }
                             else
@@ -525,7 +528,7 @@ namespace Projek_PV
                 connection.Open();
                 try
                 {
-                    string query = "SELECT transaction_id, transaction_date as date, DATE_ADD(transaction_date, INTERVAL 3 DAY) as payment_due_by, category, description, amount, status FROM transactions WHERE lease_id IN (SELECT lease_id FROM leases WHERE tenant_id = @tenant_id)";
+                    string query = "SELECT transaction_id,\r\n       transaction_date AS date,\r\n       payment_due_by,\r\n       category,\r\n       description,\r\n       amount,\r\n       status\r\nFROM transactions\r\nWHERE lease_id IN (\r\n    SELECT lease_id FROM leases WHERE tenant_id = @tenant_id\r\n)\r\nORDER BY transaction_date DESC;\r\n";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@user", id_user);
@@ -633,24 +636,43 @@ namespace Projek_PV
                 return;
             }
 
-            decimal durationInput = numericUpDown1.Value; // Durasi tambahan (ekstensi)
+            decimal durationInput = numericUpDown1.Value;
             if (durationInput <= 0)
             {
                 MessageBox.Show("Durasi harus minimal 1 bulan");
                 return;
             }
 
+            // ASK USER HOW THEY WANT TO PAY
+            DialogResult paymentChoice = MessageBox.Show(
+                "Cara pembayaran perpanjangan:\n\n" +
+                "✓ YES: Bayar semua bulan sekaligus (IMMEDIATE)\n" +
+                "✗ NO: Bayar per bulan (CONSECUTIVE)\n\n" +
+                "Catatan: Jika pilih bayar per bulan, hanya bulan pertama yang ditagih sekarang. " +
+                "Bulan berikutnya akan otomatis ditagih setiap bulan.",
+                "",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question
+            );
+
+            if (paymentChoice == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            string newPaymentType = paymentChoice == DialogResult.Yes ? "IMMEDIATE" : "CONSECUTIVE";
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
 
-                // 2. Ambil data sewa saat ini (Harga, Tanggal Berakhir, dan Durasi Lama)
                 decimal rentPrice = 0;
                 DateTime previousEndDate = DateTime.Now;
-                int currentDuration = 0; // Variabel untuk menampung durasi lama
+                int currentDuration = 0;
+                string currentPaymentType = "IMMEDIATE";
+                DateTime? currentRentDue = null;
 
-                // Tambahkan kolom 'duration' (atau 'duration_months') ke dalam query SELECT
-                string getLeaseQuery = "SELECT rent_price, end_date, duration_months FROM leases WHERE lease_id = @lease";
+                string getLeaseQuery = "SELECT rent_price, end_date, duration_months, payment_type, rent_due FROM leases WHERE lease_id = @lease";
 
                 using (MySqlCommand cmdFetch = new MySqlCommand(getLeaseQuery, conn))
                 {
@@ -662,8 +684,13 @@ namespace Projek_PV
                         {
                             rentPrice = reader.GetDecimal("rent_price");
                             previousEndDate = reader.GetDateTime("end_date");
-                            // Ambil durasi yang sekarang ada di database
                             currentDuration = reader.GetInt32("duration_months");
+                            currentPaymentType = reader.GetString("payment_type");
+                            
+                            if (reader["rent_due"] != DBNull.Value)
+                            {
+                                currentRentDue = reader.GetDateTime("rent_due");
+                            }
                         }
                         else
                         {
@@ -673,20 +700,20 @@ namespace Projek_PV
                     }
                 }
 
-                // 3. Kalkulasi Data Baru
-                decimal totalAmount = rentPrice * durationInput;
+                // Calculate amount
+                decimal totalAmount = newPaymentType == "IMMEDIATE" 
+                    ? rentPrice * durationInput 
+                    : rentPrice;
+
                 DateTime newEndDate = previousEndDate.AddMonths((int)durationInput);
                 string paymentMethod = comboMetodePembayaran.Text;
-
-                // Hitung total durasi baru (Durasi Awal + Durasi Perpanjangan)
                 int newTotalDuration = currentDuration + (int)durationInput;
 
-                // 4. Mulai Transaksi SQL
                 MySqlTransaction sqlTrans = conn.BeginTransaction();
 
                 try
                 {
-                    // --- STEP A: Insert ke tabel EXTENSIONS (Log History) ---
+                    // STEP A: Insert extension record
                     string insertExtQuery = @"
                     INSERT INTO extensions (lease_id, previous_end_date, new_end_date, duration_months, amount, payment_method, status, transaction_id) 
                     VALUES (@lease, @prevDate, @newDate, @durationAdd, @amount, @method, 'Approved', NULL)";
@@ -696,45 +723,119 @@ namespace Projek_PV
                         cmdExt.Parameters.AddWithValue("@lease", lease_id);
                         cmdExt.Parameters.AddWithValue("@prevDate", previousEndDate);
                         cmdExt.Parameters.AddWithValue("@newDate", newEndDate);
-                        cmdExt.Parameters.AddWithValue("@durationAdd", durationInput); // Masukkan hanya durasi tambahannya
+                        cmdExt.Parameters.AddWithValue("@durationAdd", durationInput);
                         cmdExt.Parameters.AddWithValue("@amount", totalAmount);
                         cmdExt.Parameters.AddWithValue("@method", paymentMethod);
-
                         cmdExt.ExecuteNonQuery();
                     }
 
-                    // --- STEP B: Update tabel LEASES (Tanggal & Total Durasi) ---
-                    // Update end_date DAN duration
+                    // STEP B: Calculate new rent_due
+                    DateTime? newRentDue = null;
+                    
+                    if (newPaymentType == "CONSECUTIVE")
+                    {
+                        // PRESERVE existing rent_due if user was on CONSECUTIVE and it's still active
+                        if (currentPaymentType == "CONSECUTIVE" && 
+                            currentRentDue.HasValue && 
+                            currentRentDue.Value > DateTime.Now)
+                        {
+                            // The auto_update_rent_due_date event will advance it monthly
+                            newRentDue = currentRentDue.Value;
+                        }
+                        else
+                        {
+                            // Start billing cycle 1 month from previous end date
+                            newRentDue = previousEndDate.AddMonths(1);
+                        }
+                    }
+
+                    // STEP C: Update lease
                     string updateLeaseQuery = @"
                     UPDATE leases 
                     SET end_date = @newDate, 
                         duration_months = @totalDuration, 
-                        status = 'Active' 
+                        status = 'Active',
+                        rent_due = @rentDue,
+                        payment_type = @paymentType
                     WHERE lease_id = @lease";
 
                     using (MySqlCommand cmdUpdate = new MySqlCommand(updateLeaseQuery, conn, sqlTrans))
                     {
                         cmdUpdate.Parameters.AddWithValue("@newDate", newEndDate);
-                        cmdUpdate.Parameters.AddWithValue("@totalDuration", newTotalDuration); // Masukkan total durasi baru
+                        cmdUpdate.Parameters.AddWithValue("@totalDuration", newTotalDuration);
+                        cmdUpdate.Parameters.AddWithValue("@rentDue", newRentDue.HasValue ? (object)newRentDue.Value : DBNull.Value);
+                        cmdUpdate.Parameters.AddWithValue("@paymentType", newPaymentType);
                         cmdUpdate.Parameters.AddWithValue("@lease", lease_id);
-
                         cmdUpdate.ExecuteNonQuery();
                     }
 
-                    // 5. Commit Transaksi
-                    sqlTrans.Commit();
-                    MessageBox.Show($"Perpanjangan berhasil disimpan.\nKontrak diperpanjang hingga: {newEndDate.ToString("dd MMMM yyyy")}\nTotal Durasi Sewa: {newTotalDuration} Bulan");
+                    // STEP D: Insert transaction
+                    string description = newPaymentType == "IMMEDIATE" 
+                        ? $"Perpanjangan sewa {durationInput} bulan (Bayar Semua Sekaligus)" 
+                        : $"Perpanjangan sewa - Pembayaran Bulan Pertama (dari {durationInput} bulan total)";
 
-                    // this.Close(); 
+                    string insertTransQuery = @"
+                    INSERT INTO transactions (lease_id, transaction_date, description, amount, payment_method, status, category)
+                    VALUES (@lease, NOW(), @desc, @amount, @method, 'Pending', 'rent')";
+
+                    using (MySqlCommand cmdTrans = new MySqlCommand(insertTransQuery, conn, sqlTrans))
+                    {
+                        cmdTrans.Parameters.AddWithValue("@lease", lease_id);
+                        cmdTrans.Parameters.AddWithValue("@desc", description);
+                        cmdTrans.Parameters.AddWithValue("@amount", totalAmount);
+                        cmdTrans.Parameters.AddWithValue("@method", paymentMethod);
+                        cmdTrans.ExecuteNonQuery();
+                    }
+
+                    sqlTrans.Commit();
+                    
+                    // Build success message
+                    string message = "";
+                    
+                    if (newPaymentType == "IMMEDIATE")
+                    {
+                        message = $"✓ Perpanjangan Berhasil!\n\n" +
+                                  $"Kontrak baru berakhir: {newEndDate:dd MMMM yyyy}\n" +
+                                  $"Total durasi: {newTotalDuration} bulan\n" +
+                                  $"Total dibayar: Rp {totalAmount:N0}\n\n" +
+                                  $"Semua bulan sudah lunas.";
+                    }
+                    else // CONSECUTIVE
+                    {
+                        if (currentPaymentType == "CONSECUTIVE" && 
+                            currentRentDue.HasValue && 
+                            currentRentDue.Value > DateTime.Now)
+                        {
+                            message = $"✓ Perpanjangan Berhasil!\n\n" +
+                                      $"Kontrak baru berakhir: {newEndDate:dd MMMM yyyy}\n" +
+                                      $"Total durasi: {newTotalDuration} bulan\n" +
+                                      $"Dibayar sekarang: Rp {totalAmount:N0}\n\n" +
+                                      $"Tagihan bulanan tetap berjalan\n" +
+                                      $"Tagihan berikutnya: {newRentDue.Value:dd MMMM yyyy}\n" +
+                                      $"Rp {rentPrice:N0}/bulan hingga {newEndDate:dd MMMM yyyy}";
+                        }
+                        else
+                        {
+                            message = $"✓ Perpanjangan Berhasil!\n\n" +
+                                      $"Kontrak baru berakhir: {newEndDate:dd MMMM yyyy}\n" +
+                                      $"Total durasi: {newTotalDuration} bulan\n" +
+                                      $"Dibayar sekarang: Rp {totalAmount:N0}\n\n" +
+                                      $"Tagihan bulanan dimulai: {newRentDue.Value:dd MMMM yyyy}\n" +
+                                      $"Rp {rentPrice:N0}/bulan hingga {newEndDate:dd MMMM yyyy}";
+                        }
+                    }
+                    
+                    MessageBox.Show(message, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     sqlTrans.Rollback();
-                    MessageBox.Show("Gagal memperpanjang sewa: " + ex.Message);
+                    MessageBox.Show("Gagal memperpanjang sewa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
             loadExtendData();
+            loadTagihan();
         }
 
         private void loadInfoLanjut()
@@ -743,9 +844,39 @@ namespace Projek_PV
             {
                 try
                 {
-                    MessageBox.Show("loading...");
                     connection.Open();
-                    string query = "SELECT\r\n    t.tenant_id,\r\n    t.full_name,\r\n    t.phone_number,\r\n\r\n    u.username,\r\n\r\n    r.room_number,\r\n    r.type AS room_type,\r\n    r.facilities,\r\n\r\n    l.start_date,\r\n    l.end_date,\r\n    l.duration_months,\r\n    l.rent_price,\r\n    l.rent_due,\r\n    l.status AS lease_status,\r\n\r\n    lb.bill_month,\r\n    lb.pemakaian_kwh,\r\n    lb.due_date AS expire_date\r\n\r\nFROM tenants t\r\nJOIN users u ON t.user_id = u.user_id\r\nJOIN leases l ON t.tenant_id = l.tenant_id\r\nJOIN rooms r ON l.room_id = r.room_id\r\nLEFT JOIN listrik_bills lb ON l.lease_id = lb.lease_id\r\nWHERE u.user_id = @id;\r\n";
+                    string query = @"SELECT
+                            t.tenant_id,
+                            t.full_name,
+                            t.phone_number,
+
+                            u.username,
+
+                            r.room_number,
+                            r.type AS room_type,
+                            r.facilities,
+
+                            l.start_date,
+                            l.end_date,
+                            l.duration_months,
+                            l.rent_price,
+                            l.rent_due,
+                            l.status AS lease_status,
+                            l.payment_type,
+
+                            lb.bill_month,
+                            lb.pemakaian_kwh,
+                            lb.due_date AS expire_date
+
+                        FROM tenants t
+                        JOIN users u ON t.user_id = u.user_id
+                        JOIN leases l ON t.tenant_id = l.tenant_id
+                        JOIN rooms r ON l.room_id = r.room_id
+                        LEFT JOIN listrik_bills lb ON l.lease_id = lb.lease_id
+                        WHERE u.user_id = @id AND l.status = 'Active'
+                        ORDER BY lb.bill_month DESC
+                        LIMIT 1;
+                        ";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id_user);
@@ -755,22 +886,37 @@ namespace Projek_PV
                             {
                                 reader.Read();
                                 lblInfoNama.Text = reader["full_name"].ToString();
-                                lblInfoNotelp.Text = reader["phone_number"].ToString();
+                                lblInfoNotelp.Text = reader["phone_number"] != DBNull.Value ? reader["phone_number"].ToString() : "N/A";
                                 lblInfoNokamar.Text = reader["room_number"].ToString();
                                 lblInfoTipekamar.Text = reader["room_type"].ToString();
                                 lblInfoFasilitas.Text = reader["facilities"].ToString();
-                                lblInfoTglmasuk.Text = reader["start_date"].ToString();
-                                lblInfoTglkeluar.Text = reader["end_date"].ToString();
+                                lblInfoTglmasuk.Text = Convert.ToDateTime(reader["start_date"]).ToString("dd MMM yyyy");
+                                lblInfoTglkeluar.Text = Convert.ToDateTime(reader["end_date"]).ToString("dd MMM yyyy");
                                 lblInfoDurasi.Text = reader["duration_months"].ToString() + " months";
-                                lblInfoHargasewa.Text = "Rp " + reader["rent_price"].ToString();
+                                
+                                // Format harga sewa dengan informasi payment type
+                                decimal rentPrice = Convert.ToDecimal(reader["rent_price"]);
+                                string paymentType = reader["payment_type"].ToString();
+                                string paymentTypeText = paymentType == "IMMEDIATE" ? " (Bayar Semua)" : " (Per Bulan)";
+                                lblInfoHargasewa.Text = "Rp " + rentPrice.ToString("N0") + paymentTypeText;
 
-                                lblInfoTglListirk.Text = reader["bill_month"].ToString();
-                                lblInfoKWH.Text = reader["pemakaian_kwh"].ToString() + " kWh";
-                                lblInfoTokenexp.Text = reader["expire_date"].ToString();
+                                // Handle nullable fields for listrik
+                                if (reader["bill_month"] != DBNull.Value)
+                                {
+                                    lblInfoTglListirk.Text = Convert.ToDateTime(reader["bill_month"]).ToString("MMMM yyyy");
+                                    lblInfoKWH.Text = reader["pemakaian_kwh"].ToString() + " kWh";
+                                    lblInfoTokenexp.Text = Convert.ToDateTime(reader["expire_date"]).ToString("dd MMM yyyy");
+                                }
+                                else
+                                {
+                                    lblInfoTglListirk.Text = "N/A";
+                                    lblInfoKWH.Text = "N/A";
+                                    lblInfoTokenexp.Text = "N/A";
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Something is wrong! Please reach out to our staff.");
+                                MessageBox.Show("Data tidak ditemukan atau status sewa tidak aktif.");
                             }
                         }
                     }

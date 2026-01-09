@@ -125,41 +125,45 @@ CREATE TABLE `leases` (
   `status` enum('Active','Expired','Cancelled') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Active',
   `usingVoucher` tinyint(1) NOT NULL DEFAULT '0',
   `rent_due` date DEFAULT NULL,
+  `payment_type` enum('IMMEDIATE','CONSECUTIVE') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'IMMEDIATE',
   PRIMARY KEY (`lease_id`),
   KEY `room_id` (`room_id`),
   KEY `tenant_id` (`tenant_id`),
   CONSTRAINT `leases_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`),
   CONSTRAINT `leases_ibfk_2` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `leases` */
 
-insert  into `leases`(`lease_id`,`room_id`,`tenant_id`,`tenant_count`,`rent_price`,`start_date`,`end_date`,`duration_months`,`status`,`usingVoucher`,`rent_due`) values 
-(1,1,1,1,2200000.00,'2025-07-05','2026-01-05',1,'Expired',1,NULL),
-(2,2,2,2,2200000.00,'2025-07-20','2026-01-20',1,'Active',1,NULL),
-(4,7,7,1,1800000.00,'2025-07-12','2026-01-12',1,'Active',0,NULL),
-(5,8,8,1,2200000.00,'2025-10-04','2026-01-04',1,'Expired',1,NULL),
-(6,9,9,1,2200000.00,'2025-12-26','2026-01-26',1,'Active',1,NULL),
-(7,10,10,1,2000000.00,'2025-07-26','2026-01-01',1,'Expired',0,NULL),
-(8,11,11,1,1800000.00,'2025-07-01','2026-01-01',1,'Expired',0,NULL),
-(9,12,12,1,2200000.00,'2025-08-08','2026-01-08',1,'Active',1,NULL),
-(10,13,13,1,1800000.00,'2025-07-10','2026-01-10',1,'Active',0,NULL),
-(11,14,14,1,2200000.00,'2025-07-13','2026-01-13',1,'Active',1,NULL),
-(12,15,15,1,2000000.00,'2025-02-01','2026-01-01',1,'Expired',0,NULL),
-(13,16,16,1,2200000.00,'2025-07-14','2026-01-14',1,'Active',1,NULL),
-(14,17,17,1,1800000.00,'2025-07-25','2026-01-25',1,'Active',0,NULL),
-(15,18,18,1,1800000.00,'2025-07-07','2026-01-07',1,'Expired',0,NULL),
-(16,19,19,1,1800000.00,'2025-06-25','2026-01-25',1,'Active',0,NULL),
-(17,20,20,1,2000000.00,'2025-07-01','2026-01-26',1,'Active',0,NULL),
-(18,21,21,1,2000000.00,'2025-07-05','2026-01-05',1,'Expired',0,NULL),
-(19,22,22,1,2200000.00,'2025-05-24','2026-01-24',1,'Active',1,NULL),
-(20,23,23,1,1800000.00,'2025-07-24','2026-01-24',1,'Active',0,NULL),
-(21,24,24,1,1800000.00,'2025-11-18','2026-01-18',1,'Active',0,NULL),
-(22,25,25,1,2000000.00,'2025-07-22','2026-01-22',1,'Active',0,NULL),
-(23,29,26,1,1500000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08'),
-(24,28,27,1,2000000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08'),
-(25,30,28,1,10000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08'),
-(26,28,29,2,2600000.00,'2026-01-08','2026-07-08',6,'Active',0,NULL);
+insert  into `leases`(`lease_id`,`room_id`,`tenant_id`,`tenant_count`,`rent_price`,`start_date`,`end_date`,`duration_months`,`status`,`usingVoucher`,`rent_due`,`payment_type`) values 
+(1,1,1,1,2200000.00,'2025-07-05','2026-01-05',1,'Expired',1,NULL,'IMMEDIATE'),
+(2,2,2,2,2200000.00,'2025-07-20','2026-01-20',1,'Active',1,NULL,'IMMEDIATE'),
+(4,7,7,1,1800000.00,'2025-07-12','2026-01-12',1,'Active',0,NULL,'IMMEDIATE'),
+(5,8,8,1,2200000.00,'2025-10-04','2026-01-04',1,'Expired',1,NULL,'IMMEDIATE'),
+(6,9,9,1,2200000.00,'2025-12-26','2026-01-26',1,'Active',1,NULL,'IMMEDIATE'),
+(7,10,10,1,2000000.00,'2025-07-26','2026-01-01',1,'Expired',0,NULL,'IMMEDIATE'),
+(8,11,11,1,1800000.00,'2025-07-01','2026-01-01',1,'Expired',0,NULL,'IMMEDIATE'),
+(9,12,12,1,2200000.00,'2025-08-08','2026-01-08',1,'Expired',1,NULL,'IMMEDIATE'),
+(10,13,13,1,1800000.00,'2025-07-10','2026-01-10',1,'Active',0,NULL,'IMMEDIATE'),
+(11,14,14,1,2200000.00,'2025-07-13','2026-01-13',1,'Active',1,NULL,'IMMEDIATE'),
+(12,15,15,1,2000000.00,'2025-02-01','2026-01-01',1,'Expired',0,NULL,'IMMEDIATE'),
+(13,16,16,1,2200000.00,'2025-07-14','2026-01-14',1,'Active',1,NULL,'IMMEDIATE'),
+(14,17,17,1,1800000.00,'2025-07-25','2026-01-25',1,'Active',0,NULL,'IMMEDIATE'),
+(15,18,18,1,1800000.00,'2025-07-07','2026-01-07',1,'Expired',0,NULL,'IMMEDIATE'),
+(16,19,19,1,1800000.00,'2025-06-25','2026-01-25',1,'Active',0,NULL,'IMMEDIATE'),
+(17,20,20,1,2000000.00,'2025-07-01','2026-01-26',1,'Active',0,NULL,'IMMEDIATE'),
+(18,21,21,1,2000000.00,'2025-07-05','2026-01-05',1,'Expired',0,NULL,'IMMEDIATE'),
+(19,22,22,1,2200000.00,'2025-05-24','2026-01-24',1,'Active',1,NULL,'IMMEDIATE'),
+(20,23,23,1,1800000.00,'2025-07-24','2026-01-24',1,'Active',0,NULL,'IMMEDIATE'),
+(21,24,24,1,1800000.00,'2025-11-18','2026-01-18',1,'Active',0,NULL,'IMMEDIATE'),
+(22,25,25,1,2000000.00,'2025-07-22','2026-01-22',1,'Active',0,NULL,'IMMEDIATE'),
+(23,29,26,1,1500000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08','IMMEDIATE'),
+(24,28,27,1,2000000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08','IMMEDIATE'),
+(25,30,28,1,10000.00,'2026-01-08','2026-07-08',6,'Active',0,'2026-02-08','IMMEDIATE'),
+(26,28,29,2,2600000.00,'2026-01-08','2026-07-08',6,'Active',0,NULL,'IMMEDIATE'),
+(27,31,31,1,1800000.00,'2026-01-09','2026-07-09',5,'Active',0,'2026-02-09','IMMEDIATE'),
+(28,27,32,1,1500000.00,'2026-01-09','2026-07-09',2,'Active',0,'2026-02-09','IMMEDIATE'),
+(29,27,33,1,1500000.00,'2026-01-09','2026-05-09',4,'Active',0,NULL,'IMMEDIATE');
 
 /*Table structure for table `listrik_bills` */
 
@@ -174,7 +178,7 @@ CREATE TABLE `listrik_bills` (
   `bill_month` date NOT NULL,
   `due_date` date NOT NULL,
   `status` enum('Unpaid','Paid') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
-  `admin_status` enum('Belum Done','Done') COLLATE utf8mb4_general_ci DEFAULT 'Belum Done',
+  `admin_status` enum('Belum Done','Done') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Belum Done',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bill_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -191,8 +195,8 @@ DROP TABLE IF EXISTS `reminders`;
 
 CREATE TABLE `reminders` (
   `reminder_id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `content` varchar(255) COLLATE utf8mb4_general_ci DEFAULT 'Reminder bayar uang sewa',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Reminder bayar uang sewa',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `tenant_id` int NOT NULL,
   PRIMARY KEY (`reminder_id`),
@@ -221,7 +225,7 @@ CREATE TABLE `rooms` (
   `facilities` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower',
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_number` (`room_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rooms` */
 
@@ -251,10 +255,11 @@ insert  into `rooms`(`room_id`,`room_number`,`type`,`base_price`,`status`,`facil
 (23,'3I','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
 (24,'3J','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
 (25,'3K','Large',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower,Ruang Besar'),
-(27,'301','Standart',1500000.00,'Perbaikan','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(27,'301','Standart',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
 (28,'302','Standart',2000000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
 (29,'305','Standart',1500000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
-(30,'23','Standart',10000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower');
+(30,'23','Standart',10000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower'),
+(31,'321','Standart',1800000.00,'Terisi','AC,Meja,TV,Water Heater,Mini Fridge,Closet Duduk,Shower');
 
 /*Table structure for table `tenants` */
 
@@ -273,7 +278,7 @@ CREATE TABLE `tenants` (
   UNIQUE KEY `ktp_number` (`ktp_number`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `tenants_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tenants` */
 
@@ -307,7 +312,10 @@ insert  into `tenants`(`tenant_id`,`user_id`,`full_name`,`ktp_number`,`gender`,`
 (27,50,'keset','123213123','Perempuan','2026-01-08',NULL,'lumba'),
 (28,51,'fer','123','Perempuan','2026-01-08',NULL,'1235'),
 (29,52,'bening','2241173','Laki-laki','2026-01-08',NULL,'manyar'),
-(30,52,'renat','2241234','Perempuan','2026-01-08',NULL,'kenjeran');
+(30,52,'renat','2241234','Perempuan','2026-01-08',NULL,'kenjeran'),
+(31,53,'pencil','2131321','Laki-laki','2000-03-02',NULL,'fsdfvsewfwef'),
+(32,54,'vdvdxv sdv','321412','Laki-laki','2026-01-09',NULL,'hgfd'),
+(33,55,'cvygbuhnij','456789','Perempuan','2026-01-09',NULL,'tcfvygbuhnijmok');
 
 /*Table structure for table `transactions` */
 
@@ -327,7 +335,7 @@ CREATE TABLE `transactions` (
   PRIMARY KEY (`transaction_id`),
   KEY `lease_id` (`lease_id`),
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `transactions` */
 
@@ -349,7 +357,11 @@ insert  into `transactions`(`transaction_id`,`lease_id`,`transaction_date`,`desc
 (15,23,'2026-01-08 14:38:43','Perpanjangan sewa 3 bulan',NULL,6000000.00,'Transfer Akun','Paid','rent',NULL),
 (16,23,'2026-01-08 14:51:02','Perpanjangan sewa 3 bulan',NULL,6000000.00,'Qris','Paid','rent',NULL),
 (17,25,'2026-01-08 14:55:56','Pembayaran Sewa Bulan Pertama',NULL,10000.00,NULL,'Pending','rent',NULL),
-(18,25,'2026-01-08 14:55:56','Deposit / Uang Jaminan',NULL,1800000.00,NULL,'Paid','rent',NULL);
+(18,25,'2026-01-08 14:55:56','Deposit / Uang Jaminan',NULL,1800000.00,NULL,'Paid','rent',NULL),
+(19,23,'2026-01-09 12:12:04','fedod',NULL,1500000.00,NULL,'Pending','damages','2026-01-12 12:12:05'),
+(20,27,'2026-01-09 12:28:25','Pembayaran Sewa Bulan Pertama',NULL,1800000.00,NULL,'Pending','rent',NULL),
+(21,28,'2026-01-09 12:43:49','Pembayaran Sewa Bulan Pertama',NULL,1500000.00,NULL,'Pending','rent',NULL),
+(22,29,'2026-01-09 13:36:24','Pembayaran Sewa Semua Bulan',NULL,6000000.00,NULL,'Paid','rent',NULL);
 
 /*Table structure for table `users` */
 
@@ -363,7 +375,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `users` */
 
@@ -397,7 +409,10 @@ insert  into `users`(`user_id`,`username`,`password`,`role`,`created_at`) values
 (49,'benoyy','123','tenant','2026-01-08 14:14:18'),
 (50,'keset','123','tenant','2026-01-08 14:37:17'),
 (51,'fer','123','tenant','2026-01-08 14:55:56'),
-(52,'bening','123','tenant','2026-01-08 15:19:54');
+(52,'bening','123','tenant','2026-01-08 15:19:54'),
+(53,'pencil','123','tenant','2026-01-09 12:28:25'),
+(54,'vdvdxv sdv','123','tenant','2026-01-09 12:43:49'),
+(55,'cvygbuhnij','123','tenant','2026-01-09 13:36:24');
 
 /*!50106 set global event_scheduler = 1*/;
 
@@ -450,29 +465,24 @@ DELIMITER $$
     SELECT 
         l.lease_id,
         NOW(),
-        /* Membuat deskripsi otomatis, misal: "Tagihan Sewa Bulan January 2026" */
         CONCAT('Tagihan Sewa Bulan ', MONTHNAME(CURDATE()), ' ', YEAR(CURDATE())), 
         l.rent_price,
-        NULL,           -- Payment method kosong dulu karena belum bayar
-        'Pending',      -- Status Pending (Tagihan Baru)
-        'rent'          -- Kategori Sewa
+        NULL,
+        'Pending',
+        'rent'
     FROM `leases` l
     WHERE l.status = 'Active'
-    
-    /* 1. Cek Tanggal: Apakah tanggal mulai sewa (tgl 15) sama dengan hari ini (tgl 15)? */
-    AND DAY(l.start_date) = DAY(CURDATE())
-    
-    /* 2. Jangan tagih di hari pertama sewa (Asumsi bulan pertama bayar manual/DP di awal) */
-    AND l.start_date < CURDATE()
-    
-    /* 3. Mencegah Double: Cek apakah tagihan 'rent' bulan ini sudah dibuat? */
-    AND NOT EXISTS (
-        SELECT 1 FROM `transactions` t
-        WHERE t.lease_id = l.lease_id 
-        AND t.category = 'rent'
-        AND MONTH(t.transaction_date) = MONTH(CURDATE()) 
-        AND YEAR(t.transaction_date) = YEAR(CURDATE())
-    );
+      AND l.payment_type = 'CONSECUTIVE'
+      AND DAY(l.start_date) = DAY(CURDATE())
+      AND l.start_date < CURDATE()
+      AND NOT EXISTS (
+          SELECT 1
+          FROM transactions t
+          WHERE t.lease_id = l.lease_id
+            AND t.category = 'rent'
+            AND MONTH(t.transaction_date) = MONTH(CURDATE())
+            AND YEAR(t.transaction_date) = YEAR(CURDATE())
+      );
 END */$$
 DELIMITER ;
 
@@ -483,11 +493,12 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50106 CREATE DEFINER=`root`@`%` EVENT `auto_update_rent_due_date` ON SCHEDULE EVERY 1 DAY STARTS '2026-01-08 15:40:26' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
-    UPDATE `leases`
-    SET `rent_due` = DATE_ADD(`rent_due`, INTERVAL 1 MONTH)
-    WHERE `status` = 'Active'
-    /* Syarat: Hanya update jika 'rent_due' adalah HARI INI */
-    AND `rent_due` = CURDATE(); 
+    UPDATE leases
+	SET rent_due = DATE_ADD(rent_due, INTERVAL 1 MONTH)
+	WHERE status = 'Active'
+	AND payment_type = 'CONSECUTIVE'
+	AND rent_due = CURDATE();
+
 END */$$
 DELIMITER ;
 

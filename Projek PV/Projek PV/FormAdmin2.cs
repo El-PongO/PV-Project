@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,8 +18,8 @@ namespace Projek_PV
 {
     public partial class FormAdmin2 : Form
     {
-        string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
-        //string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
+        //string connectionString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
+        string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
         private int selectedLeaseId = -1;
         private string selectedUsername = "";
         public static int colscounter = 0;
@@ -98,7 +99,7 @@ namespace Projek_PV
 
         }
 
-        
+
 
         private void NavBar_ManageRooms_Click(object sender, EventArgs e)
         {
@@ -901,7 +902,7 @@ namespace Projek_PV
                 }
             }
         }
-        
+
 
         private void LoadDgvTagihan()
         {
@@ -1076,7 +1077,7 @@ namespace Projek_PV
                         {
                             MessageBox.Show("Balasan terkirim dan status diperbarui.");
                             flowLayoutPanelComplaints.Controls.Remove(card);
-                            LoadDataFromDatabase(); 
+                            LoadDataFromDatabase();
                         }
                         else
                         {
@@ -1220,7 +1221,7 @@ namespace Projek_PV
 
         public DataTable GetData(string query)
         {
-            string connString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
+            string connString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
             DataTable dt = new DataTable();
 
             using (MySqlConnection conn = new MySqlConnection(connString))
@@ -1308,7 +1309,7 @@ namespace Projek_PV
             }
         }
 
-        
+
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1364,158 +1365,190 @@ namespace Projek_PV
                 return;
             }
 
-            if(comboDurationFill.Value < 1)
+            if (comboDurationFill.Value < 1)
             {
                 MessageBox.Show("Durasi Sewa Minimal 1 Bulan");
                 return;
             }
 
-            decimal hargaKamar = 0;
             string gender = radioWanita1.Checked ? "Perempuan" : "Laki-Laki";
             int tenantCount = checkBox4.Checked ? 2 : 1;
-            DateTime rent_due = DateTime.Now;
+
+            // 🔑 PAYMENT TYPE
+            string paymentType = radioSemuaBulan.Checked
+                ? "IMMEDIATE"
+                : "CONSECUTIVE";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                try
+                conn.Open();
+                using (MySqlTransaction tr = conn.BeginTransaction())
                 {
-                    conn.Open();
-
-                    // STEP A: Ambil harga dulu (Boleh di luar transaksi karena hanya SELECT)
-                    string queryHarga = "SELECT base_price FROM rooms WHERE room_id = @roomNum";
-                    using (MySqlCommand cmdHarga = new MySqlCommand(queryHarga, conn))
+                    try
                     {
-                        cmdHarga.Parameters.AddWithValue("@roomNum", comboRoomFill.SelectedValue);
-                        object res = cmdHarga.ExecuteScalar();
-                        hargaKamar = (res != null && res != DBNull.Value) ? Convert.ToDecimal(res) : 0;
+                        // =========================
+                        // 1. GET BASE ROOM PRICE
+                        // =========================
+                        decimal basePrice;
+                        using (MySqlCommand cmd = new MySqlCommand(
+                            "SELECT base_price FROM rooms WHERE room_id = @id", conn, tr))
+                        {
+                            cmd.Parameters.AddWithValue("@id", comboRoomFill.SelectedValue);
+                            basePrice = Convert.ToDecimal(cmd.ExecuteScalar());
+                        }
+
+                        // =========================
+                        // 2. APPLY 30% IF 2 PEOPLE
+                        // =========================
+                        decimal monthlyPrice = basePrice;
+                        if (checkBox4.Checked)
+                            monthlyPrice += monthlyPrice * 0.3m;
+
+                        // =========================
+                        // 3. INSERT USER
+                        // =========================
+                        long userId;
+                        using (MySqlCommand c1 = new MySqlCommand(
+                            "INSERT INTO users(username,password) VALUES(@u,'123')", conn, tr))
+                        {
+                            c1.Parameters.AddWithValue("@u", tbNama1.Text);
+                            c1.ExecuteNonQuery();
+                            userId = c1.LastInsertedId;
+                        }
+
+                        // =========================
+                        // 4. INSERT MAIN TENANT
+                        // =========================
+                        long tenantId;
+                        string qTenant = @"INSERT INTO tenants
+                    (user_id, full_name, ktp_number, gender, date_of_birth, address)
+                    VALUES (@u,@n,@k,@g,@d,@a)";
+
+                        using (MySqlCommand c2 = new MySqlCommand(qTenant, conn, tr))
+                        {
+                            c2.Parameters.AddWithValue("@u", userId);
+                            c2.Parameters.AddWithValue("@n", tbNama1.Text);
+                            c2.Parameters.AddWithValue("@k", tbNIK1.Text);
+                            c2.Parameters.AddWithValue("@g", gender);
+                            c2.Parameters.AddWithValue("@d", dateTimePicker1.Value);
+                            c2.Parameters.AddWithValue("@a", tbAlamat1.Text);
+                            c2.ExecuteNonQuery();
+                            tenantId = c2.LastInsertedId;
+                        }
+
+                        // =========================
+                        // 5. INSERT SECOND TENANT
+                        // =========================
+                        if (checkBox4.Checked)
+                        {
+                            using (MySqlCommand c2b = new MySqlCommand(qTenant, conn, tr))
+                            {
+                                c2b.Parameters.AddWithValue("@u", userId);
+                                c2b.Parameters.AddWithValue("@n", tbNama2.Text);
+                                c2b.Parameters.AddWithValue("@k", tbNIK2.Text);
+                                c2b.Parameters.AddWithValue("@g",
+                                    radioWanita2.Checked ? "Perempuan" : "Laki-Laki");
+                                c2b.Parameters.AddWithValue("@d", dateTimePicker2.Value);
+                                c2b.Parameters.AddWithValue("@a", tbAlamat2.Text);
+                                c2b.ExecuteNonQuery();
+                            }
+                        }
+
+                        // =========================
+                        // 6. INSERT LEASE
+                        // =========================
+                        DateTime startDate = DateTime.Today;
+
+                        DateTime rentDue = paymentType == "CONSECUTIVE"
+                            ? startDate.AddMonths(1)
+                            : (DateTime?)null ?? startDate; // ignored for IMMEDIATE
+
+                        DateTime endDate = startDate.AddMonths((int)comboDurationFill.Value);
+
+                        long leaseId;
+                        string qLease = @"INSERT INTO leases
+                    (room_id, tenant_id, tenant_count, rent_price,
+                     start_date, end_date, duration_months,
+                     rent_due, payment_type)
+                    VALUES
+                    (@r,@t,@c,@p,@s,@e,@d,@due,@ptype)";
+
+                        using (MySqlCommand c3 = new MySqlCommand(qLease, conn, tr))
+                        {
+                            c3.Parameters.AddWithValue("@r", comboRoomFill.SelectedValue);
+                            c3.Parameters.AddWithValue("@t", tenantId);
+                            c3.Parameters.AddWithValue("@c", tenantCount);
+                            c3.Parameters.AddWithValue("@p", monthlyPrice);
+                            c3.Parameters.AddWithValue("@s", startDate);
+                            c3.Parameters.AddWithValue("@e", endDate);
+                            c3.Parameters.AddWithValue("@d", comboDurationFill.Value);
+                            c3.Parameters.AddWithValue(
+                                "@due",
+                                paymentType == "CONSECUTIVE"
+                                    ? rentDue
+                                    : (object)DBNull.Value
+                            );
+                            c3.Parameters.AddWithValue("@ptype", paymentType);
+                            c3.ExecuteNonQuery();
+                            leaseId = c3.LastInsertedId;
+                        }
+
+                        int duration = (int)comboDurationFill.Value;
+
+                        // =========================
+                        // 7. INSERT FIRST TRANSACTION
+                        // =========================
+                        decimal paymentAmount;
+                        string description;
+
+                        if (paymentType == "IMMEDIATE")
+                        {
+                            paymentAmount = monthlyPrice * duration;
+                            description = $"Pembayaran Sewa {duration} Bulan (Lunas)";
+                        }
+                        else // CONSECUTIVE
+                        {
+                            paymentAmount = monthlyPrice;
+                            description = $"Pembayaran Sewa Bulan ke-1 dari {duration}";
+                        }
+
+                        using (MySqlCommand c4 = new MySqlCommand(
+                            @"INSERT INTO transactions
+                          (lease_id, description, amount, status, category)
+                          VALUES (@l, @desc, @amt, 'Paid', 'rent')",
+                            conn, tr))
+                        {
+                            c4.Parameters.AddWithValue("@l", leaseId);
+                            c4.Parameters.AddWithValue("@desc", description);
+                            c4.Parameters.AddWithValue("@amt", paymentAmount);
+                            c4.ExecuteNonQuery();
+                        }
+
+
+                        // =========================
+                        // 8. UPDATE ROOM STATUS
+                        // =========================
+                        using (MySqlCommand c5 = new MySqlCommand(
+                            "UPDATE rooms SET status='Terisi' WHERE room_id=@r", conn, tr))
+                        {
+                            c5.Parameters.AddWithValue("@r", comboRoomFill.SelectedValue);
+                            c5.ExecuteNonQuery();
+                        }
+
+                        tr.Commit();
+                        MessageBox.Show("Data berhasil disimpan!");
+                        reset();
                     }
-
-                    // Hitung kenaikan harga jika ada tenant tambahan (30%)
-                    if (checkBox4.Checked) { hargaKamar += hargaKamar * 0.3m; }
-
-                    // STEP B: Mulai Transaksi untuk INSERT/UPDATE
-                    using (MySqlTransaction tr = conn.BeginTransaction())
+                    catch (Exception ex)
                     {
-                        try
-                        {
-                            // 1. Insert User
-                            long userId;
-                            string qUser = "INSERT INTO users(username,password) VALUES(@user,@pass);";
-                            using (MySqlCommand c1 = new MySqlCommand(qUser, conn, tr))
-                            {
-                                c1.Parameters.AddWithValue("@user", tbNama1.Text);
-                                c1.Parameters.AddWithValue("@pass", "123");
-                                c1.ExecuteNonQuery();
-                                userId = c1.LastInsertedId;
-                            }
-
-                            // 2. Insert Tenant Utama
-                            long mainTenantId;
-                            string qTenant = @"INSERT INTO tenants(user_id, full_name, ktp_number, gender, date_of_birth, address) 
-                                       VALUES(@uId, @name, @ktp, @gen, @date, @addr);";
-                            using (MySqlCommand c2 = new MySqlCommand(qTenant, conn, tr))
-                            {
-                                c2.Parameters.AddWithValue("@uId", userId);
-                                c2.Parameters.AddWithValue("@name", tbNama1.Text);
-                                c2.Parameters.AddWithValue("@ktp", tbNIK1.Text);
-                                c2.Parameters.AddWithValue("@gen", gender);
-                                c2.Parameters.AddWithValue("@date", dateTimePicker1.Value);
-                                c2.Parameters.AddWithValue("@addr", tbAlamat1.Text);
-                                c2.ExecuteNonQuery();
-                                mainTenantId = c2.LastInsertedId; // Ambil ID SETELAH Execute
-                            }
-
-                            // 3. Insert Tenant Tambahan (Jika ada)
-                            if (checkBox4.Checked)
-                            {
-                                using (MySqlCommand c2b = new MySqlCommand(qTenant, conn, tr))
-                                {
-                                    c2b.Parameters.AddWithValue("@uId", userId);
-                                    c2b.Parameters.AddWithValue("@name", tbNama2.Text);
-                                    c2b.Parameters.AddWithValue("@ktp", tbNIK2.Text);
-                                    c2b.Parameters.AddWithValue("@gen", radioWanita2.Checked ? "Perempuan" : "Laki-Laki");
-                                    c2b.Parameters.AddWithValue("@date", dateTimePicker2.Value);
-                                    c2b.Parameters.AddWithValue("@addr", tbAlamat2.Text);
-                                    c2b.ExecuteNonQuery();
-                                }
-                            }
-
-                            // 4. Insert Lease (PASTIKAN NAMA TABEL BENAR: leases)
-                            string qLease = @"INSERT INTO leases(room_id, tenant_id, tenant_count, rent_price, start_date, end_date, duration_months,rent_due) 
-                                      VALUES(@rId, @tId, @tCount, @rent, @start, @end, @dur,@due);";
-                            using (MySqlCommand c3 = new MySqlCommand(qLease, conn, tr))
-                            {
-                                DateTime start = DateTime.Now;
-                                c3.Parameters.AddWithValue("@rId", comboRoomFill.SelectedValue);
-                                c3.Parameters.AddWithValue("@tId", mainTenantId);
-                                c3.Parameters.AddWithValue("@tCount", tenantCount);
-                                c3.Parameters.AddWithValue("@rent", hargaKamar);
-                                c3.Parameters.AddWithValue("@start", start);
-                                c3.Parameters.AddWithValue("@end", start.AddMonths(6));
-                                c3.Parameters.AddWithValue("@dur", comboDurationFill.Value);
-                                c3.Parameters.AddWithValue("@due", rent_due.AddMonths(1));
-                                c3.ExecuteNonQuery();
-                            }
-
-                            // 5. Update Status Kamar
-                            string qUpd = "UPDATE rooms SET status = 'Terisi' WHERE room_id = @rId";
-                            using (MySqlCommand c4 = new MySqlCommand(qUpd, conn, tr))
-                            {
-                                c4.Parameters.AddWithValue("@rId", comboRoomFill.SelectedValue);
-                                c4.ExecuteNonQuery();
-                            }
-
-                            string qtran = @"INSERT INTO transactions 
-                            (lease_id, transaction_date, DESCRIPTION, amount, STATUS, category) 
-                            VALUES 
-                            (
-                                (SELECT MAX(lease_id) FROM leases), 
-                                NOW(), -- Added this to match 'transaction_date'
-                                'Pembayaran Sewa Bulan Pertama', 
-                                (SELECT rent_price FROM leases l JOIN rooms r ON l.room_id = r.room_id WHERE l.lease_id = (SELECT MAX(lease_id) FROM leases)), 
-                                'Pending', 
-                                'rent'
-                            ),
-                            (
-                                (SELECT MAX(lease_id) FROM leases), 
-                                NOW(), -- Added this to match 'transaction_date'
-                                'Deposit / Uang Jaminan', 
-                                1800000, 
-                                'Paid', 
-                                'rent'
-                            );";
-
-                            long transactionId;
-                            using (MySqlCommand c5 = new MySqlCommand(qtran, conn, tr))
-                            {
-                                c5.ExecuteNonQuery();
-                                transactionId = c5.LastInsertedId;
-                            }
-
-
-                            // AKHIR: Hanya satu commit untuk semua query di atas
-                            tr.Commit();
-                            MessageBox.Show("Seluruh data berhasil disimpan dan kamar telah terupdate!");
-                            loadComboBox();
-                            LoadDgvOverview();
-                            LoadDgvTagihan();
-                            reset();
-                            FormNota notaform = new FormNota((int)transactionId, "Nota Pembayaran", false);
-                            notaform.ShowDialog();
-                        }
-                        catch (Exception ex)
-                        {
-                            tr.Rollback();
-                            MessageBox.Show("Transaksi Gagal (Rollback): " + ex.Message);
-                        }
+                        tr.Rollback();
+                        MessageBox.Show("Transaksi Gagal: " + ex.Message);
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Koneksi Error: " + ex.Message);
                 }
             }
         }
+
+
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
@@ -1804,7 +1837,7 @@ namespace Projek_PV
             }
         }
 
-    private void loadDgvNotif()
+        private void loadDgvNotif()
         {
             string query = "SELECT title, content FROM announcements LIMIT 5";
 
@@ -1828,16 +1861,16 @@ namespace Projek_PV
         }
 
 
-    private void dgvManage_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvManage_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            roundedPanelOccupant2.Visible = false;
+            if (e.RowIndex >= 0)
             {
-                    roundedPanelOccupant2.Visible = false;
-                    if (e.RowIndex >= 0)
-                    {
-                        string fullName = dgvManage.Rows[e.RowIndex].Cells[2].Value.ToString();
-                        GetDataByFullName(fullName);
-                        roomNum = Convert.ToInt32(dgvManage.Rows[e.RowIndex].Cells[0].Value);
-                    }
+                string fullName = dgvManage.Rows[e.RowIndex].Cells[2].Value.ToString();
+                GetDataByFullName(fullName);
+                roomNum = Convert.ToInt32(dgvManage.Rows[e.RowIndex].Cells[0].Value);
             }
+        }
 
         private void btnUnoccupy_Click(object sender, EventArgs e)
         {
@@ -2020,5 +2053,83 @@ namespace Projek_PV
 
         }
 
+        private void labelUserLogout_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Show();
+            this.Hide();
+        }
+
+        private void comboDurationFill_ValueChanged(object sender, EventArgs e)
+        {
+
+            refreshTotalPembayaran();
+
+        }
+
+        private void radioSemuaBulan_CheckedChanged(object sender, EventArgs e)
+        {
+
+            refreshTotalPembayaran();
+        }
+
+        private void radioPerBulan_CheckedChanged(object sender, EventArgs e)
+        {
+
+            refreshTotalPembayaran();
+        }
+
+        private void refreshTotalPembayaran()
+        {
+            decimal hargaKamar = 0;
+            string query = "Select base_price from rooms where room_id = @param";
+            if (radioSemuaBulan.Checked)
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@param", comboRoomFill.SelectedValue);
+                        object res = cmd.ExecuteScalar();
+                        hargaKamar = (res != null && res != DBNull.Value) ? Convert.ToDecimal(res) : 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Gagal menghitung pembayaran: " + ex.Message);
+                    }
+                    decimal totalPembayaran = hargaKamar * (int)comboDurationFill.Value;
+                    lblFillPembayaran.Text = totalPembayaran.ToString();
+                }
+            }
+            else if (radioPerBulan.Checked)
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@param", comboRoomFill.SelectedValue);
+                        object res = cmd.ExecuteScalar();
+                        hargaKamar = (res != null && res != DBNull.Value) ? Convert.ToDecimal(res) : 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Gagal menghitung pembayaran: " + ex.Message);
+                    }
+                    decimal totalPembayaran = hargaKamar;
+                    lblFillPembayaran.Text = totalPembayaran.ToString();
+                }
+            }
+
+            if (checkBox4.Checked)
+            {
+                decimal tambahan = hargaKamar * 0.3m;
+                decimal currentTotal = decimal.Parse(lblFillPembayaran.Text);
+                lblFillPembayaran.Text = (currentTotal + tambahan).ToString();
+            }
+        }
     }
 }
