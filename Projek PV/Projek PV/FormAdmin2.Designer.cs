@@ -376,8 +376,8 @@
             this.panelBtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnLogout.Controls.Add(this.pictureBox1);
             this.panelBtnLogout.Controls.Add(this.labelUserLogout);
-            this.panelBtnLogout.Location = new System.Drawing.Point(4, 782);
-            this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelBtnLogout.Location = new System.Drawing.Point(4, 635);
+            this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnLogout.Name = "panelBtnLogout";
             this.panelBtnLogout.Size = new System.Drawing.Size(332, 68);
             this.panelBtnLogout.TabIndex = 4;
@@ -1193,9 +1193,9 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(39, 14);
+            this.label12.Location = new System.Drawing.Point(35, 11);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(499, 23);
+            this.label12.Size = new System.Drawing.Size(407, 19);
             this.label12.TabIndex = 39;
             this.label12.Text = "Select Cell kemudian Click untuk melakukan aksi dibawah";
             // 
@@ -1494,10 +1494,9 @@
             // 
             this.panelListrik.Controls.Add(this.flowLayoutPanelListrik);
             this.panelListrik.Controls.Add(this.label11);
-            this.panelListrik.Location = new System.Drawing.Point(2008, 349);
-            this.panelListrik.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelListrik.Location = new System.Drawing.Point(1532, 100);
             this.panelListrik.Name = "panelListrik";
-            this.panelListrik.Size = new System.Drawing.Size(83, 96);
+            this.panelListrik.Size = new System.Drawing.Size(84, 70);
             this.panelListrik.TabIndex = 15;
             // 
             // flowLayoutPanelListrik

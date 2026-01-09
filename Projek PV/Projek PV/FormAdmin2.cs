@@ -338,7 +338,7 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
-            panelListrik.Visible = false;
+            panelListrik.Visible = true;
             panelGuestLog.Visible = false;
 
             panelListrik.Location = new Point(230, 82);
@@ -1221,6 +1221,7 @@ namespace Projek_PV
 
         public DataTable GetData(string query)
         {
+            //string connString = "Server=172.20.10.5;Database=cozy_corner_db;Uid=root;Pwd=;";
             string connString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
             DataTable dt = new DataTable();
 
@@ -1921,7 +1922,13 @@ namespace Projek_PV
 
         private void dgvTagihan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //
+            if (e.RowIndex >= 0)
+            {
+                selectedLeaseId = Convert.ToInt32(
+                    dgvTagihan.Rows[e.RowIndex].Cells["lease_id"].Value
+                );
+            //MessageBox.Show("ini cell content click, lease id: " + selectedLeaseId);
+            }
         }
 
         private void dgvTagihan_DoubleClick(object sender, EventArgs e)
@@ -1936,7 +1943,9 @@ namespace Projek_PV
                 selectedLeaseId = Convert.ToInt32(
                     dgvTagihan.Rows[e.RowIndex].Cells["lease_id"].Value
                 );
+                //MessageBox.Show("ini cell click, lease id: " + selectedLeaseId);
             }
+
         }
 
         private void btnTambahKamar_Click(object sender, EventArgs e)
@@ -1968,6 +1977,7 @@ namespace Projek_PV
             DataGridViewRow row = dgvTagihan.SelectedRows[0];
 
             int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
+            MessageBox.Show("tenant id: " + tenantId);
 
             string title = "Pengingat Pembayaran";
             string content = "Reminder bayar uang sewa"; // bisa custom nanti
@@ -2042,13 +2052,20 @@ namespace Projek_PV
 
         private void buttonTagihKerusakanFailitas_Click(object sender, EventArgs e)
         {
-            if (selectedLeaseId == -1)
+
+            if (dgvTagihan.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Pilih tenant terlebih dahulu!");
                 return;
             }
 
-            formTagihKerusakan form = new formTagihKerusakan(selectedLeaseId, connectionString);
+            // Ambil row yang dipilih
+            DataGridViewRow row = dgvTagihan.SelectedRows[0];
+
+            int tenantId = Convert.ToInt32(row.Cells["tenant_id"].Value);
+            //MessageBox.Show("tenant id: " + tenantId);
+
+            formTagihan form = new formTagihan(tenantId, connectionString);
             form.ShowDialog();
 
         }
