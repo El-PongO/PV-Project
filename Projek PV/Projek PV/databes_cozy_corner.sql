@@ -230,7 +230,7 @@ CREATE TABLE `reminders` (
   PRIMARY KEY (`reminder_id`),
   KEY `fk_reminder_tenant` (`tenant_id`),
   CONSTRAINT `fk_reminder_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `reminders` */
 
@@ -239,7 +239,10 @@ insert  into `reminders`(`reminder_id`,`title`,`content`,`created_at`,`tenant_id
 (2,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 00:58:18',1),
 (3,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 14:21:13',14),
 (4,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-08 14:21:31',26),
-(5,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-09 00:03:15',18);
+(5,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-09 00:03:15',18),
+(6,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-09 12:38:29',18),
+(7,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-09 12:38:36',18),
+(8,'Pengingat Pembayaran','Reminder bayar uang sewa','2026-01-09 12:43:00',18);
 
 /*Table structure for table `rooms` */
 
@@ -364,7 +367,7 @@ CREATE TABLE `transactions` (
   PRIMARY KEY (`transaction_id`),
   KEY `lease_id` (`lease_id`),
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `transactions` */
 
@@ -391,7 +394,8 @@ insert  into `transactions`(`transaction_id`,`lease_id`,`transaction_date`,`desc
 (20,27,'2026-01-08 22:07:58','Pembayaran Sewa Bulan Pertama',NULL,1950000.00,NULL,'Pending','rent',NULL),
 (21,27,'2026-01-08 22:07:58','Deposit / Uang Jaminan',NULL,1800000.00,NULL,'Paid','rent',NULL),
 (22,28,'2026-01-08 22:13:09','Pembayaran Sewa Bulan Pertama',NULL,500000.00,NULL,'Pending','rent',NULL),
-(23,28,'2026-01-08 22:13:09','Deposit / Uang Jaminan',NULL,1800000.00,NULL,'Paid','rent',NULL);
+(23,28,'2026-01-08 22:13:09','Deposit / Uang Jaminan',NULL,1800000.00,NULL,'Paid','rent',NULL),
+(24,23,'2026-01-09 01:25:51','meja rusakk ',NULL,100.00,NULL,'Pending','damages','2026-01-12 01:25:51');
 
 /*Table structure for table `users` */
 

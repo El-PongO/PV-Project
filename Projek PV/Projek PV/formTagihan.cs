@@ -12,12 +12,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Projek_PV
 {
-    public partial class formTagihKerusakan : Form
+    public partial class formTagihan : Form
     {
         private int tenantId;
         private string connectionString;
 
-        public formTagihKerusakan(int tenantId, string connectionStringe)
+        public formTagihan(int tenantId, string connectionStringe)
         {
             InitializeComponent();
             this.tenantId = tenantId;
@@ -25,6 +25,7 @@ namespace Projek_PV
 
 
             LoadTenantName();
+            LoadPaymentMethods();
         }
         private void formTagihKerusakan_Load(object sender, EventArgs e)
         {
@@ -47,9 +48,45 @@ namespace Projek_PV
 
                 object result = cmd.ExecuteScalar();
 
-                textBoxUsername.Text = result != null ? result.ToString() : "-";
-                textBoxUsername.ReadOnly = true;
+                textBoxFullName.Text = result != null ? result.ToString() : "-";
+                textBoxFullName.ReadOnly = true;
+
+                //MessageBox.Show("tenant id: " + tenantId);
+
             }
+        }
+
+        private void LoadPaymentMethods()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = @"
+            SELECT DISTINCT payment_method
+            FROM transactions
+            WHERE payment_method IS NOT NULL
+            ORDER BY payment_method
+        ";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                comboBoxPaymentMethod.Items.Clear();
+
+                while (reader.Read())
+                {
+                    comboBoxPaymentMethod.Items.Add(
+                        reader["payment_method"].ToString()
+                    );
+                }
+
+                reader.Close();
+            }
+
+            // optional default
+            if (comboBoxPaymentMethod.Items.Count > 0)
+                comboBoxPaymentMethod.SelectedIndex = 0;
         }
 
 
@@ -62,11 +99,16 @@ namespace Projek_PV
                 return;
             }
 
+            if (comboBoxPaymentMethod.SelectedItem == null)
+            {
+                MessageBox.Show("Pilih payment method");
+                return;
+            }
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
 
-                // Ambil lease aktif tenant
                 string getLeaseQuery = @"
             SELECT lease_id 
             FROM leases 
@@ -90,15 +132,16 @@ namespace Projek_PV
 
                 string insertQuery = @"
             INSERT INTO transactions
-            (lease_id, description, amount, status, category, payment_due_by)
+            (lease_id, description, amount, payment_method, status, category, payment_due_by)
             VALUES
-            (@lease_id, @description, @amount, 'Pending', 'damages', @due)
+            (@lease_id, @description, @amount, @payment_method, 'Pending', 'damages', @due)
         ";
 
                 MySqlCommand cmd = new MySqlCommand(insertQuery, conn);
                 cmd.Parameters.AddWithValue("@lease_id", leaseId);
                 cmd.Parameters.AddWithValue("@description", textBoxDescription.Text);
                 cmd.Parameters.AddWithValue("@amount", numericUpDownAmount.Value);
+                cmd.Parameters.AddWithValue("@payment_method", comboBoxPaymentMethod.SelectedItem.ToString());
                 cmd.Parameters.AddWithValue("@due", dueDate);
 
                 cmd.ExecuteNonQuery();

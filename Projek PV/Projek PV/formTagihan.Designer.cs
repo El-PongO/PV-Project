@@ -1,6 +1,6 @@
 ﻿namespace Projek_PV
 {
-    partial class formTagihKerusakan
+    partial class formTagihan
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,6 +40,8 @@
             this.numericUpDownDays = new System.Windows.Forms.NumericUpDown();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxPaymentMethod = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDays)).BeginInit();
@@ -72,24 +74,24 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(31, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 19);
+            this.label2.Size = new System.Drawing.Size(85, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Username";
+            this.label2.Text = "Full Name";
             // 
-            // textBoxUsername
+            // textBoxFullName
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(35, 102);
-            this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.ReadOnly = true;
-            this.textBoxUsername.Size = new System.Drawing.Size(294, 22);
-            this.textBoxUsername.TabIndex = 2;
+            this.textBoxFullName.Location = new System.Drawing.Point(35, 102);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.ReadOnly = true;
+            this.textBoxFullName.Size = new System.Drawing.Size(294, 22);
+            this.textBoxFullName.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(31, 144);
+            this.label3.Location = new System.Drawing.Point(31, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 19);
             this.label3.TabIndex = 3;
@@ -97,7 +99,7 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(35, 177);
+            this.textBoxDescription.Location = new System.Drawing.Point(35, 166);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(294, 64);
@@ -108,7 +110,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(31, 255);
+            this.label4.Location = new System.Drawing.Point(31, 240);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 19);
             this.label4.TabIndex = 5;
@@ -121,7 +123,7 @@
             0,
             0,
             0});
-            this.numericUpDownAmount.Location = new System.Drawing.Point(35, 290);
+            this.numericUpDownAmount.Location = new System.Drawing.Point(35, 264);
             this.numericUpDownAmount.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -136,7 +138,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(31, 335);
+            this.label5.Location = new System.Drawing.Point(31, 303);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(186, 19);
             this.label5.TabIndex = 7;
@@ -144,7 +146,7 @@
             // 
             // numericUpDownDays
             // 
-            this.numericUpDownDays.Location = new System.Drawing.Point(35, 372);
+            this.numericUpDownDays.Location = new System.Drawing.Point(35, 328);
             this.numericUpDownDays.Maximum = new decimal(new int[] {
             365,
             0,
@@ -158,9 +160,9 @@
             // 
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(35, 423);
+            this.buttonCancel.Location = new System.Drawing.Point(35, 446);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(142, 40);
+            this.buttonCancel.Size = new System.Drawing.Size(146, 40);
             this.buttonCancel.TabIndex = 9;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -172,7 +174,7 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSave.Location = new System.Drawing.Point(183, 423);
+            this.buttonSave.Location = new System.Drawing.Point(187, 446);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(142, 40);
             this.buttonSave.TabIndex = 10;
@@ -180,11 +182,32 @@
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // formTagihKerusakan
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(31, 369);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(141, 19);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Payment Method";
+            // 
+            // comboBoxPaymentMethod
+            // 
+            this.comboBoxPaymentMethod.FormattingEnabled = true;
+            this.comboBoxPaymentMethod.Location = new System.Drawing.Point(36, 394);
+            this.comboBoxPaymentMethod.Name = "comboBoxPaymentMethod";
+            this.comboBoxPaymentMethod.Size = new System.Drawing.Size(293, 24);
+            this.comboBoxPaymentMethod.TabIndex = 12;
+            // 
+            // formTagihan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 485);
+            this.ClientSize = new System.Drawing.Size(369, 525);
+            this.Controls.Add(this.comboBoxPaymentMethod);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.numericUpDownDays);
@@ -193,10 +216,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxUsername);
+            this.Controls.Add(this.textBoxFullName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Name = "formTagihKerusakan";
+            this.Name = "formTagihan";
             this.Text = "formTagihKerusakan";
             this.Load += new System.EventHandler(this.formTagihKerusakan_Load);
             this.panel1.ResumeLayout(false);
@@ -213,7 +236,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxFullName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label label4;
@@ -222,5 +245,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownDays;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBoxPaymentMethod;
     }
 }

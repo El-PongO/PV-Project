@@ -109,6 +109,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panelPenghunidanTagihan = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.buttonTagihKerusakanFailitas = new System.Windows.Forms.Button();
             this.dgvTagihan = new System.Windows.Forms.DataGridView();
             this.buttonSendReminderKeTenant = new System.Windows.Forms.Button();
@@ -187,7 +188,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelBtnGuestLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).BeginInit();
@@ -376,7 +376,7 @@
             this.panelBtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panelBtnLogout.Controls.Add(this.pictureBox1);
             this.panelBtnLogout.Controls.Add(this.labelUserLogout);
-            this.panelBtnLogout.Location = new System.Drawing.Point(4, 626);
+            this.panelBtnLogout.Location = new System.Drawing.Point(4, 635);
             this.panelBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.panelBtnLogout.Name = "panelBtnLogout";
             this.panelBtnLogout.Size = new System.Drawing.Size(295, 54);
@@ -1206,6 +1206,16 @@
             this.panelPenghunidanTagihan.Size = new System.Drawing.Size(1201, 572);
             this.panelPenghunidanTagihan.TabIndex = 6;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(35, 11);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(407, 19);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Select Cell kemudian Click untuk melakukan aksi dibawah";
+            // 
             // buttonTagihKerusakanFailitas
             // 
             this.buttonTagihKerusakanFailitas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -1498,9 +1508,9 @@
             // 
             this.panelListrik.Controls.Add(this.flowLayoutPanelListrik);
             this.panelListrik.Controls.Add(this.label11);
-            this.panelListrik.Location = new System.Drawing.Point(1785, 279);
+            this.panelListrik.Location = new System.Drawing.Point(1532, 100);
             this.panelListrik.Name = "panelListrik";
-            this.panelListrik.Size = new System.Drawing.Size(74, 77);
+            this.panelListrik.Size = new System.Drawing.Size(84, 70);
             this.panelListrik.TabIndex = 15;
             // 
             // flowLayoutPanelListrik
@@ -2088,16 +2098,6 @@
             this.label46.Size = new System.Drawing.Size(42, 46);
             this.label46.TabIndex = 1;
             this.label46.Text = "0";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(35, 11);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(407, 19);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Select Cell kemudian Click untuk melakukan aksi dibawah";
             // 
             // FormAdmin2
             // 
