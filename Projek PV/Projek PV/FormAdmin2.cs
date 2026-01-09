@@ -1484,9 +1484,12 @@ namespace Projek_PV
                                 'Paid', 
                                 'rent'
                             );";
+
+                            long transactionId;
                             using (MySqlCommand c5 = new MySqlCommand(qtran, conn, tr))
                             {
                                 c5.ExecuteNonQuery();
+                                transactionId = c5.LastInsertedId;
                             }
 
 
@@ -1497,6 +1500,8 @@ namespace Projek_PV
                             LoadDgvOverview();
                             LoadDgvTagihan();
                             reset();
+                            FormNota notaform = new FormNota((int)transactionId, "Nota Pembayaran", false);
+                            notaform.ShowDialog();
                         }
                         catch (Exception ex)
                         {
