@@ -1840,7 +1840,7 @@ namespace Projek_PV
 
         private void loadDgvNotif()
         {
-            string query = "SELECT title, content FROM announcements LIMIT 5";
+            string query = "SELECT id,title, content FROM announcements LIMIT 5";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -1859,6 +1859,58 @@ namespace Projek_PV
                     MessageBox.Show(ex.Message);
                 }
             }
+
+
+
+            // --- 1. Basic Styling (Tampilan Modern Flat) ---
+            dgvNotification.BackgroundColor = Color.White;
+            dgvNotification.BorderStyle = BorderStyle.None;
+            dgvNotification.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvNotification.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvNotification.RowHeadersVisible = false; // Sembunyikan selector baris kiri
+            dgvNotification.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNotification.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // --- 2. Header Style ---
+            dgvNotification.EnableHeadersVisualStyles = false;
+            dgvNotification.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 48); // Warna gelap modern
+            dgvNotification.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvNotification.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvNotification.ColumnHeadersHeight = 40;
+
+            // --- 3. Row Style ---
+            dgvNotification.DefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240); // Abu muda saat dipilih
+            dgvNotification.DefaultCellStyle.SelectionForeColor = Color.Black; // Teks tetap hitam
+            dgvNotification.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            dgvNotification.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
+            dgvNotification.DefaultCellStyle.Padding = new Padding(8); // Jarak teks biar tidak mepet
+            dgvNotification.RowTemplate.Height = 35;
+
+            // Alternating Row Color (Baris selang-seling)
+            dgvNotification.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250);
+
+            // --- 4. Tambah Tombol Delete ---
+            // Cek dulu biar kolom tidak double kalau method dipanggil ulang
+            if (!dgvNotification.Columns.Contains("colDelete"))
+            {
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "colDelete";
+                btnDelete.HeaderText = ""; // Header kosong
+                btnDelete.Text = "Hapus";
+                btnDelete.UseColumnTextForButtonValue = true; // Munculkan teks "Hapus" di tombol
+
+                // Style tombol agar terlihat flat (teks merah)
+                btnDelete.FlatStyle = FlatStyle.Flat;
+                btnDelete.DefaultCellStyle.ForeColor = Color.Red;
+                btnDelete.DefaultCellStyle.SelectionForeColor = Color.Red;
+
+                // Tambahkan di kolom paling akhir
+                dgvNotification.Columns.Add(btnDelete);
+            }
+
+            dgvNotification.AllowUserToAddRows = false;
+            dgvNotification.AllowUserToDeleteRows = false;
+            dgvNotification.ReadOnly = true;
         }
 
 
@@ -1927,7 +1979,7 @@ namespace Projek_PV
                 selectedLeaseId = Convert.ToInt32(
                     dgvTagihan.Rows[e.RowIndex].Cells["lease_id"].Value
                 );
-            //MessageBox.Show("ini cell content click, lease id: " + selectedLeaseId);
+                //MessageBox.Show("ini cell content click, lease id: " + selectedLeaseId);
             }
         }
 
@@ -2148,5 +2200,39 @@ namespace Projek_PV
                 lblFillPembayaran.Text = (currentTotal + tambahan).ToString();
             }
         }
+
+        private void dgvNotification_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvNotification.Columns[e.ColumnIndex].Name == "colDelete")
+            {
+                int id = Convert.ToInt32(dgvNotification.Rows[e.RowIndex].Cells["id"].Value);
+
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        string query = "DELETE FROM announcements WHERE id = @id";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@id", id); // Pakai parameter biar aman
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data berhasil dihapus");
+
+                            loadDgvNotif();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+        
     }
 }
