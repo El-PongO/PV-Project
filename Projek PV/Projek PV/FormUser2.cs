@@ -440,7 +440,7 @@ namespace Projek_PV
 
         private void btnDaftarkanTamu_Click(object sender, EventArgs e)
         {
-            if (tbNamaTamu.Text == "" || comboJamTamu.SelectedIndex < 0 || tbTujuanKunjungan.Text == "" || cbPersetujuan1.Checked == false || cbPersetujuan2.Checked == false)
+            if (tbNamaTamu.Text == "" || dateTimeKunjunganTamu.Value.Date < DateTime.Now.Date || comboJamTamu.SelectedIndex < 0 || tbTujuanKunjungan.Text == "" || cbPersetujuan1.Checked == false || cbPersetujuan2.Checked == false)
             {
                 MessageBox.Show("Isi data tamu dengan benar!");
             }
@@ -942,6 +942,18 @@ namespace Projek_PV
 
             form.ShowDialog();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LaporanAktif laporanAktif = new LaporanAktif(id_tenant);
+            laporanAktif.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tamuTerdaftarUser tamuTerdaftarUser = new tamuTerdaftarUser(id_tenant);
+            tamuTerdaftarUser.ShowDialog();
         }
     }
 }

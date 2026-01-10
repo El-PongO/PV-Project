@@ -188,6 +188,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panelGuestLog = new System.Windows.Forms.Panel();
             this.flowLayoutPanelGuestLog = new System.Windows.Forms.FlowLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelBtnGuestLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).BeginInit();
@@ -243,6 +244,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.panelBtnGuestLog);
             this.panel1.Controls.Add(this.panelBtnListrik);
             this.panel1.Controls.Add(this.panelBtnPendapatan);
@@ -1056,10 +1058,10 @@
             this.panelFill.Controls.Add(this.label29);
             this.panelFill.Controls.Add(this.gbOccupant2Fill);
             this.panelFill.Controls.Add(this.gbOcccupant1Fill);
-            this.panelFill.Location = new System.Drawing.Point(1516, 14);
+            this.panelFill.Location = new System.Drawing.Point(1572, 814);
             this.panelFill.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(113, 69);
+            this.panelFill.Size = new System.Drawing.Size(123, 79);
             this.panelFill.TabIndex = 3;
             // 
             // radioSemuaBulan
@@ -1698,10 +1700,10 @@
             this.panelOverview.Controls.Add(this.roundedPanel1);
             this.panelOverview.Controls.Add(this.roundedPanelLaporanBaru);
             this.panelOverview.Controls.Add(this.dgvNotification);
-            this.panelOverview.Location = new System.Drawing.Point(307, 98);
+            this.panelOverview.Location = new System.Drawing.Point(1589, 220);
             this.panelOverview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelOverview.Name = "panelOverview";
-            this.panelOverview.Size = new System.Drawing.Size(1201, 10);
+            this.panelOverview.Size = new System.Drawing.Size(1351, 12);
             this.panelOverview.TabIndex = 4;
             // 
             // addPengumuman
@@ -1980,6 +1982,7 @@
             this.dgvNotification.RowTemplate.Height = 28;
             this.dgvNotification.Size = new System.Drawing.Size(1168, 271);
             this.dgvNotification.TabIndex = 9;
+            this.dgvNotification.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotification_CellContentClick);
             // 
             // flowLayoutPanelComplaints
             // 
@@ -1994,7 +1997,7 @@
             // 
             this.panelManageTenant.Controls.Add(this.dataGridViewExtensions);
             this.panelManageTenant.Controls.Add(this.label10);
-            this.panelManageTenant.Location = new System.Drawing.Point(1605, 220);
+            this.panelManageTenant.Location = new System.Drawing.Point(1544, 116);
             this.panelManageTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelManageTenant.Name = "panelManageTenant";
             this.panelManageTenant.Size = new System.Drawing.Size(71, 38);
@@ -2069,10 +2072,10 @@
             // 
             this.panelListrik.Controls.Add(this.flowLayoutPanelListrik);
             this.panelListrik.Controls.Add(this.label11);
-            this.panelListrik.Location = new System.Drawing.Point(307, 112);
+            this.panelListrik.Location = new System.Drawing.Point(1556, 11);
             this.panelListrik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelListrik.Name = "panelListrik";
-            this.panelListrik.Size = new System.Drawing.Size(1201, 664);
+            this.panelListrik.Size = new System.Drawing.Size(75, 56);
             this.panelListrik.TabIndex = 15;
             // 
             // flowLayoutPanelListrik
@@ -2108,12 +2111,22 @@
             this.flowLayoutPanelGuestLog.Size = new System.Drawing.Size(1168, 491);
             this.flowLayoutPanelGuestLog.TabIndex = 0;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(48, 667);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(199, 66);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "All Laporan";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1924, 844);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.panelGuestLog);
             this.Controls.Add(this.panelListrik);
             this.Controls.Add(this.panelKamar);
@@ -2372,5 +2385,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RadioButton radioSemuaBulan;
         private System.Windows.Forms.RadioButton radioPerBulan;
+        private System.Windows.Forms.Button button3;
     }
 }
