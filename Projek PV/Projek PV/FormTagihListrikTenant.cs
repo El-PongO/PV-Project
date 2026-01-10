@@ -54,9 +54,9 @@ namespace Projek_PV
 
                 string query = @"
                 INSERT INTO listrik_bills
-                (lease_id, pemakaian_kwh, tarif_per_kwh, total_tagihan, bill_month, due_date)
+                (lease_id, pemakaian_kwh, tarif_per_kwh, total_tagihan, bill_month, due_date, status)
                 VALUES
-                (@leaseId, @kwh, @tarif, @total, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY))";
+                (@leaseId, @kwh, @tarif, @total, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY), @status)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -64,6 +64,7 @@ namespace Projek_PV
                     cmd.Parameters.AddWithValue("@kwh", numKwh.Value);
                     cmd.Parameters.AddWithValue("@tarif", tariff);
                     cmd.Parameters.AddWithValue("@total", total);
+                    cmd.Parameters.AddWithValue("@status", "paid");
 
                     cmd.ExecuteNonQuery();
                 }

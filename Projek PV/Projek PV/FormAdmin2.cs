@@ -490,7 +490,7 @@ namespace Projek_PV
             flowLayoutPanelKamar.Controls.Add(card);
         }
 
-        private void CreateListrikCard(int billId, int leaseId, decimal pemakaianKwh, decimal tarifPerKwh, decimal totalTagihan, DateTime billMonth, string paymentStatus, string adminStatus)
+        private void CreateListrikCard(int billId, int leaseId, decimal pemakaianKwh, decimal tarifPerKwh, decimal totalTagihan, DateTime billMonth, string fullName, string paymentStatus, string adminStatus)
         {
             RoundedPanel card = new RoundedPanel();
             card.Width = 260;
@@ -506,17 +506,25 @@ namespace Projek_PV
             lblTenant.AutoSize = true;
             card.Controls.Add(lblTenant);
 
+            // FULL NAME
+            Label lblFullName = new Label();
+            lblFullName.Text = "Tenant Name : " + fullName;
+            lblFullName.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            lblFullName.Location = new Point(10, 45);
+            lblFullName.AutoSize = true;
+            card.Controls.Add(lblFullName);
+
             // PEMAKAIAN
             Label lblPemakaian = new Label();
             lblPemakaian.Text = $"Pemakaian: {pemakaianKwh} kWh";
-            lblPemakaian.Location = new Point(10, 45);
+            lblPemakaian.Location = new Point(10, 70);
             lblPemakaian.AutoSize = true;
             card.Controls.Add(lblPemakaian);
 
             // TARIF
             Label lblTarif = new Label();
             lblTarif.Text = "Tarif: Rp " + tarifPerKwh.ToString("N0");
-            lblTarif.Location = new Point(10, 70);
+            lblTarif.Location = new Point(10, 95);
             lblTarif.AutoSize = true;
             card.Controls.Add(lblTarif);
 
@@ -524,80 +532,61 @@ namespace Projek_PV
             Label lblTotal = new Label();
             lblTotal.Text = "Total: Rp " + totalTagihan.ToString("N0");
             lblTotal.Font = new Font("Segoe UI", 11, FontStyle.Bold);
-            lblTotal.Location = new Point(10, 95);
+            lblTotal.Location = new Point(10, 125);
             lblTotal.AutoSize = true;
             card.Controls.Add(lblTotal);
 
             // BULAN
             Label lblBulan = new Label();
             lblBulan.Text = "Bulan: " + billMonth.ToString("MMMM yyyy");
-            lblBulan.Location = new Point(10, 125);
+            lblBulan.Location = new Point(10, 150);
             lblBulan.AutoSize = true;
             card.Controls.Add(lblBulan);
 
             // STATUS BADGE
             Label lblStatus = new Label();
-            lblStatus.Text = paymentStatus;
+            lblStatus.Text = "PAID";
             lblStatus.Padding = new Padding(6);
             lblStatus.AutoSize = true;
             lblStatus.Location = new Point(card.Width - 90, 10);
             lblStatus.ForeColor = Color.White;
-            lblStatus.BackColor = paymentStatus == "Paid"
-                ? Color.FromArgb(80, 200, 120)
-                : Color.FromArgb(220, 80, 80);
+            lblStatus.BackColor = Color.FromArgb(80, 200, 120); // hijau
 
             card.Controls.Add(lblStatus);
 
-            // BUTTON CONFIRM
-            Button btnConfirm = new Button();
-            btnConfirm.Width = 90;
-            btnConfirm.Height = 35;
-            btnConfirm.Location = new Point(card.Width - 110, card.Height - 55);
 
-            // 🔥 CASE 1: UNPAID → AUTO DONE
-            if (paymentStatus == "Unpaid")
-            {
-                UpdateAdminStatus(billId);
+            // EDIT BUTTON
+            Button btnEdit = new Button();
+            btnEdit.Text = "Isi Token";
+            btnEdit.Width = 90;
+            btnEdit.Height = 35;
+            btnEdit.Location = new Point(card.Width - 100, card.Height - 110);
 
-                btnConfirm.Text = "DONE";
-                btnConfirm.Enabled = false;
-                btnConfirm.BackColor = Color.ForestGreen;
-                btnConfirm.ForeColor = Color.White;
-            }
-            // 🔥 CASE 2: SUDAH DONE
-            else if (adminStatus == "Done")
+            if (adminStatus == "Done")
             {
-                btnConfirm.Text = "DONE";
-                btnConfirm.Enabled = false;
-                btnConfirm.BackColor = Color.ForestGreen;
-                btnConfirm.ForeColor = Color.White;
+                btnEdit.Text = "DONE";
+                btnEdit.Enabled = false;
+                btnEdit.BackColor = Color.ForestGreen;
+                btnEdit.ForeColor = Color.White;
             }
-            // 🔥 CASE 3: PAID tapi belum DONE
             else
             {
-                btnConfirm.Text = "CONFIRM";
-                btnConfirm.BackColor = Color.Orange;
-                btnConfirm.ForeColor = Color.Black;
+                btnEdit.Text = "ISI TOKEN";
+                btnEdit.BackColor = Color.Orange;
+                btnEdit.ForeColor = Color.Black;
 
-                btnConfirm.Click += (s, e) =>
+                btnEdit.Click += (s, e) =>
                 {
-                    if (MessageBox.Show(
-                        "Konfirmasi listrik sudah selesai?",
-                        "Confirm",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    formIsiToken form = new formIsiToken(billId, connectionString);
+                    if (form.ShowDialog() == DialogResult.OK)
                     {
-                        UpdateAdminStatus(billId);
-
-                        btnConfirm.Text = "DONE";
-                        btnConfirm.Enabled = false;
-                        btnConfirm.BackColor = Color.ForestGreen;
-                        btnConfirm.ForeColor = Color.White;
+                        LoadListrikCards(); // reload UI
                     }
                 };
             }
 
-            card.Controls.Add(btnConfirm);
+            card.Controls.Add(btnEdit);
+
             flowLayoutPanelListrik.Controls.Add(card);
         }
 
@@ -816,18 +805,23 @@ namespace Projek_PV
                     conn.Open();
 
                     string query = @"
-                SELECT 
-                    bill_id,
-                    lease_id,
-                    pemakaian_kwh,
-                    tarif_per_kwh,
-                    total_tagihan,
-                    bill_month,
-                    status,
-                    admin_status
-                FROM listrik_bills
-                ORDER BY bill_month DESC
-            ";
+                        SELECT 
+                            lb.bill_id,
+                            lb.lease_id,
+                            lb.pemakaian_kwh,
+                            lb.tarif_per_kwh,
+                            lb.total_tagihan,
+                            lb.bill_month,
+                            lb.status,
+                            lb.admin_status,
+                            t.full_name
+                        FROM listrik_bills lb
+                        JOIN leases l ON lb.lease_id = l.lease_id
+                        JOIN tenants t ON l.tenant_id = t.tenant_id
+                        WHERE lb.status = 'Paid'
+                        ORDER BY lb.bill_month DESC;
+                    ";
+
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -841,6 +835,7 @@ namespace Projek_PV
                                 Convert.ToDecimal(reader["tarif_per_kwh"]),
                                 Convert.ToDecimal(reader["total_tagihan"]),
                                 Convert.ToDateTime(reader["bill_month"]),
+                                Convert.ToString(reader["full_name"]),
                                 reader["status"].ToString(),
                                 reader["admin_status"].ToString()
                             );
@@ -902,7 +897,6 @@ namespace Projek_PV
                 }
             }
         }
-
 
         private void LoadDgvTagihan()
         {

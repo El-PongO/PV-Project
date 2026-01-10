@@ -78,6 +78,12 @@
     <Compile Include="formCreateKamar.Designer.cs">
       <DependentUpon>formCreateKamar.cs</DependentUpon>
     </Compile>
+    <Compile Include="formIsiToken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formIsiToken.Designer.cs">
+      <DependentUpon>formIsiToken.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </Compile>
     <EmbeddedResource Include="formCreateKamar.resx">
       <DependentUpon>formCreateKamar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formIsiToken.resx">
+      <DependentUpon>formIsiToken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNota.resx">
       <DependentUpon>FormNota.cs</DependentUpon>
