@@ -68,7 +68,7 @@ namespace Projek_PV
             panelFill.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelListrik.Visible = false;
             panelGuestLog.Visible = false;
 
@@ -122,7 +122,7 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
             panelListrik.Visible = false;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelGuestLog.Visible = false;
 
             if (roundedPanelOccupant1.Visible != true)
@@ -158,7 +158,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelListrik.Visible = false;
             panelGuestLog.Visible = false;
 
@@ -188,7 +188,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelListrik.Visible = false;
             panelGuestLog.Visible = false;
 
@@ -217,7 +217,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = true;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelListrik.Visible = false;
             panelGuestLog.Visible = false;
 
@@ -247,7 +247,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelKamar.Visible = false;
             panelPenghunidanTagihan.Visible = true;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelListrik.Visible = false;
             panelGuestLog.Visible = false;
 
@@ -276,7 +276,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = true;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelListrik.Visible = false;
             panelGuestLog.Visible = false;
 
@@ -309,11 +309,11 @@ namespace Projek_PV
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
             panelListrik.Visible = false;
-            flowLayoutPanelPendapatan.Visible = true;
+            panelPendapatan.Visible = true;
             panelGuestLog.Visible = false;
 
-            flowLayoutPanelPendapatan.Location = new Point(230, 82);
-            flowLayoutPanelPendapatan.Size = new Size(1000, 600);
+            panelPendapatan.Location = new Point(230, 82);
+            panelPendapatan.Size = new Size(1000, 600); 
             lblHeader.Text = "Laporan Pendapatan";
             LoadPendapatanFromDatabase();
         }
@@ -337,7 +337,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelListrik.Visible = true;
             panelGuestLog.Visible = false;
 
@@ -366,7 +366,7 @@ namespace Projek_PV
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
-            flowLayoutPanelPendapatan.Visible = false;
+            panelPendapatan.Visible = false;
             panelListrik.Visible = false;
             panelGuestLog.Visible = true;
 
@@ -1308,6 +1308,15 @@ namespace Projek_PV
                     row.Table.Columns.Contains("notes") ? row["notes"].ToString() : string.Empty
                 );
             }
+
+            string queryTotal = "SELECT SUM(amount) AS total_pendapatan FROM transactions WHERE status = 'Paid'";
+            DataTable dtTotal = GetData(queryTotal);
+            
+            lblTotalPendapatanBulanan.Text = "Rp " + Convert.ToInt32(dtTotal.Rows[0]["total_pendapatan"]).ToString("N0");
+
+            string queryCount = "SELECT COUNT(*) AS total_transaksi FROM transactions WHERE status != 'Paid'";
+            DataTable dtCount = GetData(queryCount);
+            lblCustomerBelumBayar.Text = dtCount.Rows[0]["total_transaksi"].ToString();
         }
 
 
@@ -2147,6 +2156,66 @@ namespace Projek_PV
                 decimal currentTotal = decimal.Parse(lblFillPembayaran.Text);
                 lblFillPembayaran.Text = (currentTotal + tambahan).ToString();
             }
+        }
+
+        private void radioPendapatanPaid_CheckedChanged(object sender, EventArgs e)
+        {
+            btnPendapatanReset.Enabled = true;
+            flowLayoutPanelPendapatan.Controls.Clear();
+            string query = @"SELECT tr.transaction_id, t.full_name, tr.category AS source, tr.amount, 
+                                    tr.payment_method, tr.transaction_date AS paid_at, tr.status, tr.description AS notes
+                              FROM transactions tr
+                              JOIN leases l ON tr.lease_id = l.lease_id
+                              JOIN tenants t ON l.tenant_id = t.tenant_id
+                              WHERE tr.status = 'Paid'
+                              ORDER BY tr.transaction_date DESC";
+            DataTable dt = GetData(query);
+            foreach (DataRow row in dt.Rows)
+            {
+                CreatePendapatanCard(
+                    Convert.ToInt32(row["transaction_id"]),
+                    row["full_name"].ToString(),
+                    row["source"].ToString(),
+                    row["amount"] != DBNull.Value ? Convert.ToDecimal(row["amount"]) : 0,
+                    row["payment_method"].ToString(),
+                    row["paid_at"].ToString(),
+                    row["status"].ToString(),
+                    row.Table.Columns.Contains("notes") ? row["notes"].ToString() : string.Empty
+                );
+            }
+        }
+
+        private void radioPendapatanPending_CheckedChanged(object sender, EventArgs e)
+        {
+            btnPendapatanReset.Enabled = true;
+            flowLayoutPanelPendapatan.Controls.Clear();
+            string query = @"SELECT tr.transaction_id, t.full_name, tr.category AS source, tr.amount, 
+                                    tr.payment_method, tr.transaction_date AS paid_at, tr.status, tr.description AS notes
+                              FROM transactions tr
+                              JOIN leases l ON tr.lease_id = l.lease_id
+                              JOIN tenants t ON l.tenant_id = t.tenant_id
+                              WHERE tr.status = 'Pending'
+                              ORDER BY tr.transaction_date DESC";
+            DataTable dt = GetData(query);
+            foreach (DataRow row in dt.Rows)
+            {
+                CreatePendapatanCard(
+                    Convert.ToInt32(row["transaction_id"]),
+                    row["full_name"].ToString(),
+                    row["source"].ToString(),
+                    row["amount"] != DBNull.Value ? Convert.ToDecimal(row["amount"]) : 0,
+                    row["payment_method"].ToString(),
+                    row["paid_at"].ToString(),
+                    row["status"].ToString(),
+                    row.Table.Columns.Contains("notes") ? row["notes"].ToString() : string.Empty
+                );
+            }
+        }
+
+        private void btnPendapatanReset_Click(object sender, EventArgs e)
+        {
+            btnPendapatanReset.Enabled = false;
+            LoadPendapatanFromDatabase();
         }
     }
 }
