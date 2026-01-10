@@ -90,6 +90,12 @@
     <Compile Include="formTagihan.Designer.cs">
       <DependentUpon>formTagihan.cs</DependentUpon>
     </Compile>
+    <Compile Include="LaporanAktif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaporanAktif.Designer.cs">
+      <DependentUpon>LaporanAktif.cs</DependentUpon>
+    </Compile>
     <Compile Include="notaGroup.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,6 +161,12 @@
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="tamuTerdaftarUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tamuTerdaftarUser.Designer.cs">
+      <DependentUpon>tamuTerdaftarUser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="formCreateKamar.resx">
       <DependentUpon>formCreateKamar.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formTagihan.resx">
       <DependentUpon>formTagihan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaporanAktif.resx">
+      <DependentUpon>LaporanAktif.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="notaGroup.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -205,6 +220,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="tamuTerdaftarUser.resx">
+      <DependentUpon>tamuTerdaftarUser.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataSetPerpanjang.xsc">
       <DependentUpon>DataSetPerpanjang.xsd</DependentUpon>
     </None>
