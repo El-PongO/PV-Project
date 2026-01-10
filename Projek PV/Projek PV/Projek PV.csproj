@@ -96,6 +96,12 @@
     <Compile Include="LaporanAktif.Designer.cs">
       <DependentUpon>LaporanAktif.cs</DependentUpon>
     </Compile>
+    <Compile Include="LaporanFer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaporanFer.Designer.cs">
+      <DependentUpon>LaporanFer.cs</DependentUpon>
+    </Compile>
     <Compile Include="notaGroup.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LaporanAktif.resx">
       <DependentUpon>LaporanAktif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaporanFer.resx">
+      <DependentUpon>LaporanFer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="notaGroup.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

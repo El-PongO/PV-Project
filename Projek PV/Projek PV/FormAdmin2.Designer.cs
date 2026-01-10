@@ -188,6 +188,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panelGuestLog = new System.Windows.Forms.Panel();
             this.flowLayoutPanelGuestLog = new System.Windows.Forms.FlowLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelBtnGuestLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).BeginInit();
@@ -243,6 +244,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.panelBtnGuestLog);
             this.panel1.Controls.Add(this.panelBtnListrik);
             this.panel1.Controls.Add(this.panelBtnPendapatan);
@@ -2109,6 +2111,16 @@
             this.flowLayoutPanelGuestLog.Size = new System.Drawing.Size(1168, 491);
             this.flowLayoutPanelGuestLog.TabIndex = 0;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(48, 667);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(199, 66);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "All Laporan";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2373,5 +2385,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RadioButton radioSemuaBulan;
         private System.Windows.Forms.RadioButton radioPerBulan;
+        private System.Windows.Forms.Button button3;
     }
 }

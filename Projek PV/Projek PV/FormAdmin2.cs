@@ -2233,6 +2233,11 @@ namespace Projek_PV
                 }
             }
         }
-        
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LaporanFer laporan = new LaporanFer();
+            laporan.ShowDialog();
+        }
     }
 }
