@@ -26,13 +26,21 @@ namespace Projek_PV
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-
             //INI DERILL DATABASE USAGE
             if(tbUsername.Text =="" || tbPassword.Text =="")
             {
                 MessageBox.Show("Please enter username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if(tbUsername.Text == "admin" && tbPassword.Text == "123")
+            {
+                FormAdmin2 formadmin = new FormAdmin2();
+                formadmin.Show();
+                this.Hide();
+                return;
+            }
+
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -42,17 +50,14 @@ namespace Projek_PV
                     connection.Open();
 
                     string query = @"
-                    SELECT u.user_id, u.username, u.password, l.status, u.role 
+                    SELECT u.user_id, u.username, u.password, l.status, u.role, l.start_date, r.room_number, l.payment_type, T.tenant_id
                     FROM users u 
                     JOIN tenants t ON t.user_id = u.user_id 
                     JOIN leases l ON t.tenant_id = l.tenant_id 
-                    WHERE u.username = @user AND u.password = @pass
+                    join rooms r ON l.room_id = r.room_id
+                    WHERE u.username = @user AND u.password = @pass";
+                    
 
-                    UNION 
-
-                    SELECT user_id, username, password, 'Active' AS status, role 
-                    FROM users 
-                    WHERE role = 'admin' AND username = @user AND password = @pass"; 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@user", tbUsername.Text);
@@ -69,6 +74,11 @@ namespace Projek_PV
                                 int id = Convert.ToInt32(reader["user_id"]);
                                 string role = reader["role"].ToString();
                                 string status = reader["status"].ToString();
+                                DateTime tanggal = Convert.ToDateTime(reader["start_date"]);
+                                string kamar = reader["room_number"].ToString();
+                                string tipe = reader["payment_type"].ToString();
+                                int tenant_id = Convert.ToInt32(reader["tenant_id"]); 
+
 
                                 LoggedInUserId = id;
 
@@ -93,6 +103,10 @@ namespace Projek_PV
 
                                     this.Hide();
 
+                                }else if(status == "Booked")
+                                {
+                                    form_booked form_Booked = new form_booked(tanggal,kamar, tipe, tenant_id);
+                                    form_Booked.Show();
                                 }
                                 else
                                 {
