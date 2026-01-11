@@ -2445,5 +2445,10 @@ namespace Projek_PV
                 dgvKamar.Columns["room_id"].Visible = false;
             }
         }
+
+        private void roundedPanelRoomInformation_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
