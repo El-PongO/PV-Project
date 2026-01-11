@@ -78,6 +78,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetPerpanjang.xsd</DependentUpon>
     </Compile>
+    <Compile Include="form_booked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_booked.Designer.cs">
+      <DependentUpon>form_booked.cs</DependentUpon>
+    </Compile>
     <Compile Include="formCreateKamar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formTagihan.resx">
       <DependentUpon>formTagihan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_booked.resx">
+      <DependentUpon>form_booked.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="isiData.resx">
       <DependentUpon>isiData.cs</DependentUpon>

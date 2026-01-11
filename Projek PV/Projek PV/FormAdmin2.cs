@@ -1915,7 +1915,7 @@ namespace Projek_PV
             {
                 string fullName = dgvManage.Rows[e.RowIndex].Cells[2].Value.ToString();
                 GetDataByFullName(fullName);
-                roomNum = Convert.ToInt32(dgvManage.Rows[e.RowIndex].Cells[0].Value);
+                //roomNum = Convert.ToInt32(dgvManage.Rows[e.RowIndex].Cells[0].Value);
             }
         }
 
