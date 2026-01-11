@@ -736,6 +736,7 @@
             this.panelBtnNotification.Name = "panelBtnNotification";
             this.panelBtnNotification.Size = new System.Drawing.Size(57, 54);
             this.panelBtnNotification.TabIndex = 2;
+            this.panelBtnNotification.Click += new System.EventHandler(this.panelBtnNotification_Click);
             // 
             // markNewNotication
             // 
@@ -760,6 +761,7 @@
             this.label10.Size = new System.Drawing.Size(40, 29);
             this.label10.TabIndex = 0;
             this.label10.Text = "🔔";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label1
             // 
@@ -1880,7 +1882,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private RoundedPanel panelBtnNotification;
-        private RoundedPanel markNewNotication;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelExtendDuration;
@@ -1946,5 +1947,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private RoundedPanel markNewNotication;
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,11 +25,15 @@ namespace Projek_PV
 
         public void reset()
         {
+            groupBox2.Enabled = true;
             numericUpDown1.Maximum = 12;
             numericUpDown2.Maximum = 3000;
 
-            numericUpDown1.Value = 1;
-            numericUpDown2.Value = 2025;
+            if (radioButton3.Checked)
+            {
+                groupBox2.Enabled = false;
+            }
+
 
         }
 
@@ -77,16 +82,410 @@ namespace Projek_PV
                 laporanKamar();
             }
 
-            if(radioButton2.Checked)
+            if (radioButton2.Checked)
             {
                 laporanKeuangan();
             }
 
-             reset();
+            if (radioButton4.Checked)
+            {
+                laporanJatuhTempoSewa();
+            }
+            if (radioButton5.Checked)
+            {
+                laporanKomplen();
+            }
+            if (radioButton6.Checked)
+            {
+                laporanListrik();
+            }
+            if (radioButton3.Checked)
+            {
+                loadTunggakan();
+            }
+
+                reset();
+        }
+
+        private void loadTunggakan()
+        {
+         
+            string query = @"
+            SELECT 
+                l.tenant_id AS ID_Tenant, 
+                t.full_name AS Nama_Penyewa,
+                r.room_number AS Kamar,
+                DATE_FORMAT(tr.transaction_date, '%d-%m-%Y') AS Tgl_Tagihan,
+                tr.description AS Keterangan,
+                tr.amount AS Total_Utang,
+                DATEDIFF(NOW(), tr.transaction_date) AS Hari_Telat
+            FROM transactions tr
+            JOIN leases l ON tr.lease_id = l.lease_id
+            JOIN tenants t ON l.tenant_id = t.tenant_id
+            JOIN rooms r ON l.room_id = r.room_id
+            WHERE tr.status IN ('Pending', 'Failed')
+            ORDER BY tr.transaction_date ASC";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+
+                    // 1. Sembunyikan ID_Tenant
+                    if (dataGridView1.Columns.Contains("ID_Tenant"))
+                        dataGridView1.Columns["ID_Tenant"].Visible = false;
+
+                    // 2. Styling Format Uang
+                    if (dataGridView1.Columns.Contains("Total_Utang"))
+                    {
+                        dataGridView1.Columns["Total_Utang"].DefaultCellStyle.Format = "N0";
+                        dataGridView1.Columns["Total_Utang"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    }
+
+                    // 4. Style Dasar
+                    ColorizeArrearsRows();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void ColorizeArrearsRows()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                // Warnai Merah Semua (Karena ini daftar masalah)
+                row.DefaultCellStyle.ForeColor = Color.Red;
+
+                // Jika Telat > 30 Hari, Background jadi Merah Muda (Warning Keras)
+                var cellValue = row.Cells["Hari_Telat"].Value;
+                if (cellValue != null && int.TryParse(cellValue.ToString(), out int hari) && hari > 30)
+                {
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 235, 235);
+                    row.DefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                }
+            }
+
+
+            // Cek agar tombol tidak double (duplikat)
+            if (!dataGridView1.Columns.Contains("btnReminder"))
+            {
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                btn.HeaderText = "Aksi";
+                btn.Name = "btnReminder";
+                btn.Text = "Remind";
+                btn.UseColumnTextForButtonValue = true; // Munculkan teks di tombol
+
+                // Tambahkan di kolom paling akhir
+                dataGridView1.Columns.Add(btn);
+            }
+
+            // Sembunyikan ID_Tenant agar rapi
+            if (dataGridView1.Columns.Contains("ID_Tenant"))
+                dataGridView1.Columns["ID_Tenant"].Visible = false;
+        }
+
+        private void laporanListrik()
+        {
+            string query = @"
+            SELECT 
+                DATE_FORMAT(lb.bill_month, '%M %Y') AS Periode,
+                r.room_number AS Kamar,
+                t.full_name AS Nama_Penyewa,
+                lb.pemakaian_kwh AS Pakai_kWh,
+                lb.tarif_per_kwh AS Tarif,
+                lb.total_tagihan AS Total_Biaya,
+                lb.status AS Status
+            FROM listrik_bills lb
+            JOIN leases l ON lb.lease_id = l.lease_id
+            JOIN tenants t ON l.tenant_id = t.tenant_id
+            JOIN rooms r ON l.room_id = r.room_id
+            WHERE MONTH(lb.bill_month) = @bulan
+            AND YEAR(lb.bill_month) = @tahun
+            ORDER BY r.room_number ASC";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Parameter Filter (Wajib)
+                    cmd.Parameters.AddWithValue("@bulan", numericUpDown1.Value);
+                    cmd.Parameters.AddWithValue("@tahun", numericUpDown2.Value);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+
+                    // --- STYLING ---
+                    SetupDataGridViewStyle(); // Panggil style dasar
+
+                    // Format Angka Desimal & Rupiah
+                    if (dataGridView1.Columns.Contains("Total_Biaya"))
+                    {
+                        dataGridView1.Columns["Total_Biaya"].DefaultCellStyle.Format = "N0";
+                        dataGridView1.Columns["Total_Biaya"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    }
+
+                    if (dataGridView1.Columns.Contains("Pakai_kWh"))
+                    {
+                        dataGridView1.Columns["Pakai_kWh"].DefaultCellStyle.Format = "N2"; // 2 angka belakang koma
+                        dataGridView1.Columns["Pakai_kWh"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }
+
+                    if (dataGridView1.Columns.Contains("Tarif"))
+                    {
+                        dataGridView1.Columns["Tarif"].DefaultCellStyle.Format = "N0";
+                    }
+
+                    // Pewarnaan Status (Merah/Hijau)
+                    ColorizeElectricityRows();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+        private void ColorizeElectricityRows()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var status = row.Cells["Status"].Value?.ToString();
+
+                if (status == "Paid")
+                {
+                    row.Cells["Status"].Style.ForeColor = Color.SeaGreen;
+                }
+                else
+                {
+                    row.Cells["Status"].Style.ForeColor = Color.Red;
+                    row.Cells["Status"].Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                }
+            }
+        }
+
+        private void laporanKomplen()
+        {
+            string query = @"
+            SELECT 
+                c.complaint_id AS ID,
+                DATE_FORMAT(c.created_at, '%d-%m-%Y') AS Tanggal,
+                t.full_name AS Pelapor,
+                COALESCE(r.room_number, '-') AS Kamar,
+                c.category AS Kategori,
+                c.description AS Keluhan,
+                COALESCE(c.admin_reply, '-') AS Tanggapan,
+                c.status AS Status_Raw, 
+                UPPER(c.status) AS Status
+            FROM complaints c
+            JOIN tenants t ON c.tenant_id = t.tenant_id
+            LEFT JOIN leases l ON t.tenant_id = l.tenant_id AND l.status = 'Active'
+            LEFT JOIN rooms r ON l.room_id = r.room_id
+            WHERE MONTH(c.created_at) = @bulan 
+            AND YEAR(c.created_at) = @tahun
+            ORDER BY FIELD(c.status, 'Menunggu', 'Proses', 'Selesai'), c.created_at ASC";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Parameter
+                    cmd.Parameters.AddWithValue("@bulan", numericUpDown1.Value);
+                    cmd.Parameters.AddWithValue("@tahun", numericUpDown2.Value);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+
+                    // --- STYLING ---
+
+                    // 1. Sembunyikan kolom ID dan Status Raw
+                    if (dataGridView1.Columns.Contains("ID")) dataGridView1.Columns["ID"].Visible = false;
+                    if (dataGridView1.Columns.Contains("Status_Raw")) dataGridView1.Columns["Status_Raw"].Visible = false;
+
+                    // 2. Atur lebar kolom agar rapi
+                    if (dataGridView1.Columns.Contains("Keluhan")) dataGridView1.Columns["Keluhan"].FillWeight = 200; // Lebih lebar
+                    if (dataGridView1.Columns.Contains("Tanggapan")) dataGridView1.Columns["Tanggapan"].FillWeight = 150;
+
+                    // 3. Flat Design
+                    SetupDataGridViewStyle();
+
+                    // 4. Warnai Baris Berdasarkan Status
+                    ColorizeComplaintRows();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
 
 
-       void laporanKeuangan()
+        private void ColorizeComplaintRows()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var status = row.Cells["Status_Raw"].Value?.ToString();
+
+                if (status == "Menunggu")
+                {
+                    // MERAH: Masalah Baru / Belum disentuh
+                    row.Cells["Status"].Style.ForeColor = Color.Red;
+                    row.Cells["Status"].Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+
+                    // Highlight background biar menyolok
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 235, 235);
+                }
+                else if (status == "Proses")
+                {
+                    // ORANYE: Sedang dikerjakan
+                    row.Cells["Status"].Style.ForeColor = Color.DarkOrange;
+                    row.Cells["Status"].Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 248, 225); // Kuning muda
+                }
+                else if (status == "Selesai")
+                {
+                    // HIJAU: Aman
+                    row.Cells["Status"].Style.ForeColor = Color.SeaGreen;
+                }
+            }
+        }
+        void laporanJatuhTempoSewa()
+        {
+            string query = @"
+            SELECT 
+                r.room_number AS Kamar,
+                t.full_name AS Nama_Penyewa,
+                t.phone_number AS No_HP,
+                DATE_FORMAT(l.end_date, '%d-%m-%Y') AS Tgl_Berakhir,
+            
+                -- Kolom angka untuk logika warna (Sembunyikan nanti)
+                DATEDIFF(l.end_date, CURDATE()) AS Sisa_Hari_Angka, 
+
+                -- Kolom Teks untuk user
+                CASE 
+                    WHEN DATEDIFF(l.end_date, CURDATE()) < 0 THEN 'Sudah Lewat'
+                    WHEN DATEDIFF(l.end_date, CURDATE()) = 0 THEN 'Jatuh Tempo HARI INI'
+                    ELSE CONCAT(DATEDIFF(l.end_date, CURDATE()), ' Hari Lagi')
+                END AS Status_Waktu,
+            
+                l.rent_price AS Harga_sewa
+            FROM leases l
+            JOIN rooms r ON l.room_id = r.room_id
+            JOIN tenants t ON l.tenant_id = t.tenant_id
+            WHERE l.status = 'Active' 
+            AND MONTH(l.end_date) = @bulan 
+            AND YEAR(l.end_date) = @tahun
+            ORDER BY l.end_date ASC";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Parameter
+                    cmd.Parameters.AddWithValue("@bulan", numericUpDown1.Value);
+                    cmd.Parameters.AddWithValue("@tahun", numericUpDown2.Value);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+
+                    // --- STYLING ---
+
+                    // 1. Sembunyikan kolom bantuan (Angka Sisa Hari)
+                    if (dataGridView1.Columns.Contains("Sisa_Hari_Angka"))
+                        dataGridView1.Columns["Sisa_Hari_Angka"].Visible = false;
+
+                    // 2. Format Rupiah untuk tagihan
+                    if (dataGridView1.Columns.Contains("Tagihan_Berikutnya"))
+                    {
+                        dataGridView1.Columns["Tagihan_Berikutnya"].DefaultCellStyle.Format = "N0";
+                        dataGridView1.Columns["Tagihan_Berikutnya"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    }
+
+                    // 3. Terapkan Flat Design
+                    SetupDataGridViewStyle();
+
+                    // 4. Warnai Baris Berdasarkan Urgensi
+                    ColorizeExpiryRows();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+        private void ColorizeExpiryRows()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                // Ambil nilai sisa hari (angka)
+                var cellValue = row.Cells["Sisa_Hari_Angka"].Value;
+
+                if (cellValue != null && int.TryParse(cellValue.ToString(), out int sisaHari))
+                {
+                    if (sisaHari < 0)
+                    {
+                        // KASUS 1: SUDAH LEWAT (Expired)
+                        // Warna Merah Terang
+                        row.Cells["Status_Waktu"].Style.ForeColor = Color.Red;
+                        row.Cells["Status_Waktu"].Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                        row.Cells["Tgl_Berakhir"].Style.ForeColor = Color.Red;
+
+                        // Beri background merah tipis agar menyolok
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 235, 235);
+                    }
+                    else if (sisaHari <= 7)
+                    {
+                        // KASUS 2: WARNING (0 - 7 Hari lagi)
+                        // Warna Oranye/Emas
+                        row.Cells["Status_Waktu"].Style.ForeColor = Color.DarkGoldenrod;
+                        row.Cells["Status_Waktu"].Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                    }
+                    else
+                    {
+                        // KASUS 3: AMAN (Masih lama)
+                        row.Cells["Status_Waktu"].Style.ForeColor = Color.SeaGreen;
+                    }
+                }
+            }
+        }
+
+
+
+        void laporanKeuangan()
         {
             string query = @"
                 SELECT 
@@ -376,6 +775,98 @@ namespace Projek_PV
             if (totalBersih < 0) lblTotalSaldo.ForeColor = Color.Red;
             else lblTotalSaldo.ForeColor = Color.Green;
         }
-    }
 
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButton3.Checked)
+            {
+                groupBox2.Enabled = false;
+            }
+            else
+            {
+                groupBox2.Enabled = true;
+            }
+
+        }
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Pastikan user mengklik tombol "btnSimpanReminder" dan bukan header
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "btnReminder")
+            {
+                // 1. Ambil Data dari Baris Terpilih
+                string tenantId = dataGridView1.Rows[e.RowIndex].Cells["ID_Tenant"].Value.ToString();
+                string nama = dataGridView1.Rows[e.RowIndex].Cells["Nama_Penyewa"].Value.ToString();
+                string hutang = dataGridView1.Rows[e.RowIndex].Cells["Total_Utang"].Value.ToString();
+                string kamar = dataGridView1.Rows[e.RowIndex].Cells["Kamar"].Value.ToString();
+
+                // Format nominal biar cantik di pesan
+                if (decimal.TryParse(hutang, out decimal nilai)) hutang = nilai.ToString("N0");
+
+                // 2. Siapkan Judul dan Isi Reminder Otomatis
+                string judul = "Tagihan Belum Lunas";
+                string isi = $"Halo {nama} (Kamar {kamar}), sistem mencatat tagihan sebesar Rp {hutang} belum lunas. Mohon segera diselesaikan.";
+
+                // 3. Konfirmasi (Opsional, biar admin yakin)
+                DialogResult dr = MessageBox.Show($"Buat reminder untuk {nama}?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    string query = "INSERT INTO reminders (tenant_id, title, content, created_at) VALUES (@tid, @title, @content, NOW())";
+
+                    using (MySqlConnection conn = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                            cmd.Parameters.AddWithValue("@tid", tenantId);
+                            cmd.Parameters.AddWithValue("@title", judul);
+                            cmd.Parameters.AddWithValue("@content", isi);
+
+                            int result = cmd.ExecuteNonQuery();
+
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Reminder berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Gagal menyimpan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    
 }
+
+

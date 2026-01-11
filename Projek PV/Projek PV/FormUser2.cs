@@ -374,10 +374,9 @@ namespace Projek_PV
 
                     //load data pengumuman
                     StyleDgvNotif();
-                    query = "SELECT title, content, created_at as time FROM announcements WHERE is_active = 1 UNION (SELECT CONCAT('Reply dari Complaints : ', category), admin_reply, reply_at as time FROM complaints WHERE tenant_id = @user AND admin_reply IS NOT NULL) union (SELECT title, content, created_at FROM reminders WHERE tenant_id = @tenant) order by time desc limit 10";
+                    query = "SELECT title, content, created_at as time FROM announcements WHERE is_active = 1 UNION (SELECT CONCAT('Reply dari Complaints : ', category), admin_reply, reply_at as time FROM complaints WHERE tenant_id = @tenant AND admin_reply IS NOT NULL) union (SELECT title, content, created_at FROM reminders WHERE tenant_id = @tenant) order by time desc limit 10";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@user", id_user);
                         cmd.Parameters.AddWithValue("@tenant", id_tenant);
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                         {
@@ -1116,6 +1115,20 @@ namespace Projek_PV
         {
             tamuTerdaftarUser tamuTerdaftarUser = new tamuTerdaftarUser(id_tenant);
             tamuTerdaftarUser.ShowDialog();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            Announcement full = new Announcement(id_tenant);
+            full.ShowDialog();
+
+        }
+
+
+        private void panelBtnNotification_Click(object sender, EventArgs e)
+        {
+            Announcement full = new Announcement(id_tenant);
+            full.ShowDialog();
         }
     }
 }

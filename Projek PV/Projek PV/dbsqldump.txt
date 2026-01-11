@@ -165,7 +165,9 @@ insert  into `leases`(`lease_id`,`room_id`,`tenant_id`,`tenant_count`,`rent_pric
 (28,27,32,1,1500000.00,'2026-01-09','2026-07-09',2,'Active',0,'2026-02-09','IMMEDIATE'),
 (29,27,33,1,1500000.00,'2026-01-09','2026-05-09',4,'Active',0,NULL,'IMMEDIATE');
 
-/*Table structure for table `listrik_bills` */
+/*Table structure for table `
+
+` */
 
 DROP TABLE IF EXISTS `listrik_bills`;
 
