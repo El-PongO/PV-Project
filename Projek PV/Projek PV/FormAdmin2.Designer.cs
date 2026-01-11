@@ -98,7 +98,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvManage = new System.Windows.Forms.DataGridView();
-            this.panelFill = new System.Windows.Forms.Panel();
+            this.panelFill1 = new System.Windows.Forms.Panel();
             this.radioSemuaBulan = new System.Windows.Forms.RadioButton();
             this.radioPerBulan = new System.Windows.Forms.RadioButton();
             this.comboDurationFill = new System.Windows.Forms.NumericUpDown();
@@ -191,6 +191,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panelGuestLog = new System.Windows.Forms.Panel();
             this.flowLayoutPanelGuestLog = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelFill = new System.Windows.Forms.Panel();
+            this.dgvKamar = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label35 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panelBtnGuestLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).BeginInit();
@@ -218,7 +226,7 @@
             this.roundedPanelOccupant2.SuspendLayout();
             this.roundedPanelOccupant1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).BeginInit();
-            this.panelFill.SuspendLayout();
+            this.panelFill1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboDurationFill)).BeginInit();
             this.gbOccupant2Fill.SuspendLayout();
             this.gbOcccupant1Fill.SuspendLayout();
@@ -241,6 +249,9 @@
             this.panelKamar.SuspendLayout();
             this.panelListrik.SuspendLayout();
             this.panelGuestLog.SuspendLayout();
+            this.panelFill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -267,7 +278,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(48, 667);
+            this.button3.Location = new System.Drawing.Point(48, 792);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(199, 66);
             this.button3.TabIndex = 10;
@@ -601,6 +612,7 @@
             this.panelBtnFill.Size = new System.Drawing.Size(295, 54);
             this.panelBtnFill.TabIndex = 1;
             this.panelBtnFill.Click += new System.EventHandler(this.NavBar_FillRoom_Click);
+            this.panelBtnFill.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBtnFill_Paint);
             // 
             // pictureBoxFillRoom
             // 
@@ -671,7 +683,7 @@
             this.panelManage.Controls.Add(this.roundedPanelOccupant2);
             this.panelManage.Controls.Add(this.roundedPanelOccupant1);
             this.panelManage.Controls.Add(this.dgvManage);
-            this.panelManage.Location = new System.Drawing.Point(343, 294);
+            this.panelManage.Location = new System.Drawing.Point(1655, 106);
             this.panelManage.Margin = new System.Windows.Forms.Padding(4);
             this.panelManage.Name = "panelManage";
             this.panelManage.Size = new System.Drawing.Size(1136, 627);
@@ -760,7 +772,7 @@
             // 
             this.btnExtend.BackColor = System.Drawing.Color.SkyBlue;
             this.btnExtend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExtend.Location = new System.Drawing.Point(210, 217);
+            this.btnExtend.Location = new System.Drawing.Point(45, 158);
             this.btnExtend.Margin = new System.Windows.Forms.Padding(5);
             this.btnExtend.Name = "btnExtend";
             this.btnExtend.Size = new System.Drawing.Size(155, 43);
@@ -1075,31 +1087,31 @@
             this.dgvManage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvManage.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManage_CellContentDoubleClick);
             // 
-            // panelFill
+            // panelFill1
             // 
-            this.panelFill.BackColor = System.Drawing.SystemColors.Control;
-            this.panelFill.Controls.Add(this.radioSemuaBulan);
-            this.panelFill.Controls.Add(this.radioPerBulan);
-            this.panelFill.Controls.Add(this.comboDurationFill);
-            this.panelFill.Controls.Add(this.checkBox4);
-            this.panelFill.Controls.Add(this.checkBox2);
-            this.panelFill.Controls.Add(this.cbConfirmData);
-            this.panelFill.Controls.Add(this.btnSubmitFill);
-            this.panelFill.Controls.Add(this.lblFillPembayaran);
-            this.panelFill.Controls.Add(this.label34);
-            this.panelFill.Controls.Add(this.comboRoomFill);
-            this.panelFill.Controls.Add(this.label32);
-            this.panelFill.Controls.Add(this.label31);
-            this.panelFill.Controls.Add(this.label30);
-            this.panelFill.Controls.Add(this.label33);
-            this.panelFill.Controls.Add(this.label29);
-            this.panelFill.Controls.Add(this.gbOccupant2Fill);
-            this.panelFill.Controls.Add(this.gbOcccupant1Fill);
-            this.panelFill.Location = new System.Drawing.Point(1685, 824);
-            this.panelFill.Margin = new System.Windows.Forms.Padding(5);
-            this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(56, 64);
-            this.panelFill.TabIndex = 3;
+            this.panelFill1.BackColor = System.Drawing.SystemColors.Control;
+            this.panelFill1.Controls.Add(this.radioSemuaBulan);
+            this.panelFill1.Controls.Add(this.radioPerBulan);
+            this.panelFill1.Controls.Add(this.comboDurationFill);
+            this.panelFill1.Controls.Add(this.checkBox4);
+            this.panelFill1.Controls.Add(this.checkBox2);
+            this.panelFill1.Controls.Add(this.cbConfirmData);
+            this.panelFill1.Controls.Add(this.btnSubmitFill);
+            this.panelFill1.Controls.Add(this.lblFillPembayaran);
+            this.panelFill1.Controls.Add(this.label34);
+            this.panelFill1.Controls.Add(this.comboRoomFill);
+            this.panelFill1.Controls.Add(this.label32);
+            this.panelFill1.Controls.Add(this.label31);
+            this.panelFill1.Controls.Add(this.label30);
+            this.panelFill1.Controls.Add(this.label33);
+            this.panelFill1.Controls.Add(this.label29);
+            this.panelFill1.Controls.Add(this.gbOccupant2Fill);
+            this.panelFill1.Controls.Add(this.gbOcccupant1Fill);
+            this.panelFill1.Location = new System.Drawing.Point(1589, 300);
+            this.panelFill1.Margin = new System.Windows.Forms.Padding(5);
+            this.panelFill1.Name = "panelFill1";
+            this.panelFill1.Size = new System.Drawing.Size(147, 125);
+            this.panelFill1.TabIndex = 3;
             // 
             // radioSemuaBulan
             // 
@@ -1605,10 +1617,10 @@
             this.panelPenghunidanTagihan.Controls.Add(this.dgvTagihan);
             this.panelPenghunidanTagihan.Controls.Add(this.buttonSendReminderKeTenant);
             this.panelPenghunidanTagihan.Controls.Add(this.button6);
-            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1589, 656);
+            this.panelPenghunidanTagihan.Location = new System.Drawing.Point(1633, 657);
             this.panelPenghunidanTagihan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPenghunidanTagihan.Name = "panelPenghunidanTagihan";
-            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(115, 76);
+            this.panelPenghunidanTagihan.Size = new System.Drawing.Size(110, 50);
             this.panelPenghunidanTagihan.TabIndex = 6;
             // 
             // label12
@@ -2023,10 +2035,10 @@
             // 
             // flowLayoutPanelComplaints
             // 
-            this.flowLayoutPanelComplaints.Location = new System.Drawing.Point(1613, 391);
+            this.flowLayoutPanelComplaints.Location = new System.Drawing.Point(1802, 837);
             this.flowLayoutPanelComplaints.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelComplaints.Name = "flowLayoutPanelComplaints";
-            this.flowLayoutPanelComplaints.Size = new System.Drawing.Size(86, 80);
+            this.flowLayoutPanelComplaints.Size = new System.Drawing.Size(74, 56);
             this.flowLayoutPanelComplaints.TabIndex = 10;
             this.flowLayoutPanelComplaints.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelLaporan_Paint);
             // 
@@ -2148,18 +2160,112 @@
             this.flowLayoutPanelGuestLog.Size = new System.Drawing.Size(1168, 491);
             this.flowLayoutPanelGuestLog.TabIndex = 0;
             // 
+            // panelFill
+            // 
+            this.panelFill.Controls.Add(this.dgvKamar);
+            this.panelFill.Controls.Add(this.button4);
+            this.panelFill.Controls.Add(this.label48);
+            this.panelFill.Controls.Add(this.label38);
+            this.panelFill.Controls.Add(this.numericUpDown1);
+            this.panelFill.Controls.Add(this.label35);
+            this.panelFill.Controls.Add(this.dateTimePicker3);
+            this.panelFill.Location = new System.Drawing.Point(307, 102);
+            this.panelFill.Name = "panelFill";
+            this.panelFill.Size = new System.Drawing.Size(1201, 894);
+            this.panelFill.TabIndex = 17;
+            // 
+            // dgvKamar
+            // 
+            this.dgvKamar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKamar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvKamar.Location = new System.Drawing.Point(0, 263);
+            this.dgvKamar.Name = "dgvKamar";
+            this.dgvKamar.RowHeadersWidth = 51;
+            this.dgvKamar.RowTemplate.Height = 24;
+            this.dgvKamar.Size = new System.Drawing.Size(1201, 631);
+            this.dgvKamar.TabIndex = 6;
+            this.dgvKamar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKamar_CellClick);
+            this.dgvKamar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKamar_CellContentClick);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(1036, 180);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(152, 49);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "See Vacant Room";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(624, 172);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(142, 51);
+            this.label48.TabIndex = 4;
+            this.label48.Text = "Month";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(14, 168);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(373, 51);
+            this.label38.TabIndex = 3;
+            this.label38.Text = "Duration Of Stay : ";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(458, 178);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(160, 41);
+            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(14, 50);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(294, 51);
+            this.label35.TabIndex = 1;
+            this.label35.Text = "Check In Date";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker3.Location = new System.Drawing.Point(23, 111);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(751, 27);
+            this.dateTimePicker3.TabIndex = 0;
+            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.panelFill);
             this.Controls.Add(this.panelGuestLog);
             this.Controls.Add(this.panelListrik);
             this.Controls.Add(this.panelKamar);
             this.Controls.Add(this.flowLayoutPanelPendapatan);
             this.Controls.Add(this.panelManageTenant);
-            this.Controls.Add(this.panelFill);
+            this.Controls.Add(this.panelFill1);
             this.Controls.Add(this.panelManage);
             this.Controls.Add(this.flowLayoutPanelComplaints);
             this.Controls.Add(this.panelPenghunidanTagihan);
@@ -2211,8 +2317,8 @@
             this.roundedPanelOccupant1.ResumeLayout(false);
             this.roundedPanelOccupant1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage)).EndInit();
-            this.panelFill.ResumeLayout(false);
-            this.panelFill.PerformLayout();
+            this.panelFill1.ResumeLayout(false);
+            this.panelFill1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboDurationFill)).EndInit();
             this.gbOccupant2Fill.ResumeLayout(false);
             this.gbOccupant2Fill.PerformLayout();
@@ -2247,6 +2353,10 @@
             this.panelListrik.ResumeLayout(false);
             this.panelListrik.PerformLayout();
             this.panelGuestLog.ResumeLayout(false);
+            this.panelFill.ResumeLayout(false);
+            this.panelFill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2260,7 +2370,7 @@
         private System.Windows.Forms.Label labelManageRoom;
         private System.Windows.Forms.Panel panelManage;
         private System.Windows.Forms.DataGridView dgvManage;
-        private System.Windows.Forms.Panel panelFill;
+        private System.Windows.Forms.Panel panelFill1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
@@ -2413,7 +2523,13 @@
         private System.Windows.Forms.RadioButton radioSemuaBulan;
         private System.Windows.Forms.RadioButton radioPerBulan;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label lblRentPayment;
-        private System.Windows.Forms.Label lblRentPaymentDue;
+        private System.Windows.Forms.Panel panelFill;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.DataGridView dgvKamar;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label38;
     }
 }

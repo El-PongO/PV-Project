@@ -2252,5 +2252,198 @@ namespace Projek_PV
             LaporanFer laporan = new LaporanFer();
             laporan.ShowDialog();
         }
+
+        private void panelBtnFill_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+
+            if(dateTimePicker3.Value.Date < DateTime.Today)
+            {
+                MessageBox.Show("Tanggal masuk tidak boleh kurang dari hari ini.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DateTime tglMasuk = dateTimePicker3.Value.Date;
+            int durasi = (int)numericUpDown1.Value;
+            DateTime tglKeluar = tglMasuk.AddMonths(durasi);
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // LOGIKA QUERY:
+                    // Ambil semua kamar dari tabel 'rooms'
+                    // KECUALI kamar yang ada di tabel 'leases' dengan status Active/Booked
+                    // DAN tanggal sewanya BENTROK dengan tanggal yang kita cari.
+
+                    string query = @"
+                    SELECT 
+                        r.room_id, 
+                        r.room_number AS 'Nomor Kamar', 
+                        r.type AS 'Tipe', 
+                        r.base_price AS 'Harga',
+                        r.facilities AS 'Fasilitas'
+                    FROM rooms r
+                    WHERE r.status != 'Perbaikan' -- Pastikan kamar tidak rusak
+                    AND r.room_id NOT IN (
+                        SELECT l.room_id 
+                        FROM leases l 
+                        WHERE l.status IN ('Active', 'Booked')
+                        AND (
+                            (l.start_date < @tglKeluar AND l.end_date > @tglMasuk)
+                        )
+                    )
+                    ORDER BY r.room_number ASC";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@tglMasuk", tglMasuk);
+                    cmd.Parameters.AddWithValue("@tglKeluar", tglKeluar);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dgvKamar.DataSource = dt;
+
+                    // Sembunyikan ID
+                    if (dgvKamar.Columns.Contains("room_id"))
+                        dgvKamar.Columns["room_id"].Visible = false;
+
+                    // Format Rupiah
+                    if (dgvKamar.Columns.Contains("Harga"))
+                        dgvKamar.Columns["Harga"].DefaultCellStyle.Format = "N0";
+
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Tidak ada kamar tersedia pada tanggal tersebut.", "Penuh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+            StyleGridKamar();
+        }
+
+        private void dgvKamar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvKamar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Ambil ID (Hidden column)
+                int roomId = Convert.ToInt32(dgvKamar.CurrentRow.Cells["room_id"].Value);
+
+                // Ambil Nomor Kamar
+                string noKamar = dgvKamar.CurrentRow.Cells["Nomor Kamar"].Value.ToString();
+
+                // Ambil Harga (Convert object ke decimal)
+                decimal harga = Convert.ToDecimal(dgvKamar.CurrentRow.Cells["Harga"].Value);
+
+                // --- 3. AMBIL DATA DARI INPUT FILTER ---
+                DateTime tglMasuk = dateTimePicker3.Value.Date;
+                int durasi = (int)numericUpDown1.Value;
+
+                // --- 4. BUKA FORM ISI DATA ---
+                // Kita passing data-data tersebut ke Constructor isiData
+                isiData formIsi = new isiData(roomId, noKamar, harga, tglMasuk, durasi);
+
+                // Gunakan ShowDialog() agar user fokus mengisi data dan tidak bisa klik form belakang
+                formIsi.ShowDialog();
+
+
+                // Setelah form isiData ditutup, kita bisa refresh data kamar lagi
+                dateTimePicker3.Value = DateTime.Now;
+                numericUpDown1.Value = 1;
+                dgvKamar.DataSource = null;
+
+            }
+        }
+
+
+        private void StyleGridKamar()
+        {
+            // --- 1. TAMPILAN DASAR ---
+            dgvKamar.BorderStyle = BorderStyle.None;
+            dgvKamar.BackgroundColor = Color.White; // Background putih bersih
+            dgvKamar.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal; // Garis horizontal tipis
+            dgvKamar.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None; // Hilangkan border header
+
+            // Non-aktifkan visual style bawaan Windows agar warna custom bekerja
+            dgvKamar.EnableHeadersVisualStyles = false;
+
+            // --- 2. HEADER (JUDUL KOLOM) ---
+            dgvKamar.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 48); // Abu Gelap
+            dgvKamar.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // Tulisan Putih
+            dgvKamar.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold); // Font Tebal
+            dgvKamar.ColumnHeadersHeight = 45; // Header agak tinggi biar lega
+            dgvKamar.ColumnHeadersDefaultCellStyle.Padding = new Padding(6, 0, 0, 0); // Padding teks header
+
+            // --- 3. ISI BARIS (ROWS) ---
+            dgvKamar.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvKamar.DefaultCellStyle.SelectionBackColor = Color.SeaGreen; // Warna saat dipilih (Hijau)
+            dgvKamar.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvKamar.DefaultCellStyle.Padding = new Padding(6, 4, 0, 4); // Spasi dalam sel
+            dgvKamar.RowTemplate.Height = 35; // Tinggi baris
+
+            // Warna Selang-seling (Zebra)
+            dgvKamar.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245); // Abu sangat muda
+
+            // --- 4. BEHAVIOR ---
+            dgvKamar.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Pilih satu baris penuh
+            dgvKamar.MultiSelect = false; // Hanya boleh pilih 1 kamar
+            dgvKamar.ReadOnly = true; // Tidak bisa diedit langsung
+            dgvKamar.AllowUserToAddRows = false; // Hilangkan baris kosong di bawah
+            dgvKamar.RowHeadersVisible = false; // Hilangkan selector jelek di kiri
+            dgvKamar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Lebar kolom menyesuaikan
+
+            // --- 5. FORMAT KHUSUS PER KOLOM ---
+            // Pastikan nama kolom sesuai dengan Query SQL Anda
+
+            // Rata Tengah untuk Tipe & Nomor
+            if (dgvKamar.Columns.Contains("Nomor Kamar"))
+            {
+                dgvKamar.Columns["Nomor Kamar"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvKamar.Columns["Nomor Kamar"].Width = 100;
+                dgvKamar.Columns["Nomor Kamar"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            if (dgvKamar.Columns.Contains("Tipe"))
+            {
+                dgvKamar.Columns["Tipe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvKamar.Columns["Tipe"].Width = 100;
+            }
+
+            // Rata Kanan untuk Harga (Format Uang)
+            if (dgvKamar.Columns.Contains("Harga"))
+            {
+                dgvKamar.Columns["Harga"].DefaultCellStyle.Format = "N0"; // Rp 1.000.000
+                dgvKamar.Columns["Harga"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvKamar.Columns["Harga"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                // Tebalkan Font Harga
+                dgvKamar.Columns["Harga"].DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                dgvKamar.Columns["Harga"].DefaultCellStyle.ForeColor = Color.DarkGreen;
+            }
+
+            // Sembunyikan ID (Tidak perlu dilihat user)
+            if (dgvKamar.Columns.Contains("room_id"))
+            {
+                dgvKamar.Columns["room_id"].Visible = false;
+            }
+        }
     }
 }
