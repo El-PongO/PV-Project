@@ -108,6 +108,12 @@
     <Compile Include="formTagihan.Designer.cs">
       <DependentUpon>formTagihan.cs</DependentUpon>
     </Compile>
+    <Compile Include="isiData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="isiData.Designer.cs">
+      <DependentUpon>isiData.cs</DependentUpon>
+    </Compile>
     <Compile Include="LaporanAktif.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formTagihan.resx">
       <DependentUpon>formTagihan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="isiData.resx">
+      <DependentUpon>isiData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LaporanAktif.resx">
       <DependentUpon>LaporanAktif.cs</DependentUpon>
