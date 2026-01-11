@@ -518,6 +518,16 @@ namespace Projek_PV
                 btn.UseColumnTextForButtonValue = false;
                 dataGridView1.Columns.Add(btn);
             }
+            // nambah button kolom
+            if (!dataGridView1.Columns.Contains("btnListrik"))
+            {
+                DataGridViewButtonColumn btnL = new DataGridViewButtonColumn();
+                btnL.HeaderText = "Token Listrik";
+                btnL.Name = "btnListrik";
+                btnL.Text = "Token Listrik";
+                btnL.UseColumnTextForButtonValue = false;
+                dataGridView1.Columns.Add(btnL);
+            }
         }
 
         void loadTagihan()
@@ -528,7 +538,26 @@ namespace Projek_PV
                 connection.Open();
                 try
                 {
-                    string query = "SELECT transaction_id,\r\n       transaction_date AS date,\r\n       payment_due_by,\r\n       category,\r\n       description,\r\n       amount,\r\n       status\r\nFROM transactions\r\nWHERE lease_id IN (\r\n    SELECT lease_id FROM leases WHERE tenant_id = @tenant_id\r\n)\r\nORDER BY transaction_date DESC;\r\n";
+                    string query = @"
+                    SELECT 
+                        t.transaction_id,
+                        t.transaction_date AS DATE,
+                        t.payment_due_by,
+                        t.category,
+                        t.description,
+                        t.amount,
+                        t.status,
+                        lb.bill_id
+                    FROM transactions t
+                    LEFT JOIN listrik_bills lb 
+                        ON lb.lease_id = t.lease_id
+                        AND lb.status = 'Paid'
+                    WHERE t.lease_id IN (
+                        SELECT lease_id 
+                        FROM leases 
+                        WHERE tenant_id = @tenant_id
+                    )
+                    ORDER BY t.transaction_date DESC;";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@user", id_user);
@@ -556,6 +585,7 @@ namespace Projek_PV
 
             //hide si id
             dataGridView1.Columns["transaction_id"].Visible = false;
+            dataGridView1.Columns["bill_id"].Visible = false;
             tagihanStyle();
 
 
@@ -581,6 +611,26 @@ namespace Projek_PV
                     {
                         e.Value = "Go Pay";
                     }
+                }
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "btnListrik")
+            {
+                var row = dataGridView1.Rows[e.RowIndex];
+
+                string category = row.Cells["category"].Value?.ToString();
+                string status = row.Cells["status"].Value?.ToString();
+
+                if (category == "electricity" && status == "Paid")
+                {
+                    e.Value = "Lihat Token Listrik";
+                }
+                else if (category == "electricity")
+                {
+                    e.Value = "Belum Dibayar";
+                }
+                else
+                {
+                    e.Value = "-";
                 }
             }
         }
@@ -616,6 +666,38 @@ namespace Projek_PV
                     pay.ShowDialog();
                 }
             }
+            //click see token
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "btnListrik")
+            {
+                var row = dataGridView1.Rows[e.RowIndex];
+                string category = dataGridView1.Rows[e.RowIndex]
+                .Cells["category"].Value?.ToString();
+
+                if (category != "electricity")
+                {
+                    MessageBox.Show("Token listrik hanya tersedia untuk tagihan listrik.");
+                    return;
+                }
+
+                // hanya listrik paid
+                if (row.Cells["status"].Value?.ToString() != "Paid")
+                {
+                    MessageBox.Show("Tagihan listrik belum dibayar.");
+                    return;
+                }
+
+                if (!int.TryParse(row.Cells["bill_id"].Value?.ToString(), out int billId))
+                {
+                    MessageBox.Show("Token listrik belum diinput oleh admin.");
+                    return;
+                }
+
+                formSeeTokenListrikUser form =
+                    new formSeeTokenListrikUser(billId, connectionString);
+
+                form.ShowDialog();
+            }
+
         }
 
         private void lblVoucherAktif_Click(object sender, EventArgs e)

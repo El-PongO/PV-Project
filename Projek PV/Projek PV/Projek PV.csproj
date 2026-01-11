@@ -90,6 +90,12 @@
     <Compile Include="FormNota.Designer.cs">
       <DependentUpon>FormNota.cs</DependentUpon>
     </Compile>
+    <Compile Include="formSeeTokenListrikUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSeeTokenListrikUser.Designer.cs">
+      <DependentUpon>formSeeTokenListrikUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="formTagihan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNota.resx">
       <DependentUpon>FormNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSeeTokenListrikUser.resx">
+      <DependentUpon>formSeeTokenListrikUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formTagihan.resx">
       <DependentUpon>formTagihan.cs</DependentUpon>
