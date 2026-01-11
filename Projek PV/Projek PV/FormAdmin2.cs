@@ -51,7 +51,7 @@ namespace Projek_PV
             flowLayoutPanelGuestLog.AutoSize = false;
             flowLayoutPanelGuestLog.AutoScroll = true;
 
-            panelFill1.AutoScroll = true;
+            panelFill.AutoScroll = true;
             radioWanita1.Checked = true;
             radioWanita2.Checked = true;
 
@@ -65,7 +65,7 @@ namespace Projek_PV
             panelOverview.Visible = true;
             panelManage.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelPenghunidanTagihan.Visible = false;
             panelKamar.Visible = false;
             flowLayoutPanelPendapatan.Visible = false;
@@ -89,8 +89,8 @@ namespace Projek_PV
             panelBtnListrik.BringToFront();
             panelBtnGuestLog.BringToFront();
 
-            panelFill1.Location = new Point(238, -1);
-            panelFill1.Visible = false;
+            panelFill.Location = new Point(238, -1);
+            panelFill.Visible = false;
             loadComboBox();
             LoadDgvOverview();
             LoadDgvTagihan();
@@ -116,7 +116,7 @@ namespace Projek_PV
 
             // panel isinya
             panelManage.Visible = true;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
@@ -153,7 +153,7 @@ namespace Projek_PV
 
             // isinya panel
             panelManage.Visible = false;
-            panelFill1.Visible = true;
+            panelFill.Visible = true;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
@@ -163,8 +163,8 @@ namespace Projek_PV
             panelGuestLog.Visible = false;
 
             // nge set
-            panelFill1.Location = new Point(230, 82);
-            panelFill1.Size = new Size(1000, 600);
+            panelFill.Location = new Point(230, 82);
+            panelFill.Size = new Size(1000, 600);
             lblHeader.Text = "Fill Room";
         }
         private void NavBar_Overview_Click(object sender, EventArgs e)
@@ -183,7 +183,7 @@ namespace Projek_PV
 
             // ini ngeset isinya panel
             panelManage.Visible = false;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelOverview.Visible = true;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
@@ -212,7 +212,7 @@ namespace Projek_PV
 
             // ini isinya panel 
             panelManage.Visible = false;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = true;
             panelPenghunidanTagihan.Visible = false;
@@ -242,7 +242,7 @@ namespace Projek_PV
 
             // ini isinya panel nanti
             panelManage.Visible = false;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelKamar.Visible = false;
@@ -271,7 +271,7 @@ namespace Projek_PV
 
             // ini buat tampilin isi panelnya
             panelManage.Visible = false;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
@@ -303,7 +303,7 @@ namespace Projek_PV
 
             // content
             panelManage.Visible = false;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
@@ -332,7 +332,7 @@ namespace Projek_PV
 
             // content
             panelManage.Visible = false;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
@@ -361,7 +361,7 @@ namespace Projek_PV
 
             // content
             panelManage.Visible = false;
-            panelFill1.Visible = false;
+            panelFill.Visible = false;
             panelOverview.Visible = false;
             flowLayoutPanelComplaints.Visible = false;
             panelPenghunidanTagihan.Visible = false;
