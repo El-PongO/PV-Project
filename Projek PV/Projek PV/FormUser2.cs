@@ -546,18 +546,15 @@ namespace Projek_PV
                         t.category,
                         t.description,
                         t.amount,
-                        t.status,
-                        lb.bill_id
+                        t.status
                     FROM transactions t
-                    LEFT JOIN listrik_bills lb 
-                        ON lb.lease_id = t.lease_id
-                        AND lb.status = 'Paid'
                     WHERE t.lease_id IN (
                         SELECT lease_id 
                         FROM leases 
                         WHERE tenant_id = @tenant_id
                     )
-                    ORDER BY t.transaction_date DESC;";
+                    ORDER BY t.transaction_date DESC;
+                    ";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@user", id_user);
@@ -585,7 +582,7 @@ namespace Projek_PV
 
             //hide si id
             dataGridView1.Columns["transaction_id"].Visible = false;
-            dataGridView1.Columns["bill_id"].Visible = false;
+            //dataGridView1.Columns["listrik_bill_id"].Visible = false;
             tagihanStyle();
 
 
@@ -667,11 +664,98 @@ namespace Projek_PV
                 }
             }
             //click see token
+            //if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "btnListrik")
+            //{
+            //    var row = dataGridView1.Rows[e.RowIndex];
+            //    string category = dataGridView1.Rows[e.RowIndex]
+            //    .Cells["category"].Value?.ToString();
+
+            //    if (category != "electricity")
+            //    {
+            //        MessageBox.Show("Token listrik hanya tersedia untuk tagihan listrik.");
+            //        return;
+            //    }
+
+            //    // hanya listrik paid
+            //    if (row.Cells["status"].Value?.ToString() != "Paid")
+            //    {
+            //        MessageBox.Show("Tagihan listrik belum dibayar.");
+            //        return;
+            //    }
+
+            //    int billId = 0;
+
+            //    using (MySqlConnection conn = new MySqlConnection(connectionString))
+            //    {
+            //        conn.Open();
+            //        string q = @"
+            //            SELECT bill_id
+            //            FROM listrik_bills
+            //            WHERE lease_id = @lease
+            //              AND status = 'Paid'
+            //            ORDER BY bill_month DESC
+            //            LIMIT 1;
+            //        ";
+
+            //        using (MySqlCommand cmd = new MySqlCommand(q, conn))
+            //        {
+            //            cmd.Parameters.AddWithValue("@lease", lease_id);
+
+            //            object result = cmd.ExecuteScalar();
+            //            if (result == null)
+            //            {
+            //                MessageBox.Show("Token listrik belum tersedia.");
+            //                return;
+            //            }
+
+            //            billId = Convert.ToInt32(result);
+            //        }
+            //    }
+
+
+            //    formSeeTokenListrikUser form =
+            //        new formSeeTokenListrikUser(billId, connectionString);
+
+            //    form.ShowDialog();
+            //}
+            //if (dataGridView1.Columns[e.ColumnIndex].Name == "btnListrik")
+            //{
+            //    var row = dataGridView1.Rows[e.RowIndex];
+
+            //    // 1. Pastikan category listrik
+            //    string category = row.Cells["category"].Value?.ToString();
+            //    if (category != "electricity")
+            //    {
+            //        MessageBox.Show("Token listrik hanya tersedia untuk tagihan listrik.");
+            //        return;
+            //    }
+
+            //    // 2. Pastikan sudah Paid
+            //    if (row.Cells["status"].Value?.ToString() != "Paid")
+            //    {
+            //        MessageBox.Show("Tagihan listrik belum dibayar.");
+            //        return;
+            //    }
+
+            //    // 3. Ambil bill_id LANGSUNG dari baris
+            //    if (!int.TryParse(row.Cells["bill_id"].Value?.ToString(), out int billId))
+            //    {
+            //        MessageBox.Show("Token listrik belum tersedia.");
+            //        return;
+            //    }
+
+            //    // 4. TEMBAK FORM DENGAN bill_id TERSEBUT
+            //    formSeeTokenListrikUser form =
+            //        new formSeeTokenListrikUser(billId, connectionString);
+
+            //    form.ShowDialog();
+            //}
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "btnListrik")
             {
                 var row = dataGridView1.Rows[e.RowIndex];
-                string category = dataGridView1.Rows[e.RowIndex]
-                .Cells["category"].Value?.ToString();
+
+                string category = row.Cells["category"].Value?.ToString();
+                string status = row.Cells["status"].Value?.ToString();
 
                 if (category != "electricity")
                 {
@@ -679,24 +763,20 @@ namespace Projek_PV
                     return;
                 }
 
-                // hanya listrik paid
-                if (row.Cells["status"].Value?.ToString() != "Paid")
+                if (status != "Paid")
                 {
                     MessageBox.Show("Tagihan listrik belum dibayar.");
                     return;
                 }
 
-                if (!int.TryParse(row.Cells["bill_id"].Value?.ToString(), out int billId))
-                {
-                    MessageBox.Show("Token listrik belum diinput oleh admin.");
-                    return;
-                }
+                int transactionId = Convert.ToInt32(row.Cells["transaction_id"].Value);
 
                 formSeeTokenListrikUser form =
-                    new formSeeTokenListrikUser(billId, connectionString);
+                    new formSeeTokenListrikUser(transactionId, connectionString);
 
                 form.ShowDialog();
             }
+
 
         }
 

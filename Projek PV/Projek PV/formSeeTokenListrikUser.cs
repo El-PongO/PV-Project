@@ -13,12 +13,12 @@ namespace Projek_PV
 {
     public partial class formSeeTokenListrikUser : Form
     {
-        private int billId;
+        private int transactionId;
         private string connectionString;
-        public formSeeTokenListrikUser(int billId, string connectionString)
+        public formSeeTokenListrikUser(int transactionId, string connectionString)
         {
             InitializeComponent();
-            this.billId = billId;
+            this.transactionId = transactionId;
             this.connectionString = connectionString;
         }
         private void formSeeTokenListrikUser_Load(object sender, EventArgs e)
@@ -33,19 +33,20 @@ namespace Projek_PV
                 conn.Open();
 
                 string query = @"
-SELECT
-    lb.pemakaian_kwh,
-    lb.total_tagihan,
-    lt.token_code
-FROM listrik_bills lb
-JOIN listrik_tokens lt 
-    ON lb.bill_id = lt.bill_id
-WHERE lb.bill_id = @bill_id;
-";
+                SELECT
+                    lb.pemakaian_kwh,
+                    lb.total_tagihan,
+                    lt.token_code
+                FROM listrik_bills lb
+                LEFT JOIN listrik_tokens lt
+                    ON lt.bill_id = lb.bill_id
+                WHERE lb.transaction_id = @transaction_id;
+
+                ";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@bill_id", billId);
+                    cmd.Parameters.AddWithValue("@transaction_id", transactionId);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {

@@ -58,6 +58,27 @@ CREATE TABLE `complaints` (
 insert  into `complaints`(`complaint_id`,`tenant_id`,`category`,`description`,`admin_reply`,`status`,`created_at`,`reply_at`) values 
 (9,28,'other','asdsaf',NULL,'Menunggu','2026-01-08 15:44:08',NULL);
 
+/*Table structure for table `expense` */
+
+DROP TABLE IF EXISTS `expense`;
+
+CREATE TABLE `expense` (
+  `expense_id` int NOT NULL AUTO_INCREMENT,
+  `expense_date` date NOT NULL,
+  `category` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci,
+  `amount` decimal(10,2) NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`expense_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `expense` */
+
+insert  into `expense`(`expense_id`,`expense_date`,`category`,`description`,`amount`,`created_at`) values 
+(1,'2026-01-11','Listrik','Token Listrik R101',500000.00,'2026-01-11 00:17:11'),
+(2,'2026-01-11','Gaji','Gaji Penjaga',1500000.00,'2026-01-11 00:17:11'),
+(3,'2026-01-11','Listrik','Token listrik lease ID 25 (Bill ID 4)',90000.00,'2026-01-11 00:55:47');
+
 /*Table structure for table `extensions` */
 
 DROP TABLE IF EXISTS `extensions`;
@@ -204,6 +225,7 @@ DROP TABLE IF EXISTS `listrik_bills`;
 CREATE TABLE `listrik_bills` (
   `bill_id` int NOT NULL AUTO_INCREMENT,
   `lease_id` int NOT NULL,
+  `transaction_id` int NOT NULL,
   `pemakaian_kwh` decimal(10,2) NOT NULL,
   `tarif_per_kwh` decimal(10,2) NOT NULL,
   `total_tagihan` decimal(12,2) NOT NULL,
@@ -212,16 +234,19 @@ CREATE TABLE `listrik_bills` (
   `status` enum('Unpaid','Paid') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Unpaid',
   `admin_status` enum('Belum Done','Done') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Belum Done',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`bill_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`bill_id`),
+  KEY `fk_listrik_transaction` (`transaction_id`),
+  CONSTRAINT `fk_listrik_transaction` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`transaction_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `listrik_bills` */
 
-insert  into `listrik_bills`(`bill_id`,`lease_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`admin_status`,`created_at`) values 
-(1,1,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','Done','2026-01-02 20:00:32'),
-(2,22,2.00,450.00,900.00,'2026-01-08','2026-01-15','Unpaid','Done','2026-01-08 14:01:55'),
-(3,25,100.00,450.00,45000.00,'2026-01-10','2026-01-17','Unpaid','Done','2026-01-10 22:32:09'),
-(4,25,200.00,450.00,90000.00,'2026-01-10','2026-01-17','Paid','Belum Done','2026-01-10 23:08:13');
+insert  into `listrik_bills`(`bill_id`,`lease_id`,`transaction_id`,`pemakaian_kwh`,`tarif_per_kwh`,`total_tagihan`,`bill_month`,`due_date`,`status`,`admin_status`,`created_at`) values 
+(1,1,2,2.00,32.00,64.00,'2026-01-02','2026-01-09','Unpaid','Done','2026-01-02 20:00:32'),
+(2,22,13,2.00,450.00,900.00,'2026-01-08','2026-01-15','Unpaid','Done','2026-01-08 14:01:55'),
+(3,25,29,100.00,450.00,45000.00,'2026-01-10','2026-01-17','Unpaid','Done','2026-01-10 22:32:09'),
+(4,25,30,200.00,450.00,90000.00,'2026-01-10','2026-01-17','Paid','Done','2026-01-10 23:08:13'),
+(5,25,31,300.00,450.00,135000.00,'2026-01-10','2026-01-17','Paid','Done','2026-01-10 23:58:03');
 
 /*Table structure for table `listrik_tokens` */
 
@@ -240,9 +265,13 @@ CREATE TABLE `listrik_tokens` (
   KEY `bill_id` (`bill_id`),
   CONSTRAINT `listrik_tokens_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`),
   CONSTRAINT `listrik_tokens_ibfk_2` FOREIGN KEY (`bill_id`) REFERENCES `listrik_bills` (`bill_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `listrik_tokens` */
+
+insert  into `listrik_tokens`(`token_id`,`lease_id`,`bill_id`,`token_kwh`,`token_value`,`token_code`,`created_at`) values 
+(1,25,5,300.00,135000.00,'12345678901234567890','2026-01-10 23:59:10'),
+(2,25,4,200.00,90000.00,'12345678911234567890','2026-01-11 00:55:47');
 
 /*Table structure for table `notificationste` */
 
@@ -409,7 +438,7 @@ CREATE TABLE `transactions` (
   PRIMARY KEY (`transaction_id`),
   KEY `lease_id` (`lease_id`),
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`lease_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `transactions` */
 
@@ -443,7 +472,8 @@ insert  into `transactions`(`transaction_id`,`lease_id`,`transaction_date`,`desc
 (27,30,'2026-01-09 14:41:29','Pembayaran Sewa 3 Bulan (Lunas)',NULL,6000000.00,NULL,'Paid','rent',NULL),
 (28,31,'2026-01-09 15:46:34','Pembayaran Sewa Bulan ke-1 dari 2',NULL,2000000.00,NULL,'Paid','rent',NULL),
 (29,25,'2026-01-10 22:32:09','Pembelian Token Listrik',NULL,45000.00,'Qris','Paid','electricity',NULL),
-(30,25,'2026-01-10 23:08:13','Pembelian Token Listrik',NULL,90000.00,'Tunai (Bayar di Kantor)','Paid','electricity',NULL);
+(30,25,'2026-01-10 23:08:13','Pembelian Token Listrik',NULL,90000.00,'Tunai (Bayar di Kantor)','Paid','electricity',NULL),
+(31,25,'2026-01-10 23:58:03','Pembelian Token Listrik',NULL,135000.00,'Transfer Akun','Paid','electricity',NULL);
 
 /*Table structure for table `users` */
 
