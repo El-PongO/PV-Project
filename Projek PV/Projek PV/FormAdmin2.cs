@@ -25,7 +25,7 @@ namespace Projek_PV
         public static int colscounter = 0;
         public static int rowscounter = 0;
         public int tenant_id = 0;
-        public int roomNum = 0;
+        public string roomNum = "";
         public int roomId = 0;
 
 
@@ -1744,18 +1744,37 @@ namespace Projek_PV
                         genderHuni1.Text = row["gender"].ToString();
                         lblDuration.Text = row["duration_months"].ToString() + " Months";
                         lblRentDue.Text = row["end_date"].ToString();
+                        string cek = row["payment_type"].ToString();
 
-                        if (row["start_date"] != DBNull.Value)
-                            lblSince.Text = Convert.ToDateTime(row["start_date"]).ToString("dd/MM/yyyy");
-
-                        if (Convert.ToInt32(row["tenant_count"]) == 2)
+                        if (cek == "IMMEDIATE")
                         {
-                            roundedPanelOccupant2.Visible = true;
-                            GetSecondTenant(row["user_id"].ToString(), row["full_name"].ToString());
+                            lblRentPayment.Text = "Paid in Full";
                         }
                         else
                         {
-                            roundedPanelOccupant2.Visible = false;
+                            string consecutive = row["payment_rent_due_status"].ToString();
+
+                            if (consecutive == "Yes")
+                            {
+                                lblRentPayment.Text = "Paid This Month";
+                            }
+                            else
+                            {
+                                lblRentPayment.Text = row["rent_due"].ToString();
+                            }
+
+                            if (row["start_date"] != DBNull.Value)
+                                lblSince.Text = Convert.ToDateTime(row["start_date"]).ToString("dd/MM/yyyy");
+
+                            if (Convert.ToInt32(row["tenant_count"]) == 2)
+                            {
+                                roundedPanelOccupant2.Visible = true;
+                                GetSecondTenant(row["user_id"].ToString(), row["full_name"].ToString());
+                            }
+                            else
+                            {
+                                roundedPanelOccupant2.Visible = false;
+                            }
                         }
                     }
                 }
@@ -1806,7 +1825,7 @@ namespace Projek_PV
             }
         }
 
-        private void GetRoomIdByNumber(int roomNumber)
+        private void GetRoomIdByNumber(string roomNumber)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -1915,7 +1934,7 @@ namespace Projek_PV
             {
                 string fullName = dgvManage.Rows[e.RowIndex].Cells[2].Value.ToString();
                 GetDataByFullName(fullName);
-                roomNum = Convert.ToInt32(dgvManage.Rows[e.RowIndex].Cells[0].Value);
+                roomNum = dgvManage.Rows[e.RowIndex].Cells[0].Value.ToString();
             }
         }
 
