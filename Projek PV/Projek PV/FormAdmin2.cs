@@ -28,10 +28,11 @@ namespace Projek_PV
         public int tenant_id = 0;
         public string roomNum = "";
         public int roomId = 0;
+        Form1 master;
 
-
-        public FormAdmin2()
+        public FormAdmin2(Form1 master)
         {
+            this.master = master;
             InitializeComponent();
             flowLayoutPanelKamar.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutPanelKamar.WrapContents = true;
@@ -256,6 +257,9 @@ namespace Projek_PV
             panelPenghunidanTagihan.Location = new Point(230, 82);
             panelPenghunidanTagihan.Size = new Size(1000, 600);
             lblHeader.Text = "Penghuni dan Tagihan";
+
+
+            LoadDgvTagihan();
         }
         private void NavBar_Kamar_Click(object sender, EventArgs e)
         {
@@ -2612,6 +2616,12 @@ namespace Projek_PV
         {
             Tagihan tag = new Tagihan(connectionString);
             tag.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            master.Show();
+            this.Close();
         }
     }
 }

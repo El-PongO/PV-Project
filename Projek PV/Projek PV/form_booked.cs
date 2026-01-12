@@ -16,8 +16,9 @@ namespace Projek_PV
 
         string connectionString = "Server=localhost;Database=cozy_corner_db;Uid=root;Pwd=;";
 
+        Form1 master;
         int tenant_id;
-        public form_booked(DateTime tanggal, string kamar, string tipe, int tenant_id)
+        public form_booked(DateTime tanggal, string kamar, string tipe, int tenant_id, Form1 master)
         {
             InitializeComponent();
             lblDurasiPenempatan.Text = tanggal.ToString("dd MMMM yyyy");
@@ -25,6 +26,7 @@ namespace Projek_PV
             lblStatusPembayaran.Text = tipe;
             this.tenant_id = tenant_id;
             loadTagihan();
+            this.master = master;
         }
 
         private void form_booked_Load(object sender, EventArgs e)
@@ -329,5 +331,10 @@ namespace Projek_PV
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            master.Show();
+            this.Close();
+        }
     }
 }

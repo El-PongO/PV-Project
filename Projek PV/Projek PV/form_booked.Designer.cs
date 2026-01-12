@@ -42,6 +42,7 @@
             this.lblDurasiPenempatan = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.roundedPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.roundedPanel5.SuspendLayout();
@@ -94,7 +95,7 @@
             this.label12.Location = new System.Drawing.Point(126, 21);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(170, 25);
+            this.label12.Size = new System.Drawing.Size(136, 20);
             this.label12.TabIndex = 0;
             this.label12.Text = "Kamar Booking";
             // 
@@ -130,7 +131,7 @@
             this.lblStatusPembayaran.Location = new System.Drawing.Point(126, 58);
             this.lblStatusPembayaran.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatusPembayaran.Name = "lblStatusPembayaran";
-            this.lblStatusPembayaran.Size = new System.Drawing.Size(223, 25);
+            this.lblStatusPembayaran.Size = new System.Drawing.Size(178, 20);
             this.lblStatusPembayaran.TabIndex = 0;
             this.lblStatusPembayaran.Text = "Status Pembayaran:";
             // 
@@ -141,7 +142,7 @@
             this.label11.Location = new System.Drawing.Point(126, 21);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(200, 25);
+            this.label11.Size = new System.Drawing.Size(160, 20);
             this.label11.TabIndex = 0;
             this.label11.Text = "Tipe Pembayaran:";
             // 
@@ -188,7 +189,7 @@
             this.label8.Location = new System.Drawing.Point(126, 21);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(185, 25);
+            this.label8.Size = new System.Drawing.Size(148, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Tanggal Booking";
             // 
@@ -204,11 +205,22 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(45, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 43);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "LOG OUT";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // form_booked
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1299, 773);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.roundedPanel6);
             this.Controls.Add(this.roundedPanel5);
@@ -245,5 +257,6 @@
         private System.Windows.Forms.Label lblDurasiPenempatan;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
     }
 }

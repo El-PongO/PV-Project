@@ -19,6 +19,12 @@ namespace Projek_PV
             InitializeComponent();
             this.connectionString = connectionString;
             LoadActiveLeases();
+            // Isi manual kategori sesuai Enum Database Anda
+            comboBox2.Items.Add("damages");     // Kerusakan/Denda
+            comboBox2.Items.Add("electricity"); // Listrik
+            comboBox2.Items.Add("rent");        // Sewa
+            comboBox2.Items.Add("others");        // Sewa
+
         }
 
 
@@ -58,16 +64,6 @@ namespace Projek_PV
         }
 
         // Panggil ini di Form_Load
-        private void FormManualBill_Load(object sender, EventArgs e)
-        {
-            LoadActiveLeases();
-
-            // Isi manual kategori sesuai Enum Database Anda
-            comboBox2.Items.Add("damages");     // Kerusakan/Denda
-            comboBox2.Items.Add("electricity"); // Listrik
-            comboBox2.Items.Add("rent");        // Sewa
-            comboBox2.Items.Add("others");        // Sewa
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {

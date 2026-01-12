@@ -201,6 +201,7 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelBtnGuestLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGuestLog)).BeginInit();
@@ -259,6 +260,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.panelBtnGuestLog);
             this.panel1.Controls.Add(this.panelBtnListrik);
@@ -2282,6 +2284,16 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(48, 700);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(199, 66);
+            this.button8.TabIndex = 11;
+            this.button8.Text = "Log Out";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // FormAdmin2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2564,5 +2576,6 @@
         private System.Windows.Forms.Label lblRentPayment;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }

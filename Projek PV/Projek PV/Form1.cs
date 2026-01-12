@@ -30,14 +30,20 @@ namespace Projek_PV
             if(tbUsername.Text =="" || tbPassword.Text =="")
             {
                 MessageBox.Show("Please enter username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbUsername.Text = "";
+                tbPassword.Text = "";
+
                 return;
             }
 
             if(tbUsername.Text == "admin" && tbPassword.Text == "123")
             {
-                FormAdmin2 formadmin = new FormAdmin2();
+                FormAdmin2 formadmin = new FormAdmin2(this);
                 formadmin.Show();
                 this.Hide();
+                tbUsername.Text = "";
+                tbPassword.Text = "";
+
                 return;
             }
 
@@ -90,7 +96,7 @@ namespace Projek_PV
 
                                     if (role == "admin")
                                     {
-                                        FormAdmin2 formadmin = new FormAdmin2();
+                                        FormAdmin2 formadmin = new FormAdmin2(this);
                                         formadmin.Show();
 
                                     }
@@ -105,7 +111,7 @@ namespace Projek_PV
 
                                 }else if(status == "Booked")
                                 {
-                                    form_booked form_Booked = new form_booked(tanggal,kamar, tipe, tenant_id);
+                                    form_booked form_Booked = new form_booked(tanggal,kamar, tipe, tenant_id, this);
                                     form_Booked.Show();
                                 }
                                 else
@@ -128,15 +134,19 @@ namespace Projek_PV
 
                 }
 
-
+                reset();
 
         }
             }
 
         private void Form1_Load(object sender, EventArgs e)
+        {        }
+
+        void reset()
         {
+            tbUsername.Text = "";
+            tbPassword.Text = "";
 
         }
-
     }
 }
