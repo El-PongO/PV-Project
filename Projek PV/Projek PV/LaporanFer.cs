@@ -448,13 +448,13 @@ namespace Projek_PV
         private void ColorizeExpiryRows()
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
+            {int
                 if (row.IsNewRow) continue;
 
                 // Ambil nilai sisa hari (angka)
                 var cellValue = row.Cells["Sisa_Hari_Angka"].Value;
 
-                if (cellValue != null && int.TryParse(cellValue.ToString(), out int sisaHari))
+                if (cellValue != null && int.TryParse(cellValue.ToString(), out  sisaHari))
                 {
                     if (sisaHari < 0)
                     {
