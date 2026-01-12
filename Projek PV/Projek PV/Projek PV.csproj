@@ -78,6 +78,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetPerpanjang.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Expense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expense.Designer.cs">
+      <DependentUpon>Expense.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_booked.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,12 @@
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Tagihan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tagihan.Designer.cs">
+      <DependentUpon>Tagihan.cs</DependentUpon>
+    </Compile>
     <Compile Include="tamuTerdaftarUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +217,9 @@
     </Compile>
     <EmbeddedResource Include="Announcement.resx">
       <DependentUpon>Announcement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expense.resx">
+      <DependentUpon>Expense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formCreateKamar.resx">
       <DependentUpon>formCreateKamar.cs</DependentUpon>
@@ -274,6 +289,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Tagihan.resx">
+      <DependentUpon>Tagihan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tamuTerdaftarUser.resx">
       <DependentUpon>tamuTerdaftarUser.cs</DependentUpon>
     </EmbeddedResource>

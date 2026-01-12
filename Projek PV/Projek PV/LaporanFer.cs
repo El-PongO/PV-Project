@@ -77,6 +77,9 @@ namespace Projek_PV
         {
             setupDGV();
             lblTotalSaldo.Text = "";
+            dataGridView1.DataSource = null;
+            dataGridView1.Columns.Clear();
+
             if (radioButton1.Checked)
             {
                 laporanKamar();
@@ -109,7 +112,8 @@ namespace Projek_PV
 
         private void loadTunggakan()
         {
-         
+
+            
             string query = @"
             SELECT 
                 l.tenant_id AS ID_Tenant, 
@@ -151,6 +155,19 @@ namespace Projek_PV
 
                     // 4. Style Dasar
                     ColorizeArrearsRows();
+                    // Cek agar tombol tidak double (duplikat)
+                    if (!dataGridView1.Columns.Contains("btnReminder"))
+                    {
+                        DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                        btn.HeaderText = "Aksi";
+                        btn.Name = "btnReminder";
+                        btn.Text = "Remind";
+                        btn.UseColumnTextForButtonValue = true; // Munculkan teks di tombol
+
+                        // Tambahkan di kolom paling akhir
+                        dataGridView1.Columns.Add(btn);
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -178,18 +195,6 @@ namespace Projek_PV
             }
 
 
-            // Cek agar tombol tidak double (duplikat)
-            if (!dataGridView1.Columns.Contains("btnReminder"))
-            {
-                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-                btn.HeaderText = "Aksi";
-                btn.Name = "btnReminder";
-                btn.Text = "Remind";
-                btn.UseColumnTextForButtonValue = true; // Munculkan teks di tombol
-
-                // Tambahkan di kolom paling akhir
-                dataGridView1.Columns.Add(btn);
-            }
 
             // Sembunyikan ID_Tenant agar rapi
             if (dataGridView1.Columns.Contains("ID_Tenant"))
@@ -448,13 +453,13 @@ namespace Projek_PV
         private void ColorizeExpiryRows()
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
-            {int
+            {
                 if (row.IsNewRow) continue;
 
                 // Ambil nilai sisa hari (angka)
                 var cellValue = row.Cells["Sisa_Hari_Angka"].Value;
 
-                if (cellValue != null && int.TryParse(cellValue.ToString(), out  sisaHari))
+                if (cellValue != null && int.TryParse(cellValue.ToString(), out int sisaHari))
                 {
                     if (sisaHari < 0)
                     {
@@ -482,7 +487,6 @@ namespace Projek_PV
                 }
             }
         }
-
 
 
         void laporanKeuangan()

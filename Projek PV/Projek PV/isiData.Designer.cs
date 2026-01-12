@@ -102,7 +102,7 @@
             this.panelFill.Location = new System.Drawing.Point(0, 0);
             this.panelFill.Margin = new System.Windows.Forms.Padding(5);
             this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(1466, 1143);
+            this.panelFill.Size = new System.Drawing.Size(1466, 1055);
             this.panelFill.TabIndex = 4;
             // 
             // radioSemuaBulan
@@ -605,7 +605,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1466, 1143);
+            this.ClientSize = new System.Drawing.Size(1466, 1055);
             this.Controls.Add(this.panelFill);
             this.Name = "isiData";
             this.Text = "isiData";

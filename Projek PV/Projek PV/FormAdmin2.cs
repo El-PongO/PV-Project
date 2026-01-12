@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI;
+using System.Web.Util;
 using System.Windows.Forms;
 
 
@@ -900,33 +901,107 @@ namespace Projek_PV
 
         private void LoadDgvTagihan()
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            // --- 1. BERSIHKAN DGV ---
+            dgvTagihan.DataSource = null;
+            dgvTagihan.Columns.Clear();
+            dgvTagihan.Rows.Clear();
+
+            // --- 2. QUERY DATABASE ---
+            // PENTING: Kita tambah 'tn.tenant_id' untuk keperluan Insert ke tabel reminders
+            string query = @"
+            SELECT 
+                t.transaction_id,
+                l.lease_id,
+                tn.tenant_id, 
+                t.transaction_date AS 'Tanggal',
+                tn.full_name AS 'Penghuni',
+                r.room_number AS 'Kamar',
+                t.description AS 'Deskripsi',
+                t.amount AS 'Nominal',
+                t.status AS 'Status'
+            FROM transactions t
+            JOIN leases l ON t.lease_id = l.lease_id
+            JOIN tenants tn ON l.tenant_id = tn.tenant_id
+            JOIN rooms r ON l.room_id = r.room_id
+            ORDER BY 
+                CASE WHEN t.status = 'Pending' THEN 1 ELSE 2 END, 
+                t.transaction_date DESC";
+
+            DataTable dt = new DataTable();
+            string connString = "server=localhost;user=root;database=cozy_corner_db;password=;";
+
+            using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                connection.Open();
                 try
                 {
-                    string query = "SELECT \r\n    l.lease_id,\r\n    t.tenant_id,\r\n    t.full_name AS nama_penghuni,\r\n    r.room_number AS kamar,\r\n    l.start_date AS tgl_masuk,\r\n    MAX(tr.transaction_date) AS tagihan_terakhir,\r\n    CASE\r\n        WHEN l.status = 'Active' THEN 'AKTIF'\r\n        ELSE 'MENUNGGAK'\r\n    END AS STATUS\r\nFROM tenants t\r\nJOIN leases l ON t.tenant_id = l.tenant_id\r\nJOIN rooms r ON l.room_id = r.room_id\r\nLEFT JOIN transactions tr \r\n    ON tr.lease_id = l.lease_id \r\n    AND tr.status = 'Paid'\r\nGROUP BY \r\n    l.lease_id,\r\n    t.tenant_id,\r\n    t.full_name,\r\n    r.room_number,\r\n    l.start_date,\r\n    l.status\r\nORDER BY t.full_name;\r\n";
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    conn.Open();
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(query, conn))
                     {
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            adapter.Fill(dt);
-                            dgvTagihan.DataSource = dt;
-                        }
+                        da.Fill(dt);
                     }
-
-
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Database connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: " + ex.Message);
                     return;
+                }
+            }
 
+            // --- 3. BINDING DATA ---
+            dgvTagihan.DataSource = dt;
+
+            // --- 4. FORMATTING TAMPILAN ---
+
+            // Sembunyikan ID (Transaction ID dan Tenant ID)
+            if (dgvTagihan.Columns.Contains("transaction_id")) dgvTagihan.Columns["transaction_id"].Visible = false;
+            if (dgvTagihan.Columns.Contains("tenant_id")) dgvTagihan.Columns["tenant_id"].Visible = false;
+            if (dgvTagihan.Columns.Contains("lease_id")) dgvTagihan.Columns["lease_id"].Visible = false;
+
+            // Format Rupiah
+            if (dgvTagihan.Columns.Contains("Nominal"))
+            {
+                dgvTagihan.Columns["Nominal"].DefaultCellStyle.Format = "Rp #,###";
+                dgvTagihan.Columns["Nominal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
+
+            dgvTagihan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // --- 5. TAMBAH BUTTON REMINDER ---
+            DataGridViewButtonColumn btnReminder = new DataGridViewButtonColumn();
+            btnReminder.Name = "btnReminder";
+            btnReminder.HeaderText = "Aksi";
+            btnReminder.Text = "Ingatkan"; // Default text
+            btnReminder.UseColumnTextForButtonValue = true;
+            dgvTagihan.Columns.Add(btnReminder);
+
+            // --- 6. LOGIKA VISUAL TOMBOL ---
+            foreach (DataGridViewRow row in dgvTagihan.Rows)
+            {
+                if (row.IsNewRow) continue;
+                if (row.Cells["Status"].Value == null) continue;
+
+                string status = row.Cells["Status"].Value.ToString();
+                DataGridViewButtonCell btn = (DataGridViewButtonCell)row.Cells["btnReminder"];
+
+                if (status == "Pending")
+                {
+                    // Jika belum bayar: Tombol Aktif, Baris agak merah
+                    row.DefaultCellStyle.BackColor = Color.MistyRose;
+                    btn.Value = "Ingatkan";
+                }
+                else
+                {
+                    // Jika sudah bayar/selesai: Tombol kita kosongkan/disable secara visual
+                    row.DefaultCellStyle.BackColor = Color.LightGreen;
+
+                    // Trik untuk menyembunyikan tombol: ganti jadi TextBoxCell kosong
+                    DataGridViewTextBoxCell txtCell = new DataGridViewTextBoxCell();
+                    txtCell.Value = ""; // Kosong karena sudah lunas
+                    row.Cells["btnReminder"] = txtCell;
+                    // Atau kalau tetap mau button tapi teksnya beda: btn.Value = "Lunas";
                 }
             }
         }
-
         private void CreateComplaintCard(int id, string category, string nama, string kamar, string tanggal, string pesan, string status)
         {
             // MAIN CARD
@@ -1985,20 +2060,96 @@ namespace Projek_PV
 
         }
 
+
         private void dgvTagihan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0)
             {
                 selectedLeaseId = Convert.ToInt32(
                     dgvTagihan.Rows[e.RowIndex].Cells["lease_id"].Value
                 );
+
+                if (dgvTagihan.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "Paid")
+                {
+                    FormNota nota = new FormNota(Convert.ToInt32(dgvTagihan.Rows[e.RowIndex].Cells["transaction_id"].Value));
+                    nota.ShowDialog();
+
+                }
                 //MessageBox.Show("ini cell content click, lease id: " + selectedLeaseId);
+            }
+
+            // Cek apakah kolom yang diklik adalah tombol "btnReminder"
+            // Dan pastikan nilai tombolnya bukan kosong (artinya statusnya Pending)
+            if (e.RowIndex >= 0 && dgvTagihan.Columns[e.ColumnIndex].Name == "btnReminder")
+            {
+                // Cek apakah cell tersebut adalah Button (karena yang Lunas sudah kita ubah jadi TextBox)
+                if (dgvTagihan.Rows[e.RowIndex].Cells["btnReminder"] is DataGridViewButtonCell)
+                {
+                    // Ambil Data dari Row
+                    string tenantId = dgvTagihan.Rows[e.RowIndex].Cells["tenant_id"].Value.ToString();
+                    string nama = dgvTagihan.Rows[e.RowIndex].Cells["Penghuni"].Value.ToString();
+                    string deskripsi = dgvTagihan.Rows[e.RowIndex].Cells["Deskripsi"].Value.ToString();
+                    // Ambil nominal lalu format biar rapi di pesan
+                    decimal nominalVal = Convert.ToDecimal(dgvTagihan.Rows[e.RowIndex].Cells["Nominal"].Value);
+                    string nominalStr = nominalVal.ToString("N0");
+
+                    // Konfirmasi
+                    DialogResult dr = MessageBox.Show(
+                        $"Kirim pengingat pembayaran ke {nama} untuk tagihan '{deskripsi}'?",
+                        "Konfirmasi Reminder",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        KirimReminderKeDatabase(tenantId, nama, deskripsi, nominalStr);
+                    }
+                }
+            }
+
+        }
+
+        // Method untuk Insert ke Tabel Reminders
+        private void KirimReminderKeDatabase(string tenantId, string nama, string tagihan, string nominal)
+        {
+            string connString = "server=localhost;user=root;database=cozy_corner_db;password=;";
+
+            // Isi pesan reminder otomatis
+            string title = "Tagihan Belum Lunas";
+            string content = $"Halo {nama}, mohon segera lunasi tagihan {tagihan} sebesar Rp {nominal}. Terima kasih.";
+
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"INSERT INTO reminders (title, content, tenant_id, created_at) 
+                             VALUES (@title, @content, @tenant_id, NOW())";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@title", title);
+                        cmd.Parameters.AddWithValue("@content", content);
+                        cmd.Parameters.AddWithValue("@tenant_id", tenantId);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Reminder berhasil dikirim/disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal kirim reminder: " + ex.Message);
+                }
             }
         }
 
         private void dgvTagihan_DoubleClick(object sender, EventArgs e)
         {
             // this is buat nyetak nota per orang
+
+            
         }
 
         private void dgvTagihan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -2449,6 +2600,18 @@ namespace Projek_PV
         private void roundedPanelRoomInformation_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Expense ex = new Expense(connectionString);
+            ex.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Tagihan tag = new Tagihan(connectionString);
+            tag.ShowDialog();
         }
     }
 }
